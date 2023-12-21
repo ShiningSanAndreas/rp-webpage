@@ -1,13 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./update/*.php"],
+  content: ["./**/*.php"],
   theme: {
     extend: {
       colors: {
-        primary: '#352F44',
-        background: '#5C5470',
-        accent: '#B9B4C7',
-        contrast: '#FAF0E6'
+        primary: '#222831',
+        background: '#393E46',
+        accent: '#3C4252',
+        contrast: '#B6CEE9'
       },
     },
   },
