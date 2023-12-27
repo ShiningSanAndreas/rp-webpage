@@ -1,18 +1,18 @@
 <?php
-session_start();
+//session_start();
 
-$isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
+//$isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
 
-if (!$isLoggedIn) {
+/*if (!$isLoggedIn) {
     header("Location: landing.php");
     exit();
-}
+}*/
 
-extract($_SESSION["userData"]);
-$avatar_url = "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg";
+//extract($_SESSION["userData"]);
+//$avatar_url = "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg";
 
 $current_page = "rules";
-include('components/sidebar.php');
+//include('components/sidebar.php');
 
 $rules = [
     [
@@ -64,7 +64,7 @@ KARAKTER PEAKS AUSTAMA TEISI INIMESI, VÄLJAARVATUD OLUDEL KUI TEGEMIST ON REAAL
 "
         ]
     ],
-      [
+    [
         "section_name" => "SAFEZONED",
         "rules" => [
             "SAFEZONE TÄHENDAB SEDA, ET ANTUD KOHAS ON KEELATUD IGASUGUNE - RÖÖVIMINE, TAPMINE, TULE AVAMINE JNE EDASI.",
@@ -72,7 +72,7 @@ KARAKTER PEAKS AUSTAMA TEISI INIMESI, VÄLJAARVATUD OLUDEL KUI TEGEMIST ON REAAL
             "NB - KUI RP ON SAANUD ALGUSE VÄLJASPOOL SAFEZONE SIIS SEDA ON VÕIMALIK LÕPETADA SAFEZONES 2 TUNNI JOOKSUL. "
         ]
     ],
-      [
+    [
         "section_name" => "RÖÖVIMINE / PANTVANG",
         "rules" => [
             "ET ISIKUT RÖÖVIDA PEAB OLEMA SELLEJAOKS VEENEV PÕHJUS RÖÖVIMISEKS.",
@@ -86,7 +86,7 @@ KARAKTER PEAKS AUSTAMA TEISI INIMESI, VÄLJAARVATUD OLUDEL KUI TEGEMIST ON REAAL
 PANTVANG PEAB KUULETUMA RÖÖVLILE, JUHUL KUI EI KUULETU ON LUBATUD ISIK NEUTRALISEERIDA."
         ]
     ],
-     [
+    [
         "section_name" => "SURM / CK / PK",
         "rules" => [
             "OLUKORRA NÄITED; SURED LAHINGALAL KUID POLE VEEL HAIGLAS ÄRGANUD, OLED MAAS NING OOTAD ABI, JUHUL KUI ABI SAABUB JA SIND VIIAKSE HAIGLASSE ON LUBATUD OLUKORRAGA UUESTI LIITUDA, KUI SURED LAHINGALAL NING SPAWNID HAIGLAS, SIIS ON KEELATUD SAMASSE OLUKORDA ÜHINEDA, VAID OMA ELUGA TULEB EDASI MINNA SEST SU KARAKTER EI MÄLETA MISKIT EELNEVAST SÜNDMUSEST, PUUDUTAB SIIS VIIMAST SÜNDMUST MILLEGA KOKKU PUUTUSID, OLGU SEE TULISTAMINE VÕI MÕNI MUU SÜNDMUS.",
@@ -95,14 +95,14 @@ PANTVANG PEAB KUULETUMA RÖÖVLILE, JUHUL KUI EI KUULETU ON LUBATUD ISIK NEUTRAL
             "PK (PLAYER KILL) - SAAB MÄÄRATA AINULT EMS, KUI OLUKORD TUNDUS SINU JAOKS VÄGAGI OHTLIK ROLLIMÄNGULISES OLUKORRAS, SIIS JAH OTSELOOMULIKULT VÕID SA /ME COMMANDI ABIL KIRJUTADA 'PULSS PUUDUB' KUID REAALSES OLUKORRAS SEE EI PRUUGI SIND PÄÄSTA, NING KUI SEE ASI HAKKAB KORDUV OLEMA, SIIS VÕIB JUHTUDA ET SINU KARAKTER SAAB CK."
         ]
     ],
-     [
+    [
         "section_name" => "AUTOVARGUSED",
         "rules" => [
             "AUTOT EI TOHI VARASTADA SAFEZONES ILMA RP PÕHJUSETA, AIND JUHUL KUI EELNEV RP OLUKORD SUNNIB SIND SEDA TEGEMA.
 KUI AUTOVARGUS TOIMUB VÄLJASPOOL SAFEZONE, SIIS KOGU RP ON AUTOOMANIKU KÄTES, SEEGA HOIA ENDA VARA. "
         ]
     ],
-     [
+    [
         "section_name" => "SPRAY WAR ",
         "rules" => [
             "SPRAY WAR'IL ON LUBATUD ERINEVAD LÜKKED, HÜPPED JA ASJAD + TEISED ERINEVAD TAKTIKALISED STIILID, SAMUTI ON KA LUBATUD KATUSED. 
@@ -110,14 +110,14 @@ SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU S
             "SPRAY WARIL EI OLE LUBATUD KAASATA TEISI OLEVAID GRUPEERINGUID SPRAY WARILE KES POLE OSALEJAD, TÄHENDAB SEDA ET EI KUTSU TEISI GRUPEERINGUID SPRAY WARILE APPI, VAID SAATE ÜHESKOOS ÜHE GRUPEERINGUNA HAKKAMA."
         ]
     ],
-     [
+    [
         "section_name" => "ERINEVATE SUHTLUSPLATVORMIDE KASUTAMINE VÄLJASPOOL MÄNGU",
         "rules" => [
             "OLUKORDADE SUHTES LOODAME ET INIMESED EI METAGAME LÄBI DISCORDI VÕI SIIS MÕNE MUU VAHENDI SUHTES, KUI JUHTUB ET SAAME SELLEST TEADA, SIIS SEE ON KARISTATAV. ",
             "(SOOVITUS TEHKE ENDA OLUKORD ENDALE PÕNEVAKS NING ÄRGE HAARAKE VÕIMU LÄBI DISCORDI NING ÄRGE MÕELGE 24/7 VÕIDULE)."
         ]
     ],
-        [
+    [
         "section_name" => "OLUKORRA MÄNGIJATE PIIRANGUD",
         "rules" => [
             "KUI ISIKUD OSALEVAD RÖÖVIL VÕI MÕNES MUUS MASSILISES OLUKORRAS KUS ON TULIRELVA KASUTAMINE (VÄLJAARVATUD SPRAY WAR).",
@@ -125,7 +125,7 @@ SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU S
             "REEGEL KEHTIB KÕIGI ILLEGAALSETE TEGEVUSTE KOHTA, MIS SERVERIS EKSISTEERIB, MIS SIIS PUUDUTAB TULIRELVA KASUTAMIST VÕI MÕNDA MUUD TEGEVUST, MIS ON ILLEGAALNE TEGEVUS."
         ]
     ],
-        [
+    [
         "section_name" => "CHEATING/EELISTE KASUTAMINE",
         "rules" => [
             "CHEATIMINE ON SERVERIS KEELATUD, MIS IGANES SULLE EELISE ANNAB NII OLUKORDADE SUHTES VÕI AITAB SIND.",
@@ -133,19 +133,19 @@ SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU S
             "WIGGLE BOOST KEELATUD, TEISE SÕIDUKIGA TEIST OLEVAT AUTOT TAGANT BOOSTIDA KEELATUD."
         ]
     ],
-        [
+    [
         "section_name" => "BUG ABUSE ",
         "rules" => [
             "KUI OLED LEIDNUD BUGI ANNA MEILE SELLEST TEADA, JUHUL KUI ANTUD ISIK EI TEAVITA MEILE BUG'IST NING ABUSEB SEDA, SIIS OLUKORD ON KARISTATAV. "
         ]
     ],
-     [
+    [
         "section_name" => "RASSISM",
         "rules" => [
             "IGAT SORTI RASSISM ON SERVERIS KEELATUD NING SAMUTI KA ERINEVATEL SUHTLUSPLATVORMIDEL MIS ON SEOTUD SHINING SAN ANDREASE SERVERIGA."
         ]
     ],
-     [
+    [
         "section_name" => "HAIGUSED",
         "rules" => [
             "HAIGUSTE RP-MINE ON SERVERIS LUBATUD, KUID KUI SEDA TEED SIIS TEE SEDA PROFESSIONAALSELT."
@@ -158,48 +158,42 @@ SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU S
 
 <!DOCTYPE html>
 <html>
-<head>
-<script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-800">
 
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-background">
+    <?php include("navbar.php") ?>
 
     <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
-        <div class="sticky z-10 top-0 h-16 border-b bg-gray lg:py-2.5 border-gray-950">
-            <div class="px-6 flex items-center justify-between space-x-4 2xl:container">
-                <h5 hidden class="text-2xl text-zinc-300 font-medium lg:block">Reeglid</h5>
-                <button class="w-12 h-16 -mr-2 border-r lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 my-auto" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-                <div class="flex space-x-4">
-
-
-                    
-                    
-                <svg class="mt-1" xmlns="http://www.w3.org/2000/svg" height="1.25em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#bfbfbf}</style><path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64H80c-8.8 0-16-7.2-16-16s7.2-16 16-16H448c17.7 0 32-14.3 32-32s-14.3-32-32-32H64zM416 272a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>                    <p class=" text-zinc-300"><?php echo $_SESSION["userBalance"]; ?> coins</p>
-                </div>
+        <div class="z-10 top-0 h-16 bg-gray lg:py-2.5">
+            <div class="px-12 py-8 flex items-center justify-between space-x-4 2xl:container">
+                <h5 hidden class="text-5xl font-medium text-gray-300 lg:block">Reeglid</h5>
             </div>
         </div>
 
-        <div class="px-6 pt-6 2xl:container">
+        <div class="px-6 pt-20 2xl:container">
 
 
-    <?php foreach ($rules as $section) : ?>
-        <h3 class="text-decoration-line: underline px-8 text-2xl font-bold leading-7 text-zinc-300 sm:truncate sm:text-3xl sm:tracking-tight"><?php echo $section["section_name"]; ?></h3>
-        <ul class="text-zinc-300 pt-2 px-7">
-            <?php foreach ($section["rules"] as $rule) : ?>
-                <li>• <?php echo $rule; ?></li>
+            <?php foreach ($rules as $section): ?>
+                <h3
+                    class="text-decoration-line: underline px-8 text-2xl font-bold leading-7 text-gray-300  sm:truncate sm:text-3xl sm:tracking-tight">
+                    <?php echo $section["section_name"]; ?>
+                </h3>
+                <ul class="pt-2 px-7 text-gray-300 ">
+                    <?php foreach ($section["rules"] as $rule): ?>
+                        <li>•
+                            <?php echo $rule; ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             <?php endforeach; ?>
-        </ul>
-    <?php endforeach; ?>
 
 
-        
+
 
         </div>
 </body>
+
 </html>
