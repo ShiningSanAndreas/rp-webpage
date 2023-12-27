@@ -57,6 +57,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/flowbite@X.X.X/dist/flowbite.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <?php include("footer.php")?>
 </body>
 
 </html>
