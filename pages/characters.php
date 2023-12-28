@@ -9,7 +9,7 @@
 </head>
 
 <body class="bg-background">
-    <?php include("navbar.php") ?>
+    <?php include("./modules/navbar.php") ?>
     <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[91%]">
         <div class="px-6 pt-6 2xl:container">
             <div class="text-slate-200 rounded-lg text-sm w-[350px] bg-accent border border-black m-4">
@@ -68,6 +68,7 @@
     </div>
     <div class="flex flex-wrap justify-center items-center">
     </div>
+    <?php include("./modules/footer.php") ?>
 </body>
 
 </html>
