@@ -11,10 +11,41 @@
 
     <?php include("./modules/caroussel.php") ?>
 
-    
+    <div class="container mx-auto text-left">
+        <div class="text-white mt-16 mb-6 ">
+            <h2 class="text-3xl font-semibold ml-[160px]">Alusta mängimist</h2>
+        </div>
+        <div class="flex flex-col items-center">
+            <!-- First Image and Text -->
+            <div class="relative">
+                <div class="bg-sky-400/30 h-[384px] w-[1120px] absolute top-0 left-0"></div>
+                <img src="../assets/lisakarakter2.jpg" alt="First Image" class="h-[384px] w-[1120px] object-cover">
+                <div class="absolute top-4 left-4 text-white filter">
+                    <p class="text-2xl font-bold ml-[32px] mt-[32px]">Logi discordiga sisse..</p>
+                </div>
+            </div>
 
+            <!-- Second Image and Text -->
+            <div class="relative">
+                <div class="bg-purple-400/30 h-[384px] w-[1120px] absolute top-0 right-0"></div>
+                <img src="../assets/boombox.jpg" alt="Second Image" class="h-[384px] w-[1120px] object-cover ">
+                <div class="absolute top-4 right-4 text-white">
+                    <p class="text-2xl font-bold mr-[32px] mt-[32px]">Täida whitelist..</p>
+                </div>
+            </div>
 
-    <?php include("./modules/footer.php")?>
+            <!-- Third Image and Text -->
+            <div class="relative">
+                <div class="bg-emerald-300/30 h-[384px] w-[1120px] absolute top-0 left-0"></div>
+                <img src="../assets/eritellimus.jpg" alt="Third Image" class="h-[384px] w-[1120px] object-cover">
+                <div class="absolute top-4 left-4 text-white">
+                    <p class="text-2xl font-bold ml-[32px] mt-[32px]">Ja hakka mängima!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php include("./modules/footer.php") ?>
 </body>
 
 </html>

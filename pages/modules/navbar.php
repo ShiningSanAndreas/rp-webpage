@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <nav class="bg-primary">
+  <nav class="bg-primary static top-0">
     <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="home.php" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="../assets/256x26.png" class="h-12 w-12" alt="Flowbite Logo" />
@@ -79,9 +79,6 @@
           </li>
           <li>
             <a href="#" class="block py-2 px-3 text-slate-200 rounded md:hover:text-contrast md:p-0">Pood</a>
-          </li>
-          <li>
-            <a href="#" class="block py-2 px-3 text-slate-200 rounded md:hover:text-contrast md:p-0">Kontakt</a>
           </li>
         </ul>
       </div>

@@ -68,9 +68,9 @@
     </div>
     <div class="flex flex-wrap justify-center items-center">
     </div>
-    <?php include("./modules/footer.php") ?>
+    
 </body>
-
+<?php include("./modules/footer.php") ?>
 </html>
 
 <?php

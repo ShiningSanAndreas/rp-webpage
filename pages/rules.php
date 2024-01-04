@@ -165,7 +165,7 @@ SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU S
 </head>
 
 <body class="bg-background">
-    <?php include("navbar.php") ?>
+    <?php include("./modules/navbar.php") ?>
 
     <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
         <div class="z-10 top-0 h-16 lg:py-2.5">
@@ -190,11 +190,9 @@ SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU S
                     <?php endforeach; ?>
                 </ul>
             <?php endforeach; ?>
-
-
-
-
         </div>
+    </div>
 </body>
+<?php include("./modules/footer.php") ?>
 
 </html>
