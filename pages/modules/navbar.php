@@ -65,20 +65,22 @@
       </div>
       <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
         <ul
-          class="flex flex-col font-medium p-4 md:p-0 mt-4 bg-primary md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
+          class="flex flex-col font-medium p-4 md:p-0 mt-4 bg-primary md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 ">
           <li>
             <a href="characters.php"
-              class="block py-2 px-3 text-slate-200 rounded md:hover:text-contrast md:p-0">Karakterid</a>
+              class="block py-2 px-3 text-slate-200 text-lg rounded md:hover:text-contrast md:p-0">Karakterid</a>
           </li>
           <li>
-            <a href="rules.php" class="block py-2 px-3 text-slate-200 rounded md:hover:text-contrast md:p-0">Reeglid</a>
+            <a href="rules.php" 
+            class="block py-2 px-3 text-slate-200 text-lg rounded md:hover:text-contrast md:p-0">Reeglid</a>
           </li>
           <li>
             <a href="whitelist-form.php"
-              class="block py-2 px-3 text-slate-200 rounded md:hover:text-contrast md:p-0">Whitelist</a>
+              class="block py-2 px-3 text-slate-200 text-lg rounded md:hover:text-contrast md:p-0">Whitelist</a>
           </li>
           <li>
-            <a href="#" class="block py-2 px-3 text-slate-200 rounded md:hover:text-contrast md:p-0">Pood</a>
+            <a href="#" 
+            class="block py-2 px-3 text-slate-200 text-lg rounded md:hover:text-contrast md:p-0">Pood</a>
           </li>
         </ul>
       </div>
