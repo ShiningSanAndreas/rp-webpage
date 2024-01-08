@@ -15,6 +15,7 @@
 
     <?php include("./modules/caroussel.php") ?>
 
+    <!-- Start Playing Section -->
     <div class="container mx-auto text-left">
         <div class="text-white mt-16 mb-6 ">
             <h2 class="text-3xl font-semibold ml-[160px]">Alusta mängimist</h2>
@@ -22,8 +23,7 @@
         <div class="flex flex-col items-center mb-16">
             <!-- First Image and Text -->
             <div class="relative">
-                <div class="bg-sky-400/30 h-[352px] w-[1120px] absolute rounded-t-md"></div>
-                <img src="../assets/lisakarakter2.jpg" alt="First Image" class="h-[352px] w-[1120px] object-cover rounded-t-md">
+                <img src="../assets/SP_firstpic.png" alt="First Image" class="h-[352px] w-[1120px] object-cover object-top rounded-t-md">
                 <div class="absolute top-4 left-4 text-white">
                     <p class="text-2xl font-bold ml-[32px] mt-[32px]">Logi discordiga sisse..</p>
                     <a href="landing.php">
@@ -34,8 +34,7 @@
 
             <!-- Second Image and Text -->
             <div class="relative">
-                <div class="bg-purple-400/30 h-[352px] w-[1120px] absolute"></div>
-                <img src="../assets/boombox.jpg" alt="Second Image" class="h-[352px] w-[1120px] object-cover">
+                <img src="../assets/SP_secpic.png" alt="Second Image" class="h-[352px] w-[1120px] object-cover">
                 <div class="absolute top-4 right-4 text-white">
                     <p class="text-2xl font-bold mr-[32px] mt-[32px]">Täida whitelist..</p>
                     <a href="whitelist-form.php">
@@ -46,8 +45,7 @@
 
             <!-- Third Image and Text -->
             <div class="relative">
-                <div class="bg-emerald-300/30 h-[352px] w-[1120px] absolute rounded-b-md"></div>
-                <img src="../assets/eritellimus.jpg" alt="Third Image" class="h-[352px] w-[1120px] object-cover rounded-b-md">
+                <img src="../assets/SP_thirdpic.png" alt="Third Image" class="h-[352px] w-[1120px] object-cover rounded-b-md">
                 <div class="absolute top-4 left-4 text-white">
                     <p class="text-2xl font-bold ml-[32px] mt-[32px]">Ja hakka mängima!</p>
                     <a href="#">
@@ -58,6 +56,10 @@
         </div>
     </div>
 
+    <!-- News Section -->
+    <div>
+
+    </div>
     <?php include("./modules/footer.php") ?>
 </body>
 
