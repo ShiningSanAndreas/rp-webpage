@@ -10,8 +10,9 @@
     <title>Home - ShiningRP</title>
 </head>
 
+<?php include("./modules/navbar.php") ?>
 <body class="bg-background">
-    <?php include("./modules/navbar.php") ?>
+    
 
     <?php include("./modules/caroussel.php") ?>
 
@@ -23,11 +24,13 @@
         <div class="flex flex-col items-center mb-16">
             <!-- First Image and Text -->
             <div class="relative">
-                <img src="../assets/SP_firstpic.png" alt="First Image" class="h-[352px] w-[1120px] object-cover object-top rounded-t-md">
+                <img src="../assets/SP_firstpic.png" alt="First Image"
+                    class="h-[352px] w-[1120px] object-cover rounded-t-md">
                 <div class="absolute top-4 left-4 text-white">
                     <p class="text-2xl font-bold ml-[32px] mt-[32px]">Logi discordiga sisse..</p>
                     <a href="landing.php">
-                        <iconify-icon icon="logos:discord-icon" width="50" height="40" class="ml-10 mt-2"></iconify-icon>
+                        <iconify-icon icon="logos:discord-icon" width="50" height="40"
+                            class="ml-10 mt-2"></iconify-icon>
                     </a>
                 </div>
             </div>
@@ -45,11 +48,13 @@
 
             <!-- Third Image and Text -->
             <div class="relative">
-                <img src="../assets/SP_thirdpic.png" alt="Third Image" class="h-[352px] w-[1120px] object-cover rounded-b-md">
+                <img src="../assets/SP_thirdpic.png" alt="Third Image"
+                    class="h-[352px] w-[1120px] object-cover rounded-b-md">
                 <div class="absolute top-4 left-4 text-white">
                     <p class="text-2xl font-bold ml-[32px] mt-[32px]">Ja hakka mängima!</p>
                     <a href="#">
-                        <iconify-icon icon="simple-icons:fivem" width="50" height="40" class="ml-10 mt-3"></iconify-icon>
+                        <iconify-icon icon="simple-icons:fivem" width="50" height="40"
+                            class="ml-10 mt-3"></iconify-icon>
                     </a>
                 </div>
             </div>
@@ -57,10 +62,8 @@
     </div>
 
     <!-- News Section -->
-    <div>
-
-    </div>
-    <?php include("./modules/footer.php") ?>
+    
+    
 </body>
-
+<?php include("./modules/footer.php") ?>
 </html>

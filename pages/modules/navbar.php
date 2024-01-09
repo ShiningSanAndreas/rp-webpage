@@ -79,7 +79,7 @@
               class="block py-2 px-3 text-slate-200 text-lg rounded md:hover:text-contrast md:p-0">Whitelist</a>
           </li>
           <li>
-            <a href="#" 
+            <a href="shop.php" 
             class="block py-2 px-3 text-slate-200 text-lg rounded md:hover:text-contrast md:p-0">Pood</a>
           </li>
         </ul>
