@@ -172,6 +172,22 @@ SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU S
 
         <div class="px-6 pt-20 2xl:container">
 
+    <div class="border-l rounded mt-8 border-[#B6CEE9] shadow-[-10px_0px_25px_0px_rgba(182,206,233,0.15)] py-4 hover:shadow-[-10px_0px_25px_0px_rgba(182,206,233,0.25)]">
+        <h3 class="text-xl font-bold leading-7 text-slate-200 px-4 mb-8 ">
+            <span class="text-2xl font-semibold text-[#B6CEE9]">OLUSTIK:</span>
+        </h3>
+        <div class="px-8 text-slate-200">
+               <p>Shining San Andreas asub State Of San Andreas osariigis, linnaks Los Santos kus lähedal asub Sandy Shores ja Paleto Bay linnaosad. 
+New Yorkis elavad tavapäraselt ameeriklased kelle keeleks kujuneb inglise keel - (eesti keel), kuid jagub ka Teistest riikidest olevaid kodanike. 
+New Yorkis elavatel inimestele pakutakse riigi poolt erinevaid tööotsi elatise teenimiseks. Ilm võib olla oluliselt muutuv. Riigi juhtimisega tegeleb linnavalitsus, kes abistab riigis elavaid kodanike, juhul kui seda neil vaja on. Riik peab ka oluliseks erinevaid sündmusi - jõulud, halloween, et tuua kogu San Andrease pere kokku. Siin linnas meie ei tea mis riigid on - Wortex RP. - (Samuti ka ei puutu me kokku ka eestlastega).
+Server põhineb Ameerika Ühendriigis, New York City's. </p>
+</div>
+    </div>
+
+</div>
+
+        <div class="px-6 pt-20 2xl:container">
+
             <?php foreach ($rules as $key => $section): ?>
                 <div class="border-l rounded mt-8 border-[#B6CEE9] shadow-[-10px_0px_25px_0px_rgba(182,206,233,0.15)] py-4 hover:shadow-[-10px_0px_25px_0px_rgba(182,206,233,0.25)]">
                     <h3 class="text-xl font-bold leading-7 text-slate-200 px-4 mb-8 ">
