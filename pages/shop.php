@@ -30,7 +30,7 @@
 
             <!-- First coin container -->
             <div class="relative bg-primary rounded-md w-[300px] h-[300px] mr-8 flex flex-col items-center justify-items-center">
-                <iconify-icon icon="ph:coins-duotone" style="color: #f4d03f;" width="120" class="mt-8"></iconify-icon>
+                <img src="../assets/SmlSSACoin.png" width="120" height="120" class="mt-8"/>
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold mt-12">100 coini</p>
                     <p class="text-2xl font-bold mt-2">10€</p>
@@ -39,7 +39,7 @@
 
             <!-- Second coin container -->
             <div class="relative bg-primary rounded-md w-[300px] h-[300px] mr-8 flex flex-col items-center justify-items-center">
-                <iconify-icon icon="ph:coins-duotone" style="color: #f4d03f;" width="120" class="mt-8"></iconify-icon>
+            <img src="../assets/MidSSACoin.png" width="120" height="120" class="mt-8"/>
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold mt-12">300 + 100 coini</p>
                     <p class="text-2xl font-bold mt-2">30€</p>
@@ -48,7 +48,7 @@
 
             <!-- Third coin container -->
             <div class="relative bg-primary rounded-md w-[300px] h-[300px] mr-8 flex flex-col items-center justify-items-center">
-                <iconify-icon icon="ph:coins-duotone" style="color: #f4d03f;" width="120" class="mt-8"></iconify-icon>
+            <img src="../assets/BigSSACoin.png" width="120" height="120" class="mt-8"/>
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold mt-12">500 + 150 coini</p>
                     <p class="text-2xl font-bold mt-2">50€</p>
