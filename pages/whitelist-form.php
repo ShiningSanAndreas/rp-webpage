@@ -136,6 +136,7 @@ $currentQuestionData = $questions[$currentQuestion];
 <html>
 <head>
 <script src="https://cdn.tailwindcss.com"></script>
+<title>Whitelist - ShiningRP</title>	
 </head>
 <body class="bg-gray-800	">
 <aside

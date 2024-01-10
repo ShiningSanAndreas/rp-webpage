@@ -162,6 +162,7 @@ SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU S
 <head>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="../styles/output.css" rel="stylesheet" />
+    <title>Reeglid - ShiningRP</title>
 </head>
 
 <body class="bg-background">
@@ -194,5 +195,4 @@ SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU S
     </div>
 </body>
 <?php include("./modules/footer.php") ?>
-
 </html>

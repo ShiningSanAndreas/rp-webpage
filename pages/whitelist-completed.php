@@ -35,6 +35,7 @@ if ($_SESSION["score"] >= 10) {
 <html>
 <head>
 <script src="https://cdn.tailwindcss.com"></script>
+<title>Whitelist valmis - ShiningRP</title>	
 </head>
 <body class="bg-gray-800	">
 <aside

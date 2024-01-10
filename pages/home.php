@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <link href="../styles/output.css" rel="stylesheet" />
-    <title>Home - ShiningRP</title>
+    <title>Avaleht - ShiningRP</title>
 </head>
 
 <?php include("./modules/navbar.php") ?>

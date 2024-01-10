@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="../styles/output.css" rel="stylesheet" />
+    <title>Karakterid - ShiningRP</title>	
 </head>
 
 <?php include("./modules/navbar.php") ?>
