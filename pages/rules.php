@@ -16,23 +16,18 @@ $current_page = "rules";
 
 $rules = [
     [
-        "section_name" => "POWERGAMING",
+        "section_name" => "POWERGAME",
         "rules" => [
-            "KÕIK TEGEVUSED MIS POLE PÄRISELUS VÕIMALIKUD ON KA SERVERIS KEELATUD. 
-RP OLUKORDADES TULEB MÕELDA TEGEVUSED LÄBI, ENNE KUI NEID TEGEMA HAKKAD. 
-PANE END ROLLI NAGU SA OLEKSID REAALSELT MÄNGUS, NING SA TUNNED ET SEE ASI POLE TEGELIKUSES VÕIMALIK (VÄLJAARVATUD FAIL DRIVE OLEV REEGEL). ",
-            "RP OLUKORDADES PEAD SA SIISKI ENDA KARAKTERI ELU VÄÄRTUSTAMA, NÄITEKS SIND ÄHVARDATAKSE RELVA ABIL VÕI MÕNE MUU TERAVA RIISTA ABIL NING SINU ELU ON OHUS, SIIS SA KUULETUD SELLELE ISIKULE KES SIND ÄHVARDAB.",
-            "KUI SELLISEID OLUKORDI EI OSKA ROLLIMÄNGU SERVERIS LÄBI MÄNGIDA, SIIS VÕIB JUHTUDA ET SINU KARAKTER VÕIB MINNA KUSTUTAMISELE VÕI SAAD KARISTADA."
+           "Kõik tegevused mis pole päriselus võimalikud on ka serveris keelatud!"
         ]
     ],
     [
-        "section_name" => "DEATHMATCH",
+        "section_name" => "RÖÖVIMINE & VARGUSED",
         "rules" => [
-            "SERVERIS ON KEELATUD TUIMALT ILMA ROLLIMÄNGU OLUKORRATA VIGASTADA TEISI MÄNGIJAID, SAMUTI KA LAMBIST SOLVATA, VÄLJAARVATUD KUI HOODIS ON NÄITENA BEEFID JA ASJAD NING INIMESED MÖLISEVAD OMAVAHEL.",
-            "REVENGE KILL ON KEELATUD, NÄITEKS KEEGI TAPAB SINU NING SIIS SINA LÄHED NÜÜD SIHILIKULT TEDA LASKMA, MUIDUGI SÕLTUB SEE OLUKORRAST, KUI TEGEMIST ON HOODI TAVAPÄRASE DRIVE-BYGA SIIS ON ARUSAADAV ET TAGASILÖÖK TULEB, KUID KUI SAAD SURMA NING SATUD HAIGLASSE, SIIS SINU KARAKTER EI MÄLETA EELNEVALT TOIMUNUD SÜNDMUSEST MIDAGI.",
-            "
-VEHICLE DEATHMATCH KEELATUD, VÄLJAARVATUD JUHTUDEL KUI JUHTUB ÕNNETUS NÄITEKS RACED JA INIMENE SATUB TEE PEAL SULLE OTSA. 
-SIHILIKULT KELLEGI ALLA AJAMINE RANGELT KEELATUD."
+            "Isiku röövimiseks peab olema mõjuv põhjus. Lihtsalt rikastumise või igavusesest röövimine on keelatud.",
+            "Keelatud on sundida isikut pangakontolt raha välja võtma.",
+            "Sularaha võib varastada kuni 20,000$, illegaalsetel esemetel piirid puuduvad.",
+            "Keelatud on lootida isikut, kes on nokkis/surnud."
         ]
     ],
     [
@@ -177,22 +172,22 @@ SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU S
 
         <div class="px-6 pt-20 2xl:container">
 
-
-            <?php foreach ($rules as $section): ?>
-                <h3
-                    class="text-decoration-line: underline px-8 text-2xl font-bold leading-7 text-slate-200 sm:truncate sm:text-3xl sm:tracking-tight">
-                    <?php echo $section["section_name"]; ?>
-                </h3>
-                <ul class="pt-2 px-7 text-slate-200 ">
-                    <?php foreach ($section["rules"] as $rule): ?>
-                        <li>•
-                            <?php echo $rule; ?>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
+            <?php foreach ($rules as $key => $section): ?>
+                <div class="border-l rounded mt-8 border-[#B6CEE9] shadow-[-10px_0px_25px_0px_rgba(182,206,233,0.15)] py-4 hover:shadow-[-10px_0px_25px_0px_rgba(182,206,233,0.25)]">
+                    <h3 class="text-xl font-bold leading-7 text-slate-200 px-4 mb-8 ">
+                        <span class="text-2xl font-semibold text-[#B6CEE9]"><?php echo 'REEGEL ' . ($key + 1); ?>:</span> <?php echo $section["section_name"]; ?>
+                    </h3>
+                    <ul class="px-8 text-slate-200">
+                        <?php foreach ($section["rules"] as $rule): ?>
+                            <li>• <?php echo $rule; ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
             <?php endforeach; ?>
+
         </div>
     </div>
 </body>
+
 <?php include("./modules/footer.php") ?>
 </html>
