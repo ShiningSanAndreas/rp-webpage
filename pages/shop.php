@@ -29,29 +29,29 @@
         <div class="flex flex-row justify-center mb-16">
 
             <!-- First coin container -->
-            <div class="relative bg-primary md-rounded w-[300px] h-[300px] mr-8 justify-items-center">
-                <iconify-icon icon="ph:coins-duotone" style="color: #f4d03f;" width="120"></iconify-icon>
-                <div class="absolute text-white">
-                    <p class="text-2xl font-bold ml-[32px] mt-[32px]">100 coini</p>
-                    <p class="text-2xl font-bold ml-[32px] mt-[32px]">10€</p>
+            <div class="relative bg-primary rounded-md w-[300px] h-[300px] mr-8 flex flex-col items-center justify-items-center">
+                <iconify-icon icon="ph:coins-duotone" style="color: #f4d03f;" width="120" class="mt-8"></iconify-icon>
+                <div class="text-white text-center">
+                    <p class="text-2xl font-bold mt-12">100 coini</p>
+                    <p class="text-2xl font-bold mt-2">10€</p>
                 </div>
             </div>
 
             <!-- Second coin container -->
-            <div class="relative bg-primary md-rounded w-[300px] h-[300px] mr-8 justify-items-center">
-                <iconify-icon icon="ph:coins-duotone" style="color: #f4d03f;" width="120"></iconify-icon>
-                <div class="absolute text-white justify-center">
-                    <p class="text-2xl font-bold ml-[32px] mt-[32px]">100 coini</p>
-                    <p class="text-2xl font-bold ml-[32px] mt-[32px]">10€</p>
+            <div class="relative bg-primary rounded-md w-[300px] h-[300px] mr-8 flex flex-col items-center justify-items-center">
+                <iconify-icon icon="ph:coins-duotone" style="color: #f4d03f;" width="120" class="mt-8"></iconify-icon>
+                <div class="text-white text-center">
+                    <p class="text-2xl font-bold mt-12">300 + 100 coini</p>
+                    <p class="text-2xl font-bold mt-2">30€</p>
                 </div>
             </div>
 
             <!-- Third coin container -->
-            <div class="relative bg-primary md-rounded w-[300px] h-[300px] mr-8 justify-items-center">
-                <iconify-icon icon="ph:coins-duotone" style="color: #f4d03f;" width="120"></iconify-icon>
-                <div class="absolute text-white justify-center">
-                    <p class="text-2xl font-bold ml-[32px] mt-[32px]">100 coini</p>
-                    <p class="text-2xl font-bold ml-[32px] mt-[32px]">10€</p>
+            <div class="relative bg-primary rounded-md w-[300px] h-[300px] mr-8 flex flex-col items-center justify-items-center">
+                <iconify-icon icon="ph:coins-duotone" style="color: #f4d03f;" width="120" class="mt-8"></iconify-icon>
+                <div class="text-white text-center">
+                    <p class="text-2xl font-bold mt-12">500 + 150 coini</p>
+                    <p class="text-2xl font-bold mt-2">50€</p>
                 </div>
             </div>
         </div>
