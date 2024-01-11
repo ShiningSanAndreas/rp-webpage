@@ -25,7 +25,7 @@
         <div class="text-white mb-6 ">
             <h2 class="text-2xl font-semibold ml-[190px]">Timmi endale coini</h2>
         </div>
-
+        <!-- Coins section -->
         <div class="flex flex-row justify-center mb-32">
 
             <!-- First coin container -->
@@ -41,7 +41,7 @@
             <div class="relative bg-primary rounded-md w-[300px] h-[300px] mr-8 flex flex-col items-center justify-items-center">
             <img src="../assets/MidSSACoin.png" width="120" height="120" class="mt-8"/>
                 <div class="text-white text-center">
-                    <p class="text-2xl font-bold mt-12">300 + 100 coini</p>
+                    <p class="text-2xl font-bold mt-14">300 + 100 coini</p>
                     <p class="text-2xl font-bold mt-2">30€</p>
                 </div>
             </div>
@@ -50,7 +50,7 @@
             <div class="relative bg-primary rounded-md w-[300px] h-[300px] mr-8 flex flex-col items-center justify-items-center">
             <img src="../assets/BigSSACoin.png" width="120" height="120" class="mt-8"/>
                 <div class="text-white text-center">
-                    <p class="text-2xl font-bold mt-12">500 + 150 coini</p>
+                    <p class="text-2xl font-bold mt-10">500 + 150 coini</p>
                     <p class="text-2xl font-bold mt-2">50€</p>
                 </div>
             </div>
@@ -63,31 +63,31 @@
         <!-- Custom Items Section -->
         <div class="flex flex-row justify-center mb-16">
 
-            <!-- First coin container -->
+            <!-- First product container -->
             <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-[300px] h-[500px] mr-8 flex flex-col items-center justify-items-center">
                 <img src="../assets/car.png" width="256" height="256" alt="Pood Custom Car" class="p-4"/>
                 <div class="text-white text-center">
-                    <p class="text-dm mt-4">Osta endale kõige ägedamad ja kiiremad autod</p>
+                    <p class="text-dm mt-4 px-4">Osta endale kõige ägedamad ja kiiremad autod</p>
                     <p class="text-2xl font-bold mt-16">Ägedad autod</p>
                     <p class="text-2xl font-bold mt-2">100 coini</p>
                 </div>
             </div>
 
-            <!-- Second coin container -->
+            <!-- Second product container -->
             <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-[300px] h-[500px] mr-8 flex flex-col items-center justify-items-center">
                 <img src="../assets/custompeed.png" width="256" height="256" alt="Pood Custom Pedestrian" class="p-4"/>
                 <div class="text-white text-center">
-                    <p class="text-md mt-4">Osta endale ägedamad ja seksikamad karakteri mudelid</p>
+                    <p class="text-md mt-4 px-4">Tahad rohkem karaktereid? Osta endale ägedamaid ja seksikamaid mudeleid</p>
                     <p class="text-2xl font-bold mt-16">Kõvad mudelid</p>
                     <p class="text-2xl font-bold mt-2">100 coini</p>
                 </div>
             </div>
 
-            <!-- Third coin container -->
+            <!-- Third product container -->
             <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-[300px] h-[500px] mr-8 flex flex-col items-center justify-items-center">
                 <img src="../assets/fraktsiooni.png" width="256" height="256" alt="Pood Custom MLO" class="p-4"/>
                 <div class="text-white text-center">
-                    <p class="text-md mt-4">Tee oma fraktsioon lossiks kõige selle ägeda mööbliga</p>
+                    <p class="text-md mt-4 px-4">Tee oma fraktsioon lossiks kõige selle ägeda mööbliga</p>
                     <p class="text-2xl font-bold mt-16">Stiilne mööbel</p>
                     <p class="text-2xl font-bold mt-2">100 coini</p>
                 </div>

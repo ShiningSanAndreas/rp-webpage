@@ -11,8 +11,11 @@
 
 <?php include("./modules/navbar.php") ?>
 <body class="bg-background">
-    <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[91%]">
-        <div class="px-6 pt-6 2xl:container">
+    <div class="ml-auto mb-6 lg:w-[70%] xl:w-[75%] 2xl:w-[85%]">
+        <div class="text-white mt-16 mb-6 ">
+            <h2 class="text-3xl font-semibold">Karakterid</h2>
+        </div>
+        <div class="px-6 2xl:container">
             <div class="text-slate-200 rounded-lg text-sm w-[350px] bg-accent border border-black m-4">
                 <div>
                     <div class="w-full flex flex-row space-x-3 p-4">
