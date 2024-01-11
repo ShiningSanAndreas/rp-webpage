@@ -18,7 +18,7 @@ if ($isLoggedIn) {
 
     <title>Logi Sisse - ShiningRP</title>
 </head>
-<body class="bg-[url('landing.png')]	 flex items-center justify-center h-screen">
+<body class="bg-[url('../assets/4K.png')] bg-cover bg-center	 flex items-center justify-center h-screen">
     <div class="text-center text-white">
         <a href="../vendor/webcp/discord/init-oauth.php">
         <button

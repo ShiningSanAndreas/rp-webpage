@@ -35,7 +35,10 @@
         <div class="px-4">
           <!-- You can fetch user information dynamically using PHP -->
           <span class="block text-md font-medium text-slate-200">Tormi</span>
-          <span class="block text-md font-medium text-slate-200 ">200 coin</span>
+          <div class="flex flex-row justify-center">
+            <span class="block text-md font-medium text-slate-200 ">200</span>
+            <img class="w-4 h-4 rounded-full ml-1 mt-1" src="../assets/SSACoinTop.png" alt="balance">
+          </div>
         </div>
         <!-- Dropdown menu -->
         <div class="z-50 hidden text-base list-none bg-primary rounded-lg" id="user-dropdown">
