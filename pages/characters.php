@@ -20,8 +20,8 @@
         <div class="flex flex-row justify-center mb-16">
 
             <!-- First Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-[300px] h-[532px] mr-8 ">
-                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 h-[256px] w-[256px] object-cover object-top" />
+            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-auto h-auto mr-8 ">
+                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-64 h-64 object-cover object-top" />
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold">firstName, lastName</p>
                     <p class="text-md">Sünniaeg: {user.reg}</p>
@@ -30,13 +30,13 @@
                     <p class="text-md">Sularaha: {user.cash}</p>
                     <p class="text-md">Pangas: {user.bank}</p>
                     <p class="text-md mt-12">Kriminimi: {user.criminal}</p>
-                    <p class="text-md">Jõuk: {user.affiliatedGang}</p>
+                    <p class="text-md mb-4">Jõuk: {user.affiliatedGang}</p>
                 </div>
             </div>
 
             <!-- Second Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-[300px] h-[532px] mr-8 blur-sm">
-                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 h-[256px] w-[256px] object-cover object-top" />
+            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-auto h-auto mr-8 blur-sm">
+                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-64 h-64 object-cover object-top" />
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold">firstName, lastName</p>
                     <p class="text-md">Sünniaeg: {user.reg}</p>
@@ -45,13 +45,13 @@
                     <p class="text-md">Sularaha: {user.cash}</p>
                     <p class="text-md">Pangas: {user.bank}</p>
                     <p class="text-md mt-12">Kriminimi: {user.criminal}</p>
-                    <p class="text-md">Jõuk: {user.affiliatedGang}</p>
+                    <p class="text-md mb-4">Jõuk: {user.affiliatedGang}</p>
                 </div>
             </div>
 
             <!-- Third Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-[300px] h-[532px] mr-8 blur-sm">
-                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 h-[256px] w-[256px] object-cover object-top" />
+            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-auto h-auto mr-8 blur-sm">
+                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-64 h-64 object-cover object-top" />
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold">firstName, lastName</p>
                     <p class="text-md">Sünniaeg: {user.reg}</p>
@@ -60,13 +60,13 @@
                     <p class="text-md">Sularaha: {user.cash}</p>
                     <p class="text-md">Pangas: {user.bank}</p>
                     <p class="text-md mt-12">Kriminimi: {user.criminal}</p>
-                    <p class="text-md">Jõuk: {user.affiliatedGang}</p>
+                    <p class="text-md mb-4">Jõuk: {user.affiliatedGang}</p>
                 </div>
             </div>
 
             <!-- Fourth Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-[300px] h-[532px] mr-8 blur-sm">
-                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 h-[256px] w-[256px] object-cover object-top" />
+            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-auto h-auto mr-8 blur-sm">
+                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-64 h-64 object-cover object-top" />
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold">firstName, lastName</p>
                     <p class="text-md">Sünniaeg: {user.reg}</p>
@@ -75,13 +75,13 @@
                     <p class="text-md">Sularaha: {user.cash}</p>
                     <p class="text-md">Pangas: {user.bank}</p>
                     <p class="text-md mt-12">Kriminimi: {user.criminal}</p>
-                    <p class="text-md">Jõuk: {user.affiliatedGang}</p>
+                    <p class="text-md mb-4">Jõuk: {user.affiliatedGang}</p>
                 </div>
             </div>
 
             <!-- Fifth Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-[300px] h-[532px] mr-8 blur-sm">
-                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 h-[256px] w-[256px] object-cover object-top" />
+            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-auto h-auto mr-8 blur-sm">
+                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-64 h-64 object-cover object-top" />
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold">firstName, lastName</p>
                     <p class="text-md">Sünniaeg: {user.reg}</p>
@@ -90,7 +90,7 @@
                     <p class="text-md">Sularaha: {user.cash}</p>
                     <p class="text-md">Pangas: {user.bank}</p>
                     <p class="text-md mt-12">Kriminimi: {user.criminal}</p>
-                    <p class="text-md">Jõuk: {user.affiliatedGang}</p>
+                    <p class="text-md mb-4">Jõuk: {user.affiliatedGang}</p>
                 </div>
             </div>
         </div>
