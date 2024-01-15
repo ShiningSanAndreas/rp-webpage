@@ -43,7 +43,6 @@
         <!-- Dropdown menu -->
         <div class="z-50 hidden text-base list-none bg-primary rounded-lg" id="user-dropdown">
           <ul class="py-2" aria-labelledby="user-menu-button">
-
             <li>
               <a href="#" class="block px-4 py-2 text-sm text-slate-200 hover:bg-contrast">Sign out</a>
             </li>

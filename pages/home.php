@@ -11,8 +11,9 @@
 </head>
 
 <?php include("./modules/navbar.php") ?>
+
 <body class="bg-background">
-    
+
 
     <?php include("./modules/caroussel.php") ?>
 
@@ -62,8 +63,39 @@
     </div>
 
     <!-- News Section -->
-    
-    
+    <div class="container-none mx-auto bg-alter text-left">
+        <div class="text-black mt-16 mb-6 ">
+            <h2 class="text-3xl font-semibold ml-[160px] mt-16">Visioon</h2>
+        </div>
+        <div class="flex flex-col items-center ">
+            <!-- First Image and Text -->
+            <div class="flex flex-row mb-16">
+                <img src="../assets/SP_secpic.png" alt="Second Image" class="h-72 w-72">
+            </div>
+
+            <!-- Second Image and Text -->
+            <div class="flex flex-row gap-64 mb-16">
+                <h1>blah blah blah blah</h1>  
+                <img src="../assets/SP_secpic.png" alt="Second Image" class="h-72 w-72">
+                
+            </div>
+
+            <!-- Third Image and Text -->
+            <div class="relative">
+                <img src="../assets/SP_thirdpic.png" alt="Third Image"
+                    class="h-[352px] w-[1120px] object-cover rounded-b-md">
+                <div class="absolute top-4 left-4 text-white">
+                    <p class="text-2xl font-bold ml-[32px] mt-[32px]">Ja hakka mängima!</p>
+                    <a href="#">
+                        <iconify-icon icon="simple-icons:fivem" width="50" height="40"
+                            class="ml-10 mt-3"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 <?php include("./modules/footer.php") ?>
+
 </html>

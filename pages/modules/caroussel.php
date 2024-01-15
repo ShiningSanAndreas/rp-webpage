@@ -9,8 +9,9 @@
 <body>
     <div id="default-carousel" class="relative w-full" data-carousel="slide">
         <!-- Carousel wrapper -->
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center z-50">
-            <h2 class="text-5xl font-bold text-slate-200">Eesti Parim RP Server</h2>
+        <div class="absolute top-1/2 left-1/3 transform -translate-x-1/2 translate-y-1/2 text-left z-50">
+            <h2 class="text-5xl font-bold text-slate-200">ShiningRP</h2>
+            <p class="text-xl font-medium text-slate-200">Tule alusta oma uut elulugu Eesti seltskondlikuimas ja värskeimas RP serveris</p>
         </div>
 
         <div class="relative h-[800px] overflow-hidden rounded-lg">
