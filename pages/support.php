@@ -64,7 +64,7 @@
                 echo '<td class="px-6 py-4">' . $ticket['status'] . '</td>';
                 echo '<td class="px-6 py-4">' . $ticket['created_at'] . '</td>';
                 echo '<td class="px-6 py-4 text-right">';
-                echo '<a href="view.php?id=' . $ticket['id'] . '" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View Details</a>';
+                echo '<a href="supportDetails.php?id=' . $ticket['id'] . '" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View Details</a>';
                 echo '</td>';
                 echo '</tr>';
             }

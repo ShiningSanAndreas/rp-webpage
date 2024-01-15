@@ -15,13 +15,13 @@
 
     <div class="ml-auto mb-6 lg:w-[70%] xl:w-[75%] 2xl:w-[85%] mx-auto">
         <div class="text-white mt-16 mb-6">
-            <h2 class="text-3xl font-semibold">Karakterid</h2>
+            <h2 class="text-5xl font-semibold">Karakterid</h2>
         </div>
         <div class="flex flex-row justify-center mb-16">
 
             <!-- First Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-auto h-auto mr-8 ">
-                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-64 h-64 object-cover object-top" />
+            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8">
+                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-72 h-64 object-cover object-top"/>
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold">firstName, lastName</p>
                     <p class="text-md">Sünniaeg: {user.reg}</p>
@@ -35,8 +35,8 @@
             </div>
 
             <!-- Second Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-auto h-auto mr-8 blur-sm">
-                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-64 h-64 object-cover object-top" />
+            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 blur-sm">
+                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-72 h-64 object-cover object-top" />
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold">firstName, lastName</p>
                     <p class="text-md">Sünniaeg: {user.reg}</p>
@@ -50,8 +50,8 @@
             </div>
 
             <!-- Third Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-auto h-auto mr-8 blur-sm">
-                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-64 h-64 object-cover object-top" />
+            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 blur-sm">
+                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-72 h-64 object-cover object-top" />
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold">firstName, lastName</p>
                     <p class="text-md">Sünniaeg: {user.reg}</p>
@@ -65,8 +65,8 @@
             </div>
 
             <!-- Fourth Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-auto h-auto mr-8 blur-sm">
-                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-64 h-64 object-cover object-top" />
+            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 blur-sm">
+                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-72 h-64 object-cover object-top" />
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold">firstName, lastName</p>
                     <p class="text-md">Sünniaeg: {user.reg}</p>
@@ -80,8 +80,8 @@
             </div>
 
             <!-- Fifth Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-auto h-auto mr-8 blur-sm">
-                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-64 h-64 object-cover object-top" />
+            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 blur-sm">
+                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-72 h-64 object-cover object-top" />
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold">firstName, lastName</p>
                     <p class="text-md">Sünniaeg: {user.reg}</p>

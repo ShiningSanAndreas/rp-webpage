@@ -15,39 +15,42 @@
                 <a href="home.php" class="items-center">
                     <img src="../assets/logoBigNoBG.png" class="w-64 h-64 me-3" alt="ShiningRP logo" />
                 </a>
-                <h1 class="mt-8 text-white text-2xl font-medium">ShiningRP</h1>
+                <h1 class="mt-14 text-white text-2xl font-medium">ShiningRP</h1>
             </div>
-            <div class="grid gap-12 sm:gap-6 grid-cols-3">
+            <div class="grid gap-12 sm:gap-6 grid-cols-3 pr-32">
                 <div>
-                    <h2 class="mb-6 mt-8 text-lg font-semibold text-[#393E46] uppercase">Resources</h2>
-                    <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                    <h2 class="mb-6 mt-8 text-lg font-semibold text-slate-900 uppercase">Menüü</h2>
+                    <ul class="font-medium">
                         <li class="mb-4">
-                            <a href="#" class="hover:underline text-slate-200 ">lorem ipsum</a>
+                            <a href="characters.php" class="md:hover:text-contrast text-slate-200 ">Karakterid</a>
+                        </li>
+                        <li class="mb-4">
+                            <a href="rules.php" class="md:hover:text-contrast text-slate-200 ">Reeglid</a>
                         </li>
                         <li>
-                            <a href="#" class="hover:underline text-slate-200 ">lorem ipsum</a>
+                            <a href="whitelist-form.php" class="md:hover:text-contrast text-slate-200 ">Whitelist</a>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h2 class="mb-6 mt-8 text-lg font-semibold text-slate-900 uppercase">Follow us</h2>
-                    <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                    <h2 class="mb-6 mt-8 text-lg font-semibold text-slate-900 uppercase">Tooted</h2>
+                    <ul class="font-medium">
                         <li class="mb-4">
-                            <a href="#" class="hover:underline text-slate-200 ">lorem ipsum</a>
+                            <a href="#" class="md:hover:text-contrast text-slate-200 ">Pood</a>
                         </li>
                         <li>
-                            <a href="#" class="hover:underline text-slate-200 ">lorem ipsum</a>
+                            <a href="#" class="md:hover:text-contrast text-slate-200 ">Anneta</a>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h2 class="mb-6 mt-8 text-lg font-semibold text-[#393E46] uppercase">Legal</h2>
-                    <ul class="text-gray-500 dark:text-gray-400 font-medium">
+                    <h2 class="mb-6 mt-8 text-lg font-semibold text-slate-900 uppercase">Sotsiaalid</h2>
+                    <ul class="font-medium">
                         <li class="mb-4">
-                            <a href="#" class="hover:underline text-slate-500 ">lorem ipsum</a>
+                            <a href="#" class="md:hover:text-contrast text-slate-200 ">Discord</a>
                         </li>
                         <li>
-                            <a href="#" class="hover:underline text-slate-500 ">lorem ipsum</a>
+                            <a href="#" class="md:hover:text-contrast text-slate-200 ">TikTok</a>
                         </li>
                     </ul>
                 </div>
