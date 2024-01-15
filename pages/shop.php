@@ -95,7 +95,7 @@
             <!-- Second product container -->
             <div
                 class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-80 h-auto mr-8 flex flex-col items-center">
-                <img src="../assets/car.png" width="256" height="256" alt="Pood Custom Car" class="p-4" />
+                <img src="../assets/custompeed.png" width="256" height="256" alt="Pood Custom Car" class="p-4" />
                 <div class="text-white text-center flex-grow">
                     <p class="text-dm mt-4 px-4 text-clip overflow-hidden">Tahad rohkem karaktereid? Osta endale
                         ägedamaid ja seksikamaid mudeleid
@@ -116,7 +116,7 @@
             <!-- Third product container -->
             <div
                 class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-80 h-auto mr-8 flex flex-col items-center">
-                <img src="../assets/car.png" width="256" height="256" alt="Pood Custom Car" class="p-4" />
+                <img src="../assets/fraktsiooni.png" width="256" height="256" alt="Pood Custom Car" class="p-4" />
                 <div class="text-white text-center flex-grow">
                     <p class="text-dm mt-4 px-4 text-clip overflow-hidden">Tee oma fraktsioon lossiks kõige selle ägeda
                         mööbliga
