@@ -35,7 +35,6 @@
                     </a>
                 </div>
             </div>
-
             <!-- Second Image and Text -->
             <div class="relative">
                 <img src="../assets/SP_secpic.png" alt="Second Image" class="h-[352px] w-[1120px] object-cover">
@@ -46,7 +45,7 @@
                     </a>
                 </div>
             </div>
-
+            <img src="../assets/arrowOne.svg" alt="" class="absolute mt-24"/>
             <!-- Third Image and Text -->
             <div class="relative">
                 <img src="../assets/SP_thirdpic.png" alt="Third Image"
@@ -59,30 +58,32 @@
                     </a>
                 </div>
             </div>
+            <img src="../assets/arrowTwo.svg" alt="" class="absolute mt-[450px]"/>
         </div>
     </div>
 
     <!-- News Section -->
-    <div class="bg-alter">
+    <div class="bg-primary mb-16">
         <div class="container mx-auto">
-            <div class="text-black">
+            <div class="text-white">
                 <h2 class="text-3xl font-semibold ml-40 pt-16 pb-6">Visioon</h2>
             </div>
             <div class="flex flex-col px-48">
 
                 <!-- First Image and Text -->
                 <div class="flex flex-row mb-16 items-center">
-                    <div class="relative">
+                    <div class="relative text-white">
                         <h1 class="text-2xl font-medium">Unikaalne taseme süsteem</h1>
                         <p class="text-xl">lorem ipsum dolor sit amet</p>
                     </div>
-                    <img src="../assets/mlo.jpg" alt="Second Image" class="h-96 w-96 rounded-md border-4 border-white ml-auto">
+                    <img src="../assets/mlo.jpg" alt="Second Image"
+                        class="h-96 w-1/2 rounded-md border-4 border-white ml-auto">
                 </div>
 
                 <!-- Second Image and Text -->
                 <div class="flex flex-row mb-16 items-center">
-                    <img src="../assets/mlo.jpg" alt="Second Image" class="h-96 w-96 rounded-md border-4 border-white">
-                    <div class="text-right relative ml-auto">
+                    <img src="../assets/mlo.jpg" alt="Second Image" class="h-96 w-1/2 rounded-md border-4 border-white">
+                    <div class="text-right relative ml-auto text-white">
                         <h1 class="text-2xl font-medium">Tühi tiitel</h1>
                         <p class="text-xl">lorem ipsum dolor sit amet</p>
                     </div>
@@ -91,11 +92,12 @@
                 <!-- Third Image and Text -->
                 <div class="flex flex-row mb-16 items-center">
                     <div class="relative">
-                        <h1 class="text-2xl font-medium">Kuritegevuse impeerium</h1>
-                        <p class="text-xl">Alusta enda jõuk ning saa kõige rikkamaks ja mõjukamaks krimi
+                        <h1 class="text-2xl font-medium text-white">Kuritegevuse impeerium</h1>
+                        <p class="text-xl text-white">Alusta enda jõuk ning saa kõige rikkamaks ja mõjukamaks krimi
                             bossiks</p>
                     </div>
-                    <img src="../assets/mlo.jpg" alt="Third Image" class="h-96 w-96 rounded-md border-4 border-white ml-auto">
+                    <img src="../assets/drugempire.png" alt="Third Image"
+                        class="h-96 w-1/2 rounded-md border-4 border-white ml-auto object-left object-cover">
                 </div>
             </div>
         </div>

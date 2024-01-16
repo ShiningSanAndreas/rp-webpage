@@ -31,7 +31,7 @@
             <!-- First coin container -->
             <div class="relative bg-primary rounded-md w-72 h-96 mr-8 flex flex-col items-center justify-items-center">
                 <img src="../assets/SmlSSACoin.png" width="130" class="mt-8" />
-                <div class="text-white text-center">
+                <div class="text-white text-center flex-shrink">
                     <p class="text-2xl font-bold mt-12">100 coini</p>
                     <p class="text-2xl font-bold mt-2">10€</p>
                     <button type="button"
@@ -43,7 +43,7 @@
             <!-- Second coin container -->
             <div class="relative bg-primary rounded-md w-72 h-96 mr-8 flex flex-col items-center justify-items-center">
                 <img src="../assets/MidSSACoin.png" width="132" class="mt-8" />
-                <div class="text-white text-center">
+                <div class="text-white text-center flex-shrink">
                     <p class="text-2xl font-bold mt-12">300 + 100 coini</p>
                     <p class="text-2xl font-bold mt-2">30€</p>
                     <button type="button"
@@ -55,7 +55,7 @@
             <!-- Third coin container -->
             <div class="relative bg-primary rounded-md w-72 h-96 mr-8 flex flex-col items-center justify-items-center">
                 <img src="../assets/BigSSACoin.png" width="116" class="mt-8" />
-                <div class="text-white text-center">
+                <div class="text-white text-center flex-shrink">
                     <p class="text-2xl font-bold mt-12">500 + 150 coini</p>
                     <p class="text-2xl font-bold mt-2">50€</p>
                     <button type="button"
@@ -73,12 +73,10 @@
         <div class="flex flex-row justify-center mb-16">
 
             <!-- First product container -->
-            <div
-                class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-80 h-auto mr-8 flex flex-col items-center">
+            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-80 h-auto mr-8 flex flex-col items-center">
                 <img src="../assets/car.png" width="256" height="256" alt="Pood Custom Car" class="p-4" />
                 <div class="text-white text-center flex-grow">
-                    <p class="text-dm mt-4 px-4 text-clip overflow-hidden">Osta endale kõige ägedamad ja kiiremad autod
-                    </p>
+                    <p class="text-dm mt-4 px-4 text-clip overflow-hidden">Osta endale kõige ägedamad ja kiiremad autod</p>
                 </div>
                 <div class="text-white text-center flex-shrink-0">
                     <p class="text-2xl font-bold mt-4">Ägedad autod</p>
