@@ -13,10 +13,11 @@
     </div>
     <div class="relative z-10 mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="flex flex-row justify-between rounded-md">
-            <div class="mb-6 md:mb-0 flex flex-row">
+            <div class="flex flex-col ml-24 mt-8">
                 <a href="home.php">
-                    <h1 class="ml-24 mt-14 text-white text-2xl font-medium">ShiningRP</h1>
-                </a>
+                    <h1 class=" text-slate-200 text-2xl font-medium">ShiningRP</h1>
+                </a>   
+                <p class="text-slate-200 flex-shrink w-64">Shining San Andreas on Eestis kohalikult arendatud ja lorem ipsum dolor sit amer</p>
             </div>
             <div class="grid gap-12 sm:gap-6 grid-cols-3 pr-32 mb-8">
                 <div>

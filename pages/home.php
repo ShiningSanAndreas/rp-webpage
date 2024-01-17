@@ -74,18 +74,18 @@
                 <div class="flex flex-row mb-16 items-center">
                     <div class="relative text-white">
                         <h1 class="text-2xl font-medium">Unikaalne taseme süsteem</h1>
-                        <p class="text-xl">lorem ipsum dolor sit amet</p>
+                        <p class="text-xl flex-shrink w-96">Leia enda lemmik tegevus ja tõuse taseme edetabelis tippu</p>
                     </div>
-                    <img src="../assets/mlo.jpg" alt="Second Image"
-                        class="h-96 w-1/2 rounded-md border-4 border-white ml-auto">
+                    <img src="../assets/levelSys.png" alt="Second Image"
+                        class="h-96 w-1/2 rounded-md border-4 border-white ml-auto object-fill object-center">
                 </div>
 
                 <!-- Second Image and Text -->
                 <div class="flex flex-row mb-16 items-center">
-                    <img src="../assets/mlo.jpg" alt="Second Image" class="h-96 w-1/2 rounded-md border-4 border-white">
+                    <img src="../assets/ped.jpg" alt="Second Image" class="h-96 w-1/2 rounded-md border-4 border-white object-cover object-top">
                     <div class="text-right relative ml-auto text-white">
-                        <h1 class="text-2xl font-medium">Tühi tiitel</h1>
-                        <p class="text-xl">lorem ipsum dolor sit amet</p>
+                        <h1 class="text-2xl font-medium">Ulatuslik karakteri kohandamine</h1>
+                        <p class="text-xl flex-shrink w-96">Saad valida kuni 2000+ riideesemest, et teha oma karakter oma täpselt meeldimiste järgi</p>
                     </div>
                 </div>
 
@@ -93,7 +93,7 @@
                 <div class="flex flex-row mb-16 items-center">
                     <div class="relative">
                         <h1 class="text-2xl font-medium text-white">Kuritegevuse impeerium</h1>
-                        <p class="text-xl text-white">Alusta enda jõuk ning saa kõige rikkamaks ja mõjukamaks krimi
+                        <p class="text-xl text-white flex-shrink w-96">Alusta enda jõuk ning saa kõige rikkamaks ja mõjukamaks krimi
                             bossiks</p>
                     </div>
                     <img src="../assets/drugempire.png" alt="Third Image"
