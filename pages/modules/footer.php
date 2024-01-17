@@ -8,14 +8,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </head>
 
-<footer class="bg-primary h-80 bottom-0">
-    <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+<footer class="bg-primary h-80 bottom-0 relative">
+    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat brightness-[0.3] bg-[url('.././assets/fivemlistabanner.png')]">
+    </div>
+    <div class="relative z-10 mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div class="flex flex-row justify-between">
             <div class="mb-6 md:mb-0 flex flex-row">
-                <a href="home.php" class="items-center">
-                    <img src="../assets/logoBigNoBG.png" class="w-64 h-64 me-3" alt="ShiningRP logo" />
+                <a href="home.php">
+                    <h1 class="ml-24 mt-14 text-white text-2xl font-medium">ShiningRP</h1>
                 </a>
-                <h1 class="mt-14 text-white text-2xl font-medium">ShiningRP</h1>
             </div>
             <div class="grid gap-12 sm:gap-6 grid-cols-3 pr-32">
                 <div>
