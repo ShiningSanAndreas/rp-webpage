@@ -17,7 +17,7 @@
         <div class="text-white mt-16 mb-6">
             <h2 class="text-5xl font-semibold">Karakterid</h2>
         </div>
-        <div class="flex flex-row justify-center mb-16">
+        <div class="flex flex-row justify-center mb-24">
 
             <!-- First Character Container -->
             <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8">
