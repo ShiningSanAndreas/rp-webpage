@@ -27,7 +27,7 @@
         <span class="self-center text-2xl font-semibold whitespace-nowrap text-slate-200">ShiningRP</span>
       </a>
       <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-        <button type="button" class="flex text-sm bg-accent rounded-full md:me-0 focus:ring-4 focus:ring-contrast"
+        <button type="button" class="flex text-sm bg-light rounded-full md:me-0 focus:ring-4 focus:ring-light"
           id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
           data-dropdown-placement="right">
           <img class="w-12 h-12 rounded-full" src="../assets/boombox.jpg" alt="user photo">
@@ -44,7 +44,7 @@
         <div class="z-50 hidden text-base list-none bg-primary rounded-lg" id="user-dropdown">
           <ul class="py-2" aria-labelledby="user-menu-button">
             <li>
-              <a href="#" class="block px-4 py-2 text-sm text-slate-200 hover:bg-contrast">Sign out</a>
+              <a href="#" class="block px-4 py-2 text-sm text-slate-200 hover:bg-light">Sign out</a>
             </li>
           </ul>
         </div>
@@ -55,24 +55,24 @@
         </svg>
     </button>
       </div>
-      <div class="items-center hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
+      <div class="items-center hidden w-full md:flex md:w-auto md:order-1 justify-center" id="navbar-user">
         <ul
           class="flex flex-col font-medium p-4 md:p-0 mt-4 bg-primary space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 ">
           <li>
             <a href="characters.php"
-              class="block py-2 px-3 text-slate-200 text-lg rounded hover:text-light md:p-0">Karakterid</a>
+              class="block py-2 px-3 text-slate-200 text-xl hover:text-light md:p-0 active:text-light">Karakterid</a>
           </li>
           <li>
             <a href="rules.php"
-              class="block py-2 px-3 text-slate-200 text-lg rounded hover:text-light md:p-0">Reeglid</a>
+              class="block py-2 px-3 text-slate-200 text-xl hover:text-light md:p-0 active:text-light">Reeglid</a>
           </li>
           <li>
             <a href="whitelist-form.php"
-              class="block py-2 px-3 text-slate-200 text-lg rounded hover:text-light md:p-0">Whitelist</a>
+              class="block py-2 px-3 text-slate-200 text-xl hover:text-light md:p-0 active:text-light">Whitelist</a>
           </li>
           <li>
             <a href="shop.php"
-              class="block py-2 px-3 text-slate-200 text-lg rounded hover:text-light md:p-0">Pood</a>
+              class="block py-2 px-3 text-slate-200 text-xl hover:text-light md:p-0 active:text-light">Pood</a>
           </li>
         </ul>
       </div>
