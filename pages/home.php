@@ -45,7 +45,7 @@
                     </a>
                 </div>
             </div>
-            <img src="../assets/arrowOne.svg" alt="" class="absolute mt-24"/>
+            <img src="../assets/arrowOne.svg" alt="" class="absolute mt-24" />
             <!-- Third Image and Text -->
             <div class="relative">
                 <img src="../assets/SP_thirdpic.png" alt="Third Image"
@@ -58,7 +58,7 @@
                     </a>
                 </div>
             </div>
-            <img src="../assets/arrowTwo.svg" alt="" class="absolute mt-[450px]"/>
+            <img src="../assets/arrowTwo.svg" alt="" class="absolute mt-[450px]" />
         </div>
     </div>
 
@@ -72,9 +72,12 @@
 
                 <!-- First Image and Text -->
                 <div class="flex flex-row mb-16 items-center">
-                    <div class="relative text-white">
-                        <h1 class="text-2xl font-medium">Unikaalne taseme süsteem</h1>
-                        <p class="text-xl flex-shrink w-96">Leia enda lemmik tegevus ja tõuse taseme edetabelis tippu</p>
+                    <div class="relative text-slate-200 p-4 w-1/2">
+                        <p class="text-xl flex-shrink">Kui otsid midagi enamat kui tavaline mängukeskkond, siis
+                            oled leidnud oma tee. Meie eesmärk on luua koht, kus mäng ei ole lihtsalt ajaviide, vaid
+                            elamus, kus iga tegevus viib sind sügavamale põnevasse maailma. Me ei ole rahul igapäevaste
+                            lahendustega, sest me usume, et mängijatel peaks olema võimalus avastada midagi täiesti uut
+                            ja ainulaadset.</p>
                     </div>
                     <img src="../assets/levelSys.png" alt="Second Image"
                         class="h-96 w-1/2 rounded-md border-4 border-white ml-auto object-fill object-center">
@@ -82,25 +85,48 @@
 
                 <!-- Second Image and Text -->
                 <div class="flex flex-row mb-16 items-center">
-                    <img src="../assets/ped.jpg" alt="Second Image" class="h-96 w-1/2 rounded-md border-4 border-white object-cover object-top">
-                    <div class="text-right relative ml-auto text-white">
-                        <h1 class="text-2xl font-medium">Ulatuslik karakteri kohandamine</h1>
-                        <p class="text-xl flex-shrink w-96">Saad valida kuni 2000+ riideesemest, et teha oma karakter oma täpselt meeldimiste järgi</p>
+                    <img src="../assets/ped.jpg" alt="Second Image"
+                        class="h-96 w-1/2 rounded-md border-4 border-white object-cover object-top">
+                    <div class="relative ml-auto text-slate-200 w-1/2 p-4">
+                        <p class="text-xl flex-shrink">Astudes meie serverisse, võib esmapilgul tunduda, et see
+                            nõuab rohkem panustamist, kuid ärge laske ennast heidutada. Meie eesmärk on pakkuda midagi,
+                            mis paneb sind mõtlema ja looma seiklusi, mis jäävad kauaks meelde. Koos keeruka
+                            mängukeskkonnaga pakume mitmekülgseid kogemusi, ilma et peaksid läbima tüütu protsessi.
+                        </p>
                     </div>
                 </div>
 
                 <!-- Third Image and Text -->
                 <div class="flex flex-row mb-16 items-center">
-                    <div class="relative">
-                        <h1 class="text-2xl font-medium text-white">Kuritegevuse impeerium</h1>
-                        <p class="text-xl text-white flex-shrink w-96">Alusta enda jõuk ning saa kõige rikkamaks ja mõjukamaks krimi
-                            bossiks</p>
+                    <div class="relative text-slate-200 p-4 w-1/2">
+                        <p class="text-xl flex-shrink">Siin ei ole pelgalt koht, kus teenida virtuaalset
+                            valuutat rutiini tundes. Meie soov on, et sa sukelduksid sügavamale rollimängumaailma, kus
+                            igal tegelasel on oma lugu ja igal otsusel on tagajärjed. Me ei tee asju kergelt, sest
+                            usume, et just see teeb teekonna uute ja huvitavamate seiklusteni põnevaks.</p>
                     </div>
                     <img src="../assets/drugempire.png" alt="Third Image"
                         class="h-96 w-1/2 rounded-md border-4 border-white ml-auto object-left object-cover">
                 </div>
+                <div class="flex flex-row mb-16 items-center">
+                    <img src="../assets/ped.jpg" alt="Second Image"
+                        class="h-96 w-1/2 rounded-md border-4 border-white object-cover object-top">
+                    <div class="relative ml-auto text-slate-200 w-1/2 p-4">
+                        <p class="text-xl flex-shrink">Me ei propageeri ebavõrdsust ega toeta "pay to win"
+                            mõtteviisi.
+                            Meie jaoks on oluline säilitada tasakaalustatud mängukeskkond, kus kõik mängijad saavad
+                            võrdse
+                            võimaluse nautida põnevat rollimängu. Samas mõistame, et serveri arenguks on vaja rahastust,
+                            kuid see ei tähenda, et peaksid loobuma oma põhimõtetest.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center">
+                <h1 class="text-2xl text-slate-200 mb-16">Liitu meiega, kus igal sammul võib avaneda uus ja põnev maailm. Ole
+                    osa millestki suuremast!</h1>
+                </div>
             </div>
         </div>
+    </div>
     </div>
 
 </body>
