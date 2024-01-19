@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <div id="default-carousel" class="relative w-full" data-carousel="slide">
+    <div id="default-carousel" class="relative w-full top-0" data-carousel="slide">
         <!-- Carousel wrapper -->
         <div class="absolute top-1/2 left-1/3 transform -translate-x-1/2 translate-y-1/2 text-left z-50">
             <h2 class="text-5xl font-bold text-slate-200">ShiningRP</h2>

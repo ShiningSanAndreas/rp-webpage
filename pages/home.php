@@ -18,7 +18,7 @@
     <?php include("./modules/caroussel.php") ?>
 
     <!-- Start Playing Section -->
-    <div class="container mx-auto text-left">
+    <div class="container mx-auto text-left lg:w-[70%] xl:w-[75%] 2xl:w-[85%]">
         <div class="text-white mt-16 mb-6 ">
             <h2 class="text-3xl font-semibold ml-40">Alusta mängimist</h2>
         </div>
@@ -63,7 +63,7 @@
     </div>
 
     <!-- News Section -->
-    <div class="bg-primary mb-16">
+    <div class="bg-primary">
         <div class="container mx-auto">
             <div class="text-white">
                 <h2 class="text-3xl font-semibold ml-40 pt-16 pb-6">Visioon</h2>
@@ -108,7 +108,7 @@
                         class="h-96 w-1/2 rounded-md border-4 border-white ml-auto object-left object-cover">
                 </div>
                 <div class="flex flex-row mb-16 items-center">
-                    <img src="../assets/ped.jpg" alt="Second Image"
+                    <img src="../assets/lisakarakter.png" alt="Second Image"
                         class="h-96 w-1/2 rounded-md border-4 border-white object-cover object-top">
                     <div class="relative ml-auto text-slate-200 w-1/2 p-4">
                         <p class="text-xl flex-shrink">Me ei propageeri ebavõrdsust ega toeta "pay to win"

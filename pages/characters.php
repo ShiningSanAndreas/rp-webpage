@@ -17,10 +17,10 @@
         <div class="text-white mt-16 mb-6">
             <h2 class="text-5xl font-semibold">Karakterid</h2>
         </div>
-        <div class="flex flex-row justify-center mb-24">
+        <div class="flex flex-row flex-wrap justify-center mb-24">
 
             <!-- First Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8">
+            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 mb-8">
                 <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-72 h-64 object-cover object-top"/>
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold">firstName, lastName</p>
@@ -35,7 +35,7 @@
             </div>
 
             <!-- Second Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 blur-sm">
+            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 mb-8 blur-sm">
                 <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-72 h-64 object-cover object-top" />
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold">firstName, lastName</p>
@@ -50,7 +50,7 @@
             </div>
 
             <!-- Third Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 blur-sm">
+            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 mb-8 blur-sm">
                 <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-72 h-64 object-cover object-top" />
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold">firstName, lastName</p>
@@ -65,7 +65,7 @@
             </div>
 
             <!-- Fourth Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 blur-sm">
+            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 mb-8 blur-sm">
                 <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-72 h-64 object-cover object-top" />
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold">firstName, lastName</p>
@@ -80,7 +80,7 @@
             </div>
 
             <!-- Fifth Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 blur-sm">
+            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mb-8 blur-sm">
                 <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-72 h-64 object-cover object-top" />
                 <div class="text-white text-center">
                     <p class="text-2xl font-bold">firstName, lastName</p>
