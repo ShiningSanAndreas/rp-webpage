@@ -9,12 +9,15 @@
 <body>
     <div id="default-carousel" class="relative w-full top-0" data-carousel="slide">
         <!-- Carousel wrapper -->
-        <div class="absolute top-1/2 left-1/3 transform -translate-x-1/2 translate-y-1/2 text-left z-50">
-            <h2 class="text-5xl font-bold text-slate-200">ShiningRP</h2>
-            <p class="text-xl font-medium text-slate-200">Tule alusta oma uut elulugu Eesti seltskondlikuimas ja värskeimas RP serveris</p>
+        <div class="absolute flex-shrink z-50 h-full left-1/3 top-1/3">
+            <div class="text-center">
+                <h2 class="text-5xl font-bold text-tekst mb-6">ShiningRP</h2>
+                <p class="text-xl font-medium text-tekst">Tule alusta oma uut elulugu Eesti seltskondlikuimas ja
+                    värskeimas RP serveris</p>
+            </div>
         </div>
 
-        <div class="relative h-[800px] overflow-hidden rounded-lg">
+        <div class="relative h-[800px] overflow-hidden">
             <!-- Item 1 -->
             <div class="hidden duration-1000 ease-in-out" data-carousel-item>
                 <img src="../assets/4K.png"

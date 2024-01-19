@@ -18,12 +18,12 @@
     <!-- Shop Section -->
     <div class="container mx-auto text-left">
 
-        <div class="text-white mt-16 mb-6 ">
-            <h2 class="text-5xl font-semibold ml-[168px]">Pood</h2>
+        <div class="text-white mt-16 mb-16 flex justify-center">
+            <h2 class="text-5xl font-semibold">Pood</h2>
         </div>
 
-        <div class="text-white mb-6 ">
-            <h2 class="text-3xl font-semibold ml-[190px]">Timmi endale coini</h2>
+        <div class="text-white mb-6 flex justify-center">
+            <h2 class="text-3xl font-semibold">Timmi endale coini</h2>
         </div>
         <!-- Coins section -->
         <div class="flex flex-row justify-center mb-32">
@@ -34,9 +34,7 @@
                 <div class="text-white text-center flex-shrink">
                     <p class="text-2xl font-bold mt-12">100 coini</p>
                     <p class="text-2xl font-bold mt-2">10€</p>
-                    <button type="button"
-                        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-5 py-2.5 text-center my-4">Lisa
-                        Korvi</button>
+                    <?php include('./modules/shopButton.php')?>
                 </div>
             </div>
 
@@ -46,9 +44,7 @@
                 <div class="text-white text-center flex-shrink">
                     <p class="text-2xl font-bold mt-12">300 + 100 coini</p>
                     <p class="text-2xl font-bold mt-2">30€</p>
-                    <button type="button"
-                        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-5 py-2.5 text-center my-4">Lisa
-                        Korvi</button>
+                    <?php include('./modules/shopButton.php')?>
                 </div>
             </div>
 
@@ -58,16 +54,14 @@
                 <div class="text-white text-center flex-shrink">
                     <p class="text-2xl font-bold mt-12">500 + 150 coini</p>
                     <p class="text-2xl font-bold mt-2">50€</p>
-                    <button type="button"
-                        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-5 py-2.5 text-center my-4">Lisa
-                        Korvi</button>
+                    <?php include('./modules/shopButton.php')?>
                 </div>
             </div>
         </div>
 
 
-        <div class="text-white mb-6 ">
-            <h2 class="text-3xl font-semibold ml-[190px]">Timmi custom looti :D</h2>
+        <div class="text-white mb-6 flex justify-center">
+            <h2 class="text-3xl font-semibold">Timmi custom looti :D</h2>
         </div>
         <!-- Custom Items Section -->
         <div class="flex flex-row justify-center mb-16">
@@ -84,9 +78,7 @@
                         <span class="block text-2xl font-medium text-slate-200 ">100</span>
                         <img class="w-6 h-6 rounded-full ml-1 mt-2" src="../assets/SSACoinTop.png" alt="1st Product Price">
                     </div>
-                    <button type="button"
-                        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-5 py-2.5 text-center my-4">Lisa
-                        Korvi</button>
+                    <?php include('./modules/shopButton.php')?>
                 </div>
             </div>
 
@@ -105,9 +97,7 @@
                         <span class="block text-2xl font-medium text-slate-200 ">100</span>
                         <img class="w-6 h-6 rounded-full ml-1 mt-2" src="../assets/SSACoinTop.png" alt="2nd Product Price">
                     </div>
-                    <button type="button"
-                        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-5 py-2.5 text-center my-4">Lisa
-                        Korvi</button>
+                    <?php include('./modules/shopButton.php')?>
                 </div>
             </div>
 
@@ -126,9 +116,7 @@
                         <span class="block text-2xl font-medium text-slate-200 ">100</span>
                         <img class="w-6 h-6 rounded-full ml-1 mt-2" src="../assets/SSACoinTop.png" alt="3rd Product Price">
                     </div>
-                    <button type="button"
-                        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-5 py-2.5 text-center my-4">Lisa
-                        Korvi</button>
+                    <?php include('./modules/shopButton.php')?>
                 </div>
             </div>
         </div>

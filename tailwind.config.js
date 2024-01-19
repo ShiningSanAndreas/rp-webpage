@@ -4,12 +4,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary': '#222831',
-        'background': '#393E46',
-        'alter': '#929BA8',
-        'accent': '#3C4252',
-        'light': '#B6CEE9',   
+        'primary': '#0F1B23',
+        'background': '#2f3940',
+        'accent': '#32936F',
+        'light': '#26A96C ',
+        'tekst': '#f8f8ff',   
       },
+      boxShadow: {
+        'shadBef': '-10px 0px 25px 0px rgba(50,147,111,0.25)',
+        'shadAft': '-10px 0px 25px 0px rgba(38,169,108,0.4)'
+      }
     },
   },
   plugins: [],

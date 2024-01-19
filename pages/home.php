@@ -18,16 +18,16 @@
     <?php include("./modules/caroussel.php") ?>
 
     <!-- Start Playing Section -->
-    <div class="container mx-auto text-left lg:w-[70%] xl:w-[75%] 2xl:w-[85%]">
-        <div class="text-white mt-16 mb-6 ">
-            <h2 class="text-3xl font-semibold ml-40">Alusta mängimist</h2>
+    <div class="container mx-auto text-left">
+        <div class="text-tekst mt-16 mb-10 flex justify-center">
+            <h2 class="text-3xl font-semibold">Alusta mängimist</h2>
         </div>
         <div class="flex flex-col items-center mb-16">
             <!-- First Image and Text -->
             <div class="relative">
                 <img src="../assets/SP_firstpic.png" alt="First Image"
                     class="h-[352px] w-[1120px] object-cover rounded-t-md">
-                <div class="absolute top-4 left-4 text-white">
+                <div class="absolute top-4 left-4 text-tekst">
                     <p class="text-2xl font-medium ml-[32px] mt-[32px]">Logi discordiga sisse..</p>
                     <a href="landing.php">
                         <iconify-icon icon="logos:discord-icon" width="50" height="40"
@@ -38,7 +38,7 @@
             <!-- Second Image and Text -->
             <div class="relative">
                 <img src="../assets/SP_secpic.png" alt="Second Image" class="h-[352px] w-[1120px] object-cover">
-                <div class="absolute top-4 right-4 text-white">
+                <div class="absolute top-4 right-4 text-tekst">
                     <p class="text-2xl font-medium mr-[32px] mt-[32px]">Täida whitelist..</p>
                     <a href="whitelist-form.php">
                         <iconify-icon icon="pajamas:review-list" width="60" height="62" class="ml-24"></iconify-icon>
@@ -50,7 +50,7 @@
             <div class="relative">
                 <img src="../assets/SP_thirdpic.png" alt="Third Image"
                     class="h-[352px] w-[1120px] object-cover rounded-b-md">
-                <div class="absolute top-4 left-4 text-white">
+                <div class="absolute top-4 left-4 text-tekst">
                     <p class="text-2xl font-medium ml-[32px] mt-[32px]">Ja hakka mängima!</p>
                     <a href="#">
                         <iconify-icon icon="simple-icons:fivem" width="50" height="40"
@@ -65,14 +65,14 @@
     <!-- News Section -->
     <div class="bg-primary">
         <div class="container mx-auto">
-            <div class="text-white">
-                <h2 class="text-3xl font-semibold ml-40 pt-16 pb-6">Visioon</h2>
+            <div class="text-tekst flex justify-center">
+                <h2 class="text-3xl font-semibold pt-16 pb-6">Visioon</h2>
             </div>
             <div class="flex flex-col px-48">
 
                 <!-- First Image and Text -->
                 <div class="flex flex-row mb-16 items-center">
-                    <div class="relative text-slate-200 p-4 w-1/2">
+                    <div class="relative text-tekst p-4 w-1/2">
                         <p class="text-xl flex-shrink">Kui otsid midagi enamat kui tavaline mängukeskkond, siis
                             oled leidnud oma tee. Meie eesmärk on luua koht, kus mäng ei ole lihtsalt ajaviide, vaid
                             elamus, kus iga tegevus viib sind sügavamale põnevasse maailma. Me ei ole rahul igapäevaste
@@ -87,7 +87,7 @@
                 <div class="flex flex-row mb-16 items-center">
                     <img src="../assets/ped.jpg" alt="Second Image"
                         class="h-96 w-1/2 rounded-md border-4 border-white object-cover object-top">
-                    <div class="relative ml-auto text-slate-200 w-1/2 p-4">
+                    <div class="relative ml-auto text-tekst w-1/2 p-4">
                         <p class="text-xl flex-shrink">Astudes meie serverisse, võib esmapilgul tunduda, et see
                             nõuab rohkem panustamist, kuid ärge laske ennast heidutada. Meie eesmärk on pakkuda midagi,
                             mis paneb sind mõtlema ja looma seiklusi, mis jäävad kauaks meelde. Koos keeruka
@@ -98,7 +98,7 @@
 
                 <!-- Third Image and Text -->
                 <div class="flex flex-row mb-16 items-center">
-                    <div class="relative text-slate-200 p-4 w-1/2">
+                    <div class="relative text-tekst p-4 w-1/2">
                         <p class="text-xl flex-shrink">Siin ei ole pelgalt koht, kus teenida virtuaalset
                             valuutat rutiini tundes. Meie soov on, et sa sukelduksid sügavamale rollimängumaailma, kus
                             igal tegelasel on oma lugu ja igal otsusel on tagajärjed. Me ei tee asju kergelt, sest
@@ -110,7 +110,7 @@
                 <div class="flex flex-row mb-16 items-center">
                     <img src="../assets/lisakarakter.png" alt="Second Image"
                         class="h-96 w-1/2 rounded-md border-4 border-white object-cover object-top">
-                    <div class="relative ml-auto text-slate-200 w-1/2 p-4">
+                    <div class="relative ml-auto text-tekst w-1/2 p-4">
                         <p class="text-xl flex-shrink">Me ei propageeri ebavõrdsust ega toeta "pay to win"
                             mõtteviisi.
                             Meie jaoks on oluline säilitada tasakaalustatud mängukeskkond, kus kõik mängijad saavad
@@ -121,7 +121,7 @@
                     </div>
                 </div>
                 <div class="flex items-center justify-center">
-                <h1 class="text-2xl text-slate-200 mb-16">Liitu meiega, kus igal sammul võib avaneda uus ja põnev maailm. Ole
+                <h1 class="text-2xl text-tekst mb-16">Liitu meiega, kus igal sammul võib avaneda uus ja põnev maailm. Ole
                     osa millestki suuremast!</h1>
                 </div>
             </div>

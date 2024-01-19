@@ -151,7 +151,7 @@ $currentQuestionData = $questions[$currentQuestion];
             <div class="mt-8 text-center">
                 <img src="<?php echo $avatar_url ?>" alt=""
                     class="w-10 h-10 m-auto rounded-full object-cover lg:w-28 lg:h-28">
-                <h5 class="hidden mt-4 text-xl font-semibold text-zinc-300 lg:block">
+                <h5 class="hidden mt-4 text-xl font-semibold text-tekst lg:block">
                     <?php echo $global_name ?>
                 </h5>
                 <!-- <span class="hidden text-gray-400 lg:block">Admin</span> -->
@@ -160,7 +160,7 @@ $currentQuestionData = $questions[$currentQuestion];
             <ul class="space-y-2 tracking-wide mt-8">
                 <li>
                     <a href="dashboard.php" aria-label="avaleht"
-                        class="relative px-4 py-3 flex items-center space-x-4 rounded-xl text-zinc-300 <?php echo $current_page === "dashboard" ? 'bg-gradient-to-r from-sky-600 to-cyan-400' : ''; ?>">
+                        class="relative px-4 py-3 flex items-center space-x-4 rounded-xl text-tekst <?php echo $current_page === "dashboard" ? 'bg-gradient-to-r from-sky-600 to-cyan-400' : ''; ?>">
                         <svg class="-ml-1 h-6 w-6" viewBox="0 0 24 24" fill="none">
                             <path
                                 d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1Z"
