@@ -1,3 +1,37 @@
+<?php /*
+include("config.php");
+
+try {
+    $db = new PDO($configDsn, $configDbName, $configDbPw);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo $e->getMessage(); // You should echo the error message to see the error, or handle it accordingly
+}
+
+
+
+session_start();
+
+$isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
+
+if (!$isLoggedIn) {
+    header("Location: landing.php");
+    exit();
+}
+extract($_SESSION["userData"]);
+
+$avatar_url = "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg";
+$current_page = "characters";
+
+$players_money = getAllPlayersMoney($db);
+$_SESSION["userBalance"] = getUserBalance($discord_id, $db);
+$_SESSION["whitelist_status"] = isUserWhitelisted($discord_id, $db);
+$players_total = getAllPlayers($db);
+$characterData = getUserCharacters($discord_id, $db);
+
+
+*/
+?>
 <!doctype html>
 <html>
 
@@ -18,7 +52,7 @@
             <h2 class="text-5xl font-semibold">Karakterid</h2>
         </div>
         <div class="flex flex-row flex-wrap justify-center mb-24">
-
+        <?php for ($i = 0; $i < 5; $i++): ?>
             <!-- First Character Container -->
             <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 mb-8">
                 <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-72 h-64 object-cover object-top"/>
@@ -33,7 +67,8 @@
                     <p class="text-md mb-4">Jõuk: {user.affiliatedGang}</p>
                 </div>
             </div>
-
+            <?php endfor; ?>
+            <?php // else: ?>
             <!-- Second Character Container -->
             <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 mb-8 blur-sm">
                 <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-72 h-64 object-cover object-top" />
@@ -48,51 +83,8 @@
                     <p class="text-md mb-4">Jõuk: {user.affiliatedGang}</p>
                 </div>
             </div>
+            <?php // endif; ?>
 
-            <!-- Third Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 mb-8 blur-sm">
-                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-72 h-64 object-cover object-top" />
-                <div class="text-white text-center">
-                    <p class="text-2xl font-bold">firstName, lastName</p>
-                    <p class="text-md">Sünniaeg: {user.reg}</p>
-                    <p class="text-md">Isikukood: {id}</p>
-                    <p class="text-md">Amet: {user.job}, {user.jobGrade}</p>
-                    <p class="text-md">Sularaha: {user.cash}</p>
-                    <p class="text-md">Pangas: {user.bank}</p>
-                    <p class="text-md mt-12">Kriminimi: {user.criminal}</p>
-                    <p class="text-md mb-4">Jõuk: {user.affiliatedGang}</p>
-                </div>
-            </div>
-
-            <!-- Fourth Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 mb-8 blur-sm">
-                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-72 h-64 object-cover object-top" />
-                <div class="text-white text-center">
-                    <p class="text-2xl font-bold">firstName, lastName</p>
-                    <p class="text-md">Sünniaeg: {user.reg}</p>
-                    <p class="text-md">Isikukood: {id}</p>
-                    <p class="text-md">Amet: {user.job}, {user.jobGrade}</p>
-                    <p class="text-md">Sularaha: {user.cash}</p>
-                    <p class="text-md">Pangas: {user.bank}</p>
-                    <p class="text-md mt-12">Kriminimi: {user.criminal}</p>
-                    <p class="text-md mb-4">Jõuk: {user.affiliatedGang}</p>
-                </div>
-            </div>
-
-            <!-- Fifth Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mb-8 blur-sm">
-                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-72 h-64 object-cover object-top" />
-                <div class="text-white text-center">
-                    <p class="text-2xl font-bold">firstName, lastName</p>
-                    <p class="text-md">Sünniaeg: {user.reg}</p>
-                    <p class="text-md">Isikukood: {id}</p>
-                    <p class="text-md">Amet: {user.job}, {user.jobGrade}</p>
-                    <p class="text-md">Sularaha: {user.cash}</p>
-                    <p class="text-md">Pangas: {user.bank}</p>
-                    <p class="text-md mt-12">Kriminimi: {user.criminal}</p>
-                    <p class="text-md mb-4">Jõuk: {user.affiliatedGang}</p>
-                </div>
-            </div>
         </div>
     </div>
 

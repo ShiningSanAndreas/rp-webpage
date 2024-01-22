@@ -18,7 +18,7 @@ $rules = [
     [
         "section_name" => "POWERGAME",
         "rules" => [
-           "Kõik tegevused mis pole päriselus võimalikud on ka serveris keelatud!"
+            "Kõik tegevused mis pole päriselus võimalikud on ka serveris keelatud!"
         ]
     ],
     [
@@ -163,39 +163,50 @@ SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU S
 <body class="bg-background">
     <?php include("./modules/navbar.php") ?>
 
-    <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
+    <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%] mx-auto">
         <div class="z-10 top-0 h-16 lg:py-2.5">
-            <div class="px-12 py-8 flex items-center justify-between space-x-4 2xl:container">
+            <div class="px-12 py-8 flex items-center justify-center space-x-4 2xl:container">
                 <h5 hidden class="text-5xl font-medium text-tekst lg:block">Reeglid</h5>
             </div>
         </div>
 
         <div class="px-6 pt-20 2xl:container">
 
-    <div class="border-l rounded mt-8 border-light shadow-shadBef py-4 hover:shadow-shadAft">
-        <h3 class="text-xl font-bold leading-7 text-text px-4 mb-8 ">
-            <span class="text-2xl font-semibold text-accent">OLUSTIK:</span>
-        </h3>
-        <div class="px-8 text-tekst">
-               <p>Shining San Andreas asub State Of San Andreas osariigis, linnaks Los Santos kus lähedal asub Sandy Shores ja Paleto Bay linnaosad. 
-New Yorkis elavad tavapäraselt ameeriklased kelle keeleks kujuneb inglise keel - (eesti keel), kuid jagub ka Teistest riikidest olevaid kodanike. 
-New Yorkis elavatel inimestele pakutakse riigi poolt erinevaid tööotsi elatise teenimiseks. Ilm võib olla oluliselt muutuv. Riigi juhtimisega tegeleb linnavalitsus, kes abistab riigis elavaid kodanike, juhul kui seda neil vaja on. Riik peab ka oluliseks erinevaid sündmusi - jõulud, halloween, et tuua kogu San Andrease pere kokku. Siin linnas meie ei tea mis riigid on - Wortex RP. - (Samuti ka ei puutu me kokku ka eestlastega).
-Server põhineb Ameerika Ühendriigis, New York City's. </p>
-</div>
-    </div>
+            <div class="border-l rounded mt-8 border-light shadow-shadBef py-4 hover:shadow-shadAft">
+                <h3 class="text-xl font-bold leading-7 text-text px-4 mb-8 ">
+                    <span class="text-2xl font-semibold text-accent">OLUSTIK:</span>
+                </h3>
+                <div class="px-8 text-tekst">
+                    <p>Shining San Andreas asub State Of San Andreas osariigis, linnaks Los Santos kus lähedal asub
+                        Sandy Shores ja Paleto Bay linnaosad.
+                        New Yorkis elavad tavapäraselt ameeriklased kelle keeleks kujuneb inglise keel - (eesti keel),
+                        kuid jagub ka Teistest riikidest olevaid kodanike.
+                        New Yorkis elavatel inimestele pakutakse riigi poolt erinevaid tööotsi elatise teenimiseks. Ilm
+                        võib olla oluliselt muutuv. Riigi juhtimisega tegeleb linnavalitsus, kes abistab riigis elavaid
+                        kodanike, juhul kui seda neil vaja on. Riik peab ka oluliseks erinevaid sündmusi - jõulud,
+                        halloween, et tuua kogu San Andrease pere kokku. Siin linnas meie ei tea mis riigid on - Wortex
+                        RP. - (Samuti ka ei puutu me kokku ka eestlastega).
+                        Server põhineb Ameerika Ühendriigis, New York City's. </p>
+                </div>
+            </div>
 
-</div>
+        </div>
 
         <div class="px-6 pt-20 2xl:container pb-10">
 
             <?php foreach ($rules as $key => $section): ?>
                 <div class="border-l rounded mt-8 border-light shadow-shadBef py-4 hover:shadow-shadAft">
                     <h3 class="text-xl font-bold leading-7 text-tekst px-4 mb-8 ">
-                        <span class="text-2xl font-semibold text-accent"><?php echo 'REEGEL ' . ($key + 1); ?>:</span> <?php echo $section["section_name"]; ?>
+                        <span class="text-2xl font-semibold text-accent">
+                            <?php echo 'REEGEL ' . ($key + 1); ?>:
+                        </span>
+                        <?php echo $section["section_name"]; ?>
                     </h3>
                     <ul class="px-8 text-tekst">
                         <?php foreach ($section["rules"] as $rule): ?>
-                            <li>• <?php echo $rule; ?></li>
+                            <li>•
+                                <?php echo $rule; ?>
+                            </li>
                         <?php endforeach; ?>
                     </ul>
                 </div>
@@ -206,4 +217,5 @@ Server põhineb Ameerika Ühendriigis, New York City's. </p>
 </body>
 
 <?php include("./modules/footer.php") ?>
+
 </html>

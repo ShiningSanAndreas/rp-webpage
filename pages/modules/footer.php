@@ -11,15 +11,15 @@
 <footer class="bg-primary h-72 bottom-0 relative">
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat brightness-[0.3] bg-[url('.././assets/fivemlistabanner.png')]">
     </div>
-    <div class="relative z-10 mx-auto w-full max-w-screen-xl ">
+    <div class="relative z-10 mx-auto w-full max-w-screen-xl">
         <div class="flex flex-row justify-between rounded-md">
-            <div class="flex flex-col ml-24 mt-10">
+            <div class="flex flex-col mt-10">
                 <a href="home.php">
                     <h1 class=" text-tekst text-2xl font-medium">ShiningRP</h1>
                 </a>   
                 <p class="text-tekst flex-shrink w-64">Shining San Andreas on Eestis kohalikult arendatud ja lorem ipsum dolor sit amer</p>
             </div>
-            <div class="grid gap-12 sm:gap-6 grid-cols-3 pr-32 mb-8 mt-2">
+            <div class="grid gap-12 sm:gap-6 grid-cols-3 mb-8 mt-2">
                 <div>
                     <h2 class="mb-6 mt-8 text-lg font-semibold text-accent uppercase">Menüü</h2>
                     <ul class="font-medium">
