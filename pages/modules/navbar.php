@@ -3,19 +3,20 @@
 include("../config.php");
 
 try {
-  $db = new PDO($configDsn, $configDbName, $configDbPw);
-  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$db = new PDO($configDsn, $configDbName, $configDbPw);
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-  echo $e->getMessage();
-}
+echo $e->getMessage();
+} */
 
 session_start();
 
-$isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
+$isLoggedIn = true;
+//isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
 
 // Check if the current page is not the landing page or homepage
 $currentPage = basename($_SERVER["PHP_SELF"]);
-
+/*
 // Extract user data only if logged in
 $userData = isset($_SESSION["userData"]) ? $_SESSION["userData"] : [];
 extract($userData);
@@ -60,40 +61,45 @@ if ($db) {
         <span class="self-center text-2xl font-semibold whitespace-nowrap text-tekst">ShiningRP</span>
       </a>
       <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-        <?php //if ($isLoggedIn) { ?>
+        <?php if ($isLoggedIn) { ?>
           <button type="button" class="flex text-sm bg-light rounded-full md:me-0 focus:ring-4 focus:ring-light"
             id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
             data-dropdown-placement="right">
             <img class="w-12 h-12 rounded-full" src="../assets/boombox.jpg" alt="user photo">
           </button>
-          <div class="px-4">
+          <div class="flex flex-row px-4">
             <!-- You can fetch user information dynamically using PHP -->
-            <span class="block text-md font-medium text-tekst">
-              <?php //echo $username; ?>
-            </span>
-            <div class="flex flex-row justify-center">
-              <span class="block text-md font-medium text-tekst ">
-                <?php //echo $_SESSION["userBalance"]; ?>
+            <div class="flex flex-col">
+              <span class="block text-md font-medium text-tekst">
+                <?php //echo $username; ?>Tormi
               </span>
-              <img class="w-4 h-4 rounded-full ml-1 mt-1" src="../assets/SSACoinTop.png" alt="balance">
+              <div class="flex flex-row justify-center">
+                <span class="block text-md font-medium text-tekst ">
+                  <?php //echo $_SESSION["userBalance"]; ?>200
+                </span>
+                <img class="w-4 h-4 rounded-full ml-1 mt-1" src="../assets/SSACoinTop.png" alt="balance">
+              </div>
             </div>
+            <a href="cart.php" class="pl-8">
+              <iconify-icon icon="fluent:cart-16-regular" style="color: white;" width="45" height="45"></iconify-icon>
+            </a>
           </div>
           <!-- Dropdown menu -->
           <div class="z-50 hidden text-base list-none bg-primary rounded-lg" id="user-dropdown">
             <ul class="py-2" aria-labelledby="user-menu-button">
               <li>
-                <a href="#" class="block px-4 py-2 text-sm text-tekst hover:bg-accent">Sign out</a>
+                <a href="logout.php" class="block px-4 py-2 text-sm text-tekst hover:bg-accent">Sign out</a>
               </li>
             </ul>
           </div>
-        <?php //} else { ?>
+        <?php } else { ?>
           <a href="landing.php">
             <button type="button"
               class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-tekst text-xl px-5 py-2.5 text-center">
               Logi Sisse
             </button>
           </a>
-        <?php //} ?>
+        <?php } ?>
         <button data-collapse-toggle="navbar-user" type="button"
           class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-tekst rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
           aria-controls="navbar-user" aria-expanded="false">

@@ -29,8 +29,8 @@ $_SESSION["whitelist_status"] = isUserWhitelisted($discord_id, $db);
 $players_total = getAllPlayers($db);
 $characterData = getUserCharacters($discord_id, $db);
 
-
 */
+
 ?>
 <!doctype html>
 <html>

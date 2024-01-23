@@ -1,18 +1,13 @@
-<?php
-//session_start();
+<?php 
 
-//$isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
+$isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
 
-/*if (!$isLoggedIn) {
-    header("Location: landing.php");
-    exit();
-}*/
 
 //extract($_SESSION["userData"]);
-//$avatar_url = "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg";
+
 
 $current_page = "rules";
-//include('components/sidebar.php');
+
 
 $rules = [
     [

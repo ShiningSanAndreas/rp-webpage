@@ -1,4 +1,4 @@
-<?php
+<?php /*
 include("config.php");
 session_start();
 
@@ -12,7 +12,7 @@ try {
 extract($_SESSION["userData"]);
 $avatar_url = "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg";
 $current_page = "whitelist";
-
+*/
 if (!$_SESSION["quiz_completed"]) {
     header("Location: ../404/error.php"); // Redirect to an error page if the quiz is not completed
     exit();

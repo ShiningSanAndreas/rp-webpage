@@ -16,10 +16,10 @@ $discord_code = $_GET['code'];
 
 $payload = [
     'code' => $discord_code,
-    'client_id' => '1193907621749600256',
+    'client_id' => '1164885070272802916',
     'client_secret' => 'IkPYC7yxAqH_tRVIxV0Z_Hn24PX9pooE',
     'grant_type' => 'authorization_code',
-    'redirect_uri' => 'http://localhost/rp-webpage/vendor/webcp/discord/process-oauth.php',
+    'redirect_uri' => 'http://shiningrp/vendor/webcp/discord/process-oauth.php',
     'scope' => 'identify%20guids',
 ];
 
@@ -85,7 +85,7 @@ if (isset($result['access_token'])) {
             'avatar'=>$result['avatar'],
             'global_name'=> $result['global_name'],
         ];
-        header('Location: ../../../dashboard.php');
+        header('Location: ../../../home.php');
     
 
     exit();
