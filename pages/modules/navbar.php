@@ -1,22 +1,18 @@
 <html>
-<?php /*
+<?php
 include("../config.php");
 
 try {
-$db = new PDO($configDsn, $configDbName, $configDbPw);
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $db = new PDO($configDsn, $configDbName, $configDbPw);
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-echo $e->getMessage();
-} */
+  echo $e->getMessage();
+}
 
 session_start();
 
-$isLoggedIn = true;
-//isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
+$isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
 
-// Check if the current page is not the landing page or homepage
-$currentPage = basename($_SERVER["PHP_SELF"]);
-/*
 // Extract user data only if logged in
 $userData = isset($_SESSION["userData"]) ? $_SESSION["userData"] : [];
 extract($userData);
@@ -24,14 +20,9 @@ extract($userData);
 $avatar_url = $isLoggedIn ? "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg" : "";
 $current_page = "home";
 
-// Check if the database connection is successful
-if ($db) {
-  $players_money = getAllPlayersMoney($db);
-  $_SESSION["userBalance"] = $isLoggedIn ? getUserBalance($discord_id, $db) : 0;
-  $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db) : false;
-  $players_total = getAllPlayers($db);
-  $characterData = $isLoggedIn ? getUserCharacters($discord_id, $db) : [];
-} */
+
+$_SESSION["userBalance"] = $isLoggedIn ? getUserBalance($discord_id, $db) : 0;
+$_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db) : false;
 ?>
 
 <head>
