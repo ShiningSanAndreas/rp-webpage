@@ -1,15 +1,5 @@
 <html>
 <?php
-include("../config.php");
-
-try {
-  $db = new PDO($configDsn, $configDbName, $configDbPw);
-  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-  echo $e->getMessage();
-}
-
-session_start();
 
 $isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
 
@@ -18,8 +8,6 @@ $userData = isset($_SESSION["userData"]) ? $_SESSION["userData"] : [];
 extract($userData);
 
 $avatar_url = $isLoggedIn ? "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg" : "";
-$current_page = "home";
-
 
 $_SESSION["userBalance"] = $isLoggedIn ? getUserBalance($discord_id, $db) : 0;
 $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db) : false;
@@ -62,11 +50,11 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
             <!-- You can fetch user information dynamically using PHP -->
             <div class="flex flex-col">
               <span class="block text-md font-medium text-tekst">
-                <?php //echo $username; ?>Tormi
+                <?php echo $username; ?>Tormi
               </span>
               <div class="flex flex-row justify-center">
                 <span class="block text-md font-medium text-tekst ">
-                  <?php //echo $_SESSION["userBalance"]; ?>200
+                  <?php echo $_SESSION["userBalance"]; ?>200
                 </span>
                 <img class="w-4 h-4 rounded-full ml-1 mt-1" src="../assets/SSACoinTop.png" alt="balance">
               </div>

@@ -1,3 +1,15 @@
+<?php 
+include("../config.php");
+
+try {
+    $db = new PDO($configDsn, $configDbName, $configDbPw);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo $e->getMessage(); // You should echo the error message to see the error, or handle it accordingly
+}
+session_start();
+$current_page = "home";
+?>
 <!doctype html>
 <html>
 
