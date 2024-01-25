@@ -1,7 +1,9 @@
 <?php
+include("../../../config.php");
+
 
 try {
-    $db = new PDO("mysql:host=d124452.mysql.zonevs.eu;dbname=d124452sd523953", "d124452sa474230", "57q0Hl6hmqZzCva");
+    $db = new PDO($configDsn, $configDbName, $configDbPw);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch(PDOException $e) {
     echo $e->getMessage(); // You should echo the error message to see the error, or handle it accordingly
@@ -16,10 +18,10 @@ $discord_code = $_GET['code'];
 
 $payload = [
     'code' => $discord_code,
-    'client_id' => '1164885070272802916',
-    'client_secret' => 'IkPYC7yxAqH_tRVIxV0Z_Hn24PX9pooE',
+    'client_id' => $discordClientId,
+    'client_secret' => $discordClientSecret,
     'grant_type' => 'authorization_code',
-    'redirect_uri' => 'http://shiningrp/vendor/webcp/discord/process-oauth.php',
+    'redirect_uri' => $discordRedirectUri,
     'scope' => 'identify%20guids',
 ];
 

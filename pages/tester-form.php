@@ -1,5 +1,5 @@
 <?php
-include("config.php");
+include("../config.php");
 session_start();
 $isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
 
