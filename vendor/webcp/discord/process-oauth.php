@@ -87,7 +87,7 @@ if (isset($result['access_token'])) {
             'avatar'=>$result['avatar'],
             'global_name'=> $result['global_name'],
         ];
-        header('Location: ../../../home.php');
+        header('Location: ../../../pages/home.php');
     
 
     exit();

@@ -1,23 +1,32 @@
 <html>
 <?php
+include("../config.php");
+
+try {
+  $db = new PDO($configDsn, $configDbName, $configDbPw);
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo $e->getMessage(); // You should echo the error message to see the error, or handle it accordingly
+}
+
 
 $isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
-
-// Extract user data only if logged in
-$userData = isset($_SESSION["userData"]) ? $_SESSION["userData"] : [];
-extract($userData);
+extract($_SESSION["userData"]);
 
 $avatar_url = $isLoggedIn ? "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg" : "";
 
-$_SESSION["userBalance"] = $isLoggedIn ? getUserBalance($discord_id, $db) : 0;
-$_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db) : false;
+$players_money = getAllPlayersMoney($db);
+$_SESSION["userBalance"] = getUserBalance($discord_id, $db);
+$_SESSION["whitelist_status"] = isUserWhitelisted($discord_id, $db);
+$players_total = getAllPlayers($db);
 ?>
 
 <head>
   <link href="../styles/output.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@X.X.X/dist/flowbite.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-
     const $targetEl = document.getElementById('targetEl');
     const $triggerEl = document.getElementById('triggerEl');
 
@@ -26,7 +35,7 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
       override: true
     };
 
-    const collapse = new Collapse($targetEl, $triggerEl, options, instanceOptions);
+    const collapse = new Collapse($targetEl, $triggerEl, instanceOptions);
     collapse.toggle();
 
   </script>
@@ -44,17 +53,17 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
           <button type="button" class="flex text-sm bg-light rounded-full md:me-0 focus:ring-4 focus:ring-light"
             id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
             data-dropdown-placement="right">
-            <img class="w-12 h-12 rounded-full" src="../assets/boombox.jpg" alt="user photo">
+            <img class="w-12 h-12 rounded-full" src="<?php echo $avatar_url ?>" alt="user photo">
           </button>
           <div class="flex flex-row px-4">
             <!-- You can fetch user information dynamically using PHP -->
             <div class="flex flex-col">
               <span class="block text-md font-medium text-tekst">
-                <?php echo $username; ?>Tormi
+              <?php echo $global_name ?>
               </span>
               <div class="flex flex-row justify-center">
                 <span class="block text-md font-medium text-tekst ">
-                  <?php echo $_SESSION["userBalance"]; ?>200
+                  <?php echo $_SESSION["userBalance"]; ?>
                 </span>
                 <img class="w-4 h-4 rounded-full ml-1 mt-1" src="../assets/SSACoinTop.png" alt="balance">
               </div>
@@ -112,8 +121,68 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
       </div>
     </div>
   </nav>
-  <script src="https://cdn.jsdelivr.net/npm/flowbite@X.X.X/dist/flowbite.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </body>
 
 </html>
+<?php
+
+function getAllPlayersMoney($db)
+{
+    $query = $db->prepare("SELECT money FROM players");
+    $query->execute();
+    $results = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    // Initialize the total money to 0
+    $totalMoney = 0;
+
+    // Loop through the results and accumulate the money
+    foreach ($results as $row) {
+        $money = json_decode($row["money"], true);
+        if (isset($money["bank"])) {
+            $totalMoney += $money["bank"];
+        }
+        if (isset($money["cash"])) {
+            $totalMoney += $money["cash"];
+        }
+    }
+
+    return $totalMoney;
+}
+
+function getAllPlayers($db)
+{
+    $query = $db->prepare("SELECT cid FROM players");
+    $query->execute();
+    $results = $query->fetchAll(PDO::FETCH_ASSOC);
+
+    $totalCharacterCount = 0;
+
+    foreach ($results as $row) {
+        foreach ($row as $key => $value) {
+            $totalCharacterCount += strlen($value);
+        }
+    }
+
+    return $totalCharacterCount;
+}
+
+
+function getUserBalance($discord_id, $db)
+{
+    $query = $db->prepare("SELECT balance FROM ucp_users WHERE discord_id = :discord_id");
+    $query->bindParam(':discord_id', $discord_id);
+    $query->execute();
+    $result = $query->fetch(PDO::FETCH_ASSOC);
+    return $result["balance"];
+}
+
+function isUserWhitelisted($discord_id, $db)
+{
+    $query = $db->prepare("SELECT COUNT(*) as count FROM player_whitelists WHERE identifier = :discord_id");
+    $query->bindParam(':discord_id', $discord_id);
+    $query->execute();
+    $result = $query->fetch(PDO::FETCH_ASSOC);
+
+    return $result['count'] > 0;
+}
+?>

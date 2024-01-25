@@ -1,27 +1,30 @@
-<?php /*
+<?php
 include("config.php");
+
+try {
+    $db = new PDO($configDsn, $configDbName, $configDbPw);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo $e->getMessage(); // You should echo the error message to see the error, or handle it accordingly
+}
 session_start();
+
 $isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
 
 if (!$isLoggedIn) {
-header("Location: landing.php");
-exit();
+    header("Location: landing.php");
+    exit();
 }
 
-try {
-$db = new PDO($configDsn, $configDbName, $configDbPw);
-$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-echo $e->getMessage(); // You should echo the error message to see the error, or handle it accordingly
-}
+
 extract($_SESSION["userData"]);
 $avatar_url = "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg";
 $current_page = "whitelist";
 
 
-$timer_from_db = getWhitelistTimer($discord_id, $db);
+//$timer_from_db = getWhitelistTimer($discord_id, $db);
 
-*/
+
 // Define an array for questions and answer choices
 $questions = [
     1 => [
@@ -144,9 +147,9 @@ $currentQuestionData = $questions[$currentQuestion];
 
 <body class="bg-background">
     <div class="mb-6">
-            <div class="flex items-center justify-center mt-16">
-                <h5 hidden class="text-5xl text-tekst font-medium block">Whitelist</h5>
-            </div>
+        <div class="flex items-center justify-center mt-16">
+            <h5 hidden class="text-5xl text-tekst font-medium block">Whitelist</h5>
+        </div>
 
         <div class="px-6 pt-6 2xl:container">
             <?php if ($_SESSION["whitelist_status"]): ?>

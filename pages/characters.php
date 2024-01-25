@@ -1,5 +1,5 @@
 <?php 
-include("config.php");
+include("../config.php");
 
 try {
     $db = new PDO($configDsn, $configDbName, $configDbPw);
@@ -7,8 +7,6 @@ try {
 } catch (PDOException $e) {
     echo $e->getMessage(); // You should echo the error message to see the error, or handle it accordingly
 }
-
-
 
 session_start();
 
@@ -23,12 +21,7 @@ extract($_SESSION["userData"]);
 $avatar_url = "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg";
 $current_page = "characters";
 
-$players_money = getAllPlayersMoney($db);
-$_SESSION["userBalance"] = getUserBalance($discord_id, $db);
-$_SESSION["whitelist_status"] = isUserWhitelisted($discord_id, $db);
-$players_total = getAllPlayers($db);
 $characterData = getUserCharacters($discord_id, $db);
-
 
 ?>
 <!doctype html>
@@ -93,66 +86,6 @@ $characterData = getUserCharacters($discord_id, $db);
 </html>
 
 <?php
-
-function getAllPlayersMoney($db)
-{
-    $query = $db->prepare("SELECT money FROM players");
-    $query->execute();
-    $results = $query->fetchAll(PDO::FETCH_ASSOC);
-
-    // Initialize the total money to 0
-    $totalMoney = 0;
-
-    // Loop through the results and accumulate the money
-    foreach ($results as $row) {
-        $money = json_decode($row["money"], true);
-        if (isset($money["bank"])) {
-            $totalMoney += $money["bank"];
-        }
-        if (isset($money["cash"])) {
-            $totalMoney += $money["cash"];
-        }
-    }
-
-    return $totalMoney;
-}
-
-function getAllPlayers($db)
-{
-    $query = $db->prepare("SELECT cid FROM players");
-    $query->execute();
-    $results = $query->fetchAll(PDO::FETCH_ASSOC);
-
-    $totalCharacterCount = 0;
-
-    foreach ($results as $row) {
-        foreach ($row as $key => $value) {
-            $totalCharacterCount += strlen($value);
-        }
-    }
-
-    return $totalCharacterCount;
-}
-
-
-function getUserBalance($discord_id, $db)
-{
-    $query = $db->prepare("SELECT balance FROM ucp_users WHERE discord_id = :discord_id");
-    $query->bindParam(':discord_id', $discord_id);
-    $query->execute();
-    $result = $query->fetch(PDO::FETCH_ASSOC);
-    return $result["balance"];
-}
-
-function isUserWhitelisted($discord_id, $db)
-{
-    $query = $db->prepare("SELECT COUNT(*) as count FROM player_whitelists WHERE identifier = :discord_id");
-    $query->bindParam(':discord_id', $discord_id);
-    $query->execute();
-    $result = $query->fetch(PDO::FETCH_ASSOC);
-
-    return $result['count'] > 0;
-}
 function getUserCharacters($discord_id, $db)
 {
     $query = $db->prepare("SELECT * FROM players WHERE discord = :discord_id");

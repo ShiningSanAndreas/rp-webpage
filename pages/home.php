@@ -1,17 +1,10 @@
-<?php
-include("../config.php");
-
-try {
-    $db = new PDO($configDsn, $configDbName, $configDbPw);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo $e->getMessage(); // You should echo the error message to see the error, or handle it accordingly
-}
-session_start();
-$current_page = "home";
-?>
 <!doctype html>
 <html>
+
+<?php 
+session_start();
+$current_page = "Home";
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -25,7 +18,6 @@ $current_page = "home";
 <?php include("./modules/navbar.php") ?>
 
 <body class="bg-background">
-
 
     <?php include("./modules/caroussel.php") ?>
 

@@ -1,10 +1,6 @@
 <?php 
 
-$isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
-
-
-//extract($_SESSION["userData"]);
-
+session_start();
 
 $current_page = "rules";
 
