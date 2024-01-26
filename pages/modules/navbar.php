@@ -11,7 +11,10 @@ try {
 
 
 $isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
-extract($_SESSION["userData"]);
+
+if($isLoggedIn){
+  extract($_SESSION["userData"]);
+}
 
 $avatar_url = $isLoggedIn ? "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg" : "";
 

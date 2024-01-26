@@ -4,6 +4,7 @@
 <?php 
 session_start();
 $current_page = "Home";
+
 ?>
 
 <head>
