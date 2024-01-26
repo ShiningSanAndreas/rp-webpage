@@ -19,26 +19,38 @@ session_start();
 </head>
 
 <?php include("./modules/navbar.php") ?>
-<?php /*
-require_once 'vendor/autoload.php';
+<?php
+require_once('../vendor/autoload.php'); // Adjust the path if necessary
 
 \Stripe\Stripe::setApiKey('pk_test_51ObfVYHrzkqAe0wL9Y966ZlzOMXLi19t78w5Ljkg3Vi2tfnl77p0nRf4c8XFf1jtWR9C5oTnzxrAmNyA8MBcO0iv00qEQAsl5M');
 
-header('Content-Type: application/json');
+// ... (other code)
 
-try {
-$intent = \Stripe\PaymentIntent::create([
-   'amount' => 500, // Amount in cents
-   'currency' => 'usd',
-]);
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkout'])) {
+    $session = \Stripe\Checkout\Session::create([
+        'payment_method_types' => ['card'],
+        'line_items' => [
+            [
+                'price_data' => [
+                    'currency' => 'eur',
+                    'product_data' => [
+                        'name' => 'Coin',
+                    ],
+                    'unit_amount' => 1000, // Replace with the actual price in cents
+                ],
+                'quantity' => 1,
+            ],
+        ],
+        'mode' => 'payment',
+        'success_url' => './success.php', // Replace with your success URL
+        'cancel_url' => './cancel.php',   // Replace with your cancel URL
+    ]);
 
-echo json_encode(['clientSecret' => $intent->client_secret]);
-} catch (\Exception $e) {
-http_response_code(500);
-echo json_encode(['error' => $e->getMessage()]);
-} */
+    header('Location: ' . $session->url);
+    exit;
+}
 ?>
-
+//
 <body class="bg-background">
     <div class="ml-auto mb-6 lg:w-[70%] xl:w-[75%] 2xl:w-[85%] mx-auto">
         <div class="text-tekst mt-16 mb-6 flex justify-center">

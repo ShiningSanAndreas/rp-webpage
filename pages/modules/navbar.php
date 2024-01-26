@@ -12,7 +12,7 @@ try {
 
 $isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
 
-if($isLoggedIn){
+if ($isLoggedIn) {
   extract($_SESSION["userData"]);
 }
 
@@ -62,7 +62,7 @@ $players_total = getAllPlayers($db);
             <!-- You can fetch user information dynamically using PHP -->
             <div class="flex flex-col">
               <span class="block text-md font-medium text-tekst">
-              <?php echo $global_name ?>
+                <?php echo $global_name ?>
               </span>
               <div class="flex flex-row justify-center">
                 <span class="block text-md font-medium text-tekst ">
@@ -71,10 +71,12 @@ $players_total = getAllPlayers($db);
                 <img class="w-4 h-4 rounded-full ml-1 mt-1" src="../assets/SSACoinTop.png" alt="balance">
               </div>
             </div>
+            <?php if ($current_page === 'shop'):?>
             <a href="cart.php" class="pl-8">
               <iconify-icon icon="fluent:cart-16-regular" style="color: white;" width="45" height="45"></iconify-icon>
             </a>
-          </div>
+            <?php endif; ?>
+          </div>       
           <!-- Dropdown menu -->
           <div class="z-50 hidden text-base list-none bg-primary rounded-lg" id="user-dropdown">
             <ul class="py-2" aria-labelledby="user-menu-button">
@@ -131,61 +133,61 @@ $players_total = getAllPlayers($db);
 
 function getAllPlayersMoney($db)
 {
-    $query = $db->prepare("SELECT money FROM players");
-    $query->execute();
-    $results = $query->fetchAll(PDO::FETCH_ASSOC);
+  $query = $db->prepare("SELECT money FROM players");
+  $query->execute();
+  $results = $query->fetchAll(PDO::FETCH_ASSOC);
 
-    // Initialize the total money to 0
-    $totalMoney = 0;
+  // Initialize the total money to 0
+  $totalMoney = 0;
 
-    // Loop through the results and accumulate the money
-    foreach ($results as $row) {
-        $money = json_decode($row["money"], true);
-        if (isset($money["bank"])) {
-            $totalMoney += $money["bank"];
-        }
-        if (isset($money["cash"])) {
-            $totalMoney += $money["cash"];
-        }
+  // Loop through the results and accumulate the money
+  foreach ($results as $row) {
+    $money = json_decode($row["money"], true);
+    if (isset($money["bank"])) {
+      $totalMoney += $money["bank"];
     }
+    if (isset($money["cash"])) {
+      $totalMoney += $money["cash"];
+    }
+  }
 
-    return $totalMoney;
+  return $totalMoney;
 }
 
 function getAllPlayers($db)
 {
-    $query = $db->prepare("SELECT cid FROM players");
-    $query->execute();
-    $results = $query->fetchAll(PDO::FETCH_ASSOC);
+  $query = $db->prepare("SELECT cid FROM players");
+  $query->execute();
+  $results = $query->fetchAll(PDO::FETCH_ASSOC);
 
-    $totalCharacterCount = 0;
+  $totalCharacterCount = 0;
 
-    foreach ($results as $row) {
-        foreach ($row as $key => $value) {
-            $totalCharacterCount += strlen($value);
-        }
+  foreach ($results as $row) {
+    foreach ($row as $key => $value) {
+      $totalCharacterCount += strlen($value);
     }
+  }
 
-    return $totalCharacterCount;
+  return $totalCharacterCount;
 }
 
 
 function getUserBalance($discord_id, $db)
 {
-    $query = $db->prepare("SELECT balance FROM ucp_users WHERE discord_id = :discord_id");
-    $query->bindParam(':discord_id', $discord_id);
-    $query->execute();
-    $result = $query->fetch(PDO::FETCH_ASSOC);
-    return $result["balance"];
+  $query = $db->prepare("SELECT balance FROM ucp_users WHERE discord_id = :discord_id");
+  $query->bindParam(':discord_id', $discord_id);
+  $query->execute();
+  $result = $query->fetch(PDO::FETCH_ASSOC);
+  return $result["balance"];
 }
 
 function isUserWhitelisted($discord_id, $db)
 {
-    $query = $db->prepare("SELECT COUNT(*) as count FROM player_whitelists WHERE identifier = :discord_id");
-    $query->bindParam(':discord_id', $discord_id);
-    $query->execute();
-    $result = $query->fetch(PDO::FETCH_ASSOC);
+  $query = $db->prepare("SELECT COUNT(*) as count FROM player_whitelists WHERE identifier = :discord_id");
+  $query->bindParam(':discord_id', $discord_id);
+  $query->execute();
+  $result = $query->fetch(PDO::FETCH_ASSOC);
 
-    return $result['count'] > 0;
+  return $result['count'] > 0;
 }
 ?>

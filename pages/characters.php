@@ -1,4 +1,4 @@
-<?php 
+<?php
 include("../config.php");
 
 try {
@@ -44,39 +44,48 @@ $characterData = getUserCharacters($discord_id, $db);
             <h2 class="text-5xl font-semibold">Karakterid</h2>
         </div>
         <div class="flex flex-row flex-wrap justify-center mb-24">
-        <?php for ($i = 0; $i < 5; $i++): ?>
-            <!-- First Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 mb-8">
-                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-72 h-64 object-cover object-top"/>
-                <div class="text-white text-center">
-                    <p class="text-2xl font-bold">firstName, lastName</p>
-                    <p class="text-md">Sünniaeg: {user.reg}</p>
-                    <p class="text-md">Isikukood: {id}</p>
-                    <p class="text-md">Amet: {user.job}, {user.jobGrade}</p>
-                    <p class="text-md">Sularaha: {user.cash}</p>
-                    <p class="text-md">Pangas: {user.bank}</p>
-                    <p class="text-md mt-12">Kriminimi: {user.criminal}</p>
-                    <p class="text-md mb-4">Jõuk: {user.affiliatedGang}</p>
-                </div>
-            </div>
+            <?php for ($i = 0; $i < 5; $i++): ?>
+                <?php if ($i < count($characterData)): ?>
+                    <?php $character = $characterData[$i]; ?>
+                    <?php $charinfo = json_decode($character['charinfo'], true); ?>
+                    <?php $jobinfo = json_decode($character['job'], true); ?>
+                    <?php $moneyinfo = json_decode($character['money'], true); ?>
+                    <?php $playtimeFormatted = floor($character['playtime'] / 3600) . ' Hours ' . floor(($character['playtime'] % 3600) / 60) . ' Minutes'; ?>
+                    <!-- First Character Container -->
+                    <div
+                        class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 mb-8">
+                        <img src="../assets/lisakarakter.png" alt="Pood Custom Car"
+                            class="p-4 w-72 h-64 object-cover object-top" />
+                        <div class="text-white text-center">
+                            <p class="text-2xl font-bold"><?= $charinfo['firstname'] ?>, <?= $charinfo['lastname'] ?></p>
+                            <p class="text-md">Sünniaeg: {user.reg}</p>
+                            <p class="text-md">Isikukood: <?= $character['citizenid'] ?></p>
+                            <p class="text-md">Amet: <?= $jobinfo['label'] ?>, <?= $jobinfo['grade']['name'] ?></p>
+                            <p class="text-md">Sularaha: $<?= $moneyinfo['cash'] ?></p>
+                            <p class="text-md">Pangas: $<?= $moneyinfo['bank'] ?></p>
+                            <p class="text-md mt-12">Kriminimi: criminal</p>
+                            <p class="text-md mb-4">Jõuk: gang</p>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <!-- Second Character Container -->
+                    <div
+                        class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 mb-8 blur-sm">
+                        <img src="../assets/lisakarakter.png" alt="Pood Custom Car"
+                            class="p-4 w-72 h-64 object-cover object-top" />
+                        <div class="text-white text-center">
+                            <p class="text-2xl font-bold">firstName, lastName</p>
+                            <p class="text-md">Sünniaeg: dob</p>
+                            <p class="text-md">Isikukood: id</p>
+                            <p class="text-md">Amet: job</p>
+                            <p class="text-md">Sularaha: cash</p>
+                            <p class="text-md">Pangas: bank</p>
+                            <p class="text-md mt-12">Kriminimi: criminal</p>
+                            <p class="text-md mb-4">Jõuk: gang</p>
+                        </div>
+                    </div>
+                <?php endif; ?>
             <?php endfor; ?>
-            <?php // else: ?>
-            <!-- Second Character Container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 mb-8 blur-sm">
-                <img src="../assets/lisakarakter.png" alt="Pood Custom Car" class="p-4 w-72 h-64 object-cover object-top" />
-                <div class="text-white text-center">
-                    <p class="text-2xl font-bold">firstName, lastName</p>
-                    <p class="text-md">Sünniaeg: {user.reg}</p>
-                    <p class="text-md">Isikukood: {id}</p>
-                    <p class="text-md">Amet: {user.job}, {user.jobGrade}</p>
-                    <p class="text-md">Sularaha: {user.cash}</p>
-                    <p class="text-md">Pangas: {user.bank}</p>
-                    <p class="text-md mt-12">Kriminimi: {user.criminal}</p>
-                    <p class="text-md mb-4">Jõuk: {user.affiliatedGang}</p>
-                </div>
-            </div>
-            <?php // endif; ?>
-
         </div>
     </div>
 
