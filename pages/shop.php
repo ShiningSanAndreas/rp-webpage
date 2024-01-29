@@ -12,6 +12,7 @@ $current_page = "shop";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
     <link href="../styles/output.css" rel="stylesheet" />
     <title>Pood - ShiningRP</title>
 </head>
@@ -40,6 +41,7 @@ $current_page = "shop";
                 <div class="text-white text-center flex-shrink">
                     <p class="text-2xl font-bold mt-12">100 coini</p>
                     <p class="text-2xl font-bold mt-2">10€</p>
+                    <button id="checkout-button">Purchase</button>
                     <?php include('./modules/shopButton.php')?>
                 </div>
             </div>
@@ -132,3 +134,32 @@ $current_page = "shop";
 <?php include('./modules/footer.php') ?>
 
 </html>
+
+<script>
+    var stripe = Stripe('pk_test_51OXMazJYQ5I7nITlMEkeqSOjpPpla0wKo0IzA08xhwQ3E5SRW5cwTgkOGO89iJSkgeR58OvqlsaQkGyMBKvOIUSa00RjgtHI6A');
+    var checkoutButton = document.getElementById('checkout-button');
+
+    checkoutButton.addEventListener('click', function () {
+        // Create a Checkout Session with your server-side endpoint
+        fetch('./create-checkout-session.php', {
+            method: 'POST',
+        })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (session) {
+            // Call Stripe.js to redirect to the checkout page
+            return stripe.redirectToCheckout({ sessionId: session.id });
+        })
+        .then(function (result) {
+            // If `redirectToCheckout` fails due to a browser or network
+            // error, you should display the localized error message to your customer
+            if (result.error) {
+                alert(result.error.message);
+            }
+        })
+        .catch(function (error) {
+            console.error('Error:', error);
+        });
+    });
+</script>
