@@ -71,11 +71,6 @@ $players_total = getAllPlayers($db);
                 <img class="w-4 h-4 rounded-full ml-1 mt-1" src="../assets/SSACoinTop.png" alt="balance">
               </div>
             </div>
-            <?php if ($current_page === 'shop'):?>
-            <a href="cart.php" class="pl-8">
-              <iconify-icon icon="fluent:cart-16-regular" style="color: white;" width="45" height="45"></iconify-icon>
-            </a>
-            <?php endif; ?>
           </div>       
           <!-- Dropdown menu -->
           <div class="z-50 hidden text-base list-none bg-primary rounded-lg" id="user-dropdown">

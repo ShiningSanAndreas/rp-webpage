@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 
-<?php 
+<?php
 session_start();
 $current_page = "Home";
 
@@ -145,6 +145,7 @@ $current_page = "Home";
             </div>
         </div>
     </div>
+
     </div>
 
 </body>
