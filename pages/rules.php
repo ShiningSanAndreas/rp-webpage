@@ -156,15 +156,15 @@ SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU S
 <?php include("./modules/navbar.php") ?>
 <body class="bg-background">
     <div class="ml-auto mb-6 container mx-auto">
-        <div class="z-10 top-0 h-16 lg:py-2.5">
-            <div class="px-12 py-8 flex items-center justify-center space-x-4 2xl:container">
+        <div class="lg:py-2.5">
+            <div class="px-12 my-16 flex items-center justify-center space-x-4">
                 <h5 hidden class="text-5xl font-medium text-tekst lg:block">Reeglid</h5>
             </div>
         </div>
 
-        <div class="px-6 pt-20 2xl:container">
+        <div class="px-6">
 
-            <div class="border-l rounded mt-8 border-light shadow-shadBef py-4 hover:shadow-shadAft">
+            <div class="border-l rounded border-light shadow-shadBef hover:shadow-shadAft">
                 <h3 class="text-xl font-bold leading-7 text-text px-4 mb-8 ">
                     <span class="text-2xl font-semibold text-accent">OLUSTIK:</span>
                 </h3>

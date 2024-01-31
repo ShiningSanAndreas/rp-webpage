@@ -150,8 +150,8 @@ $currentQuestionData = $questions[$currentQuestion];
 <?php include('./modules/navbar.php') ?>
 
 <body class="bg-background">
-    <div class="mb-6">
-        <div class="flex items-center justify-center mt-16">
+    <div class="mb-6 container-lg">
+        <div class="flex items-center justify-center my-16">
             <h5 hidden class="text-5xl text-tekst font-medium block">Whitelist</h5>
         </div>
 
