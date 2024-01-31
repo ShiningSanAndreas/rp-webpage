@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 session_start();
 
@@ -146,15 +146,16 @@ SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU S
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="../styles/output.css" rel="stylesheet" />
     <title>Reeglid - ShiningRP</title>
 </head>
 
+<?php include("./modules/navbar.php") ?>
 <body class="bg-background">
-    <?php include("./modules/navbar.php") ?>
-
-    <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%] mx-auto">
+    <div class="ml-auto mb-6 container mx-auto">
         <div class="z-10 top-0 h-16 lg:py-2.5">
             <div class="px-12 py-8 flex items-center justify-center space-x-4 2xl:container">
                 <h5 hidden class="text-5xl font-medium text-tekst lg:block">Reeglid</h5>

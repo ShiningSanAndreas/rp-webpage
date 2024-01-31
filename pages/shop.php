@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php 
+<?php
 session_start();
+
+
 
 $current_page = "shop";
 ?>
@@ -15,6 +17,34 @@ $current_page = "shop";
     <script src="https://js.stripe.com/v3/"></script>
     <link href="../styles/output.css" rel="stylesheet" />
     <title>Pood - ShiningRP</title>
+    <script>
+    const $modalEl = document.getElementById('modalEl');
+
+    const modalOptions = {
+        placement: 'bottom-right',
+        backdrop: 'dynamic',
+        backdropClasses:
+            'bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40',
+        closable: true,
+        onHide: () => {
+            console.log('modal is hidden');
+        },
+        onShow: () => {
+            console.log('modal is shown');
+        },
+        onToggle: () => {
+            console.log('modal has been toggled');
+        },
+    };
+
+    // instance options object
+    const modalInstance = {
+        id: 'modalEl',
+        override: true
+    };
+
+    const modal = new Modal($modalEl, modalOptions, modalInstance);
+</script>
 </head>
 
 
@@ -42,7 +72,7 @@ $current_page = "shop";
                     <p class="text-2xl font-bold mt-12">100 coini</p>
                     <p class="text-2xl font-bold mt-2">10€</p>
                     <button id="checkout-button">Purchase</button>
-                    <?php include('./modules/shopButton.php')?>
+                    <?php include('./modules/shopButton.php') ?>
                 </div>
             </div>
 
@@ -52,7 +82,7 @@ $current_page = "shop";
                 <div class="text-white text-center flex-shrink">
                     <p class="text-2xl font-bold mt-12">300 + 100 coini</p>
                     <p class="text-2xl font-bold mt-2">30€</p>
-                    <?php include('./modules/shopButton.php')?>
+                    <?php include('./modules/shopButton.php') ?>
                 </div>
             </div>
 
@@ -62,7 +92,7 @@ $current_page = "shop";
                 <div class="text-white text-center flex-shrink">
                     <p class="text-2xl font-bold mt-12">500 + 150 coini</p>
                     <p class="text-2xl font-bold mt-2">50€</p>
-                    <?php include('./modules/shopButton.php')?>
+                    <?php include('./modules/shopButton.php') ?>
                 </div>
             </div>
         </div>
@@ -75,18 +105,21 @@ $current_page = "shop";
         <div class="flex flex-row justify-center mb-16">
 
             <!-- First product container -->
-            <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-80 h-auto mr-8 flex flex-col items-center">
+            <div
+                class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-80 h-auto mr-8 flex flex-col items-center">
                 <img src="../assets/car.png" width="256" height="256" alt="Pood Custom Car" class="p-4" />
                 <div class="text-white text-center flex-grow">
-                    <p class="text-dm mt-4 px-4 text-clip overflow-hidden">Osta endale kõige ägedamad ja kiiremad autod</p>
+                    <p class="text-dm mt-4 px-4 text-clip overflow-hidden">Osta endale kõige ägedamad ja kiiremad autod
+                    </p>
                 </div>
                 <div class="text-white text-center flex-shrink-0">
                     <p class="text-2xl font-bold mt-4">Ägedad autod</p>
                     <div class="flex flex-row justify-center">
                         <span class="block text-2xl font-medium text-slate-200 ">100</span>
-                        <img class="w-6 h-6 rounded-full ml-1 mt-2" src="../assets/SSACoinTop.png" alt="1st Product Price">
+                        <img class="w-6 h-6 rounded-full ml-1 mt-2" src="../assets/SSACoinTop.png"
+                            alt="1st Product Price">
                     </div>
-                    <?php include('./modules/shopButton.php')?>
+                    <?php include('./modules/shopButton.php') ?>
                 </div>
             </div>
 
@@ -103,9 +136,10 @@ $current_page = "shop";
                     <p class="text-2xl font-bold mt-4">Kõvad mudelid</p>
                     <div class="flex flex-row justify-center">
                         <span class="block text-2xl font-medium text-slate-200 ">100</span>
-                        <img class="w-6 h-6 rounded-full ml-1 mt-2" src="../assets/SSACoinTop.png" alt="2nd Product Price">
+                        <img class="w-6 h-6 rounded-full ml-1 mt-2" src="../assets/SSACoinTop.png"
+                            alt="2nd Product Price">
                     </div>
-                    <?php include('./modules/shopButton.php')?>
+                    <?php include('./modules/shopButton.php') ?>
                 </div>
             </div>
 
@@ -122,9 +156,10 @@ $current_page = "shop";
                     <p class="text-2xl font-bold mt-4">Stiilne mööbel</p>
                     <div class="flex flex-row justify-center">
                         <span class="block text-2xl font-medium text-slate-200 ">100</span>
-                        <img class="w-6 h-6 rounded-full ml-1 mt-2" src="../assets/SSACoinTop.png" alt="3rd Product Price">
+                        <img class="w-6 h-6 rounded-full ml-1 mt-2" src="../assets/SSACoinTop.png"
+                            alt="3rd Product Price">
                     </div>
-                    <?php include('./modules/shopButton.php')?>
+                    <?php include('./modules/shopButton.php') ?>
                 </div>
             </div>
         </div>
@@ -144,22 +179,22 @@ $current_page = "shop";
         fetch('./create-checkout-session.php', {
             method: 'POST',
         })
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (session) {
-            // Call Stripe.js to redirect to the checkout page
-            return stripe.redirectToCheckout({ sessionId: session.id });
-        })
-        .then(function (result) {
-            // If `redirectToCheckout` fails due to a browser or network
-            // error, you should display the localized error message to your customer
-            if (result.error) {
-                alert(result.error.message);
-            }
-        })
-        .catch(function (error) {
-            console.error('Error:', error);
-        });
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (session) {
+                // Call Stripe.js to redirect to the checkout page
+                return stripe.redirectToCheckout({ sessionId: session.id });
+            })
+            .then(function (result) {
+                // If `redirectToCheckout` fails due to a browser or network
+                // error, you should display the localized error message to your customer
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            })
+            .catch(function (error) {
+                console.error('Error:', error);
+            });
     });
 </script>

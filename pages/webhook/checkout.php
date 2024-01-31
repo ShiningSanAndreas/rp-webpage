@@ -1,6 +1,6 @@
 <?php
 require_once '../../vendor/autoload.php'; // Include Stripe PHP library
-include(".././config.php");
+include("../../config.php");
 
 \Stripe\Stripe::setApiKey('sk_test_51OXMazJYQ5I7nITlmDc3WDHEUwgHYfTYTguuip7fs5bUTaRRv7jNEvpq6wT3cidrICdZmZuyXVtMYXxTHuES1xO000t7qFwlOA');
 
@@ -28,7 +28,7 @@ if ($event->type == 'checkout.session.completed') {
 
     // Update user balance in your database
     $amount = 100; // Amount in cents
-    //updateBalance($customer_id, $amount);
+    updateBalance($customer_id, $amount);
 
     // Send Discord notification
     $message = "Purchase made by customer ID: $customer_id";
@@ -67,4 +67,4 @@ function sendDiscordNotification($webhookUrl, $message) {
 
     return $result;
 }
-?>
+

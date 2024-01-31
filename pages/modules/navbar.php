@@ -26,19 +26,17 @@ $players_total = getAllPlayers($db);
 
 <head>
   <link href="../styles/output.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/flowbite@X.X.X/dist/flowbite.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    const $targetEl = document.getElementById('targetEl');
-    const $triggerEl = document.getElementById('triggerEl');
+    const $menuEl = document.getElementById('targetEl');
+    const $triggerMenuEl = document.getElementById('triggerEl');
 
-    const instanceOptions = {
+    const menuInstance = {
       id: 'targetEl',
       override: true
     };
 
-    const collapse = new Collapse($targetEl, $triggerEl, instanceOptions);
+    const collapse = new Collapse($menuEl, $triggerMenuEl, menuInstance);
     collapse.toggle();
 
   </script>
@@ -59,7 +57,7 @@ $players_total = getAllPlayers($db);
             <img class="w-12 h-12 rounded-full" src="<?php echo $avatar_url ?>" alt="user photo">
           </button>
           <div class="flex flex-row px-4">
-            <!-- You can fetch user information dynamically using PHP -->
+            
             <div class="flex flex-col">
               <span class="block text-md font-medium text-tekst">
                 <?php echo $global_name ?>
@@ -71,8 +69,8 @@ $players_total = getAllPlayers($db);
                 <img class="w-4 h-4 rounded-full ml-1 mt-1" src="../assets/SSACoinTop.png" alt="balance">
               </div>
             </div>
-          </div>       
-          <!-- Dropdown menu -->
+          </div>
+          
           <div class="z-50 hidden text-base list-none bg-primary rounded-lg" id="user-dropdown">
             <ul class="py-2" aria-labelledby="user-menu-button">
               <li>
@@ -120,7 +118,9 @@ $players_total = getAllPlayers($db);
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> 
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@2.2.1/dist/flowbite.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
 </body>
 
 </html>

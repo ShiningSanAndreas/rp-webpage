@@ -1,4 +1,4 @@
-<?php /*
+<?php
 include("config.php");
 session_start();
 
@@ -12,7 +12,7 @@ try {
 extract($_SESSION["userData"]);
 $avatar_url = "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg";
 $current_page = "whitelist";
-*/
+
 if (!$_SESSION["quiz_completed"]) {
     header("Location: ../404/error.php"); // Redirect to an error page if the quiz is not completed
     exit();
@@ -35,6 +35,8 @@ if ($_SESSION["score"] >= 10) {
 <html>
 
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.2.1/dist/flowbite.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Whitelist valmis - ShiningRP</title>
 </head>
@@ -86,7 +88,7 @@ if ($_SESSION["score"] >= 10) {
                             <p>Ebaõnnestusid whitelisti testi sooritamisel. Valesid vastuseid:
                                 <?php echo (10 - $_SESSION["score"]) ?>
                             </p>
-                            <p>Testi uuesti suuritamine on võimalik
+                            <p>Testi uuesti sooritamine on võimalik
                                 <?php echo gmdate("i:s", ($timer_from_db - time())) ?> minutit pärast.
                             </p>
                         </div>

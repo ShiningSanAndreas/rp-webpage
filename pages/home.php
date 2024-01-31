@@ -67,42 +67,37 @@ $current_page = "Home";
 
             <!-- First Image and Text -->
             <div class="relative">
-                <img src="../assets/SP_firstpic.png" alt="First Image"
-                    class="h-[352px] w-[1120px] object-cover rounded-t-md">
+                <a href="landing.php">
+                    <img src="../assets/Sp_1stFinal.png" alt="First Image" class="h-[352px] w-[1120px] object-cover">
+                </a>
                 <div class="absolute top-4 left-4 text-tekst">
                     <p class="text-2xl font-medium ml-[32px] mt-[32px]">Logi discordiga sisse..</p>
-                    <a href="landing.php">
-                        <iconify-icon icon="logos:discord-icon" width="50" height="40"
-                            class="ml-10 mt-2"></iconify-icon>
-                    </a>
+                    <iconify-icon icon="logos:discord-icon" width="50" height="40" class="ml-10 mt-2"></iconify-icon>
                 </div>
             </div>
 
             <!-- Second Image and Text -->
             <div class="relative">
-                <img src="../assets/SP_secpic.png" alt="Second Image" class="h-[352px] w-[1120px] object-cover">
+                <a href="whitelist-form.php">
+                    <img src="../assets/Sp_2ndFinal.png" alt="Second Image" class="h-[352px] w-[1120px] object-cover">
+                </a>
                 <div class="absolute top-4 right-4 text-tekst">
                     <p class="text-2xl font-medium mr-[32px] mt-[32px]">Täida whitelist..</p>
-                    <a href="whitelist-form.php">
-                        <iconify-icon icon="pajamas:review-list" width="60" height="62" class="ml-24"></iconify-icon>
-                    </a>
+                    <iconify-icon icon="pajamas:review-list" width="60" height="62" class="ml-24"></iconify-icon>
                 </div>
             </div>
-            <img src="../assets/arrowOne.svg" alt="" class="absolute mt-24" />
 
             <!-- Third Image and Text -->
             <div class="relative">
-                <img src="../assets/SP_thirdpic.png" alt="Third Image"
-                    class="h-[352px] w-[1120px] object-cover rounded-b-md">
+                <a href="https://cfx.re/join/86646b" target="_blank">
+                    <img src="../assets/Sp_3rdFinal.png" alt="Third Image"
+                        class="h-[352px] w-[1120px] object-cover rounded-b-md">
+                </a>
                 <div class="absolute top-4 left-4 text-tekst">
                     <p class="text-2xl font-medium ml-[32px] mt-[32px]">Ja hakka mängima!</p>
-                    <a href="#">
-                        <iconify-icon icon="simple-icons:fivem" width="50" height="40"
-                            class="ml-10 mt-3"></iconify-icon>
-                    </a>
+                    <iconify-icon icon="simple-icons:fivem" width="50" height="40" class="ml-10 mt-3"></iconify-icon>
                 </div>
             </div>
-            <img src="../assets/arrowTwo.svg" alt="" class="absolute mt-[450px]" />
         </div>
     </div>
 

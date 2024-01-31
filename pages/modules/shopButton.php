@@ -1,31 +1,4 @@
-<script>
-    const $targetEl = document.getElementById('modalEl');
 
-    const options = {
-        placement: 'bottom-right',
-        backdrop: 'dynamic',
-        backdropClasses:
-            'bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40',
-        closable: true,
-        onHide: () => {
-            console.log('modal is hidden');
-        },
-        onShow: () => {
-            console.log('modal is shown');
-        },
-        onToggle: () => {
-            console.log('modal has been toggled');
-        },
-    };
-
-    // instance options object
-    const instanceOptions = {
-        id: 'modalEl',
-        override: true
-    };
-
-    const modal = new Modal($targetEl, options, instanceOptions);
-</script>
 
 <button type="button" data-modal-target="default-modal" data-modal-toggle="default-modal"
     class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center my-4">

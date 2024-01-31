@@ -24,7 +24,7 @@ $avatar_url = "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg";
 		Page Not Found
 	</div>
 	<button class="mt-5">
-      <a href="../../../dashboard.php"
+      <a href="../../../home.php"
         class="relative inline-block text-sm font-medium text-[#FF6A3D] group active:text-orange-500 focus:outline-none focus:ring"
       >
         <span

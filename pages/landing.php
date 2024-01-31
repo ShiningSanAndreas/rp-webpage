@@ -3,7 +3,7 @@ session_start();
 $isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
 
 if ($isLoggedIn) {
-    header("Location: dashboard.php");
+    header("Location: home.php");
     exit();
 }
 ?>
