@@ -22,11 +22,11 @@ $avatar_url = "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg";
 $current_page = "whitelist";
 
 
-//$timer_from_db = getWhitelistTimer($discord_id, $db);
+$timer_from_db = getWhitelistTimer($discord_id, $db);
 
 
 // Define an array for questions and answer choices
-$questions = [
+$allQuestions  = [
     1 => [
         "question" => "Milline nimi sobiks Shining San Andreas serveri mängijale?",
         "choices" => ["Joe Biden", "Carl King", "Lukas Meresaar", "Rasmus Kuusk"],
@@ -80,7 +80,106 @@ $questions = [
         "choices" => ["Lased enda grupeeringu liikmetel ennast elustada ja naased olukorda.", "Kui võimalus tuleb siis sünnid haiglas ja naased koheselt olukorda tagasi.  ", "Lased enda grupeeringu liikmetel ennast elustada kuid lahkud olukorrast koheselt. ", "Hakkad enda grupeeringu liikmeid abistama, andes neile teiste asukohti samal ajal kui oled maas. "],
         "correct_answer" => "Lased enda grupeeringu liikmetel ennast elustada ja naased olukorda.",
     ],
-    // Add more questions as needed
+    11 => [
+        "question" => "test11",
+        "choices" => ["c1", "c2", "c3", "c4"],
+        "correct_answer" => "c1",
+    ],
+    12 => [
+        "question" => "test12",
+        "choices" => ["c1", "c2", "c3", "c4"],
+        "correct_answer" => "c2",
+    ],
+    13 => [
+        "question" => "test13",
+        "choices" => ["c1", "c2", "c3", "c4"],
+        "correct_answer" => "c3",
+    ],
+    14 => [
+        "question" => "test14",
+        "choices" => ["c1", "c2", "c3", "c4"],
+        "correct_answer" => "c3",
+    ],
+    15 => [
+        "question" => "test15",
+        "choices" => ["c1", "c2", "c3", "c4"],
+        "correct_answer" => "c4",
+    ],
+    16 => [
+        "question" => "test16",
+        "choices" => ["ch1", "ch2", "ch3", "ch4"],
+        "correct_answer" => "ch1",
+    ],
+    17 => [
+        "question" => "test17",
+        "choices" => ["ch1", "ch2", "ch3", "ch4"],
+        "correct_answer" => "ch2",
+    ],
+    18 => [
+        "question" => "test18",
+        "choices" => ["ch1", "ch2", "ch3", "ch4"],
+        "correct_answer" => "ch3",
+    ],
+    19 => [
+        "question" => "test19",
+        "choices" => ["ch1", "ch2", "ch3", "ch4"],
+        "correct_answer" => "ch4",
+    ],
+    20 => [
+        "question" => "test20",
+        "choices" => ["cho1", "cho2", "cho3", "cho4"],
+        "correct_answer" => "cho1",
+    ],
+    21 => [
+        "question" => "test21",
+        "choices" => ["cho1", "cho2", "cho3", "cho4"],
+        "correct_answer" => "cho2",
+    ],
+    22 => [
+        "question" => "test22",
+        "choices" => ["cho1", "cho2", "cho3", "cho4"],
+        "correct_answer" => "cho3",
+    ],
+    23 => [
+        "question" => "test23",
+        "choices" => ["cho1", "cho2", "cho3", "cho4"],
+        "correct_answer" => "cho4",
+    ],
+    24 => [
+        "question" => "test24",
+        "choices" => ["choi1", "choi2", "choi3", "choi4"],
+        "correct_answer" => "choi1",
+    ],
+    25 => [
+        "question" => "test25",
+        "choices" => ["choi1", "choi2", "choi3", "choi4"],
+        "correct_answer" => "choi2",
+    ],
+    26 => [
+        "question" => "test26",
+        "choices" => ["choi1", "choi2", "choi3", "choi4"],
+        "correct_answer" => "choi3",
+    ],
+    27 => [
+        "question" => "test27",
+        "choices" => ["choi1", "choi2", "choi3", "choi4"],
+        "correct_answer" => "choi4",
+    ],
+    28 => [
+        "question" => "test28",
+        "choices" => ["choic1", "choic2", "choic3", "choic4"],
+        "correct_answer" => "choic1",
+    ],
+    29 => [
+        "question" => "test29",
+        "choices" => ["choic1", "choic2", "choic3", "choic4"],
+        "correct_answer" => "choic2",
+    ],
+    30 => [
+        "question" => "test30",
+        "choices" => ["choic1", "choic2", "choic3", "choic4"],
+        "correct_answer" => "choic3",
+    ],
 ];
 
 // Initialize the score
@@ -93,8 +192,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Check if the answer is submitted
     if (isset($_POST["answer"])) {
         $submittedAnswer = $_POST["answer"];
-        $currentQuestion = $_SESSION["current_question"];
-        $currentQuestionData = $questions[$currentQuestion];
+        $currentQuestionData = $_SESSION["questions"][$currentQuestion];
         $correctAnswer = $currentQuestionData["correct_answer"];
 
         // Check if the answer is correct
@@ -103,7 +201,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Check if this is the last question
-        if ($currentQuestion == count($questions)) {
+        if ($currentQuestion == count($_SESSION["questions"]) - 1) {
             // Mark the quiz as completed
             $_SESSION["quiz_completed"] = true;
         } else {
@@ -113,27 +211,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     // Initialize the current question and quiz completion flag
-    $_SESSION["current_question"] = 1;
+    $_SESSION["current_question"] = 0;
     $_SESSION["quiz_completed"] = false;
     $_SESSION["score"] = 0;
+
+    // Shuffle the questions and select 10 random ones
+    shuffle($allQuestions);
+    $_SESSION["questions"] = array_slice($allQuestions, 0, 10);
 }
+
 if ($_SESSION["quiz_completed"]) {
     $quiz_completion_time = time();
     $create_timer = updateDbTime($discord_id, $db, $quiz_completion_time);
-    if ($_SESSION["score"] == 10) {
+    if ($_SESSION["score"] == count($_SESSION["questions"])) {
         $whitelist_user = whitelistUser($discord_id, $db);
         $_SESSION["whitelist_status"] = true;
     }
-    ;
-    header("Location: whitelist-completed.php");
-    exit();
 }
-
-
 
 // Get the current question number and data
 $currentQuestion = $_SESSION["current_question"];
-$currentQuestionData = $questions[$currentQuestion];
+$currentQuestionData = $_SESSION["questions"][$currentQuestion];
 ?>
 
 <!DOCTYPE html>
@@ -150,43 +248,46 @@ $currentQuestionData = $questions[$currentQuestion];
 <?php include('./modules/navbar.php') ?>
 
 <body class="bg-background">
-    <div class="mb-6 container-lg">
+    <div class="mb-6 container mx-auto">
         <div class="flex items-center justify-center my-16">
             <h5 hidden class="text-5xl text-tekst font-medium block">Whitelist</h5>
         </div>
 
-        <div class="px-6 pt-6 2xl:container">
+        <div class="pt-6 2xl:container">
             <?php if ($_SESSION["whitelist_status"]): ?>
                 <div
-                    class="flex justify-center px-8 py-8 text-2xl font-bold leading-7 text-zinc-300 sm:text-3xl sm:tracking-tight">
+                    class="flex justify-center py-8 text-2xl font-bold leading-7 text-tekst sm:text-3xl sm:tracking-tight">
                     <p>Sa oled juba whitelist testi läbinud! Edu serveris!</p>
                 </div>
 
             <?php else: ?>
                 <?php if ($_SESSION["quiz_completed"]): ?>
                     <div
-                        class="flex justify-center px-8 py-8 text-2xl font-bold leading-7 text-zinc-300 sm:text-3xl sm:tracking-tight">
+                        class="flex justify-center py-8 text-2xl font-bold leading-7 text-tekst sm:text-3xl sm:tracking-tight">
                         <?php if ($_SESSION["score"] >= 10): ?>
                             <p>Läbisid whitelisti edukalt! Edu serveris!</p>
                         <?php else: ?>
                             <p>Ebaõnnestusid whitelisti testi sooritamisel. Valesid vastuseid:
-                                <?php echo (count($questions) - $_SESSION["score"]) ?> !
+                                <?php echo (10 - $_SESSION["score"]) ?> !
+                            </p>
+                            <p>Testi uuesti sooritamine on võimalik
+                                <?php echo gmdate("i:s", ($timer_from_db - time())) ?> minutit pärast.
                             </p>
                         </div>
                     <?php endif; ?>
                 <?php else: ?>
                     <?php if (($timer_from_db - time()) >= 0): ?>
                         <p
-                            class="flex justify-center px-8 py-8 text-2xl font-bold leading-7 text-zinc-300 sm:text-3xl sm:tracking-tight text-center">
+                            class="flex justify-center px-8 py-8 text-2xl font-bold leading-7 text-tekst sm:text-3xl sm:tracking-tight text-center">
                             Pead veel ootama
                             <?php echo gmdate("i:s", ($timer_from_db - time())) ?> minutit et uuesti proovida.
                         <?php else: ?>
                         <form action="whitelist-form.php" method="post">
                             <div class="p-4 mb-4">
-                                <h1 class="px-8 py-8 text-2xl font-bold leading-7 text-zinc-300 sm:text-3xl sm:tracking-tight">
+                                <h1 class="px-8 py-8 text-2xl font-bold leading-7 text-tekst sm:text-3xl sm:tracking-tight">
                                     <?php echo "Küsimus $currentQuestion: " . $currentQuestionData["question"]; ?>
                                 </h1>
-                                <div class="ml-8 text-lg text-zinc-300">
+                                <div class="ml-8 text-lg text-tekst">
                                     <?php foreach ($currentQuestionData["choices"] as $choice): ?>
                                         <input type="radio" name="answer" value="<?php echo $choice; ?>">
                                         <?php echo $choice; ?><br>

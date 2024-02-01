@@ -18,33 +18,33 @@ $current_page = "shop";
     <link href="../styles/output.css" rel="stylesheet" />
     <title>Pood - ShiningRP</title>
     <script>
-    const $modalEl = document.getElementById('modalEl');
+        const $modalEl = document.getElementById('modalEl');
 
-    const modalOptions = {
-        placement: 'bottom-right',
-        backdrop: 'dynamic',
-        backdropClasses:
-            'bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40',
-        closable: true,
-        onHide: () => {
-            console.log('modal is hidden');
-        },
-        onShow: () => {
-            console.log('modal is shown');
-        },
-        onToggle: () => {
-            console.log('modal has been toggled');
-        },
-    };
+        const modalOptions = {
+            placement: 'bottom-right',
+            backdrop: 'dynamic',
+            backdropClasses:
+                'bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40',
+            closable: true,
+            onHide: () => {
+                console.log('modal is hidden');
+            },
+            onShow: () => {
+                console.log('modal is shown');
+            },
+            onToggle: () => {
+                console.log('modal has been toggled');
+            },
+        };
 
-    // instance options object
-    const modalInstance = {
-        id: 'modalEl',
-        override: true
-    };
+        // instance options object
+        const modalInstance = {
+            id: 'modalEl',
+            override: true
+        };
 
-    const modal = new Modal($modalEl, modalOptions, modalInstance);
-</script>
+        const modal = new Modal($modalEl, modalOptions, modalInstance);
+    </script>
 </head>
 
 
@@ -71,8 +71,10 @@ $current_page = "shop";
                 <div class="text-white text-center flex-shrink">
                     <p class="text-2xl font-bold mt-12">100 coini</p>
                     <p class="text-2xl font-bold mt-2">10€</p>
-                    <button id="checkout-button">Purchase</button>
-                    <?php include('./modules/shopButton.php') ?>
+                    <button type="button" id="checkout-button"
+                        class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center my-4">
+                        Osta
+                    </button>
                 </div>
             </div>
 

@@ -1,5 +1,5 @@
 <?php
-include("config.php");
+include("../config.php");
 session_start();
 
 try {
@@ -13,7 +13,7 @@ extract($_SESSION["userData"]);
 $avatar_url = "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg";
 $current_page = "whitelist";
 
-if (!$_SESSION["quiz_completed"]) {
+if (!isset($_SESSION["quiz_completed"]) || !$_SESSION["quiz_completed"]) {
     header("Location: ../404/error.php"); // Redirect to an error page if the quiz is not completed
     exit();
 }
@@ -29,6 +29,10 @@ if ($_SESSION["score"] >= 10) {
     $sql = "UPDATE ucp_users SET is_whitelisted = 0 WHERE discord_id = :discord_id"; // Replace 'your_table_name' with your actual table name.
 }
 
+// Execute the SQL statement
+$stmt = $db->prepare($sql);
+$stmt->bindParam(':discord_id', $discord_id);
+$stmt->execute();
 ?>
 
 <!DOCTYPE html>
@@ -42,9 +46,9 @@ if ($_SESSION["score"] >= 10) {
 </head>
 <?php include("./modules/navbar.php") ?>
 
-<body class="bg-gray-800	">
+<body class="bg-background	">
 
-    <div class="ml-auto mb-6 lg:w-[75%] xl:w-[80%] 2xl:w-[85%]">
+    <div class="ml-auto mb-6 container">
         <div class="sticky z-10 top-0 h-16 border-b bg-gray lg:py-2.5 border-gray-950">
             <div class="px-6 flex items-center justify-between space-x-4 2xl:container">
                 <h5 hidden class="text-2xl text-zinc-300 font-medium lg:block">Whitelist</h5>
@@ -55,27 +59,6 @@ if ($_SESSION["score"] >= 10) {
                             d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
-                <div class="flex space-x-4">
-
-
-
-
-                    <svg class="mt-1" xmlns="http://www.w3.org/2000/svg" height="1.25em"
-                        viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                        <style>
-                            svg {
-                                fill: #bfbfbf
-                            }
-                        </style>
-                        <path
-                            d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V192c0-35.3-28.7-64-64-64H80c-8.8 0-16-7.2-16-16s7.2-16 16-16H448c17.7 0 32-14.3 32-32s-14.3-32-32-32H64zM416 272a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
-                    </svg>
-                    <p class=" text-zinc-300">
-                        <?php echo $_SESSION["userBalance"]; ?> coins
-                    </p>
-                </div>
-            </div>
-        </div>
 
         <div class="px-6 pt-6 2xl:container">
             <?php if ($_SESSION["quiz_completed"]): ?>
