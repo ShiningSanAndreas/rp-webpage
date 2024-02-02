@@ -1,6 +1,6 @@
 <html>
 <?php
-include("../config.php");
+include(".././config.php");
 
 try {
   $db = new PDO($configDsn, $configDbName, $configDbPw);
@@ -18,10 +18,8 @@ if ($isLoggedIn) {
 
 $avatar_url = $isLoggedIn ? "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg" : "";
 
-$players_money = getAllPlayersMoney($db);
 $_SESSION["userBalance"] = getUserBalance($discord_id, $db);
 $_SESSION["whitelist_status"] = isUserWhitelisted($discord_id, $db);
-$players_total = getAllPlayers($db);
 ?>
 
 <head>
@@ -125,47 +123,6 @@ $players_total = getAllPlayers($db);
 
 </html>
 <?php
-
-function getAllPlayersMoney($db)
-{
-  $query = $db->prepare("SELECT money FROM players");
-  $query->execute();
-  $results = $query->fetchAll(PDO::FETCH_ASSOC);
-
-  // Initialize the total money to 0
-  $totalMoney = 0;
-
-  // Loop through the results and accumulate the money
-  foreach ($results as $row) {
-    $money = json_decode($row["money"], true);
-    if (isset($money["bank"])) {
-      $totalMoney += $money["bank"];
-    }
-    if (isset($money["cash"])) {
-      $totalMoney += $money["cash"];
-    }
-  }
-
-  return $totalMoney;
-}
-
-function getAllPlayers($db)
-{
-  $query = $db->prepare("SELECT cid FROM players");
-  $query->execute();
-  $results = $query->fetchAll(PDO::FETCH_ASSOC);
-
-  $totalCharacterCount = 0;
-
-  foreach ($results as $row) {
-    foreach ($row as $key => $value) {
-      $totalCharacterCount += strlen($value);
-    }
-  }
-
-  return $totalCharacterCount;
-}
-
 
 function getUserBalance($discord_id, $db)
 {
