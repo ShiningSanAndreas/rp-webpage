@@ -1,70 +1,50 @@
 <?php
-require_once '../../vendor/autoload.php'; // Include Stripe PHP library
-include("../../config.php");
+// webhook.php
+//
+// Use this sample code to handle webhook events in your integration.
+//
+// 1) Paste this code into a new file (webhook.php)
+//
+// 2) Install dependencies
+//   composer require stripe/stripe-php
+//
+// 3) Run the server on http://localhost:4242
+//   php -S localhost:4242
 
-\Stripe\Stripe::setApiKey('sk_test_51OXMazJYQ5I7nITlmDc3WDHEUwgHYfTYTguuip7fs5bUTaRRv7jNEvpq6wT3cidrICdZmZuyXVtMYXxTHuES1xO000t7qFwlOA');
+require 'vendor/autoload.php';
 
-$discordWebhookUrl = 'https://discordapp.com/api/webhooks/1201523735874785321/p7C-eSwpwETu7nL70ASGZpqwX2OJKg-icskvK4JJ9FFewu4gmGhyd4VOXNgWhwsH1FJ8'; // Replace with your actual Discord webhook URL
+// The library needs to be configured with your account's secret key.
+// Ensure the key is kept out of any version control system you might be using.
+$stripe = new \Stripe\StripeClient('sk_test_...');
+
+// This is your Stripe CLI webhook secret for testing your endpoint locally.
+$endpoint_secret = 'whsec_284c1d3aa15b6c52e780ff5910cf6edc1ebb9ac0d832f4bf4e2cea0485a5b24f';
 
 $payload = @file_get_contents('php://input');
 $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
 $event = null;
 
 try {
-    $event = \Stripe\Webhook::constructEvent(
-        $payload, $sig_header, 'whsec_284c1d3aa15b6c52e780ff5910cf6edc1ebb9ac0d832f4bf4e2cea0485a5b24f'
-    );
-} catch (\Exception $e) {
-    http_response_code(400);
-    exit('Webhook Error:' . $e->getMessage());
+  $event = \Stripe\Webhook::constructEvent(
+    $payload, $sig_header, $endpoint_secret
+  );
+} catch(\UnexpectedValueException $e) {
+  // Invalid payload
+  http_response_code(400);
+  exit();
+} catch(\Stripe\Exception\SignatureVerificationException $e) {
+  // Invalid signature
+  http_response_code(400);
+  exit();
 }
 
 // Handle the event
-if ($event->type == 'checkout.session.completed') {
-    $session = $event->data->object;
-
-    // Retrieve the customer ID or any other relevant information from $session
-    $customer_id = $session->customer;
-
-    // Update user balance in your database
-    $amount = 100; // Amount in cents
-    updateBalance($customer_id, $amount);
-
-    // Send Discord notification
-    $message = "Purchase made by customer ID: $customer_id";
-    sendDiscordNotification($discordWebhookUrl, $message);
+switch ($event->type) {
+  case 'payment_intent.succeeded':
+    $paymentIntent = $event->data->object;
+  // ... handle other event types
+  default:
+    echo 'Received unknown event type ' . $event->type;
 }
 
 http_response_code(200);
-
-function updateBalance($customer_id, $amount) {
-    // Implement your logic to update the user's balance in your database
-    $db = new PDO($configDsn, $configDbName, $configDbPw);
-    $stmt = $db->prepare('UPDATE users SET balance = balance + :amount WHERE stripe_customer_id = :customer_id');
-    $stmt->bindParam(':amount', $amount, PDO::PARAM_INT);
-    $stmt->bindParam(':customer_id', $customer_id, PDO::PARAM_STR);
-    $stmt->execute();
-}
-
-function sendDiscordNotification($webhookUrl, $message) {
-    $data = json_encode(['content' => $message]);
-
-    $ch = curl_init($webhookUrl);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Content-Type: application/json',
-    ]);
-
-    $result = curl_exec($ch);
-
-    if (curl_errno($ch)) {
-        echo 'Error:' . curl_error($ch);
-    }
-
-    curl_close($ch);
-
-    return $result;
-}
-

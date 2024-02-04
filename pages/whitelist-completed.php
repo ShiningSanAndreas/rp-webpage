@@ -21,13 +21,7 @@ if (!isset($_SESSION["quiz_completed"]) || !$_SESSION["quiz_completed"]) {
 $timer_from_db = getWhitelistTimer($discord_id, $db);
 $isWhitelisted = ($_SESSION["score"] >= 10) ? 1 : 0;
 
-if ($_SESSION["score"] >= 10) {
-    // If the user has answered at least 10 questions correctly, set is_whitelisted to 1 in the database.
-    $sql = "UPDATE ucp_users SET is_whitelisted = 1 WHERE discord_id = :discord_id"; // Replace 'your_table_name' with your actual table name.
-} else {
-    // If the user has answered less than 10 questions correctly, set is_whitelisted to 0 in the database.
-    $sql = "UPDATE ucp_users SET is_whitelisted = 0 WHERE discord_id = :discord_id"; // Replace 'your_table_name' with your actual table name.
-}
+
 
 // Execute the SQL statement
 $stmt = $db->prepare($sql);
