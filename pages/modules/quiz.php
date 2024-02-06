@@ -1,15 +1,30 @@
 <!-- quiz.php -->
+<?php 
+session_start(); // Start the session
+
+// Check if the session variable is set before using it
+if (isset($_SESSION['selectedOptions'])) {
+    echo json_encode($_SESSION['selectedOptions']);
+} else {
+    echo 'Session variable not set.';
+}
+?>
+
+
 
 <div class="container mx-auto border">
-    <div class="flex items-center justify-between text-base text-gray-600 dark:text-gray-400">
-        <?php for ($i = 1; $i <= 10; $i++) : ?>
-            <div class="flex items-center">
-                <a href="#" class="w-12 h-12 bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 rounded-full flex items-center justify-center text-white text-xl" onclick="showSection(<?php echo $i; ?>)">
+<ol id="sectionList" class="flex items-center w-full">
+        <?php for ($i = 1; $i <= 10; $i++): ?>
+            <li class="flex w-full items-center <?php if ($i < 10): ?>after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-100 after:border-4 after:inline-block dark:after:border-gray-700<?php endif; ?>" onclick="showSection(<?php echo $i; ?>)">
+                <span class="flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
                     <?php echo $i; ?>
-                </a>
-            </div>
+                </span>
+            </li>
         <?php endfor; ?>
-    </div>
+    </ol>
+    </ol>
+
+
 
     <div id="sectionContent" class="m-8">
         <!-- Initially, show options for question 1 -->
@@ -84,6 +99,27 @@
     function updateSelectedOptions(checkboxId, isChecked) {
         selectedOptions[checkboxId] = isChecked;
         console.log(selectedOptions);
-        // You can add an AJAX call here to update the session variable in PHP without a page refresh.
+
+        // AJAX call to update server-side variable
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', './modules/savequiz.php', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        
+        // Convert the selectedOptions object to JSON and send it in the request
+        var selectedOptionsJSON = JSON.stringify(selectedOptions);
+        var data = 'selectedOptions=' + encodeURIComponent(selectedOptionsJSON);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                if (response.status === 'success') {
+                    console.log('Server variable updated successfully.');
+                } else {
+                    console.error('Error updating server variable:', response.message);
+                }
+            }
+        };
+
+        xhr.send(data);
     }
 </script>

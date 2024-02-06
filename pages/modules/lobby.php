@@ -1,25 +1,23 @@
 <!-- lobby.php -->
 <?php
-    // Start session if not already started
-    session_start();
-    
-    // Retrieve the selectedOptions array from session variable
-    $selectedOptions = isset($_SESSION['selectedOptions']) ? $_SESSION['selectedOptions'] : [];
+session_start(); // Start the session
+
+if (isset($_GET['selectedOptions'])) {
+    $selectedOptions = json_decode($_GET['selectedOptions'], true);
+
+    // Display the selected options (modify this part based on your specific implementation)
+    echo '<h3>Selected Options:</h3>';
+    echo '<pre>';
+    print_r($selectedOptions);
+    echo '</pre>';
+} elseif (isset($_SESSION['selectedOptions'])) {
+    // Display the selected options from the session variable
+    echo '<h3>Selected Options:</h3>';
+    echo '<pre>';
+    print_r($_SESSION['selectedOptions']);
+    echo '</pre>';
+}
 ?>
-
-
-<?php
-    foreach ($selectedOptions as $questionNumber => $options) {
-        echo "<p>Question $questionNumber:</p>";
-        echo "<ul>";
-        foreach ($options as $optionId => $isChecked) {
-            echo "<li>Option $optionId: " . ($isChecked ? "Selected" : "Not Selected") . "</li>";
-        }
-        echo "</ul>";
-    }
-?>
-
-
 
 <form method="post">
     <button type="submit" name="view" value="quiz">Go to Quiz</button>

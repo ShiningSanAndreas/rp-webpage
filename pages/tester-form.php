@@ -37,7 +37,7 @@
         if (isset($_POST['step'])) {
             include("./modules/quiz.php");
         } else {
-            echo '<p>Select a view to continue.</p>';
+            include("./modules/lobby.php");
         }
     }
     ?>
