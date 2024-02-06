@@ -9,7 +9,6 @@
     <title>Support - ShiningRP</title>
 </head>
 
-<?php include("./modules/navbar.php") ?>
 
 <body class="bg-background">
     <div class="ml-auto mb-6 lg:w-[70%] xl:w-[75%] 2xl:w-[85%] mx-auto">
@@ -34,10 +33,89 @@
                     ['text' => 'Madrid', 'isCorrect' => false],
                 ],
             ],
-            // ... (similar structure for other questions)
+            [
+                'question' => 'Which planet is known as the Red Planet?',
+                'options' => [
+                    ['text' => 'Mars', 'isCorrect' => true],
+                    ['text' => 'Jupiter', 'isCorrect' => false],
+                    ['text' => 'Saturn', 'isCorrect' => false],
+                    ['text' => 'Venus', 'isCorrect' => false],
+                ],
+            ],
+            [
+                'question' => 'What is the largest mammal?',
+                'options' => [
+                    ['text' => 'Elephant', 'isCorrect' => false],
+                    ['text' => 'Blue Whale', 'isCorrect' => true],
+                    ['text' => 'Giraffe', 'isCorrect' => false],
+                    ['text' => 'Lion', 'isCorrect' => false],
+                ],
+            ],
+            [
+                'question' => 'Who wrote "Romeo and Juliet"?',
+                'options' => [
+                    ['text' => 'William Shakespeare', 'isCorrect' => true],
+                    ['text' => 'Jane Austen', 'isCorrect' => false],
+                    ['text' => 'Charles Dickens', 'isCorrect' => false],
+                    ['text' => 'Mark Twain', 'isCorrect' => false],
+                ],
+            ],
+            [
+                'question' => 'In which year did the Titanic sink?',
+                'options' => [
+                    ['text' => '1912', 'isCorrect' => true],
+                    ['text' => '1900', 'isCorrect' => false],
+                    ['text' => '1925', 'isCorrect' => false],
+                    ['text' => '1935', 'isCorrect' => false],
+                ],
+            ],
+            [
+                'question' => 'What is the square root of 144?',
+                'options' => [
+                    ['text' => '12', 'isCorrect' => true],
+                    ['text' => '15', 'isCorrect' => false],
+                    ['text' => '10', 'isCorrect' => false],
+                    ['text' => '18', 'isCorrect' => false],
+                ],
+            ],
+            [
+                'question' => 'Which element has the chemical symbol "O"?',
+                'options' => [
+                    ['text' => 'Oxygen', 'isCorrect' => true],
+                    ['text' => 'Gold', 'isCorrect' => false],
+                    ['text' => 'Iron', 'isCorrect' => false],
+                    ['text' => 'Carbon', 'isCorrect' => false],
+                ],
+            ],
+            [
+                'question' => 'What is the currency of Japan?',
+                'options' => [
+                    ['text' => 'Yen', 'isCorrect' => true],
+                    ['text' => 'Dollar', 'isCorrect' => false],
+                    ['text' => 'Euro', 'isCorrect' => false],
+                    ['text' => 'Pound', 'isCorrect' => false],
+                ],
+            ],
+            [
+                'question' => 'Who painted the Mona Lisa?',
+                'options' => [
+                    ['text' => 'Leonardo da Vinci', 'isCorrect' => true],
+                    ['text' => 'Vincent van Gogh', 'isCorrect' => false],
+                    ['text' => 'Pablo Picasso', 'isCorrect' => false],
+                    ['text' => 'Michelangelo', 'isCorrect' => false],
+                ],
+            ],
+            [
+                'question' => 'What is the main ingredient in guacamole?',
+                'options' => [
+                    ['text' => 'Avocado', 'isCorrect' => true],
+                    ['text' => 'Tomato', 'isCorrect' => false],
+                    ['text' => 'Onion', 'isCorrect' => false],
+                    ['text' => 'Cilantro', 'isCorrect' => false],
+                ],
+            ],
         ];
-    ?>
-
+        ?>
         <!-- component -->
         <div class="flex items-center justify-between text-base text-gray-600 dark:text-gray-400">
             <?php for ($i = 1; $i <= 10; $i++) : ?>
@@ -56,10 +134,8 @@
             <p>Select a section to see the question and options.</p>
         </div>
 
-        <!-- Display "Check Answers" button if it hasn't been clicked yet -->
-        <form id="quizForm" method="post">
-            <button type="button" onclick="checkAnswers()" name="checkAnswers">Check Answers</button>
-        </form>
+        <button onclick="checkAnswers()">Check Answers</button>
+        <div id="feedback"></div>
 
         <script>
             // Initialize an object to store selected options for each section
@@ -104,51 +180,46 @@
             }
 
             function checkAnswers() {
-                var form = document.getElementById("quizForm");
-                alert("xd");
-                form.submit();
-            }
-        </script>
+                var feedback = document.getElementById("feedback");
+                var totalQuestions = <?php echo count($questionsAndOptions); ?>;
+                var correctCount = 0;
 
-    <?php } else { ?>
-        <?php
-        // Check if the hidden input field is set, indicating that "Check Answers" button has been clicked
-        if (isset($_POST['checkAnswers']) && $_POST['checkAnswers'] === 'true') {
-            // Calculate and display the score
-            $correctCount = 0;
+                for (var i = 1; i <= totalQuestions; i++) {
+                    var currentQuestion = <?php echo json_encode($questionsAndOptions); ?>[i - 1];
+                    var selectedOptionsForQuestion = [];
 
-            for ($i = 1; $i <= count($questionsAndOptions); $i++) {
-                $currentQuestion = $questionsAndOptions[$i - 1];
-                $selectedOptionsForQuestion = [];
+                    for (var j = 0; j < currentQuestion['options'].length; j++) {
+                        var checkboxId = 'option' + i + '-' + j;
+                        if (selectedOptions[checkboxId]) {
+                            selectedOptionsForQuestion.push(currentQuestion['options'][j]['text']);
+                        }
+                    }
 
-                for ($j = 0; $j < count($currentQuestion['options']); $j++) {
-                    $checkboxId = 'option' . $i . '-' . $j;
-                    if (isset($_POST[$checkboxId])) {
-                        $selectedOptionsForQuestion[] = $currentQuestion['options'][$j]['text'];
+                    var correctOptions = currentQuestion['options'].filter(option => option['isCorrect']).map(option => option['text']);
+                    var isCorrect = arraysEqual(selectedOptionsForQuestion.sort(), correctOptions.sort());
+
+                    if (isCorrect) {
+                        correctCount++;
                     }
                 }
 
-                $correctOptions = array_column(array_filter($currentQuestion['options'], function ($option) {
-                    return $option['isCorrect'];
-                }), 'text');
-
-                $isCorrect = count(array_diff($selectedOptionsForQuestion, $correctOptions)) === 0
-                    && count(array_diff($correctOptions, $selectedOptionsForQuestion)) === 0;
-
-                if ($isCorrect) {
-                    $correctCount++;
-                }
+                feedback.innerHTML = '<p>Correct Answers: ' + correctCount + ' out of ' + totalQuestions + '</p>';
             }
-        ?>
 
-            <!-- Display the score and "Take the Quiz Again" button -->
-            <div id="feedback">
-                <p>Correct Answers: <?php echo $correctCount; ?> out of <?php echo count($questionsAndOptions); ?></p>
-            </div>
-            <form method="post">
-                <button type="submit" name="takeQuiz">Take the Quiz Again</button>
-            </form>
-        <?php } ?>
+            // Function to compare arrays
+            function arraysEqual(arr1, arr2) {
+                if (arr1.length !== arr2.length) return false;
+                for (var i = 0; i < arr1.length; i++) {
+                    if (arr1[i] !== arr2[i]) return false;
+                }
+                return true;
+            }
+        </script>
+    <?php } else { ?>
+        <!-- Display "TAKE THE QUIZ" button if the user hasn't clicked it yet -->
+        <form method="post">
+            <button type="submit" name="takeQuiz">TAKE THE QUIZ</button>
+        </form>
     <?php } ?>
 
     <?php include("./modules/footer.php") ?>
