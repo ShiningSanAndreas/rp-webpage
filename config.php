@@ -22,21 +22,21 @@ $configDbPw = "57q0Hl6hmqZzCva";
 
 $questionsAndOptions = [
     [
-        'question' => 'What is the capital of France?',
+        'question' => 'Milline nimi sobiks Shining San Andreas serveri mängijale?',
         'options' => [
-            ['text' => 'Paris', 'isCorrect' => true],
-            ['text' => 'London', 'isCorrect' => false],
-            ['text' => 'Berlin', 'isCorrect' => false],
-            ['text' => 'Madrid', 'isCorrect' => false],
+            ['text' => 'Joe Biden', 'isCorrect' => false],
+            ['text' => 'Carl King', 'isCorrect' => true],
+            ['text' => 'Lukas Meresaar', 'isCorrect' => false],
+            ['text' => 'Rasmus Kuusk', 'isCorrect' => false],
         ],
     ],
     [
-        'question' => 'Which planet is known as the Red Planet?',
+        'question' => 'Saad twitchi streamist teada, et Mount Chiliadis toimub event, kus on palju looti. Milline on lubatud käitumisviis??',
         'options' => [
-            ['text' => 'Mars', 'isCorrect' => true],
-            ['text' => 'Jupiter', 'isCorrect' => false],
-            ['text' => 'Saturn', 'isCorrect' => false],
-            ['text' => 'Venus', 'isCorrect' => false],
+            ['text' => 'Lähen teada saadud infoga eventi asukohta ning üritan osa varast endale saada.', 'isCorrect' => false],
+            ['text' => 'Saadan mõne sõbra enda eest asukohta, et eventi kohta rohkem infot koguda.', 'isCorrect' => false],
+            ['text' => 'Annan OOC sõbrale teada, et ta mulle IC helistaks ja eventist teada annaks et saaksin kohale minna.', 'isCorrect' => false],
+            ['text' => 'Ignoreerin streamist kuuldud infot ning jätkan rollimängu nagu tavaliselt.', 'isCorrect' => true],
         ],
     ],
     [

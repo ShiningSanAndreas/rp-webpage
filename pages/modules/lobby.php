@@ -1,23 +1,26 @@
 <!-- lobby.php -->
 <?php
-session_start(); // Start the session
+session_start();
 
-if (isset($_GET['selectedOptions'])) {
-    $selectedOptions = json_decode($_GET['selectedOptions'], true);
-
-    // Display the selected options (modify this part based on your specific implementation)
-    echo '<h3>Selected Options:</h3>';
-    echo '<pre>';
-    print_r($selectedOptions);
-    echo '</pre>';
-} elseif (isset($_SESSION['selectedOptions'])) {
-    // Display the selected options from the session variable
-    echo '<h3>Selected Options:</h3>';
-    echo '<pre>';
-    print_r($_SESSION['selectedOptions']);
-    echo '</pre>';
+// Check if the session variables are set
+if (isset($_SESSION['correctAnswers']) && isset($_SESSION['incorrectQuestions'])) {
+    $correctAnswers = $_SESSION['correctAnswers'];
+    $incorrectQuestions = $_SESSION['incorrectQuestions'];
+    
+    // Display the data, you can customize this part as needed
+    echo "Correct Answers: $correctAnswers<br>";
+    
+    if (!empty($incorrectQuestions)) {
+        echo "Incorrectly Answered Questions:<br>";
+        foreach ($incorrectQuestions as $question) {
+            echo "- $question<br>";
+        }
+    }
+} else {
+    echo "No quiz results found in session.";
 }
 ?>
+
 
 <form method="post">
     <button type="submit" name="view" value="quiz">Go to Quiz</button>
