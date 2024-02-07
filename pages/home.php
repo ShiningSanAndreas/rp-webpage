@@ -41,7 +41,7 @@ $current_page = "Home";
             </div>
             <div class="flex flex-row justify-center items-center gap-4 p-4">
                 <!-- Feature Box 1 -->
-                <div class="bg-[#05070E] flex flex-col w-1/3 h-96 p-4 rounded-lg">
+                <div class="bg-[#06091a] flex flex-col w-1/3 h-96 p-4 rounded-lg">
                     <span class="flex flex-row py-2">
                         <iconify-icon icon="tabler:mood-crazy-happy" width="40" height="40"
                             style="color: #ffec1f" class="drop-shadow-[0_0_10px_rgba(255,236,31,1)]"></iconify-icon>
@@ -57,7 +57,7 @@ $current_page = "Home";
                 </div>
 
                 <!-- Feature Box 2 -->
-                <div class="bg-[#05070E] flex flex-col w-1/3 h-96 p-4 rounded-lg">
+                <div class="bg-[#06091a] flex flex-col w-1/3 h-96 p-4 rounded-lg">
                     <span class="flex flex-row py-2">
                         <iconify-icon icon="basil:location-question-solid" class="drop-shadow-[0_0_10px_rgba(255,31,31,1)]" width="40" height="40" style="color: #ff1f1f"></iconify-icon>
                         <h3 class="text-3xl font-bold">Seiklus</h3>
@@ -71,7 +71,7 @@ $current_page = "Home";
                 </div>
 
                 <!-- Feature Box 3 -->
-                <div class="bg-[#05070E] flex flex-col w-1/3 h-96 p-4 rounded-lg">
+                <div class="bg-[#06091a] flex flex-col w-1/3 h-96 p-4 rounded-lg">
                     <span class="flex flex-row py-2">
                     <iconify-icon icon="mdi:idea" class="drop-shadow-[0_0_10px_rgba(31,240,255,1)]" width="38" height="38" style="color: #1ff0ff"></iconify-icon>
                         <h3 class="text-3xl font-bold">Ideoloogia</h3>

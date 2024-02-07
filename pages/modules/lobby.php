@@ -20,7 +20,15 @@ if (isset($_SESSION['correctAnswers']) && isset($_SESSION['incorrectQuestions'])
     echo "No quiz results found in session.";
 }
 ?>
-
+<?php if ($isWhitelisted): ?>
+    <div>
+        <p>I see this text when I am whitelisted</p>
+    </div>
+<?php else: ?>
+    <div>
+        <p>I see this text when I am not whitelisted</p>
+    </div>
+<?php endif; ?>
 
 <form method="post">
     <button type="submit" name="view" value="quiz">Go to Quiz</button>
