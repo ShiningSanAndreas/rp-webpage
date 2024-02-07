@@ -1,5 +1,8 @@
 <!-- tester-form.php -->
-<?php include("../config.php"); ?>
+<?php include("../config.php"); 
+
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,8 +15,9 @@
     <title>Support - ShiningRP</title>
 </head>
 
-
-
+<?php
+include("./modules/navbar.php");
+?>
 <body class="bg-background">
     <div class="ml-auto mb-6 lg:w-[70%] xl:w-[75%] 2xl:w-[85%] mx-auto">
         <div class="text-white mt-16 mb-6">

@@ -33,7 +33,6 @@ if (isset($_SESSION['correctAnswers']) && isset($_SESSION['incorrectQuestions'])
     echo "No quiz results found in session.";
 }
 ?>
-
 <?php if ($isWhitelisted): ?>
     <div>
         <p>I see this text when I am whitelisted</p>
