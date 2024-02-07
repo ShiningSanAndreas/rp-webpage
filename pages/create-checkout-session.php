@@ -19,6 +19,9 @@ $checkout_session = \Stripe\Checkout\Session::create([
             'quantity' => 1,
         ],
     ],
+    'metadata' => [
+         '123456789012345678',
+    ],
     'mode' => 'payment',
     'success_url' => 'http://127.0.0.1:8000/pages/shop.php',
     'cancel_url' => 'http://127.0.0.1:8000/pages/rules.php',

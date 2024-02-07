@@ -1,50 +1,30 @@
 <?php
-// webhook.php
-//
-// Use this sample code to handle webhook events in your integration.
-//
-// 1) Paste this code into a new file (webhook.php)
-//
-// 2) Install dependencies
-//   composer require stripe/stripe-php
-//
-// 3) Run the server on http://localhost:4242
-//   php -S localhost:4242
+require_once 'secrets.php'; // Include your Stripe secret key here
+\Stripe\Stripe::setApiKey($stripeSecretKey);
 
-require 'vendor/autoload.php';
-
-// The library needs to be configured with your account's secret key.
-// Ensure the key is kept out of any version control system you might be using.
-$stripe = new \Stripe\StripeClient('sk_test_...');
-
-// This is your Stripe CLI webhook secret for testing your endpoint locally.
-$endpoint_secret = 'whsec_284c1d3aa15b6c52e780ff5910cf6edc1ebb9ac0d832f4bf4e2cea0485a5b24f';
-
-$payload = @file_get_contents('php://input');
-$sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
-$event = null;
+// Get the Discord ID from the session or wherever you store it
+$discordId = $_SESSION['discord_id']; // Replace with your actual session variable
 
 try {
-  $event = \Stripe\Webhook::constructEvent(
-    $payload, $sig_header, $endpoint_secret
-  );
-} catch(\UnexpectedValueException $e) {
-  // Invalid payload
-  http_response_code(400);
-  exit();
-} catch(\Stripe\Exception\SignatureVerificationException $e) {
-  // Invalid signature
-  http_response_code(400);
-  exit();
-}
+    // Create a Payment Intent with the necessary details
+    $intent = \Stripe\PaymentIntent::create([
+        'amount' => 1000,  // Amount in cents (you can adjust this based on your needs)
+        'currency' => 'eur',
+        'description' => 'Purchase of 100 coins',
+        'metadata' => [
+            'discord_id' => $discordId,
+        ],
+    ]);
 
-// Handle the event
-switch ($event->type) {
-  case 'payment_intent.succeeded':
-    $paymentIntent = $event->data->object;
-  // ... handle other event types
-  default:
-    echo 'Received unknown event type ' . $event->type;
+    // Return the session details as JSON
+    echo json_encode(['id' => $intent->id]);
+} catch (\Stripe\Exception\CardException $e) {
+    // Handle card errors
+    http_response_code(500);
+    echo json_encode(['error' => $e->getError()->message]);
+} catch (\Exception $e) {
+    // Handle other errors
+    http_response_code(500);
+    echo json_encode(['error' => $e->getMessage()]);
 }
-
-http_response_code(200);
+?>
