@@ -1,5 +1,4 @@
 <?php
-session_start(); // Start the session
 
 // Shuffle the array to get random questions
 shuffle($questionsAndOptions);

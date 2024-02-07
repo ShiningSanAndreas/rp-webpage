@@ -1,5 +1,7 @@
 <html>
 <?php
+
+
 include(".././config.php");
 
 try {
@@ -11,6 +13,7 @@ try {
 
 
 $isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
+echo $isLoggedIn;
 
 if ($isLoggedIn) {
   extract($_SESSION["userData"]);
@@ -20,6 +23,12 @@ $avatar_url = $isLoggedIn ? "https://cdn.discordapp.com/avatars/$discord_id/$ava
 
 $_SESSION["userBalance"] = getUserBalance($discord_id, $db);
 $_SESSION["whitelist_status"] = isUserWhitelisted($discord_id, $db);
+
+// Debug output
+var_dump($_SESSION);
+
+echo "Debug point 1";
+echo "W".$_SESSION["whitelist_status"]."x". $_SESSION["userBalance"];
 ?>
 
 <head>
@@ -140,6 +149,7 @@ function isUserWhitelisted($discord_id, $db)
   $query->execute();
   $result = $query->fetch(PDO::FETCH_ASSOC);
 
+ echo ("RESULT" . $result['count']);
   return $result['count'] > 0;
 }
 ?>
