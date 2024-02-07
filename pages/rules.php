@@ -155,7 +155,7 @@ SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU S
 
 <?php include("./modules/navbar.php") ?>
 <body class="bg-background">
-    <div class="ml-auto mb-6 container mx-auto">
+    <div class="ml-auto mb-6 max-w-screen-xl mx-auto">
         <div class="lg:py-2.5">
             <div class="px-12 my-16 flex items-center justify-center space-x-4">
                 <h5 hidden class="text-5xl font-medium text-tekst lg:block">Reeglid</h5>

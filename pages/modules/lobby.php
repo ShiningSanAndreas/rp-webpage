@@ -25,3 +25,5 @@ if (isset($_SESSION['correctAnswers']) && isset($_SESSION['incorrectQuestions'])
 <form method="post">
     <button type="submit" name="view" value="quiz">Go to Quiz</button>
 </form>
+
+

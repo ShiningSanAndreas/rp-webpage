@@ -53,7 +53,7 @@ $current_page = "shop";
 <body class="bg-background">
 
     <!-- Shop Section -->
-    <div class="container mx-auto text-left">
+    <div class="max-w-screen-xl mx-auto text-left">
 
         <div class="text-white mt-16 mb-16 flex justify-center">
             <h2 class="text-5xl font-semibold">Pood</h2>
