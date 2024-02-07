@@ -26,7 +26,7 @@ $timer_from_db = getWhitelistTimer($discord_id, $db);
 
 
 // Define an array for questions and answer choices
-$allQuestions  = [
+$allQuestions = [
     1 => [
         "question" => "Õige vastus on A?",
         "choices" => ["A", "B", "C", "D"],
@@ -153,35 +153,33 @@ $currentQuestionData = $_SESSION["questions"][$currentQuestion];
 <?php include('./modules/navbar.php') ?>
 
 <body class="bg-background">
-    <div class="mb-6 container mx-auto">
+    <div class="mb-6 max-w-screen-xl mx-auto">
         <div class="flex items-center justify-center my-16">
             <h5 hidden class="text-5xl text-tekst font-medium block">Whitelist</h5>
         </div>
 
         <div class="pt-6 2xl:container">
             <?php if ($_SESSION["whitelist_status"]): ?>
-                <div
-                    class="flex justify-center py-8 text-2xl font-bold leading-7 text-tekst sm:text-3xl sm:tracking-tight">
+                <div class="flex justify-center py-8 text-2xl font-bold leading-7 text-tekst sm:text-3xl sm:tracking-tight">
                     <p>Sa oled juba whitelist testi läbinud! Edu serveris!</p>
                 </div>
 
             <?php else: ?>
                 <?php if ($_SESSION["quiz_completed"]): ?>
-                    <div
-                        class="flex justify-center py-8 text-2xl font-bold leading-7 text-tekst sm:text-3xl sm:tracking-tight">
+                    <div class="flex justify-center py-8 text-2xl font-bold leading-7 text-tekst sm:text-3xl sm:tracking-tight">
                         <?php if ($_SESSION["score"] >= 10): ?>
                             <p>Läbisid whitelisti edukalt! Edu serveris!</p>
                         <?php else: ?>
                             <p>Ebaõnnestusid whitelisti testi sooritamisel. Valesid vastuseid:
                                 <?php echo (10 - $_SESSION["score"]) ?> !
-                            
+
                                 <br>Testi uuesti sooritamine on võimalik
                                 <?php echo gmdate("i:s", ($timer_from_db - time())) ?> minutit pärast.
                                 <script>
-    setTimeout(function () {
-        window.location.href = 'whitelist-form.php';
-    }, <?php echo max(0, $timer_from_db - time()) * 1000; ?>);
-</script>
+                                    setTimeout(function () {
+                                        window.location.href = 'whitelist-form.php';
+                                    }, <?php echo max(0, $timer_from_db - time()) * 1000; ?>);
+                                </script>
                             </p>
                         </div>
                     <?php endif; ?>
@@ -190,54 +188,55 @@ $currentQuestionData = $_SESSION["questions"][$currentQuestion];
                         <p
                             class="flex justify-center px-8 py-8 text-2xl font-bold leading-7 text-tekst sm:text-3xl sm:tracking-tight text-center">
                             <?php echo (10 - $_SESSION["score"]) ?> !.Uuesti proovimine on võimalik ‎
-                            
+
                             <span id="countdown"></span>
-<script>
-    // Set the target time for the countdown (in seconds)
-    var targetTime = <?php echo $timer_from_db; ?>;
+                            <script>
+                                // Set the target time for the countdown (in seconds)
+                                var targetTime = <?php echo $timer_from_db; ?>;
 
-    // Function to update the countdown
-    function updateCountdown() {
-        // Calculate the remaining time in seconds
-        var remainingTime = Math.max(0, targetTime - Math.floor(Date.now() / 1000));
+                                // Function to update the countdown
+                                function updateCountdown() {
+                                    // Calculate the remaining time in seconds
+                                    var remainingTime = Math.max(0, targetTime - Math.floor(Date.now() / 1000));
 
-        // Format the remaining time into MM:SS
-        var minutes = Math.floor(remainingTime / 60);
-        var seconds = remainingTime % 60;
+                                    // Format the remaining time into MM:SS
+                                    var minutes = Math.floor(remainingTime / 60);
+                                    var seconds = remainingTime % 60;
 
-        // Update the content of the countdown element
-        document.getElementById('countdown').textContent = ' ' + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+                                    // Update the content of the countdown element
+                                    document.getElementById('countdown').textContent = ' ' + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 
-        // If there is remaining time, update again after 1 second
-        if (remainingTime > 0) {
-            setTimeout(updateCountdown, 1000);
-        } else {
-            // Reload the page when the countdown reaches 0:00
-            location.reload();
-        }
-    }
+                                    // If there is remaining time, update again after 1 second
+                                    if (remainingTime > 0) {
+                                        setTimeout(updateCountdown, 1000);
+                                    } else {
+                                        // Reload the page when the countdown reaches 0:00
+                                        location.reload();
+                                    }
+                                }
 
-    // Initial update of the countdown
-    updateCountdown();
-</script>
-‎ pärast.</p>
-                        <?php else: ?>
-                            <form action="whitelist-form.php" method="post">
-    <div class="p-4 mb-4">
-        <h1 class="px-8 py-8 text-2xl font-bold leading-7 text-tekst sm:text-3xl sm:tracking-tight">
-            <?php echo "Küsimus $currentQuestion: " . $currentQuestionData["question"]; ?>
-        </h1>
-        <div class="ml-8 text-lg text-tekst">
-            <?php foreach ($currentQuestionData["choices"] as $choice): ?>
-                <input type="checkbox" name="answers[]" value="<?php echo $choice; ?>">
-                <?php echo $choice; ?><br>
-            <?php endforeach; ?>
-        </div>
-    </div>
+                                // Initial update of the countdown
+                                updateCountdown();
+                            </script>
+                            ‎ pärast.
+                        </p>
+                    <?php else: ?>
+                        <form action="whitelist-form.php" method="post">
+                            <div class="p-4 mb-4">
+                                <h1 class="px-8 py-8 text-2xl font-bold leading-7 text-tekst sm:text-3xl sm:tracking-tight">
+                                    <?php echo "Küsimus $currentQuestion: " . $currentQuestionData["question"]; ?>
+                                </h1>
+                                <div class="ml-8 text-lg text-tekst">
+                                    <?php foreach ($currentQuestionData["choices"] as $choice): ?>
+                                        <input type="checkbox" name="answers[]" value="<?php echo $choice; ?>">
+                                        <?php echo $choice; ?><br>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
 
-    <!-- "Next" Button -->
-    <input type="submit" value="Edasi" class="bg-blue-500 text-white text-lg p-2 px-4 ml-12 rounded">
-</form>
+                            <!-- "Next" Button -->
+                            <input type="submit" value="Edasi" class="bg-blue-500 text-white text-lg p-2 px-4 ml-12 rounded">
+                        </form>
                     <?php endif; ?>
                 <?php endif; ?>
             <?php endif; ?>

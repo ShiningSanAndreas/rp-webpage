@@ -39,7 +39,7 @@ $characterData = getUserCharacters($discord_id, $db);
 
 <body class="bg-background">
 
-    <div class="ml-auto mb-6 container-lg mx-auto">
+    <div class="ml-auto mb-6 max-w-screen-xl mx-auto">
         <div class="text-white my-16 flex justify-center">
             <h2 class="text-5xl font-semibold">Karakterid</h2>
         </div>

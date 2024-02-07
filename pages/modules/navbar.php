@@ -42,7 +42,7 @@ $_SESSION["whitelist_status"] = isUserWhitelisted($discord_id, $db);
 
 <body>
   <nav class="bg-primary static top-0">
-    <div class="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <div class="container flex flex-wrap items-center justify-between mx-auto py-4">
       <a href="home.php" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="../assets/256x26.png" class="h-12 w-12" alt="Shining RP logo" />
         <span class="self-center text-2xl font-semibold whitespace-nowrap text-tekst">ShiningRP</span>
