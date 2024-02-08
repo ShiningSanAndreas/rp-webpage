@@ -3,9 +3,6 @@
 
 <?php
 session_start();
-
-
-
 $current_page = "shop";
 ?>
 
@@ -48,7 +45,7 @@ $current_page = "shop";
 </head>
 
 
-<?php include('./modules/navbar.php') ?>
+
 
 <body class="bg-background">
 

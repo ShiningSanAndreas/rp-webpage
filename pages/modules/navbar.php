@@ -21,14 +21,11 @@ if ($isLoggedIn) {
 
 $avatar_url = $isLoggedIn ? "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg" : "";
 
-$_SESSION["userBalance"] = getUserBalance($discord_id, $db);
-$_SESSION["whitelist_status"] = isUserWhitelisted($discord_id, $db);
+$_SESSION["userBalance"] = $isLoggedIn ? getUserBalance($discord_id, $db) :  0;
+$_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db) : 0;
 
 // Debug output
-var_dump($_SESSION);
 
-echo "Debug point 1";
-echo "W".$_SESSION["whitelist_status"]."x". $_SESSION["userBalance"];
 ?>
 
 <head>
