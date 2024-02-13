@@ -1,9 +1,11 @@
 <?php
+session_start();
 require_once '../vendor/autoload.php'; // Include Stripe PHP library
 
 \Stripe\Stripe::setApiKey('sk_test_51OXMazJYQ5I7nITlmDc3WDHEUwgHYfTYTguuip7fs5bUTaRRv7jNEvpq6wT3cidrICdZmZuyXVtMYXxTHuES1xO000t7qFwlOA');  // Replace with your actual Stripe secret API key
 
 header('Content-Type: application/json');
+$discordId = $_SESSION["userData"]["discord_id"];
 
 try {
     $checkout_session = \Stripe\Checkout\Session::create([
@@ -11,22 +13,23 @@ try {
         'line_items' => [
             [
                 'price_data' => [
-                    'currency' => 'eur', // Replace with your preferred currency
+                    'currency' => 'eur',
                     'product_data' => [
-                        'name' => 'Product Name', // Replace with your product name
+                        'name' => '100 coini',
                     ],
-                    'unit_amount' => 1000, // Replace with your product price in cents
+                    'unit_amount' => 1000, // Amount in cents (10 EUR * 100)
                 ],
                 'quantity' => 1,
             ],
         ],
+        'payment_intent_data'=>[
+                'metadata' => [
+                    'discord_id' => $discordId,
+                ],
+            ],
         'mode' => 'payment',
-        'success_url' => 'http://yourdomain.com/success', // Replace with your success URL
-        'cancel_url' => 'http://yourdomain.com/cancel', // Replace with your cancel URL
-        'metadata' => [
-            'user_id' => '123', // Replace with the actual user ID
-            'custom_data' => 'Some additional data',
-        ],
+        'success_url' => 'http://127.0.0.1:8000/pages/shop.php',
+        'cancel_url' => 'http://127.0.0.1:8000/pages/rules.php',
     ]);
 
     echo json_encode(['id' => $checkout_session->id]);

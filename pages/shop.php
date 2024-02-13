@@ -4,6 +4,7 @@
 <?php
 session_start();
 $current_page = "shop";
+echo $_SESSION["userData"]["discord_id"]; // THIS WORKS AND SHOWS MY DISCORD ID
 ?>
 
 <head>
