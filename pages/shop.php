@@ -67,9 +67,9 @@ echo $_SESSION["userData"]["discord_id"]; // THIS WORKS AND SHOWS MY DISCORD ID
             <div class="relative bg-primary rounded-md w-72 h-96 mr-8 flex flex-col items-center justify-items-center">
                 <img src="../assets/SmlSSACoin.png" width="130" class="mt-8" />
                 <div class="text-white text-center flex-shrink">
-                    <p class="text-2xl font-bold mt-12">100 coini</p>
+                    <p class="text-2xl font-bold mt-12">100 SSA-Coins</p>
                     <p class="text-2xl font-bold mt-2">10€</p>
-                    <button type="button" id="checkout-button"
+                    <button type="button" id="checkout-button" data-package-name="100 SSA-Coins" data-package-amount="1000"
                         class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center my-4">
                         Osta
                     </button>
@@ -80,9 +80,12 @@ echo $_SESSION["userData"]["discord_id"]; // THIS WORKS AND SHOWS MY DISCORD ID
             <div class="relative bg-primary rounded-md w-72 h-96 mr-8 flex flex-col items-center justify-items-center">
                 <img src="../assets/MidSSACoin.png" width="132" class="mt-8" />
                 <div class="text-white text-center flex-shrink">
-                    <p class="text-2xl font-bold mt-12">300 + 100 coini</p>
-                    <p class="text-2xl font-bold mt-2">30€</p>
-                    <?php include('./modules/shopButton.php') ?>
+                    <p class="text-2xl font-bold mt-12">250 + 50 SSA-Coins</p>
+                    <p class="text-2xl font-bold mt-2">25€</p>
+                    <button type="button" id="checkout-button" data-package-name="250 + 50 SSA-Coins" data-package-amount="2500"
+                        class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center my-4">
+                        Osta
+                    </button>
                 </div>
             </div>
 
@@ -90,9 +93,12 @@ echo $_SESSION["userData"]["discord_id"]; // THIS WORKS AND SHOWS MY DISCORD ID
             <div class="relative bg-primary rounded-md w-72 h-96 mr-8 flex flex-col items-center justify-items-center">
                 <img src="../assets/BigSSACoin.png" width="116" class="mt-8" />
                 <div class="text-white text-center flex-shrink">
-                    <p class="text-2xl font-bold mt-12">500 + 150 coini</p>
+                    <p class="text-2xl font-bold mt-12">500 + 100 SSA-Coins</p>
                     <p class="text-2xl font-bold mt-2">50€</p>
-                    <?php include('./modules/shopButton.php') ?>
+                    <button type="button" id="checkout-button" data-package-name="500 + 100 SSA-Coins" data-package-amount="5000"
+                        class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center my-4">
+                        Osta
+                    </button>
                 </div>
             </div>
         </div>
@@ -175,26 +181,39 @@ echo $_SESSION["userData"]["discord_id"]; // THIS WORKS AND SHOWS MY DISCORD ID
     var checkoutButton = document.getElementById('checkout-button');
 
     checkoutButton.addEventListener('click', function () {
-        // Create a Checkout Session with your server-side endpoint
-        fetch('./create-checkout-session.php', {
-            method: 'POST',
-        })
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (session) {
-                // Call Stripe.js to redirect to the checkout page
-                return stripe.redirectToCheckout({ sessionId: session.id });
-            })
-            .then(function (result) {
-                // If `redirectToCheckout` fails due to a browser or network
-                // error, you should display the localized error message to your customer
-                if (result.error) {
-                    alert(result.error.message);
-                }
-            })
-            .catch(function (error) {
-                console.error('Error:', error);
-            });
+    var packageName = this.getAttribute('data-package-name');
+    var packageAmount = this.getAttribute('data-package-amount');
+     // Log the values to check if they are retrieved correctly
+     console.log("Package Name: " + packageName);
+    console.log("Package Amount: " + packageAmount);
+
+    // Create a Checkout Session with your server-side endpoint
+    fetch('./create-checkout-session.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            packageName: packageName,
+            packageAmount: packageAmount,
+        }),
+    })
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (session) {
+        // Call Stripe.js to redirect to the checkout page
+        return stripe.redirectToCheckout({ sessionId: session.id });
+    })
+    .then(function (result) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, you should display the localized error message to your customer
+        if (result.error) {
+            alert(result.error.message);
+        }
+    })
+    .catch(function (error) {
+        console.error('Error:', error);
     });
+});
 </script>

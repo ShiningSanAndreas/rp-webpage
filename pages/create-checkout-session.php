@@ -6,8 +6,12 @@ require_once '../vendor/autoload.php'; // Include Stripe PHP library
 
 header('Content-Type: application/json');
 $discordId = $_SESSION["userData"]["discord_id"];
+// $packageName = $_POST['packageName']; // Get the dynamic package name from shop.php
+// $packageAmount = $_POST['packageAmount']; // Get the dynamic package amount from shop.php
+
 
 try {
+   
     $checkout_session = \Stripe\Checkout\Session::create([
         'payment_method_types' => ['card'],
         'line_items' => [
@@ -15,18 +19,18 @@ try {
                 'price_data' => [
                     'currency' => 'eur',
                     'product_data' => [
-                        'name' => '100 coini',
+                        'name' => '100 SSA-Coins', // Use the dynamic package name
                     ],
-                    'unit_amount' => 1000, // Amount in cents (10 EUR * 100)
+                    'unit_amount' => 1000, // Use the dynamic package amount
                 ],
                 'quantity' => 1,
             ],
         ],
-        'payment_intent_data'=>[
-                'metadata' => [
-                    'discord_id' => $discordId,
-                ],
+        'payment_intent_data' => [
+            'metadata' => [
+                'discord_id' => $discordId,
             ],
+        ],
         'mode' => 'payment',
         'success_url' => 'http://127.0.0.1:8000/pages/shop.php',
         'cancel_url' => 'http://127.0.0.1:8000/pages/rules.php',
