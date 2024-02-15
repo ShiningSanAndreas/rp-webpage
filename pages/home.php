@@ -19,7 +19,6 @@ $current_page = "Home";
 <?php include("./modules/jumbotron.php") ?>
 
 <body>
-
     <div class="bg-primary">
         <div class="text-tekst mx-auto py-16 max-w-screen-lg">
             <div class="flex flex-col justify-center">
