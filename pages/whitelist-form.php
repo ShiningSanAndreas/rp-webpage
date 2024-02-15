@@ -154,8 +154,8 @@ $currentQuestionData = $_SESSION["questions"][$currentQuestion];
 
 <body class="bg-background">
     <div class="mb-6 max-w-screen-xl mx-auto">
-        <div class="flex items-center justify-center my-16">
-            <h5 hidden class="text-5xl text-tekst font-medium block">Whitelist</h5>
+        <div class="flex items-center my-16">
+            <h5 hidden class="text-5xl text-tekst font-bold block">Whitelist</h5>
         </div>
 
         <div class="pt-6 2xl:container">

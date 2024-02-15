@@ -19,9 +19,9 @@ session_start();
 include("./modules/navbar.php");
 ?>
 <body class="bg-background">
-    <div class="ml-auto mb-6 lg:w-[70%] xl:w-[75%] 2xl:w-[85%] mx-auto">
+    <div class="mb-6 max-w-screen-xl mx-auto">
         <div class="text-white mt-16 mb-6">
-            <h2 class="text-3xl font-semibold">Tester Form</h2>
+            <h2 class="text-5xl font-bold">Tester Form</h2>
         </div>
     </div>
 
@@ -48,9 +48,6 @@ include("./modules/navbar.php");
     }
     
     ?>
-
-
-    <?php include("./modules/footer.php") ?>
 </body>
-
+<?php include("./modules/footer.php") ?>
 </html>

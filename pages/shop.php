@@ -55,15 +55,15 @@ $current_page = "shop";
     <!-- Shop Section -->
     <div class="max-w-screen-xl mx-auto text-left">
 
-        <div class="text-white mt-16 mb-16 flex justify-center">
-            <h2 class="text-5xl font-semibold">Pood</h2>
+        <div class="text-tekst my-16">
+            <h2 class="text-5xl font-bold">Pood</h2>
         </div>
 
-        <div class="text-white mb-6 flex justify-center">
+        <div class="text-white p-4">
             <h2 class="text-3xl font-semibold">Timmi endale coini</h2>
         </div>
         <!-- Coins section -->
-        <div class="flex flex-row justify-center mb-32">
+        <div class="flex flex-row justify-center mb-16">
 
             <!-- First coin container -->
             <div class="relative bg-primary rounded-md w-72 h-96 mr-8 flex flex-col items-center justify-items-center">
@@ -100,7 +100,7 @@ $current_page = "shop";
         </div>
 
 
-        <div class="text-white mb-6 flex justify-center">
+        <div class="text-white p-4">
             <h2 class="text-3xl font-semibold">Timmi custom looti :D</h2>
         </div>
         <!-- Custom Items Section -->

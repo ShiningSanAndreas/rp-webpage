@@ -40,8 +40,8 @@ $characterData = getUserCharacters($discord_id, $db);
 <body class="bg-background">
 
     <div class="ml-auto mb-6 max-w-screen-xl mx-auto">
-        <div class="text-white my-16 flex justify-center">
-            <h2 class="text-5xl font-semibold">Karakterid</h2>
+        <div class="text-white my-16 flex">
+            <h2 class="text-5xl font-bold">Karakterid</h2>
         </div>
         <div class="flex flex-row flex-wrap justify-center mb-24">
             <?php for ($i = 0; $i < 5; $i++): ?>
@@ -54,7 +54,7 @@ $characterData = getUserCharacters($discord_id, $db);
                     <!-- First Character Container -->
                     <div
                         class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 mb-8">
-                        <img src="../assets/lisakarakter.png" alt="Pood Custom Car"
+                        <img src="../assets/lisakarakter.png" alt="Char card"
                             class="p-4 w-72 h-64 object-cover object-top" />
                         <div class="text-white text-center">
                             <p class="text-2xl font-bold"><?= $charinfo['firstname'] ?>, <?= $charinfo['lastname'] ?></p>
@@ -71,7 +71,7 @@ $characterData = getUserCharacters($discord_id, $db);
                     <!-- Second Character Container -->
                     <div
                         class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 mb-8 blur-sm">
-                        <img src="../assets/lisakarakter.png" alt="Pood Custom Car"
+                        <img src="../assets/lisakarakter.png" alt="Char card blurred"
                             class="p-4 w-72 h-64 object-cover object-top" />
                         <div class="text-white text-center">
                             <p class="text-2xl font-bold">firstName, lastName</p>
