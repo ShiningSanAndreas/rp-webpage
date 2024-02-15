@@ -20,8 +20,8 @@ if (isset($_SESSION['selectedOptions'])) {
 <div class="container mx-auto">
 <ol id="sectionList" class="flex items-center w-full">
     <?php for ($i = 1; $i <= 10; $i++): ?>
-        <li class="flex w-full items-center <?php if ($i === 1): ?>ml-10 <?php endif; ?><?php if ($i < 10): ?>after:content-[''] after:w-full after:h-1 after:border-b after:border-primary after:border-4 after:inline-block dark:after:border-gray-700<?php endif; ?><?php if ($i < $currentSection): ?> completed-step<?php endif; ?>">
-            <span class="flex text-tekst items-center justify-center w-10 h-10 bg-primary rounded-full lg:h-12 lg:w-12 dark:bg-gray-700 shrink-0">
+        <li class="flex w-full items-center <?php if ($i === 1): ?>ml-10 <?php endif; ?><?php if ($i < 10): ?>after:content-[''] after:w-full after:h-1 after:border-b after:border-primary after:border-4 after:inline-block <?php endif; ?><?php if ($i < $currentSection): ?> completed-step<?php endif; ?>">
+            <span class="flex text-tekst items-center justify-center w-10 h-10 bg-primary rounded-full lg:h-12 lg:w-12 shrink-0">
                 <?php echo $i; ?>
             </span>
         </li>

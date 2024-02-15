@@ -85,7 +85,6 @@ $allQuestions = [
 // Initialize the score
 
 // Check if the form has been submitted
-// Check if the form has been submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the current question number
     $currentQuestion = isset($_SESSION["current_question"]) ? intval($_SESSION["current_question"]) : 0;
@@ -153,7 +152,7 @@ $currentQuestionData = $_SESSION["questions"][$currentQuestion];
 <?php include('./modules/navbar.php') ?>
 
 <body class="bg-background">
-    <div class="mb-6 max-w-screen-xl mx-auto">
+    <div class="mb-6 max-w-screen-lg mx-auto">
         <div class="flex items-center my-16">
             <h5 hidden class="text-5xl text-tekst font-bold block">Whitelist</h5>
         </div>

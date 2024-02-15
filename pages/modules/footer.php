@@ -11,7 +11,7 @@
 <footer class="bg-primary h-72 bottom-0 relative">
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat brightness-[0.3] bg-[url('.././assets/fivemlistabanner.png')]">
     </div>
-    <div class="relative z-10 mx-auto w-full max-w-screen-xl">
+    <div class="relative z-10 mx-auto w-full max-w-screen-lg">
         <div class="flex flex-row justify-between rounded-md">
             <div class="flex flex-col mt-10">
                 <a href="home.php">

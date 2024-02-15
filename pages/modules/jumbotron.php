@@ -11,11 +11,11 @@
         <!-- Overlay with brightness-50 -->
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
         <div
-            class="mx-auto flex flex-col flex-shrink justify-start max-w-screen-xl text-left lg:py-64 relative">
-            <h1 class="lg:text-6xl font-bold text-tekst md:text-5xl relative z-10 pt-16">
+            class="mx-auto flex flex-col flex-shrink items-center content-center text-left relative xl:items-start 2xl:text-left">
+            <h1 class="text-4xl font-bold text-tekst relative z-10 pt-16 lg:text-5xl 2xl:text-6xl">
                 ShiningRP
             </h1>
-            <p class="p-4 font-medium text-tekst lg:text-2xl md:text-xl relative z-10 w-96 flex flex-shrink">
+            <p class="font-medium text-tekst relative z-10 w-96 flex flex-shrink text-center text-md lg:text-xl xl:text-2xl">
                 Tule alusta oma uut elulugu Eesti seltskondlikuimas ja värskeimas RP serveris!
             </p>
         </div>
