@@ -1,11 +1,10 @@
-<!doctype html>
-<html>
-
 <?php
 session_start();
 $current_page = "Home";
 
 ?>
+<!doctype html>
+<html>
 
 <head>
     <meta charset="UTF-8">
