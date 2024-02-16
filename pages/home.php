@@ -115,11 +115,11 @@ $current_page = "Home";
                             </div>
                             <p class="flex text-lg items-center pl-2">Autentimine</p>
                         </div>
-                        <h3 class="text-3xl font-medium">Logi discordiga sisse..</h3>
-                        <p class="flex flex-shrink text-md">..Et alustada oma lugu meie serveris, logi sisse läbi
+                        <h3 class="text-3xl font-medium px-4 lg:px-0">Logi discordiga sisse..</h3>
+                        <p class="flex flex-shrink text-md px-4 lg:px-0">..Et alustada oma lugu meie serveris, logi sisse läbi
                             discordi. Siis saad ligipääsu. Näeme Shining San Andreases!</p>
                         <a href="landing.php">
-                            <button class="bg-primary h-10 my-4 rounded-full text-md px-4">
+                            <button class="bg-primary h-10 my-4 rounded-full text-md px-4 mx-4 lg:mx-0">
                                 Logi sisse
                             </button>
                         </a>
@@ -138,11 +138,11 @@ $current_page = "Home";
                             </div>
                             <p class="flex text-lg items-center pl-2">Ligipääs</p>
                         </div>
-                        <h3 class="text-3xl font-medium">Täida Whitelist..</h3>
-                        <p class="flex flex-shrink text-md">..Et ligipääsu serverisse saada, täida whitelist, siis
+                        <h3 class="text-3xl font-medium px-4 lg:px-0">Täida Whitelist..</h3>
+                        <p class="flex flex-shrink text-md px-4 lg:px-0">..Et ligipääsu serverisse saada, täida whitelist, siis
                             teame, et oled sobilik ja reegleid järgiv mängija.</p>
                         <a href="whitelist-form.php">
-                            <button class="bg-primary h-10 my-4 rounded-full text-md px-4">
+                            <button class="bg-primary h-10  my-4 rounded-full text-md px-4 mx-4 lg:mx-0">
                                 Mine whitelisti
                             </button>
                         </a>
@@ -159,10 +159,10 @@ $current_page = "Home";
                             </div>
                             <p class="flex text-lg items-center pl-2">Ühinemine</p>
                         </div>
-                        <h3 class="text-3xl font-medium">Hakka mängima!</h3>
-                        <p class="flex flex-shrink text-md">Jehuu! Oled viimase sammu juures. Nüüd ainult vaja panna RP püksid jalga ja ühineda serveriga. Näeme linnapeal ;)</p>
+                        <h3 class="text-3xl font-medium px-4 lg:px-0">Hakka mängima!</h3>
+                        <p class="flex flex-shrink text-md px-4 lg:px-0">Jehuu! Oled viimase sammu juures. Nüüd ainult vaja panna RP püksid jalga ja ühineda serveriga. Näeme linnapeal ;)</p>
                         <a href="https://cfx.re/join/86646b" target="_blank">
-                            <button class="bg-primary h-10 my-4 rounded-full text-md px-4">
+                            <button class="bg-primary h-10 my-4 rounded-full text-md px-4 mx-4 lg:mx-0">
                                 Ühine serveriga
                             </button>
                         </a>

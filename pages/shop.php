@@ -194,10 +194,12 @@ $allProducts = [
                 $customProdTitle = $customProd['title'];
                 $customProdPrice = $customProd['price'];
                 $customProdPicture = $customProd['picture'];
-                $customProdShortDesc = $customProd['shortDescription']
+                $customProdShortDesc = $customProd['shortDescription'];
+                $customProdDesc = $customProd['description'];
+                $customProdId = $customProd['id'];
                     ?>
                 <!-- First product container -->
-                <div
+                <div id="<?= $customProdId ?>"
                     class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto m-4 flex flex-col items-center">
                     <img src="<?= $customProdPicture ?>" width="256" height="256" alt="Pood Custom Car" class="p-4" />
                     <div class="text-white text-center flex-grow">
