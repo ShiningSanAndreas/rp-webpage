@@ -8,26 +8,23 @@ $current_page = "shop";
 $allProducts = [
     "coins" => [
         [
-            "id" => "100coins",
             "title" => "100 SSA-Coins",
             "price" => 10,
-            "picture" => "SmlSSACoin.png",
+            "picture" => "../assets/SmlSSACoin.png",
             "data-package-name" => "100 SSA-Coins",
             "data-package-amount" => 1000,
         ],
         [
-            "id" => "300coins",
             "title" => "250 + 50 SSA-Coins",
             "price" => 25,
-            "picture" => "MidSSACoin.png",
+            "picture" => "../assets/MidSSACoin.png",
             "data-package-name" => "250 + 50 SSA-Coins",
             "data-package-amount" => 2500,
         ],
         [
-            "id" => "600coins",
             "title" => "500 + 100 SSA-Coins",
             "price" => 50,
-            "picture" => "BigSSACoin.png",
+            "picture" => "../assets/BigSSACoin.png",
             "data-package-name" => "500 + 100 SSA-Coins",
             "data-package-amount" => 5000,
         ],
@@ -40,7 +37,7 @@ $allProducts = [
             "description" => "Description of Custom Product 1.",
             "shortDescription" => "Osta endale kõige ägedamad ja kiiremad autod",
             "price" => 100,
-            "picture" => "car.png",
+            "picture" => "../assets/car.png",
             "button" => [
                 // Button details for Custom Product 1
             ],
@@ -51,7 +48,7 @@ $allProducts = [
             "description" => "Description of Custom Product 2.",
             "shortDescription" => "Tahad rohkem karaktereid? Osta endale kõige ägedamaid ja seksikamaid mudeleid",
             "price" => 100,
-            "picture" => "custompeed.png",
+            "picture" => "../assets/custompeed.png",
             "button" => [
                 // Button details for Custom Product 2
             ],
@@ -62,7 +59,40 @@ $allProducts = [
             "description" => "Description of Custom Product 2.",
             "shortDescription" => "Tee oma fraktsioon lossiks kõige selle ägeda mööbliga",
             "price" => 100,
-            "picture" => "mlo.jpg",
+            "picture" => "../assets/fraktsiooni.png",
+            "button" => [
+                // Button details for Custom Product 2
+            ],
+        ],
+        [
+            "id" => "nameChange",
+            "title" => "Nimevahetus",
+            "description" => "Description of Custom Product 2.",
+            "shortDescription" => "Hakkas nimest igav? Vaheta see ära!",
+            "price" => 100,
+            "picture" => "../assets/fraktsiooni.png",
+            "button" => [
+                // Button details for Custom Product 2
+            ],
+        ],
+        [
+            "id" => "prioQueue",
+            "title" => "Priority Queue",
+            "description" => "Description of Custom Product 2.",
+            "shortDescription" => "Ei viitsi järjekorras istuda? Naba endale õigus liituda serveriga ükskõik kuna tahad.",
+            "price" => 100,
+            "picture" => "../assets/fraktsiooni.png",
+            "button" => [
+                // Button details for Custom Product 2
+            ],
+        ],
+        [
+            "id" => "customVehiclePlate",
+            "title" => "Numbrimärk",
+            "description" => "Description of Custom Product 2.",
+            "shortDescription" => "Nüüd saad olla kõige räigem rullnokk kui ostad endale kohandatud numbrimärgi. 888WTF onju ;)",
+            "price" => 100,
+            "picture" => "../assets/fraktsiooni.png",
             "button" => [
                 // Button details for Custom Product 2
             ],
@@ -134,11 +164,15 @@ $allProducts = [
                 $coinPackageName = $coin['data-package-name'];
                 $coinPackageAmount = $coin['data-package-amount'];
                 ?>
-                <div class="relative bg-primary rounded-md w-72 h-96 mr-8 flex flex-col items-center justify-items-center">
-                    <img src="../assets/SmlSSACoin.png" width="130" class="mt-8" />
+                <div class="relative bg-primary rounded-md w-72 h-96 m-4 flex flex-col items-center justify-items-center">
+                    <img src="<?= $coinPicture ?>" width="130" class="mt-8" />
                     <div class="text-white text-center flex-shrink">
-                        <p class="text-2xl font-bold mt-12"><?=$coinTitle ?></p>
-                        <p class="text-2xl font-bold mt-2"><?=$coinPrice ?>€</p>
+                        <p class="text-2xl font-bold mt-12">
+                            <?= $coinTitle ?>
+                        </p>
+                        <p class="text-2xl font-bold mt-2">
+                            <?= $coinPrice ?>€
+                        </p>
                         <button type="button" id="checkout-button" data-package-name="<?= $coinPackageName ?>"
                             data-package-amount="<?= $coinPackageAmount ?>"
                             class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center my-4">
@@ -154,66 +188,38 @@ $allProducts = [
             <h2 class="text-3xl font-semibold">Timmi custom looti :D</h2>
         </div>
         <!-- Custom Items Section -->
-        <div class="flex flex-row justify-center mb-16">
-
-            <!-- First product container -->
-            <div
-                class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-80 h-auto mr-8 flex flex-col items-center">
-                <img src="../assets/car.png" width="256" height="256" alt="Pood Custom Car" class="p-4" />
-                <div class="text-white text-center flex-grow">
-                    <p class="text-dm mt-4 px-4 text-clip overflow-hidden">Osta endale kõige ägedamad ja kiiremad autod
-                    </p>
-                </div>
-                <div class="text-white text-center flex-shrink-0">
-                    <p class="text-2xl font-bold mt-4">Ägedad autod</p>
-                    <div class="flex flex-row justify-center">
-                        <span class="block text-2xl font-medium text-slate-200 ">100</span>
-                        <img class="w-6 h-6 rounded-full ml-1 mt-2" src="../assets/SSACoinTop.png"
-                            alt="1st Product Price">
+        <div class="flex flex-row justify-center mb-16 flex-wrap">
+            <?php foreach ($allProducts['customProducts'] as $customProd): ?>
+                <?php
+                $customProdTitle = $customProd['title'];
+                $customProdPrice = $customProd['price'];
+                $customProdPicture = $customProd['picture'];
+                $customProdShortDesc = $customProd['shortDescription']
+                    ?>
+                <!-- First product container -->
+                <div
+                    class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto m-4 flex flex-col items-center">
+                    <img src="<?= $customProdPicture ?>" width="256" height="256" alt="Pood Custom Car" class="p-4" />
+                    <div class="text-white text-center flex-grow">
+                        <p class="text-dm mt-4 px-4 text-clip overflow-hidden">
+                            <?= $customProdShortDesc ?>
+                        </p>
                     </div>
-                    <?php include('./modules/shopButton.php') ?>
-                </div>
-            </div>
-
-            <!-- Second product container -->
-            <div
-                class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-80 h-auto mr-8 flex flex-col items-center">
-                <img src="../assets/custompeed.png" width="256" height="256" alt="Pood Custom Car" class="p-4" />
-                <div class="text-white text-center flex-grow">
-                    <p class="text-dm mt-4 px-4 text-clip overflow-hidden">Tahad rohkem karaktereid? Osta endale
-                        ägedamaid ja seksikamaid mudeleid
-                    </p>
-                </div>
-                <div class="text-white text-center flex-shrink-0">
-                    <p class="text-2xl font-bold mt-4">Kõvad mudelid</p>
-                    <div class="flex flex-row justify-center">
-                        <span class="block text-2xl font-medium text-slate-200 ">100</span>
-                        <img class="w-6 h-6 rounded-full ml-1 mt-2" src="../assets/SSACoinTop.png"
-                            alt="2nd Product Price">
+                    <div class="text-white text-center flex-shrink-0">
+                        <p class="text-2xl font-bold mt-4">
+                            <?= $customProdTitle ?>
+                        </p>
+                        <div class="flex flex-row justify-center">
+                            <span class="block text-2xl font-medium text-slate-200 ">
+                                <?= $customProdPrice ?>
+                            </span>
+                            <img class="w-6 h-6 rounded-full ml-1 mt-2" src="../assets/SSACoinTop.png"
+                                alt="1st Product Price">
+                        </div>
+                        <?php include('./modules/shopButton.php') ?>
                     </div>
-                    <?php include('./modules/shopButton.php') ?>
                 </div>
-            </div>
-
-            <!-- Third product container -->
-            <div
-                class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-80 h-auto mr-8 flex flex-col items-center">
-                <img src="../assets/fraktsiooni.png" width="256" height="256" alt="Pood Custom Car" class="p-4" />
-                <div class="text-white text-center flex-grow">
-                    <p class="text-dm mt-4 px-4 text-clip overflow-hidden">Tee oma fraktsioon lossiks kõige selle ägeda
-                        mööbliga
-                    </p>
-                </div>
-                <div class="text-white text-center flex-shrink-0">
-                    <p class="text-2xl font-bold mt-4">Stiilne mööbel</p>
-                    <div class="flex flex-row justify-center">
-                        <span class="block text-2xl font-medium text-slate-200 ">100</span>
-                        <img class="w-6 h-6 rounded-full ml-1 mt-2" src="../assets/SSACoinTop.png"
-                            alt="3rd Product Price">
-                    </div>
-                    <?php include('./modules/shopButton.php') ?>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 
@@ -224,42 +230,44 @@ $allProducts = [
 
 <script>
     var stripe = Stripe('pk_test_51OXMazJYQ5I7nITlMEkeqSOjpPpla0wKo0IzA08xhwQ3E5SRW5cwTgkOGO89iJSkgeR58OvqlsaQkGyMBKvOIUSa00RjgtHI6A');
-    var checkoutButton = document.getElementById('checkout-button');
+    var checkoutButtons = document.querySelectorAll('#checkout-button');
 
-    checkoutButton.addEventListener('click', function () {
-        var packageName = this.getAttribute('data-package-name');
-        var packageAmount = this.getAttribute('data-package-amount');
-        // Log the values to check if they are retrieved correctly
-        console.log("Package Name: " + packageName);
-        console.log("Package Amount: " + packageAmount);
+    checkoutButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            var packageName = this.getAttribute('data-package-name');
+            var packageAmount = this.getAttribute('data-package-amount');
+            // Log the values to check if they are retrieved correctly
+            console.log("Package Name: " + packageName);
+            console.log("Package Amount: " + packageAmount);
 
-        // Create a Checkout Session with your server-side endpoint
-        fetch('./create-checkout-session.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                packageName: packageName,
-                packageAmount: packageAmount,
-            }),
-        })
-            .then(function (response) {
-                return response.json();
+            // Create a Checkout Session with your server-side endpoint
+            fetch('./create-checkout-session.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    packageName: packageName,
+                    packageAmount: packageAmount,
+                }),
             })
-            .then(function (session) {
-                // Call Stripe.js to redirect to the checkout page
-                return stripe.redirectToCheckout({ sessionId: session.id });
-            })
-            .then(function (result) {
-                // If `redirectToCheckout` fails due to a browser or network
-                // error, you should display the localized error message to your customer
-                if (result.error) {
-                    alert(result.error.message);
-                }
-            })
-            .catch(function (error) {
-                console.error('Error:', error);
-            });
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (session) {
+                    // Call Stripe.js to redirect to the checkout page
+                    return stripe.redirectToCheckout({ sessionId: session.id });
+                })
+                .then(function (result) {
+                    // If `redirectToCheckout` fails due to a browser or network
+                    // error, you should display the localized error message to your customer
+                    if (result.error) {
+                        alert(result.error.message);
+                    }
+                })
+                .catch(function (error) {
+                    console.error('Error:', error);
+                });
+        });
     });
 </script>

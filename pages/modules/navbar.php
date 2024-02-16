@@ -51,9 +51,9 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
     <div class="container flex flex-wrap items-center justify-between mx-auto py-4">
       <a href="home.php" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="../assets/256x26.png" class="h-12 w-12" alt="Shining RP logo" />
-        <span class="self-center text-2xl font-semibold whitespace-nowrap text-tekst">ShiningRP</span>
+        <span class="self-center text-xl lg:text-2xl font-semibold whitespace-nowrap text-tekst">ShiningRP</span>
       </a>
-      <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+      <div class="flex items-center md:order-2 space-x-5 md:space-x-0 rtl:space-x-reverse">
         <?php if ($isLoggedIn) { ?>
           <button type="button" class="flex text-sm bg-light rounded-full md:me-0 focus:ring-4 focus:ring-light"
             id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
@@ -85,13 +85,13 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
         <?php } else { ?>
           <a href="landing.php">
             <button type="button"
-              class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-tekst text-xl px-5 py-2.5 text-center">
+              class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-tekst text-xl text-md p-2 px-2.5 lg:text-2xl lg:px-5 lg:py-2.5 text-center">
               Logi Sisse
             </button>
           </a>
         <?php } ?>
         <button data-collapse-toggle="navbar-user" type="button"
-          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-tekst rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
+          class="inline-flex items-center mx-4 p-2 w-10 h-10 justify-center text-sm text-tekst rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
           aria-controls="navbar-user" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
           <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -102,22 +102,22 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
       </div>
       <div class="items-center hidden w-full md:flex md:w-auto md:order-1 justify-center" id="navbar-user">
         <ul
-          class="flex flex-col font-medium p-4 md:p-0 mt-4 bg-primary space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 ">
+          class="flex flex-col font-medium p-4 md:p-0 mt-4 bg-primary lg:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 ">
           <li>
             <a href="characters.php"
-              class="block py-2 px-3 text-tekst text-xl hover:text-light md:p-0 focus:text-light">Karakterid</a>
+              class="block py-2 px-3 text-tekst text-lg lg:text-2xl hover:text-light md:p-0 focus:text-light">Karakterid</a>
           </li>
           <li>
             <a href="rules.php"
-              class="block py-2 px-3 text-tekst text-xl hover:text-light md:p-0 focus:text-light">Reeglid</a>
+              class="block py-2 px-3 text-tekst text-lg lg:text-2xl hover:text-light md:p-0 focus:text-light">Reeglid</a>
           </li>
           <li>
             <a href="whitelist-form.php"
-              class="block py-2 px-3 text-tekst text-xl hover:text-light md:p-0 focus:text-light">Whitelist</a>
+              class="block py-2 px-3 text-tekst text-lg lg:text-2xl hover:text-light md:p-0 focus:text-light">Whitelist</a>
           </li>
           <li>
             <a href="shop.php"
-              class="block py-2 px-3 text-tekst text-xl hover:text-light md:p-0 focus:text-light">Pood</a>
+              class="block py-2 px-3 text-tekst text-lg lg:text-2xl hover:text-light md:p-0 focus:text-light">Pood</a>
           </li>
         </ul>
       </div>

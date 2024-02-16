@@ -6,8 +6,10 @@ require_once '../vendor/autoload.php'; // Include Stripe PHP library
 
 header('Content-Type: application/json');
 $discordId = $_SESSION["userData"]["discord_id"];
-// $packageName = $_POST['packageName']; // Get the dynamic package name from shop.php
-// $packageAmount = $_POST['packageAmount']; // Get the dynamic package amount from shop.php
+$payload = json_decode(file_get_contents('php://input'), true);
+
+$coinPackageName = $payload['packageName'];
+$coinPackageAmount = $payload['packageAmount'];
 
 
 try {
@@ -19,9 +21,9 @@ try {
                 'price_data' => [
                     'currency' => 'eur',
                     'product_data' => [
-                        'name' => '100 SSA-Coins', // Use the dynamic package name
+                        'name' => $coinPackageName, // Use the dynamic package name
                     ],
-                    'unit_amount' => 1000, // Use the dynamic package amount
+                    'unit_amount' => $coinPackageAmount, // Use the dynamic package amount
                 ],
                 'quantity' => 1,
             ],

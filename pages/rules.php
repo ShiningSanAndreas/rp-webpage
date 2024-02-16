@@ -157,8 +157,8 @@ SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU S
 <body class="bg-background">
     <div class="ml-auto mb-6 max-w-screen-lg mx-auto">
         <div class="lg:py-2.5">
-            <div class="my-16 flex items-centers space-x-4">
-                <h5 hidden class="text-5xl font-bold text-tekst lg:block">Reeglid</h5>
+            <div class="my-16 flex items-center space-x-4">
+                <h2 class="text-5xl p-4 font-bold text-tekst lg:p-0">Reeglid</h2>
             </div>
         </div>
 

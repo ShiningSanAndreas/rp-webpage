@@ -12,6 +12,8 @@ $current_page = "Home";
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <link href="../styles/output.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@X.X.X/dist/flowbite.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
     <title>Avaleht - ShiningRP</title>
 </head>
 
@@ -97,14 +99,14 @@ $current_page = "Home";
 
     <!-- Start Playing Section -->
     <div class="bg-background">
-        <div class="mx-auto text-left bg-background max-w-screen-lg p-4 xl:p-0">
+        <div class="mx-auto text-left bg-background max-w-screen-lg p-4 xl:p-0 ">
             <div class="text-tekst pt-20 mb-6">
                 <h2 class="text-4xl font-bold">Alusta mängimist</h2>
             </div>
             <div class="flex flex-col pt-4 pb-16">
 
                 <!-- First Image and Text -->
-                <div class="flex flex-row flex-wrap justify-between pb-8">
+                <div class="flex flex-row flex-wrap justify-center lg:justify-between pb-8">
                     <div class="text-tekst xl:w-1/3">
                         <div class="flex flex-row pb-2">
                             <div
@@ -126,7 +128,7 @@ $current_page = "Home";
                 </div>
 
                 <!-- Second Image and Text -->
-                <div class="flex flex-row flex-wrap justify-between pb-8">
+                <div class="flex flex-row flex-wrap-reverse justify-center lg:justify-between pb-8">
                     <img src="../assets/Sp_2ndFinal.png" alt="First Image" class="w-80 h-80">
                     <div class="text-tekst xl:w-1/3">
                         <div class="flex flex-row pb-2">
@@ -148,7 +150,7 @@ $current_page = "Home";
                 </div>
 
                 <!-- Third Image and Text -->
-                <div class="flex flex-row flex-wrap justify-between pb-8">       
+                <div class="flex flex-row flex-wrap justify-center lg:justify-between pb-8">       
                     <div class="text-tekst xl:w-1/3">
                         <div class="flex flex-row pb-2">
                             <div
