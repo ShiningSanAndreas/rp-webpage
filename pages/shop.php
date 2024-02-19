@@ -155,7 +155,7 @@ $allProducts = [
             <h2 class="text-3xl font-semibold">Timmi endale coini</h2>
         </div>
         <!-- Coins section -->
-        <div class="flex flex-row justify-center mb-16">
+        <div class="flex flex-row justify-center mb-16 flex-wrap">
             <?php foreach ($allProducts['coins'] as $coin): ?>
                 <?php
                 $coinTitle = $coin['title'];
@@ -166,8 +166,8 @@ $allProducts = [
                 ?>
                 <div class="relative bg-primary rounded-md w-72 h-96 m-4 flex flex-col items-center justify-items-center">
                     <img src="<?= $coinPicture ?>" width="130" class="mt-8" />
-                    <div class="text-white text-center flex-shrink">
-                        <p class="text-2xl font-bold mt-12">
+                    <div class="text-white text-center flex-shrink-0 mt-auto mb-8">
+                        <p class="text-2xl font-bold mt-4"> 
                             <?= $coinTitle ?>
                         </p>
                         <p class="text-2xl font-bold mt-2">
@@ -175,7 +175,7 @@ $allProducts = [
                         </p>
                         <button type="button" id="checkout-button" data-package-name="<?= $coinPackageName ?>"
                             data-package-amount="<?= $coinPackageAmount ?>"
-                            class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center my-4">
+                            class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center">
                             Osta
                         </button>
                     </div>
@@ -197,17 +197,17 @@ $allProducts = [
                 $customProdShortDesc = $customProd['shortDescription'];
                 $customProdDesc = $customProd['description'];
                 $customProdId = $customProd['id'];
-                    ?>
+                ?>
                 <!-- First product container -->
                 <div id="<?= $customProdId ?>"
                     class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto m-4 flex flex-col items-center">
                     <img src="<?= $customProdPicture ?>" width="256" height="256" alt="Pood Custom Car" class="p-4" />
-                    <div class="text-white text-center flex-grow">
+                    <div class="text-tekst text-center flex-grow">
                         <p class="text-dm mt-4 px-4 text-clip overflow-hidden">
                             <?= $customProdShortDesc ?>
                         </p>
                     </div>
-                    <div class="text-white text-center flex-shrink-0">
+                    <div class="text-tekst text-center flex-shrink-0">
                         <p class="text-2xl font-bold mt-4">
                             <?= $customProdTitle ?>
                         </p>

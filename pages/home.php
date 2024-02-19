@@ -25,7 +25,7 @@ $current_page = "Home";
         <div class="text-tekst mx-auto py-16 max-w-screen-lg">
             <div class="flex flex-col justify-center">
                 <h2 class="text-4xl font-bold mb-6 pl-4 ">Meist</h2>
-                <p class="text-xl flex-shrink p-4">
+                <p class="text-lg flex-shrink p-4">
                     Tere tulemast meie rollimängu serverisse, kus seiklus ja fantaasia saavad elu! Oleme pühendunud
                     looma mängukeskkonna,
                     mis pakub mängijatele rohkem kui lihtsalt mängu - meie eesmärk on pakkuda tõelisi kogemusi ja
