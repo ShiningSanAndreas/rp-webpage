@@ -48,29 +48,29 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
 
 <body>
   <nav class="bg-primary static top-0">
-    <div class="container flex flex-wrap items-center justify-between mx-auto py-4">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 lg:px-0">
       <a href="home.php" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="../assets/256x26.png" class="h-12 w-12" alt="Shining RP logo" />
         <span class="self-center text-xl lg:text-2xl font-semibold whitespace-nowrap text-tekst">ShiningRP</span>
       </a>
-      <div class="flex items-center md:order-2 space-x-5 md:space-x-0 rtl:space-x-reverse">
+      <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
         <?php if ($isLoggedIn) { ?>
           <button type="button" class="flex text-sm bg-light rounded-full md:me-0 focus:ring-4 focus:ring-light"
             id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
             data-dropdown-placement="right">
-            <img class="w-12 h-12 rounded-full" src="<?php echo $avatar_url ?>" alt="user photo">
+            <img class="w-10 h-10 lg:w-12 lg:h-12 rounded-full" src="<?php echo $avatar_url ?>" alt="user photo">
           </button>
-          <div class="flex flex-row px-4">
+          <div class="flex flex-row lg:px-2">
             
             <div class="flex flex-col">
-              <span class="block text-md font-medium text-tekst">
+              <span class="block text-md lg:text-lg font-medium text-tekst">
                 <?php echo $global_name ?>
               </span>
               <div class="flex flex-row justify-center">
-                <span class="block text-md font-medium text-tekst ">
+                <span class="block text-md lg:text-lg font-medium text-tekst ">
                   <?php echo $_SESSION["userBalance"]; ?>
                 </span>
-                <img class="w-4 h-4 rounded-full ml-1 mt-1" src="../assets/SSACoinTop.png" alt="balance">
+                <img class="w-4 h-4 rounded-full ml-1 mt-1 lg:mt-1.5" src="../assets/SSACoinTop.png" alt="balance">
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
           </a>
         <?php } ?>
         <button data-collapse-toggle="navbar-user" type="button"
-          class="inline-flex items-center mx-4 p-2 w-10 h-10 justify-center text-sm text-tekst rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
+          class="inline-flex items-center ml-4 p-2 w-10 h-10 justify-center text-sm text-tekst rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
           aria-controls="navbar-user" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
           <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">

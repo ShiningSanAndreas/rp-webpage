@@ -21,10 +21,11 @@ $current_page = "Home";
 <?php include("./modules/jumbotron.php") ?>
 
 <body>
+    <!-- About Us Section -->
     <div class="bg-primary">
         <div class="text-tekst mx-auto py-16 max-w-screen-lg">
-            <div class="flex flex-col justify-center">
-                <h2 class="text-4xl font-bold mb-6 pl-4 ">Meist</h2>
+            <div class="flex flex-col justify-center p-4 lg:p-0">
+                <h2 class="text-4xl font-bold mb-6">Meist</h2>
                 <p class="text-lg flex-shrink p-4">
                     Tere tulemast meie rollimängu serverisse, kus seiklus ja fantaasia saavad elu! Oleme pühendunud
                     looma mängukeskkonna,
@@ -45,7 +46,7 @@ $current_page = "Home";
                     kus veeta oma vaba aega ja luua unustamatuid mälestusi!
                 </p>
             </div>
-            <div class="flex flex-row justify-center items-center gap-4 p-4 flex-wrap">
+            <div class="flex flex-row justify-center items-center gap-4 lg:p-4 flex-wrap">
                 <!-- Feature Box 1 -->
                 <div class="bg-[#06091a] flex flex-col w-80 h-80 p-4 rounded-lg">
                     <span class="flex flex-row">
@@ -103,11 +104,10 @@ $current_page = "Home";
             <div class="text-tekst pt-20 mb-6">
                 <h2 class="text-4xl font-bold">Alusta mängimist</h2>
             </div>
-            <div class="flex flex-col pt-4 pb-16">
-
+            <div class="flex flex-col lg:p-4 pb-16">
                 <!-- First Image and Text -->
                 <div class="flex flex-row flex-wrap justify-center lg:justify-between pb-8">
-                    <div class="text-tekst xl:w-1/3">
+                    <div class="text-tekst lg:w-1/3 lg:self-center">
                         <div class="flex flex-row pb-2">
                             <div
                                 class="w-12 h-12 bg-primary rounded-full flex items-center justify-center border-2 border-gray-800">
@@ -130,7 +130,7 @@ $current_page = "Home";
                 <!-- Second Image and Text -->
                 <div class="flex flex-row flex-wrap-reverse justify-center lg:justify-between pb-8">
                     <img src="../assets/Sp_2ndFinal.png" alt="First Image" class="w-80 h-80">
-                    <div class="text-tekst xl:w-1/3">
+                    <div class="text-tekst lg:w-1/3 lg:self-center">
                         <div class="flex flex-row pb-2">
                             <div
                                 class="w-12 h-12 bg-primary rounded-full flex items-center justify-center border-2 border-gray-800">
@@ -151,7 +151,7 @@ $current_page = "Home";
 
                 <!-- Third Image and Text -->
                 <div class="flex flex-row flex-wrap justify-center lg:justify-between pb-8">       
-                    <div class="text-tekst xl:w-1/3">
+                    <div class="text-tekst lg:w-1/3 lg:self-center">
                         <div class="flex flex-row pb-2">
                             <div
                                 class="w-12 h-12 bg-primary rounded-full flex items-center justify-center border-2 border-gray-800">

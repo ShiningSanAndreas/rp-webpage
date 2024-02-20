@@ -39,7 +39,7 @@ $characterData = getUserCharacters($discord_id, $db);
 
 <body class="bg-background">
 
-    <div class="ml-auto mb-6 max-w-screen-lg mx-auto">
+    <div class="ml-auto mb-6 max-w-screen-xl mx-auto p-4 lg:p-0">
         <div class="text-white my-16 flex">
             <h2 class="text-5xl font-bold">Karakterid</h2>
         </div>
@@ -53,7 +53,7 @@ $characterData = getUserCharacters($discord_id, $db);
                     <?php $playtimeFormatted = floor($character['playtime'] / 3600) . ' Hours ' . floor(($character['playtime'] % 3600) / 60) . ' Minutes'; ?>
                     <!-- First Character Container -->
                     <div
-                        class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 mb-8">
+                        class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto lg:mr-8 mb-8">
                         <img src="../assets/lisakarakter.png" alt="Char card"
                             class="p-4 w-72 h-64 object-cover object-top" />
                         <div class="text-white text-center">
@@ -70,7 +70,7 @@ $characterData = getUserCharacters($discord_id, $db);
                 <?php else: ?>
                     <!-- Second Character Container -->
                     <div
-                        class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto mr-8 mb-8 blur-sm">
+                        class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto lg:mr-8 mb-8 blur-sm">
                         <img src="../assets/lisakarakter.png" alt="Char card blurred"
                             class="p-4 w-72 h-64 object-cover object-top" />
                         <div class="text-white text-center">

@@ -1,0 +1,23 @@
+Idee: UCP lehekülg servule
+Probleem: Pole viisi kontrollida mis inimesed serverisse tulevad. Kasutajatel ei saa abi pakkuda.
+Point: Kontrollida kes saab serverisse, tulu genereerida, abi pakkuda rahvale.
+Vahendid: Tailwindcss, php, flowbite, stripe
+
+Vana UCP oli kole ja mängijatel oli tihti vigadest teavitada. Seetõttu otsustasime koos Eneriga uue arendada. 
+Kuna serverit sai uuendatud ja paremaks tehtud, tahtis ka omanik uut UCP-d. 
+
+Arenduses hiljuti olime mõlemad php-ga rohkem tutvunud ning see tundus nagu täiesti adekvaatne töövahend, et UCP soovi täita. 
+
+Probleemid, mis esinesid arenduse käigus: 
+	stripe hidden object.
+	databaasi ühenduse vead tulid hooletuse tõttu.
+	disaini genereerimine.
+	Responsiveness
+
+
+
+Sissejuhatus:
+Eelmine aasta oli meil väga äge võimalus arendada mängu serverit, selle hulgas ka selle jaoks UCP-d. 
+Kuna Ener oli kauem serveriga tegelenud ja Tormi tahtis ka ikka nii väga midagi teha, 
+otsustas Tormi vaikselt UCP kallal nokkima praktika kõrvalt. ##Tra ei tea kas seda vanat ucp-d mainida või mitte ##Tundub rohkem nagu raamatut kirjutaks
+
