@@ -11,7 +11,6 @@ $payload = json_decode(file_get_contents('php://input'), true);
 $coinPackageName = $payload['packageName'];
 $coinPackageAmount = $payload['packageAmount'];
 
-
 try {
    
     $checkout_session = \Stripe\Checkout\Session::create([
