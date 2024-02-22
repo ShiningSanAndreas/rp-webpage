@@ -2,6 +2,7 @@
 <?php
 require_once '../../vendor/autoload.php';
 require_once 'secrets.php';
+require_once '.././admin/index.php';
 
 $stripe = new \Stripe\StripeClient($stripeSecretKey);
 $endpoint_secret = 'whsec_0j5qjxlcAXRnfJk71bZWeaZlQ4ZPyHdh';
@@ -9,6 +10,7 @@ $endpoint_secret = 'whsec_0j5qjxlcAXRnfJk71bZWeaZlQ4ZPyHdh';
 $payload = @file_get_contents('php://input');
 $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
 $event = null;
+
 
 try {
     $event = \Stripe\Webhook::constructEvent(
@@ -28,7 +30,8 @@ try {
 switch ($event->type) {
     case 'payment_intent.succeeded':
         $paymentIntent = $event; // contains a \Stripe\PaymentIntent
-        handlePaymentIntentSucceeded($paymentIntent);
+        handlePaymentIntentSucceeded($paymentIntent, $db);
+        session_reset();
         break;
     case 'payment_method.attached':
         $paymentMethod = $event->data->object; // contains a \Stripe\PaymentMethod
@@ -40,10 +43,30 @@ switch ($event->type) {
 }
 
 http_response_code(200);
+function updateUserCoinBalance($discord_id, $coin_amount, $pdo) {
+    try {
+        $query = $pdo->prepare("UPDATE ucp_users SET balance = balance + :coin_amount WHERE discord_id = :discord_id");
+        $query->bindParam(':discord_id', $discord_id);
+        $query->bindParam(':coin_amount', $coin_amount);
+        $query->execute();
+    } catch (PDOException $e) {
+        // Handle database error
+        error_log('Database error: ' . $e->getMessage());
+    }
+}
+function handlePaymentIntentSucceeded($paymentIntent, $pdo) {
 
-function handlePaymentIntentSucceeded($paymentIntent) {
-    // Implement your alert or notification logic here
-    // For example, send a Discord notification
+    //$discord_id = $paymentIntent->data->object->metadata->discord_id;
+    //$coin_amount = $paymentIntent->data->object->metadata->coin_amount;
+
+    $discord_id = '249948813878362112'; 
+    $coin_amount = "100"; 
+    
+    // Call the function
+    updateUserCoinBalance($discord_id, $coin_amount, $pdo);
+
+    // Output the updated balance
+    //echo "Updated balance: " . $updated_balance;
     sendDiscordNotification($paymentIntent);
 }
 

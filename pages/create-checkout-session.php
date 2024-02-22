@@ -10,6 +10,7 @@ $payload = json_decode(file_get_contents('php://input'), true);
 
 $coinPackageName = $payload['packageName'];
 $coinPackageAmount = $payload['packageAmount'];
+$coinAmount = $payload['coinAmount'];
 
 try {
    
@@ -30,6 +31,7 @@ try {
         'payment_intent_data' => [
             'metadata' => [
                 'discord_id' => $discordId,
+                'coin_amount' => $coinAmount,
             ],
         ],
         'mode' => 'payment',

@@ -11,6 +11,7 @@ $allProducts = [
             "title" => "100 SSA-Coins",
             "price" => 10,
             "picture" => "../assets/SmlSSACoin.png",
+            "coin-amount" => 100,
             "data-package-name" => "100 SSA-Coins",
             "data-package-amount" => 1000,
         ],
@@ -18,6 +19,7 @@ $allProducts = [
             "title" => "250 + 50 SSA-Coins",
             "price" => 25,
             "picture" => "../assets/MidSSACoin.png",
+            "coin-amount" => 300,
             "data-package-name" => "250 + 50 SSA-Coins",
             "data-package-amount" => 2500,
         ],
@@ -25,6 +27,7 @@ $allProducts = [
             "title" => "500 + 100 SSA-Coins",
             "price" => 50,
             "picture" => "../assets/BigSSACoin.png",
+            "coin-amount" => 600,
             "data-package-name" => "500 + 100 SSA-Coins",
             "data-package-amount" => 5000,
         ],
@@ -161,6 +164,7 @@ $allProducts = [
                 $coinTitle = $coin['title'];
                 $coinPrice = $coin['price'];
                 $coinPicture = $coin['picture'];
+                $coinAmount = $coin['coin-amount'];
                 $coinPackageName = $coin['data-package-name'];
                 $coinPackageAmount = $coin['data-package-amount'];
                 ?>
@@ -173,8 +177,8 @@ $allProducts = [
                         <p class="text-2xl font-bold mt-2">
                             <?= $coinPrice ?>€
                         </p>
-                        <button type="button" id="checkout-button" data-package-name="<?= $coinPackageName ?>"
-                            data-package-amount="<?= $coinPackageAmount ?>"
+                        <button type="button" id="checkout-button" data-package-name="<?= $coinPackageName ?>" 
+                            data-package-amount="<?= $coinPackageAmount ?>" coin-amount="<?= $coinAmount?>"
                             class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center">
                             Osta
                         </button>
@@ -238,9 +242,11 @@ $allProducts = [
         button.addEventListener('click', function () {
             var packageName = this.getAttribute('data-package-name');
             var packageAmount = this.getAttribute('data-package-amount');
+            var coinAmount = this.getAttribute('coin-amount');
             // Log the values to check if they are retrieved correctly
             console.log("Package Name: " + packageName);
             console.log("Package Amount: " + packageAmount);
+            console.log("Coins Amount: " + coinAmount);
 
             // Create a Checkout Session with your server-side endpoint
             fetch('./create-checkout-session.php', {
@@ -251,6 +257,7 @@ $allProducts = [
                 body: JSON.stringify({
                     packageName: packageName,
                     packageAmount: packageAmount,
+                    coinAmount: coinAmount,
                 }),
             })
                 .then(function (response) {
