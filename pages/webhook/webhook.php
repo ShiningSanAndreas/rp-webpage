@@ -52,13 +52,12 @@ switch ($event->type) {
 http_response_code(200);
 
 function handlePaymentIntentSucceeded($paymentIntent, $db) {
-
     $discord_id = $paymentIntent->data->object->metadata->discord_id;
     $coin_amount = $paymentIntent->data->object->metadata->coin_amount;
 
     //$discord_id = '249948813878362112'; 
     //$coin_amount = 100; 
-
+    error_log($coin_amount);
     // Call the function
     updateUserCoinBalance($discord_id, $coin_amount, $db);
 

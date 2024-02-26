@@ -171,14 +171,14 @@ $allProducts = [
                 <div class="relative bg-primary rounded-md w-72 h-96 m-4 flex flex-col items-center justify-items-center">
                     <img src="<?= $coinPicture ?>" width="130" class="mt-8" />
                     <div class="text-white text-center flex-shrink-0 mt-auto mb-8">
-                        <p class="text-2xl font-bold mt-4"> 
+                        <p class="text-2xl font-bold mt-4">
                             <?= $coinTitle ?>
                         </p>
                         <p class="text-2xl font-bold mt-2">
                             <?= $coinPrice ?>€
                         </p>
-                        <button type="button" id="checkout-button" data-package-name="<?= $coinPackageName ?>" 
-                            data-package-amount="<?= $coinPackageAmount ?>" coin-amount="<?= $coinAmount?>"
+                        <button type="button" id="checkout-button" data-package-name="<?= $coinPackageName ?>"
+                            data-package-amount="<?= $coinPackageAmount ?>" coin-amount="<?= $coinAmount ?>"
                             class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center">
                             Osta
                         </button>
@@ -222,7 +222,10 @@ $allProducts = [
                             <img class="w-6 h-6 rounded-full ml-1 mt-2" src="../assets/SSACoinTop.png"
                                 alt="1st Product Price">
                         </div>
-                        <?php include('./modules/shopButton.php') ?>
+                        <button type="button" data-modal-target="default-modal" data-modal-toggle="default-modal" modal-type="<?= $customProdId; ?>"
+                            class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center my-4">
+                            Osta
+                        </button>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -234,6 +237,7 @@ $allProducts = [
 
 </html>
 
+<!-- Send data to create-checkout-session.php -->
 <script>
     var stripe = Stripe('pk_test_51OXMazJYQ5I7nITlMEkeqSOjpPpla0wKo0IzA08xhwQ3E5SRW5cwTgkOGO89iJSkgeR58OvqlsaQkGyMBKvOIUSa00RjgtHI6A');
     var checkoutButtons = document.querySelectorAll('#checkout-button');
@@ -242,7 +246,7 @@ $allProducts = [
         button.addEventListener('click', function () {
             var packageName = this.getAttribute('data-package-name');
             var packageAmount = this.getAttribute('data-package-amount');
-            var coinAmount = parseInt(this.getAttribute('coin-amount'));
+            var coinAmount = this.getAttribute('coin-amount');
             // Log the values to check if they are retrieved correctly
             console.log("Package Name: " + packageName);
             console.log("Package Amount: " + packageAmount);
@@ -280,3 +284,21 @@ $allProducts = [
         });
     });
 </script>
+
+<!-- Custom product modal opening 
+<script>
+    document.querySelectorAll('.open-modal-button').forEach(function(button) {
+        button.addEventListener('click', function() {
+            var productId = this.getAttribute('modal-type');
+            // Load modal content dynamically
+            fetch('modals/modal_' + productId + '.html')
+                .then(response => response.text())
+                .then(html => {
+                    // Inject modal content into the DOM
+                    document.getElementById('modal-container').innerHTML = html;
+                    // Open modal (you may use your preferred modal library or implement custom logic)
+                })
+                .catch(error => console.error('Error fetching modal content:', error));
+        });
+    });
+</script> -->

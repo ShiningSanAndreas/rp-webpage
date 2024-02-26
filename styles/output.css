@@ -689,11 +689,6 @@ video {
   margin-bottom: auto;
 }
 
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
-
 .-mr-2 {
   margin-right: -0.5rem;
 }
@@ -734,6 +729,10 @@ video {
   margin-left: 3rem;
 }
 
+.ml-4 {
+  margin-left: 1rem;
+}
+
 .ml-8 {
   margin-left: 2rem;
 }
@@ -744,10 +743,6 @@ video {
 
 .mr-2 {
   margin-right: 0.5rem;
-}
-
-.mr-8 {
-  margin-right: 2rem;
 }
 
 .ms-auto {
@@ -784,10 +779,6 @@ video {
 
 .mt-auto {
   margin-top: auto;
-}
-
-.ml-4 {
-  margin-left: 1rem;
 }
 
 .block {
@@ -874,12 +865,12 @@ video {
   height: auto;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
 .h-full {
   height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .max-h-full {
@@ -1065,12 +1056,6 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(1rem * var(--tw-space-x-reverse));
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.space-x-5 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1.25rem * var(--tw-space-x-reverse));
-  margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
@@ -1260,11 +1245,6 @@ video {
   background-color: rgb(212 212 216 / var(--tw-bg-opacity));
 }
 
-.bg-gray-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-}
-
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1281,20 +1261,16 @@ video {
   background-image: url('../assets/eritellimus.jpg');
 }
 
+.bg-\[url\(\'\.\.\/assets\/offline\.png\'\)\] {
+  background-image: url('../assets/offline.png');
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
 
 .bg-gradient-to-t {
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
-}
-
-.bg-\[url\(\'\.\.\/assets\/offline\.png\'\)\] {
-  background-image: url('../assets/offline.png');
-}
-
-.bg-\[url\(\'\.\/assets\/offline\.png\'\)\] {
-  background-image: url('./assets/offline.png');
 }
 
 .from-black {
@@ -1373,10 +1349,6 @@ video {
   padding: 2rem;
 }
 
-.p-96 {
-  padding: 24rem;
-}
-
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1447,11 +1419,6 @@ video {
   padding-bottom: 2rem;
 }
 
-.py-64 {
-  padding-top: 16rem;
-  padding-bottom: 16rem;
-}
-
 .pb-10 {
   padding-bottom: 2.5rem;
 }
@@ -1464,16 +1431,16 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.pb-4 {
+  padding-bottom: 1rem;
+}
+
 .pb-8 {
   padding-bottom: 2rem;
 }
 
 .pl-2 {
   padding-left: 0.5rem;
-}
-
-.pl-4 {
-  padding-left: 1rem;
 }
 
 .pt-16 {
@@ -1484,20 +1451,8 @@ video {
   padding-top: 5rem;
 }
 
-.pt-4 {
-  padding-top: 1rem;
-}
-
 .pt-6 {
   padding-top: 1.5rem;
-}
-
-.pt-64 {
-  padding-top: 16rem;
-}
-
-.pb-4 {
-  padding-bottom: 1rem;
 }
 
 .text-left {
@@ -2003,10 +1958,6 @@ video {
 }
 
 @media (min-width: 1024px) {
-  .lg\:order-2 {
-    order: 2;
-  }
-
   .lg\:mx-0 {
     margin-left: 0px;
     margin-right: 0px;
@@ -2014,18 +1965,6 @@ video {
 
   .lg\:mr-8 {
     margin-right: 2rem;
-  }
-
-  .lg\:mt-2 {
-    margin-top: 0.5rem;
-  }
-
-  .lg\:mt-2\.5 {
-    margin-top: 0.625rem;
-  }
-
-  .lg\:mt-4 {
-    margin-top: 1rem;
   }
 
   .lg\:mt-1 {
@@ -2052,6 +1991,10 @@ video {
     height: 800px;
   }
 
+  .lg\:w-1\/3 {
+    width: 33.333333%;
+  }
+
   .lg\:w-12 {
     width: 3rem;
   }
@@ -2066,10 +2009,6 @@ video {
 
   .lg\:w-\[75\%\] {
     width: 75%;
-  }
-
-  .lg\:w-1\/3 {
-    width: 33.333333%;
   }
 
   .lg\:items-start {
@@ -2090,12 +2029,6 @@ video {
     margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
-  .lg\:space-x-0 > :not([hidden]) ~ :not([hidden]) {
-    --tw-space-x-reverse: 0;
-    margin-right: calc(0px * var(--tw-space-x-reverse));
-    margin-left: calc(0px * calc(1 - var(--tw-space-x-reverse)));
-  }
-
   .lg\:self-center {
     align-self: center;
   }
@@ -2113,6 +2046,11 @@ video {
     padding-right: 0px;
   }
 
+  .lg\:px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
   .lg\:px-5 {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
@@ -2128,27 +2066,8 @@ video {
     padding-bottom: 0.625rem;
   }
 
-  .lg\:px-4 {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  .lg\:px-2 {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-
-  .lg\:py-4 {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-
   .lg\:pt-56 {
     padding-top: 14rem;
-  }
-
-  .lg\:pt-8 {
-    padding-top: 2rem;
   }
 
   .lg\:text-left {
@@ -2172,10 +2091,6 @@ video {
 }
 
 @media (min-width: 1280px) {
-  .xl\:w-1\/3 {
-    width: 33.333333%;
-  }
-
   .xl\:w-\[75\%\] {
     width: 75%;
   }
