@@ -2,11 +2,19 @@
 <?php
 require_once '../../vendor/autoload.php';
 require_once 'secrets.php';
-require_once '.././admin/index.php';
+require_once '../../config.php';
+
+try {
+    $db = new PDO($configDsn, $configDbName, $configDbPw);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  } catch (PDOException $e) {
+    echo $e->getMessage(); // You should echo the error message to see the error, or handle it accordingly
+  }
 
 $stripe = new \Stripe\StripeClient($stripeSecretKey);
 $endpoint_secret = 'whsec_0j5qjxlcAXRnfJk71bZWeaZlQ4ZPyHdh';
 
+\Stripe\Stripe::setApiKey('sk_test_51OXMazJYQ5I7nITlmDc3WDHEUwgHYfTYTguuip7fs5bUTaRRv7jNEvpq6wT3cidrICdZmZuyXVtMYXxTHuES1xO000t7qFwlOA');
 $payload = @file_get_contents('php://input');
 $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
 $event = null;
@@ -41,11 +49,25 @@ switch ($event->type) {
         // Unexpected event type
         error_log('Received unknown event type');
 }
-
 http_response_code(200);
-function updateUserCoinBalance($discord_id, $coin_amount, $pdo) {
+
+function handlePaymentIntentSucceeded($paymentIntent, $db) {
+
+    $discord_id = $paymentIntent->data->object->metadata->discord_id;
+    $coin_amount = $paymentIntent->data->object->metadata->coin_amount;
+
+    //$discord_id = '249948813878362112'; 
+    //$coin_amount = 100; 
+
+    // Call the function
+    updateUserCoinBalance($discord_id, $coin_amount, $db);
+
+    sendDiscordNotification($paymentIntent);
+}
+
+function updateUserCoinBalance($discord_id, $coin_amount, $db) {
     try {
-        $query = $pdo->prepare("UPDATE ucp_users SET balance = balance + :coin_amount WHERE discord_id = :discord_id");
+        $query = $db->prepare("UPDATE ucp_users SET balance = balance + :coin_amount WHERE discord_id = :discord_id");
         $query->bindParam(':discord_id', $discord_id);
         $query->bindParam(':coin_amount', $coin_amount);
         $query->execute();
@@ -54,23 +76,7 @@ function updateUserCoinBalance($discord_id, $coin_amount, $pdo) {
         error_log('Database error: ' . $e->getMessage());
     }
 }
-function handlePaymentIntentSucceeded($paymentIntent, $pdo) {
 
-    //$discord_id = $paymentIntent->data->object->metadata->discord_id;
-    //$coin_amount = $paymentIntent->data->object->metadata->coin_amount;
-
-    $discord_id = '249948813878362112'; 
-    $coin_amount = "100"; 
-    
-    // Call the function
-    updateUserCoinBalance($discord_id, $coin_amount, $pdo);
-
-    // Output the updated balance
-    //echo "Updated balance: " . $updated_balance;
-    sendDiscordNotification($paymentIntent);
-}
-
-// Function to send Discord notification
 // Function to send Discord notification with styled embed
 function sendDiscordNotification($paymentIntent) {
     $webhookURL = 'https://discord.com/api/webhooks/1201523735874785321/p7C-eSwpwETu7nL70ASGZpqwX2OJKg-icskvK4JJ9FFewu4gmGhyd4VOXNgWhwsH1FJ8';

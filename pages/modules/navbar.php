@@ -13,7 +13,6 @@ try {
 
 
 $isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
-echo $isLoggedIn;
 
 if ($isLoggedIn) {
   extract($_SESSION["userData"]);

@@ -242,7 +242,7 @@ $allProducts = [
         button.addEventListener('click', function () {
             var packageName = this.getAttribute('data-package-name');
             var packageAmount = this.getAttribute('data-package-amount');
-            var coinAmount = this.getAttribute('coin-amount');
+            var coinAmount = parseInt(this.getAttribute('coin-amount'));
             // Log the values to check if they are retrieved correctly
             console.log("Package Name: " + packageName);
             console.log("Package Amount: " + packageAmount);
