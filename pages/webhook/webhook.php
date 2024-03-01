@@ -14,6 +14,11 @@ try {
 $stripe = new \Stripe\StripeClient($stripeSecretKey);
 $endpoint_secret = 'whsec_0j5qjxlcAXRnfJk71bZWeaZlQ4ZPyHdh';
 
+$logFilePath = 'c:/users/andim/desktop/webhook.log';
+
+// Log the entire payload of the incoming webhook request
+file_put_contents($logFilePath, $payload . PHP_EOL, FILE_APPEND);
+
 \Stripe\Stripe::setApiKey('sk_test_51OXMazJYQ5I7nITlmDc3WDHEUwgHYfTYTguuip7fs5bUTaRRv7jNEvpq6wT3cidrICdZmZuyXVtMYXxTHuES1xO000t7qFwlOA');
 $payload = @file_get_contents('php://input');
 $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
