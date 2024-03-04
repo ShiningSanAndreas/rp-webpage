@@ -3,8 +3,8 @@
     class="modal fixed w-full h-full top-0 left-0 flex items-center justify-center hidden z-50">
     <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
 
-    <div class="modal-container bg-white w-3/4 md:max-w-screen-lg mx-auto rounded shadow-lg z-50 overflow-y-auto">
-        <div class="modal-content py-4 text-left px-6">
+    <div class="modal-container bg-background w-1/2 md:max-w-3xl mx-auto rounded shadow-lg z-50 overflow-y-auto">
+        <div class="modal-content py-4 text-left px-6 text-tekst">
             <!-- Close Modal Button -->
             <form action="#" method="post" class="modal-content text-left">
                 <div class="flex justify-between items-center pb-3 border-b mb-4">
@@ -26,26 +26,112 @@
                         <p class="py-4">
                             <?= $customProdDesc ?>
                         </p>
-                        <div>
-                            <h2>Juhend</h2>
+                        <div class="text-tekst flex flex-col flex-wrap mt-4 w-full ">
                             <?php switch ($customProdId):
+                                // Car instance
                                 case 'customCar': ?>
-                                    <input type="text" placeholder="Car Color" class="input-field rounded-md" />
+                                    <label for="car-character-select">Vali Karakter:</label>
+                                    <input type="text" list="car-characters" id="car-character-select" name="character"
+                                        class="input-field rounded-md bg-primary border-2 border-black active:"
+                                        placeholder="Vali Karakter">
+                                    <datalist id="car-characters">
+                                        <option value="Character 1">
+                                        <option value="Character 2">
+                                        <option value="Character 3">
+                                            <!-- Add more options as needed -->
+                                    </datalist>
+
+                                    <label for="prod-link">Modi Link</label>
+                                    <input type="text" id="prod-link" placeholder="Sisesta link"
+                                        class="input-field rounded-md bg-primary border-2 border-black" />
+
+                                    <label for="additional-comments">Lisa Kommentaarid(Valikuline)</label>
+                                    <input type="text" id="additional-comments" placeholder="Lisa kommentaarid"
+                                        class="input-field rounded-md bg-primary border-2 border-black" />
                                     <?php break;
+                                //Character instance
                                 case 'customCharacter': ?>
-                                    <input type="number" placeholder="Character Level" class="input-field rounded-md" />
+                                    <p>Kood genereeritakse peale ostu</p>
                                     <?php break;
+
+                                //MLO instance
                                 case 'customFurniture': ?>
-                                    <input type="number" placeholder="Character Level" class="input-field rounded-md" />
+                                    <label for="mlo-char-select">Vali Karakter:</label>
+                                    <input type="text" list="mlo-characters" id="mlo-char-select" name="character"
+                                        class="input-field bg-primary rounded-md  border-2 border-black"
+                                        placeholder="Vali Karakter">
+                                    <datalist id="mlo-characters">
+                                        <option value="Character 1">
+                                        <option value="Character 2">
+                                        <option value="Character 3">
+                                            <!-- Add more options as needed -->
+                                    </datalist>
+
+                                    <label for="prod-link">Modi Link</label>
+                                    <input type="text" id="prod-link" placeholder="Sisesta link"
+                                        class="input-field rounded-md bg-primary border-2 border-black" />
+
+                                    <label for="additional-comments">Lisa Kommentaarid(Valikuline)</label>
+                                    <input type="text" id="additional-comments" placeholder="Lisa kommentaarid"
+                                        class="input-field rounded-md bg-primary border-2 border-black" />
                                     <?php break;
+
+                                // Name instance
                                 case 'nameChange': ?>
-                                    <input type="number" placeholder="Character Level" class="input-field rounded-md" />
+                                    <label for="character-name-select">Vali Karakter:</label>
+                                    <input type="text" list="character-name" id="character-name-select" name="character"
+                                        class="input-field bg-primary rounded-md border-2 border-black" placeholder="Vali Karakter">
+                                    <datalist id="character-name">
+                                        <option value="Character 1">
+                                        <option value="Character 2">
+                                        <option value="Character 3">
+                                            <!-- Add more options as needed -->
+                                    </datalist>
+
+                                    <label for="char-name">Sisesta Uus Nimi</label>
+                                    <input type="text" placeholder="New Character Name" id="char-name"
+                                        class="input-field rounded-md bg-primary rounded-md border-2 border-black" />
                                     <?php break;
+
+                                // Queue instance
                                 case 'prioQueue': ?>
-                                    <input type="number" placeholder="Character Level" class="input-field rounded-md" />
+                                    <label for="queue-level-select">Vali Tase</label>
+                                    <input type="text" list="queue-level-choices" id="queue-level-select" name="level"
+                                        class="input-field bg-primary rounded-md border-2 border-black" placeholder="Vali Tase">
+                                    <datalist id="queue-level-choices">
+                                        <option value="Tase 1">
+                                        <option value="Tase 2">
+                                        <option value="Tase 3">
+                                            <!-- Add more options as needed -->
+                                    </datalist>
                                     <?php break;
+
+                                // Plate instance
                                 case 'customVehiclePlate': ?>
-                                    <input type="number" placeholder="Character Level" class="input-field rounded-md" />
+
+                                    <label for="veh-plate-select">Vali Karakter:</label>
+                                    <input type="text" list="veh-plate-char" id="veh-plate-select" name="character"
+                                        class="input-field bg-primary rounded-md border-2 border-black" placeholder="Vali Karakter">
+                                    <datalist id="veh-plate-char">
+                                        <option value="Character 1">
+                                        <option value="Character 2">
+                                        <option value="Character 3">
+                                            <!-- Add more options as needed -->
+                                    </datalist>
+
+                                    <label for="veh-car-select">Vali Auto:</label>
+                                    <input type="text" list="char-cars" id="veh-car-select" name="car"
+                                        class="input-field bg-primary rounded-md border-2 border-black focus:border-lime-500" placeholder="Vali Auto">
+                                    <datalist id="char-cars">
+                                        <option value="Character 1">
+                                        <option value="Character 2">
+                                        <option value="Character 3">
+                                            <!-- Add more options as needed -->
+                                    </datalist>
+
+                                    <label for="form-input">Sisesta Numbrimärk:</label>
+                                    <input type="text" id="form-input" placeholder="Numbrimärk"
+                                        class="input-field rounded-md bg-primary border-2 border-black" />
                                     <?php break;
 
                             endswitch; ?>
