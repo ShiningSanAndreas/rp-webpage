@@ -24,7 +24,6 @@ $payload = @file_get_contents('php://input');
 $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
 $event = null;
 
-
 try {
     $event = \Stripe\Webhook::constructEvent(
         $payload, $sig_header, $endpoint_secret
@@ -58,10 +57,10 @@ http_response_code(200);
 
 function handlePaymentIntentSucceeded($paymentIntent, $db) {
     $discord_id = $paymentIntent->data->object->metadata->discord_id;
-    $coin_amount = $paymentIntent->data->object->metadata->coin_amount;
+    //$coin_amount = $paymentIntent->data->object->metadata->coin_amount;
 
     //$discord_id = '249948813878362112'; 
-    //$coin_amount = 100; 
+    $coin_amount = 100; 
     error_log($coin_amount);
     // Call the function
     updateUserCoinBalance($discord_id, $coin_amount, $db);
@@ -72,11 +71,16 @@ function handlePaymentIntentSucceeded($paymentIntent, $db) {
 function updateUserCoinBalance($discord_id, $coin_amount, $db) {
     try {
         $query = $db->prepare("UPDATE ucp_users SET balance = balance + :coin_amount WHERE discord_id = :discord_id");
-        $query->bindParam(':discord_id', $discord_id);
-        $query->bindParam(':coin_amount', $coin_amount);
+        $query->bindParam(':discord_id', $discord_id, PDO::PARAM_STR);
+        $query->bindParam(':coin_amount', $coin_amount, PDO::PARAM_INT);
         $query->execute();
+
+        if ($query->rowCount() == 0) {
+            error_log("No rows updated. Check if the discord_id exists and is correct: $discord_id");
+        } else {
+            error_log("Updated balance for discord_id: $discord_id with coin_amount: $coin_amount");
+        }
     } catch (PDOException $e) {
-        // Handle database error
         error_log('Database error: ' . $e->getMessage());
     }
 }

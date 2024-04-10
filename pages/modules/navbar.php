@@ -1,21 +1,17 @@
-<html>
 <?php
+include(".././config.php");
 
-
-//include(".././config.php");
-
-/*try {
+try {
   $db = new PDO($configDsn, $configDbName, $configDbPw);
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
   echo $e->getMessage(); // You should echo the error message to see the error, or handle it accordingly
-} */
+} 
 
 
-$isLoggedIn = true;
-//isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
+$isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
 
-/*if ($isLoggedIn) {
+if ($isLoggedIn) {
   extract($_SESSION["userData"]);
 }
 
@@ -23,11 +19,9 @@ $avatar_url = $isLoggedIn ? "https://cdn.discordapp.com/avatars/$discord_id/$ava
 
 $_SESSION["userBalance"] = $isLoggedIn ? getUserBalance($discord_id, $db) : 0;
 $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db) : 0;
-*/
-// Debug output
 
 ?>
-
+<html>
 <head>
   <link href="../styles/output.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
@@ -57,7 +51,7 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
         <?php if ($isLoggedIn) { ?>
           <button type="button" class="flex text-sm bg-light rounded-full md:me-0 focus:ring-4 focus:ring-light"
             id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
-            data-dropdown-placement="right">
+            data-dropdown-placement="bottom">
             <img class="w-10 h-10 lg:w-12 lg:h-12 rounded-full" src="<?php echo $avatar_url ?>" alt="user photo">
           </button>
           <div class="flex flex-row lg:px-2">
@@ -78,18 +72,22 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
           <div class="z-50 hidden text-base list-none bg-primary rounded-lg" id="user-dropdown">
             <ul class="py-2" aria-labelledby="user-menu-button">
               <li>
+                <a href="account.php" class="block px-4 py-2 text-sm text-tekst hover:bg-accent">Account</a>
+              </li>
+              <li>
                 <a href="logout.php" class="block px-4 py-2 text-sm text-tekst hover:bg-accent">Sign out</a>
               </li>
             </ul>
+            
           </div>
-        <?php  } /*else { ?>
+        <?php  } else { ?>
           <a href="landing.php">
             <button type="button"
               class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-tekst text-xl text-md p-2 px-2.5 lg:text-2xl lg:px-5 lg:py-2.5 text-center">
               Logi Sisse
             </button>
           </a>
-        <?php } */?>
+        <?php } ?>
         <button data-collapse-toggle="navbar-user" type="button"
           class="inline-flex items-center ml-4 p-2 w-10 h-10 justify-center text-sm text-tekst rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
           aria-controls="navbar-user" aria-expanded="false">
@@ -146,7 +144,6 @@ function isUserWhitelisted($discord_id, $db)
   $query->execute();
   $result = $query->fetch(PDO::FETCH_ASSOC);
 
-  echo ("RESULT" . $result['count']);
   return $result['count'] > 0;
 }
 ?>

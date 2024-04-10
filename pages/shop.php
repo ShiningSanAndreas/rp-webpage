@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php
 session_start();
 $current_page = "shop";
@@ -41,9 +38,6 @@ $allProducts = [
             "shortDescription" => "Osta endale kõige ägedamad ja kiiremad autod",
             "price" => 100,
             "picture" => "../assets/car.png",
-            "button" => [
-                // Button details for Custom Product 1
-            ],
         ],
         [
             "id" => "customCharacter",
@@ -52,9 +46,6 @@ $allProducts = [
             "shortDescription" => "Tahad rohkem karaktereid? Osta endale kõige ägedamaid ja seksikamaid mudeleid",
             "price" => 100,
             "picture" => "../assets/custompeed.png",
-            "button" => [
-                // Button details for Custom Product 2
-            ],
         ],
         [
             "id" => "customFurniture",
@@ -63,9 +54,6 @@ $allProducts = [
             "shortDescription" => "Tee oma fraktsioon lossiks kõige selle ägeda mööbliga",
             "price" => 100,
             "picture" => "../assets/fraktsiooni.png",
-            "button" => [
-                // Button details for Custom Product 2
-            ],
         ],
         [
             "id" => "nameChange",
@@ -74,9 +62,6 @@ $allProducts = [
             "shortDescription" => "Hakkas nimest igav? Vaheta see ära!",
             "price" => 100,
             "picture" => "../assets/fraktsiooni.png",
-            "button" => [
-                // Button details for Custom Product 2
-            ],
         ],
         [
             "id" => "prioQueue",
@@ -85,9 +70,6 @@ $allProducts = [
             "shortDescription" => "Ei viitsi järjekorras istuda? Naba endale õigus liituda serveriga ükskõik kuna tahad.",
             "price" => 100,
             "picture" => "../assets/fraktsiooni.png",
-            "button" => [
-                // Button details for Custom Product 2
-            ],
         ],
         [
             "id" => "customVehiclePlate",
@@ -96,13 +78,13 @@ $allProducts = [
             "shortDescription" => "Nüüd saad olla kõige räigem rullnokk kui ostad endale kohandatud numbrimärgi. 888WTF onju ;)",
             "price" => 100,
             "picture" => "../assets/fraktsiooni.png",
-            "button" => [
-                // Button details for Custom Product 2
-            ],
         ],
     ],
 ]
-    ?>
+?>
+
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
