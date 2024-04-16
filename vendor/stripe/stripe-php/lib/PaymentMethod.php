@@ -17,6 +17,7 @@ namespace Stripe;
  * @property null|\Stripe\StripeObject $affirm
  * @property null|\Stripe\StripeObject $afterpay_clearpay
  * @property null|\Stripe\StripeObject $alipay
+ * @property null|\Stripe\StripeObject $amazon_pay
  * @property null|\Stripe\StripeObject $au_becs_debit
  * @property null|\Stripe\StripeObject $bacs_debit
  * @property null|\Stripe\StripeObject $bancontact
@@ -40,6 +41,7 @@ namespace Stripe;
  * @property null|\Stripe\StripeObject $link
  * @property bool $livemode Has the value <code>true</code> if the object exists in live mode or the value <code>false</code> if the object exists in test mode.
  * @property null|\Stripe\StripeObject $metadata Set of <a href="https://stripe.com/docs/api/metadata">key-value pairs</a> that you can attach to an object. This can be useful for storing additional information about the object in a structured format.
+ * @property null|\Stripe\StripeObject $mobilepay
  * @property null|\Stripe\StripeObject $oxxo
  * @property null|\Stripe\StripeObject $p24
  * @property null|\Stripe\StripeObject $paynow
@@ -69,6 +71,7 @@ class PaymentMethod extends ApiResource
     const TYPE_AFFIRM = 'affirm';
     const TYPE_AFTERPAY_CLEARPAY = 'afterpay_clearpay';
     const TYPE_ALIPAY = 'alipay';
+    const TYPE_AMAZON_PAY = 'amazon_pay';
     const TYPE_AU_BECS_DEBIT = 'au_becs_debit';
     const TYPE_BACS_DEBIT = 'bacs_debit';
     const TYPE_BANCONTACT = 'bancontact';
@@ -87,6 +90,7 @@ class PaymentMethod extends ApiResource
     const TYPE_KLARNA = 'klarna';
     const TYPE_KONBINI = 'konbini';
     const TYPE_LINK = 'link';
+    const TYPE_MOBILEPAY = 'mobilepay';
     const TYPE_OXXO = 'oxxo';
     const TYPE_P24 = 'p24';
     const TYPE_PAYNOW = 'paynow';

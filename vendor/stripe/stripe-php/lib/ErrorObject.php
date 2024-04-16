@@ -66,6 +66,10 @@ class ErrorObject extends StripeObject
     const CODE_BANK_ACCOUNT_UNVERIFIED = 'bank_account_unverified';
     const CODE_BANK_ACCOUNT_VERIFICATION_FAILED = 'bank_account_verification_failed';
     const CODE_BILLING_INVALID_MANDATE = 'billing_invalid_mandate';
+    const CODE_BILLING_POLICY_REMOTE_FUNCTION_RESPONSE_INVALID = 'billing_policy_remote_function_response_invalid';
+    const CODE_BILLING_POLICY_REMOTE_FUNCTION_TIMEOUT = 'billing_policy_remote_function_timeout';
+    const CODE_BILLING_POLICY_REMOTE_FUNCTION_UNEXPECTED_STATUS_CODE = 'billing_policy_remote_function_unexpected_status_code';
+    const CODE_BILLING_POLICY_REMOTE_FUNCTION_UNREACHABLE = 'billing_policy_remote_function_unreachable';
     const CODE_BITCOIN_UPGRADE_REQUIRED = 'bitcoin_upgrade_required';
     const CODE_CAPTURE_CHARGE_AUTHORIZATION_EXPIRED = 'capture_charge_authorization_expired';
     const CODE_CAPTURE_UNAUTHORIZED_PAYMENT = 'capture_unauthorized_payment';
@@ -91,6 +95,10 @@ class ErrorObject extends StripeObject
     const CODE_EXPIRED_CARD = 'expired_card';
     const CODE_FINANCIAL_CONNECTIONS_ACCOUNT_INACTIVE = 'financial_connections_account_inactive';
     const CODE_FINANCIAL_CONNECTIONS_NO_SUCCESSFUL_TRANSACTION_REFRESH = 'financial_connections_no_successful_transaction_refresh';
+    const CODE_FORWARDING_API_INACTIVE = 'forwarding_api_inactive';
+    const CODE_FORWARDING_API_INVALID_PARAMETER = 'forwarding_api_invalid_parameter';
+    const CODE_FORWARDING_API_UPSTREAM_CONNECTION_ERROR = 'forwarding_api_upstream_connection_error';
+    const CODE_FORWARDING_API_UPSTREAM_CONNECTION_TIMEOUT = 'forwarding_api_upstream_connection_timeout';
     const CODE_IDEMPOTENCY_KEY_IN_USE = 'idempotency_key_in_use';
     const CODE_INCORRECT_ADDRESS = 'incorrect_address';
     const CODE_INCORRECT_CVC = 'incorrect_cvc';

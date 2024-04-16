@@ -12,7 +12,6 @@ $coinPackageName = $payload['packageName'];
 $coinPackageAmount = $payload['packageAmount'];
 $coinAmount = $payload['coinAmount'];
 
-error_log($coinAmount);
 
 try {
    

@@ -28,7 +28,6 @@ $allProducts = [
             "data-package-name" => "500 + 100 SSA-Coins",
             "data-package-amount" => 5000,
         ],
-        // Add more coin products as needed
     ],
     "customProducts" => [
         [
