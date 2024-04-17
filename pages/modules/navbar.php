@@ -52,17 +52,17 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
           <button type="button" class="flex text-sm bg-light rounded-full md:me-0 focus:ring-4 focus:ring-light"
             id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown"
             data-dropdown-placement="bottom">
-            <img class="w-10 h-10 lg:w-12 lg:h-12 rounded-full" src="<?php echo $avatar_url ?>" alt="user photo">
+            <img class="w-10 h-10 lg:w-12 lg:h-12 rounded-full" src="<?= $avatar_url ?>" alt="user photo">
           </button>
           <div class="flex flex-row lg:px-2">
 
             <div class="flex flex-col">
               <span class="block text-md lg:text-lg font-medium text-tekst">
-                <?php echo $global_name ?>
+                <?= $global_name ?>
               </span>
               <div class="flex flex-row justify-center">
                 <span class="block text-md lg:text-lg font-medium text-tekst ">
-                  <?php echo $_SESSION["userBalance"]; ?>
+                  <?= $_SESSION["userBalance"]; ?>
                 </span>
                 <img class="w-4 h-4 rounded-full ml-1 mt-1 lg:mt-1.5" src="../assets/SSACoinTop.png" alt="balance">
               </div>

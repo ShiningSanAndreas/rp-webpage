@@ -68,7 +68,7 @@ $characterData = getUserCharacters($discord_id, $db);
                         </div>
                     </div>
                 <?php else: ?>
-                    <!-- Second Character Container -->
+                    <!-- Blurred Character Container -->
                     <div
                         class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto lg:mr-8 mb-8 blur-sm">
                         <img src="../assets/lisakarakter.png" alt="Char card blurred"
