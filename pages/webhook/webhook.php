@@ -1,4 +1,3 @@
-
 <?php
 require_once '../../vendor/autoload.php';
 require_once 'secrets.php';
@@ -9,8 +8,7 @@ try {
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   } catch (PDOException $e) {
     echo $e->getMessage(); // You should echo the error message to see the error, or handle it accordingly
-  }
-
+}
 $stripe = new \Stripe\StripeClient($stripeSecretKey);
 $endpoint_secret = 'whsec_0j5qjxlcAXRnfJk71bZWeaZlQ4ZPyHdh';
 

@@ -43,6 +43,6 @@ try {
     echo json_encode(['id' => $checkout_session->id]);
 } catch (\Stripe\Exception\ApiErrorException $e) {
     http_response_code(500);
-    echo json_encode(['error' => $e->getError()->message]);
+    echo json_encode(['error' => $e->getError()->message]); 
 }
-?>
+

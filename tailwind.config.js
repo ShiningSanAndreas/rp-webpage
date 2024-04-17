@@ -7,7 +7,7 @@ module.exports = {
         'primary': '#0F1B23',
         'background': '#2f3940',
         'accent': '#32936F',
-        'light': '#26A96C ',
+        'light': '#26A96C',
         'tekst': '#f8f8ff',   
       },
       boxShadow: {
