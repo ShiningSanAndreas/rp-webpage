@@ -2,21 +2,22 @@
 include("../../config.php");
 session_start();
 
-extract($_SESSION["userData"]);
-
 try {
     $db = new PDO($configDsn, $configDbName, $configDbPw);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  } catch (PDOException $e) {
-    echo $e->getMessage(); // You should echo the error message to see the error, or handle it accordingly
-  } 
-
-$avatar_url = "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg";
+} catch (PDOException $e) {
+    echo $e->getMessage(); 
+}
 $isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
 
+if ($isLoggedIn) {
+    extract($_SESSION["userData"]);
+}
 
+$avatar_url = "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg";
+$discord_id = $_SESSION['userData']['discord_id'];
 
-
+$characterData = getUserCharacters($discord_id, $db);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,12 +49,36 @@ $isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
 </div>
 
 <!-- List of Characters -->
-<div class="w-full bg-white shadow-md rounded p-4 mt-4">
-    <h4 class="text-lg font-bold mb-3">Your Characters</h4>
-    <ul>
-    </ul>
+<div class="w-full pt-16 text-tekst ">
+    <h2 class="text-2xl font-bold mb-4">Character Details</h2>
+    <?php if (!empty($characterData)): ?>
+        <ul>
+            <?php foreach ($characterData as $character):
+                $charinfo = json_decode($character['charinfo'], true);
+                $jobinfo = json_decode($character['job'], true);
+            ?>
+            <li>
+                <?= htmlspecialchars($charinfo['firstname']) ?> <?= htmlspecialchars($charinfo['lastname']) ?>
+                - CitizenID: <?= htmlspecialchars($character['citizenid']) ?>
+                - Job: <?= htmlspecialchars($jobinfo['label']) ?> (<?= htmlspecialchars($jobinfo['grade']['name']) ?>)
+            </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p>No characters have been created yet.</p>
+    <?php endif; ?>
 </div>
 
 </body>
 </html>
 
+<?php
+function getUserCharacters($discord_id, $db)
+{
+    $query = $db->prepare("SELECT * FROM players WHERE discord = :discord_id");
+    $query->bindParam(':discord_id', $discord_id);
+    $query->execute();
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
+?>

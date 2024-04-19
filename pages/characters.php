@@ -18,7 +18,6 @@ if (!$isLoggedIn) {
 }
 extract($_SESSION["userData"]);
 
-$avatar_url = "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg";
 $current_page = "characters";
 
 $characterData = getUserCharacters($discord_id, $db);
@@ -57,12 +56,12 @@ $characterData = getUserCharacters($discord_id, $db);
                         <img src="../assets/lisakarakter.png" alt="Char card"
                             class="p-4 w-72 h-64 object-cover object-top" />
                         <div class="text-white text-center">
-                            <p class="text-2xl font-bold"><?= $charinfo['firstname'] ?>, <?= $charinfo['lastname'] ?></p>
+                            <p class="text-2xl font-bold"><?= htmlspecialchars($charinfo['firstname']) ?>, <?= htmlspecialchars($charinfo['lastname']) ?></p>
                             <p class="text-md">Sünniaeg: {user.reg}</p>
-                            <p class="text-md">Isikukood: <?= $character['citizenid'] ?></p>
-                            <p class="text-md">Amet: <?= $jobinfo['label'] ?>, <?= $jobinfo['grade']['name'] ?></p>
-                            <p class="text-md">Sularaha: $<?= $moneyinfo['cash'] ?></p>
-                            <p class="text-md">Pangas: $<?= $moneyinfo['bank'] ?></p>
+                            <p class="text-md">Isikukood: <?= htmlspecialchars($character['citizenid']) ?></p>
+                            <p class="text-md">Amet: <?= htmlspecialchars($jobinfo['label']) ?>, <?= htmlspecialchars($jobinfo['grade']['name']) ?></p>
+                            <p class="text-md">Sularaha: $<?= htmlspecialchars($moneyinfo['cash']) ?></p>
+                            <p class="text-md">Pangas: $<?= htmlspecialchars($moneyinfo['bank']) ?></p>
                             <p class="text-md mt-12">Kriminimi: criminal</p>
                             <p class="text-md mb-4">Jõuk: gang</p>
                         </div>
