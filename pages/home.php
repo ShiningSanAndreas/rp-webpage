@@ -17,8 +17,8 @@ $current_page = "Home";
     <title>Avaleht - ShiningRP</title>
 </head>
 
-<?php include("./modules/navbar.php") ?>
-<?php include("./modules/jumbotron.php") ?>
+<?php include ("./modules/navbar.php") ?>
+<?php include ("./modules/jumbotron.php") ?>
 
 <body>
     <!-- About Us Section -->
@@ -104,10 +104,10 @@ $current_page = "Home";
             <div class="text-tekst pt-20 mb-6">
                 <h2 class="text-4xl font-bold">Alusta mängimist</h2>
             </div>
-            <div class="flex flex-col lg:p-4 pb-16">
+            <div class="flex flex-col md:p-4 pb-16">
                 <!-- First Image and Text -->
-                <div class="flex flex-row flex-wrap justify-center lg:justify-between pb-8">
-                    <div class="text-tekst lg:w-1/3 lg:self-center">
+                <div class="flex flex-row flex-wrap justify-center md:justify-between pb-12">
+                    <div class="text-tekst md:w-1/3 md:self-center">
                         <div class="flex flex-row pb-2">
                             <div
                                 class="w-12 h-12 bg-primary rounded-full flex items-center justify-center border-2 border-gray-800">
@@ -115,11 +115,12 @@ $current_page = "Home";
                             </div>
                             <p class="flex text-lg items-center pl-2">Autentimine</p>
                         </div>
-                        <h3 class="text-3xl font-medium px-4 lg:px-0">Logi discordiga sisse..</h3>
-                        <p class="flex flex-shrink text-md px-4 lg:px-0">..Et alustada oma lugu meie serveris, logi sisse läbi
+                        <h3 class="text-3xl font-medium px-4 md:px-0">Logi discordiga sisse..</h3>
+                        <p class="flex flex-shrink text-md px-4 dm:px-0">..Et alustada oma lugu meie serveris, logi
+                            sisse läbi
                             discordi. Siis saad ligipääsu. Näeme Shining San Andreases!</p>
                         <a href="landing.php">
-                            <button class="bg-primary h-10 my-4 rounded-full text-md px-4 mx-4 lg:mx-0">
+                            <button class="bg-primary h-10 my-4 rounded-full text-md px-4 mx-4 md:mx-0">
                                 Logi sisse
                             </button>
                         </a>
@@ -128,9 +129,9 @@ $current_page = "Home";
                 </div>
 
                 <!-- Second Image and Text -->
-                <div class="flex flex-row flex-wrap-reverse justify-center lg:justify-between pb-8">
+                <div class="flex flex-row flex-wrap-reverse justify-center md:justify-between pb-12">
                     <img src="../assets/Sp_2ndFinal.png" alt="First Image" class="w-80 h-80">
-                    <div class="text-tekst lg:w-1/3 lg:self-center">
+                    <div class="text-tekst md:w-1/3 md:self-center">
                         <div class="flex flex-row pb-2">
                             <div
                                 class="w-12 h-12 bg-primary rounded-full flex items-center justify-center border-2 border-gray-800">
@@ -138,11 +139,12 @@ $current_page = "Home";
                             </div>
                             <p class="flex text-lg items-center pl-2">Ligipääs</p>
                         </div>
-                        <h3 class="text-3xl font-medium px-4 lg:px-0">Täida Whitelist..</h3>
-                        <p class="flex flex-shrink text-md px-4 lg:px-0">..Et ligipääsu serverisse saada, täida whitelist, siis
+                        <h3 class="text-3xl font-medium px-4 md:px-0">Täida Whitelist..</h3>
+                        <p class="flex flex-shrink text-md px-4 md:px-0">..Et ligipääsu serverisse saada, täida
+                            whitelist, siis
                             teame, et oled sobilik ja reegleid järgiv mängija.</p>
                         <a href="whitelist-form.php">
-                            <button class="bg-primary h-10  my-4 rounded-full text-md px-4 mx-4 lg:mx-0">
+                            <button class="bg-primary h-10  my-4 rounded-full text-md px-4 mx-4 md:mx-0">
                                 Mine whitelisti
                             </button>
                         </a>
@@ -150,8 +152,8 @@ $current_page = "Home";
                 </div>
 
                 <!-- Third Image and Text -->
-                <div class="flex flex-row flex-wrap justify-center lg:justify-between pb-8">       
-                    <div class="text-tekst lg:w-1/3 lg:self-center">
+                <div class="flex flex-row flex-wrap justify-center md:justify-between pb-12">
+                    <div class="text-tekst md:w-1/3 md:self-center">
                         <div class="flex flex-row pb-2">
                             <div
                                 class="w-12 h-12 bg-primary rounded-full flex items-center justify-center border-2 border-gray-800">
@@ -159,10 +161,11 @@ $current_page = "Home";
                             </div>
                             <p class="flex text-lg items-center pl-2">Ühinemine</p>
                         </div>
-                        <h3 class="text-3xl font-medium px-4 lg:px-0">Hakka mängima!</h3>
-                        <p class="flex flex-shrink text-md px-4 lg:px-0">Jehuu! Oled viimase sammu juures. Nüüd ainult vaja panna RP püksid jalga ja ühineda serveriga. Näeme linnapeal ;)</p>
+                        <h3 class="text-3xl font-medium px-4 md:px-0">Hakka mängima!</h3>
+                        <p class="flex flex-shrink text-md px-4 md:px-0">Jehuu! Oled viimase sammu juures. Nüüd ainult
+                            vaja panna RP püksid jalga ja ühineda serveriga. Näeme linnapeal ;)</p>
                         <a href="https://cfx.re/join/86646b" target="_blank">
-                            <button class="bg-primary h-10 my-4 rounded-full text-md px-4 mx-4 lg:mx-0">
+                            <button class="bg-primary h-10 my-4 rounded-full text-md px-4 mx-4 md:mx-0">
                                 Ühine serveriga
                             </button>
                         </a>
@@ -173,9 +176,26 @@ $current_page = "Home";
         </div>
 
     </div>
-    </div>
 
+    <!-- Socials Section -->
+    <div class="bg-primary text-tekst py-16">
+        <div class="max-w-screen-lg mx-auto px-4 flex flex-wrap justify-between items-center">
+            <div class="mb-10 md:w-1/2 lg:w-1/3 flex flex-col">
+                <h1 class="text-4xl font-bold mb-3">Ühine discordiga</h1>
+                <p class="text-xl">Tule puhu meeldivat juttu kaas RP huvilistega ja leia homied eluks ajaks</p>
+                <a href="#" target="_blank">
+                    <button class="bg-green-200 h-10 my-4 rounded-full text-md px-4 mx-4 md:mx-0">
+                        Discord
+                    </button>
+                </a>
+            </div>
+
+            <div class="mt-10 md:mt-0 md:w-1/2 lg:w-1/3">
+                <img src="../assets/Sp_3rdFinal.png" alt="Test" class="mx-auto rounded-lg shadow-xl">
+            </div>
+        </div>
+    </div>
 </body>
-<?php include("./modules/footer.php") ?>
+<?php include ("./modules/footer.php") ?>
 
 </html>

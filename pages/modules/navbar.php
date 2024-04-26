@@ -72,7 +72,7 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
           <div class="z-50 hidden text-base list-none bg-primary rounded-lg" id="user-dropdown">
             <ul class="py-2" aria-labelledby="user-menu-button">
               <li>
-                <a href="account.php" class="block px-4 py-2 text-sm text-tekst hover:bg-accent">Account</a>
+              <a href="account.php" class="block px-4 py-2 text-sm text-tekst hover:bg-accent">Account</a>
               </li>
               <li>
                 <a href="logout.php" class="block px-4 py-2 text-sm text-tekst hover:bg-accent">Sign out</a>
@@ -100,22 +100,22 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
       </div>
       <div class="items-center hidden w-full md:flex md:w-auto md:order-1 justify-center" id="navbar-user">
         <ul
-          class="flex flex-col font-medium p-4 md:p-0 mt-4 bg-primary lg:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 ">
+          class="flex flex-col font-medium p-4 sm:p-0 mt-4 bg-primary lg:space-x-8 rtl:space-x-reverse md:flex-row sm:mt-0 ">
           <li>
             <a href="characters.php"
-              class="block py-2 px-3 text-tekst text-lg lg:text-2xl hover:text-light md:p-0 focus:text-light">Karakterid</a>
+              class="block py-2 px-3 text-tekst text-lg lg:text-2xl hover:text-light focus:text-light">Karakterid</a>
           </li>
           <li>
             <a href="rules.php"
-              class="block py-2 px-3 text-tekst text-lg lg:text-2xl hover:text-light md:p-0 focus:text-light">Reeglid</a>
+              class="block py-2 px-3 text-tekst text-lg lg:text-2xl hover:text-light focus:text-light">Reeglid</a>
           </li>
           <li>
-            <a href="whitelist-form.php"
-              class="block py-2 px-3 text-tekst text-lg lg:text-2xl hover:text-light md:p-0 focus:text-light">Whitelist</a>
+          <a href="whitelist-form.php"
+              class="block py-2 px-3 text-tekst text-lg lg:text-2xl hover:text-light focus:text-light">Whitelist</a>
           </li>
           <li>
             <a href="shop.php"
-              class="block py-2 px-3 text-tekst text-lg lg:text-2xl hover:text-light md:p-0 focus:text-light">Pood</a>
+              class="block py-2 px-3 text-tekst text-lg lg:text-2xl hover:text-light focus:text-light">Pood</a>
           </li>
         </ul>
       </div>

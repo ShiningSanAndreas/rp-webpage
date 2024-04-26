@@ -15,7 +15,7 @@
             <h1 class="text-4xl font-bold text-tekst text-center relative z-10 pt-16 sm:text-5xl lg:text-left lg:text-6xl">
                 ShiningRP
             </h1>
-            <p class="font-medium text-tekst text-center relative z-10 w-auto flex flex-shrink text-md lg:text-left lg:text-2xl lg:p-4 lg:w-96">
+            <p class="font-medium text-tekst text-center relative z-10 w-auto flex flex-shrink text-md lg:text-left lg:text-2xl lg:p-4 lg:w-96 md:justify-center md:pt-4">
                 Tule alusta oma uut elulugu Eesti seltskondlikuimas ja värskeimas RP serveris!
             </p>
         </div>
