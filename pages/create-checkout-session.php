@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../vendor/autoload.php'; // Include Stripe PHP library
+require_once '../vendor/autoload.php'; 
 
 \Stripe\Stripe::setApiKey('sk_test_51OXMazJYQ5I7nITlmDc3WDHEUwgHYfTYTguuip7fs5bUTaRRv7jNEvpq6wT3cidrICdZmZuyXVtMYXxTHuES1xO000t7qFwlOA');  // Replace with your actual Stripe secret API key
 
@@ -22,9 +22,9 @@ try {
                 'price_data' => [
                     'currency' => 'eur',
                     'product_data' => [
-                        'name' => $coinPackageName, // Use the dynamic package name
+                        'name' => $coinPackageName, 
                     ],
-                    'unit_amount' => $coinPackageAmount, // Use the dynamic package amount
+                    'unit_amount' => $coinPackageAmount, 
                 ],
                 'quantity' => 1,
             ],
@@ -37,7 +37,7 @@ try {
         ],
         'mode' => 'payment',
         'success_url' => 'http://127.0.0.1:8000/pages/shop.php',
-        'cancel_url' => 'http://127.0.0.1:8000/pages/rules.php',
+        'cancel_url' => 'http://127.0.0.1:8000/pages/shop.php',
     ]);
 
     echo json_encode(['id' => $checkout_session->id]);
