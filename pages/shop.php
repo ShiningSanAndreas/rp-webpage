@@ -155,7 +155,7 @@ $allProducts = [
                 $customProdDesc = $customProd['description'];
                 $customProdId = $customProd['id'];
                 ?>
-                <!-- First product container -->
+                <!-- Product container -->
                 <div
                     class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto m-4 flex flex-col items-center">
                     <img src="<?= $customProdPicture ?>" alt="Pood Custom Car" class="p-4 w-64 h-64" />
