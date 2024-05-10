@@ -58,7 +58,7 @@ $allProducts = [
             "id" => "nameChange",
             "title" => "Nimevahetus",
             "description" => "Description of Custom Product 2.",
-            "shortDescription" => "Hakkas nimest igav? Vaheta see ära!",
+            "shortDescription" => "Vajad identiteedi muutust? Vaheta oma karakteri nimi ning alusta puhtalt lehelt",
             "price" => 100,
             "picture" => "../assets/fraktsiooni.png",
         ],
@@ -108,7 +108,7 @@ $allProducts = [
         </div>
 
         <div class="text-white p-4">
-            <h2 class="text-3xl font-semibold">Timmi endale coini</h2>
+            <h2 class="text-3xl font-semibold">Soeta endale SSACoine</h2>
         </div>
         <!-- Coins section -->
         <div class="flex flex-row justify-center mb-16 flex-wrap">
@@ -121,7 +121,7 @@ $allProducts = [
                 $coinPackageName = $coin['data-package-name'];
                 $coinPackageAmount = $coin['data-package-amount'];
                 ?>
-                <div class="relative bg-primary rounded-md w-72 h-96 m-4 flex flex-col items-center justify-items-center">
+                <div class="relative bg-primary rounded-md w-full md:w-1/3 lg:w-72 h-auto m-4 flex flex-col items-center">
                     <img src="<?= $coinPicture ?>" width="130" class="mt-8" />
                     <div class="text-white text-center flex-shrink-0 mt-auto mb-8">
                         <p class="text-2xl font-bold mt-4">
@@ -139,10 +139,10 @@ $allProducts = [
                 </div>
             <?php endforeach; ?>
         </div>
-
+        
 
         <div class="text-white p-4">
-            <h2 class="text-3xl font-semibold">Timmi custom looti :D</h2>
+            <h2 class="text-3xl font-semibold">Mängusisesed mugavused/aksessuaarid</h2>
         </div>
         <!-- Custom Items Section -->
         <div class="flex flex-row justify-center mb-16 flex-wrap">
@@ -157,23 +157,23 @@ $allProducts = [
                 ?>
                 <!-- Product container -->
                 <div
-                    class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto m-4 flex flex-col items-center">
+                    class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md md:w-1/3 xl:w-72 h-auto m-4 flex flex-col items-center">
                     <img src="<?= $customProdPicture ?>" alt="Pood Custom Car" class="p-4 w-64 h-64" />
                     <div class="text-tekst text-center flex-grow">
                         <p class="text-dm mt-4 px-4 text-clip overflow-hidden">
                             <?= $customProdShortDesc ?>
                         </p>
                     </div>
-                    <div class="text-tekst text-center flex-shrink-0">
+                    <div class="text-tekst text-center flex-shrink-0 p-4">
                         <p class="text-2xl font-bold mt-4">
                             <?= $customProdTitle ?>
                         </p>
-                        <div class="flex flex-row justify-center">
-                            <span class="block text-2xl font-medium text-slate-200 ">
+                        <div class="flex justify-center">
+                            <span class="block text-2xl font-medium text-tekst">
                                 <?= $customProdPrice ?>
                             </span>
                             <img class="w-6 h-6 rounded-full ml-1 mt-2" src="../assets/SSACoinTop.png"
-                                alt="1st Product Price">
+                                alt="Product Price">
                         </div>
                         <!-- Modal toggle -->
                         <button type="button" data-modal="<?= $customProdId ?>"

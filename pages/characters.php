@@ -22,6 +22,10 @@ $current_page = "characters";
 
 $characterData = getUserCharacters($discord_id, $db);
 
+$hasCharacters = count($characterData) > 0;
+
+$charTipMessage = $hasCharacters ? "Lisakaraktereid saab osta e-poest!" : "Karaktereid nägemiseks pead enne mängu sisenema";
+
 ?>
 <!doctype html>
 <html>
@@ -39,8 +43,9 @@ $characterData = getUserCharacters($discord_id, $db);
 <body class="bg-background">
 
     <div class="ml-auto mb-6 max-w-screen-xl mx-auto p-4 lg:p-0">
-        <div class="text-white my-16 flex">
+        <div class="text-white my-16 flex-col">
             <h2 class="text-5xl font-bold">Karakterid</h2>
+            <p class="pt-4 text-gray-200"><?= $charTipMessage ?></p>
         </div>
         <div class="flex flex-row flex-wrap justify-center mb-24">
             <?php for ($i = 0; $i < 5; $i++): ?>
@@ -52,7 +57,7 @@ $characterData = getUserCharacters($discord_id, $db);
                     <?php $playtimeFormatted = floor($character['playtime'] / 3600) . ' Hours ' . floor(($character['playtime'] % 3600) / 60) . ' Minutes'; ?>
                     <!-- First Character Container -->
                     <div
-                        class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto lg:mr-8 mb-8">
+                        class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto md:p-2 lg:mr-8 mb-8">
                         <img src="../assets/lisakarakter.png" alt="Char card"
                             class="p-4 w-72 h-64 object-cover object-top" />
                         <div class="text-white text-center">
@@ -69,7 +74,7 @@ $characterData = getUserCharacters($discord_id, $db);
                 <?php else: ?>
                     <!-- Blurred Character Container -->
                     <div
-                        class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto lg:mr-8 mb-8 blur-sm">
+                        class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md w-72 h-auto sm:mr-6 lg:mr-8 mb-8 blur-sm ">
                         <img src="../assets/lisakarakter.png" alt="Char card blurred"
                             class="p-4 w-72 h-64 object-cover object-top" />
                         <div class="text-white text-center">

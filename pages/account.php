@@ -37,9 +37,9 @@ if (!$isLoggedIn) {
         <div class="flex flex-row justify-between">
             <div class="w-1/4 p-5 text-tekst border-r-2 border-primary">
                 <ul >
-                    <li ><a href="./accountPages/account_details.php" class="ajax-link text-light">Account Details</a></li>
-                    <li class="py-2"><a href="./accountPages/orders.php" class="ajax-link">Orders</a></li>
-                    <li><a href="logout.php">Log Out</a></li>
+                    <li ><a href="./accountPages/account_details.php" class="ajax-link text-light">Konto andmed</a></li>
+                    <li class="py-2"><a href="./accountPages/orders.php" class="ajax-link">Tellimused</a></li>
+                    <li><a href="logout.php">Logi välja</a></li>
                 </ul>
             </div>
             <div class="w-3/4 p-5 content">

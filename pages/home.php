@@ -35,15 +35,7 @@ $current_page = "home";
                     kus igal nurgatagusel ootab avastamist väärt saladusi ja võimalusi.
                     Me ei rahuldu tavapäraste lahendustega, sest meie jaoks on oluline pakkuda midagi täiesti uut ja
                     ainulaadset.
-                    Meie arendajad ja meeskond töötavad pidevalt selle nimel, et tuua mängijateni põnevaid uuendusi ja
-                    funktsioone,
-                    mis rikastavad nende kogemust meie serveris.Oleme loonud kogukonna, kus iga mängija on oluline ning
-                    kus sõprussuhted
-                    ja koostöö on võtmeks meie ühise seikluse edukusele. Olenemata sellest, kas oled kogenud
-                    rollimängija või alles alustav seikleja,
-                    leiad meie serverist endale sobiva väljakutse ja seltskonna.
-                    Liitu meiega ja avasta ise, miks meie rollimängu server on paljude mängijate lemmikpaigaks,
-                    kus veeta oma vaba aega ja luua unustamatuid mälestusi!
+
                 </p>
             </div>
             <div class="flex flex-row justify-center items-center gap-4 lg:p-4 flex-wrap">
@@ -125,12 +117,12 @@ $current_page = "home";
                             </button>
                         </a>
                     </div>
-                    <img src="../assets/Sp_1stFinal.png" alt="First Image" class="w-80 h-80">
+                    <img src="../assets/Sp_1stFinal.png" alt="First Image" class="w-80 h-80 object-cover">
                 </div>
 
                 <!-- Second Image and Text -->
                 <div class="flex flex-row flex-wrap-reverse justify-center md:justify-between pb-12">
-                    <img src="../assets/Sp_2ndFinal.png" alt="First Image" class="w-80 h-80">
+                    <img src="../assets/Sp_2ndFinal.png" alt="First Image" class="w-80 h-80 object-cover">
                     <div class="text-tekst md:w-1/3 md:self-center">
                         <div class="flex flex-row pb-2">
                             <div
@@ -144,7 +136,7 @@ $current_page = "home";
                             whitelist, siis
                             teame, et oled sobilik ja reegleid järgiv mängija.</p>
                         <a href="whitelist-form.php">
-                            <button class="bg-primary h-10  my-4 rounded-full text-md px-4 mx-4 md:mx-0">
+                            <button class="bg-primary h-10 my-4 rounded-full text-md px-4 mx-4 md:mx-0">
                                 Mine whitelisti
                             </button>
                         </a>
@@ -170,7 +162,7 @@ $current_page = "home";
                             </button>
                         </a>
                     </div>
-                    <img src="../assets/Sp_3rdFinal.png" alt="First Image" class="w-80 h-80">
+                    <img src="../assets/Sp_3rdFinal.png" alt="First Image" class="w-80 h-80 object-cover">
                 </div>
             </div>
         </div>
@@ -182,20 +174,26 @@ $current_page = "home";
         <div class="max-w-screen-lg mx-auto px-4 flex flex-wrap justify-between items-center">
             <div class="mb-10 md:w-1/2 lg:w-1/3 flex flex-col">
                 <h1 class="text-4xl font-bold mb-3">Ühine discordiga</h1>
-                <p class="text-xl">Tule puhu meeldivat juttu kaas RP huvilistega ja leia homied eluks ajaks</p>
-                <a href="#" target="_blank">
-                    <button class="bg-green-200 h-10 my-4 rounded-full text-md px-4 mx-4 md:mx-0">
+                <p class="text-xl mb-10">Saa olulisi teateid arenduste kohta, vestle RP kogukonnaga, leia sõpru ja kõike veel.</p>
+                <a href="https://discord.gg/5vApMEjs9p" target="_blank">
+                    <button type="button"
+                        class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full text-md px-5 py-2.5 text-center">
                         Discord
                     </button>
                 </a>
             </div>
-
-            <div class="mt-10 md:mt-0 md:w-1/2 lg:w-1/3">
-                <img src="../assets/Sp_3rdFinal.png" alt="Test" class="mx-auto rounded-lg shadow-xl">
+            <div class="mt-10 md:mt-0 md:w-1/2 lg:w-1/3 lg:h-1/3">
+                <img src="../assets/Sp_3rdFinal.png" alt="Test" class="mx-auto rounded-lg shadow-x object-cover">
             </div>
         </div>
     </div>
 </body>
 <?php include ("./modules/footer.php") ?>
+
+<!-- 
+<button class="text-tekst h-10 my-4 rounded-full text-md px-4 mx-4 md:mx-0 text-center bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300">
+Ühine serveriga
+</button> 
+-->
 
 </html>

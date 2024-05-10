@@ -37,20 +37,11 @@ $characterData = getUserCharacters($discord_id, $db);
             <p class="text-sm text-gray-600">disc ID:</p>
         </div>
     </div>
-
-    <!-- Stripe Payment Details -->
-    <div class="w-1/3 bg-primary shadow-md rounded p-4">
-        <div class="mb-4 text-tekst">
-            <h4 class="text-lg font-bold">Stripe maksmise detailid vb</h4>
-            <p>Name</p>
-            <p>Email:</p>
-        </div>
-    </div>
 </div>
 
 <!-- List of Characters -->
 <div class="w-full pt-16 text-tekst ">
-    <h2 class="text-2xl font-bold mb-4">Character Details</h2>
+    <h2 class="text-2xl font-bold mb-4">Karakterite Loend</h2>
     <?php if (!empty($characterData)): ?>
         <ul>
             <?php foreach ($characterData as $character):
@@ -65,7 +56,7 @@ $characterData = getUserCharacters($discord_id, $db);
             <?php endforeach; ?>
         </ul>
     <?php else: ?>
-        <p>No characters have been created yet.</p>
+        <p>Karakterite andmed puuduvad.</p>
     <?php endif; ?>
 </div>
 
