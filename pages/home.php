@@ -1,6 +1,6 @@
 <?php
 session_start();
-$current_page = "Home";
+$current_page = "home";
 
 ?>
 <!doctype html>

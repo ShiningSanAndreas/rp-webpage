@@ -102,20 +102,24 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
         <ul
           class="flex flex-col font-medium p-4 sm:p-0 mt-4 bg-primary lg:space-x-8 rtl:space-x-reverse md:flex-row sm:mt-0 ">
           <li>
+            <a href="home.php"
+              class="block py-2 px-3 text-lg lg:text-2xl hover:text-light focus:text-light <?php echo ($current_page == 'home') ? 'text-light' : 'text-tekst'; ?>">Avaleht</a>
+          </li>
+          <li>
             <a href="characters.php"
-              class="block py-2 px-3 text-tekst text-lg lg:text-2xl hover:text-light focus:text-light">Karakterid</a>
+              class="block py-2 px-3 text-lg lg:text-2xl hover:text-light focus:text-light <?php echo ($current_page == 'characters') ? 'text-light' : 'text-tekst'; ?>">Karakterid</a>
           </li>
           <li>
             <a href="rules.php"
-              class="block py-2 px-3 text-tekst text-lg lg:text-2xl hover:text-light focus:text-light">Reeglid</a>
+              class="block py-2 px-3 text-lg lg:text-2xl hover:text-light focus:text-light <?php echo ($current_page == 'rules') ? 'text-light' : 'text-tekst'; ?>">Reeglid</a>
           </li>
           <li>
           <a href="whitelist-form.php"
-              class="block py-2 px-3 text-tekst text-lg lg:text-2xl hover:text-light focus:text-light">Whitelist</a>
+              class="block py-2 px-3 text-lg lg:text-2xl hover:text-light focus:text-light <?php echo ($current_page == 'whitelist') ? 'text-light' : 'text-tekst'; ?>">Whitelist</a>
           </li>
           <li>
             <a href="shop.php"
-              class="block py-2 px-3 text-tekst text-lg lg:text-2xl hover:text-light focus:text-light">Pood</a>
+              class="block py-2 px-3 text-lg lg:text-2xl hover:text-light focus:text-light <?php echo ($current_page == 'shop') ? 'text-light' : 'text-tekst'; ?>">Pood</a>
           </li>
         </ul>
       </div>
