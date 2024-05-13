@@ -8,9 +8,13 @@
             <!-- Close Modal Button -->
             <form action="#" method="post" class="modal-content text-left">
                 <div class="flex justify-between items-center pb-3 border-b mb-4">
-                    <h1 class="text-xl font-medium">
-                        <?= $customProdTitle ?>
-                    </h1>
+                    <div class="flex items-center text-xl font-medium">
+                        <h1>
+                            <?= $customProdTitle ?>
+                        </h1>
+                        ,  <?= $customProdPrice ?>
+                        <img class="w-6 h-6 rounded-full ml-1" src="../assets/SSACoinTop.png" alt="Product Price">
+                    </div>
                     <div class="modal-close cursor-pointer z-50" data-modal="<?= $customProdId ?>">
                         <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                             viewBox="0 0 18 18">
@@ -80,7 +84,8 @@
                                 case 'nameChange': ?>
                                     <label for="character-name-select">Vali Karakter:</label>
                                     <input type="text" list="character-name" id="character-name-select" name="character"
-                                        class="input-field bg-primary rounded-md border-2 border-black" placeholder="Vali Karakter">
+                                        class="input-field bg-primary rounded-md border-2 border-black"
+                                        placeholder="Vali Karakter">
                                     <datalist id="character-name">
                                         <option value="Character 1">
                                         <option value="Character 2">
@@ -111,7 +116,8 @@
 
                                     <label for="veh-plate-select">Vali Karakter:</label>
                                     <input type="text" list="veh-plate-char" id="veh-plate-select" name="character"
-                                        class="input-field bg-primary rounded-md border-2 border-black" placeholder="Vali Karakter">
+                                        class="input-field bg-primary rounded-md border-2 border-black"
+                                        placeholder="Vali Karakter">
                                     <datalist id="veh-plate-char">
                                         <option value="Character 1">
                                         <option value="Character 2">
@@ -121,7 +127,7 @@
 
                                     <label for="veh-car-select">Vali Auto:</label>
                                     <input type="text" list="char-cars" id="veh-car-select" name="car"
-                                        class="input-field bg-primary rounded-md border-2 border-black focus:border-lime-500" placeholder="Vali Auto">
+                                        class="input-field bg-primary rounded-md border-2 border-black" placeholder="Vali Auto">
                                     <datalist id="char-cars">
                                         <option value="Character 1">
                                         <option value="Character 2">

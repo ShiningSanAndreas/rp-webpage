@@ -22,10 +22,6 @@ $current_page = "characters";
 
 $characterData = getUserCharacters($discord_id, $db);
 
-$hasCharacters = count($characterData) > 0;
-
-$charTipMessage = $hasCharacters ? "Lisakaraktereid saab osta e-poest!" : "Karaktereid nägemiseks pead enne mängu sisenema";
-
 ?>
 <!doctype html>
 <html>
@@ -45,7 +41,7 @@ $charTipMessage = $hasCharacters ? "Lisakaraktereid saab osta e-poest!" : "Karak
     <div class="ml-auto mb-6 max-w-screen-xl mx-auto p-4 lg:p-0">
         <div class="text-white my-16 flex-col">
             <h2 class="text-5xl font-bold">Karakterid</h2>
-            <p class="pt-4 text-gray-200"><?= $charTipMessage ?></p>
+            <p class="pt-4 text-gray-200">Siin näed oma mängus tehtud karaktereid, lisakaraktereid saab osta <u><a href="shop.php" class="text-light">SIIT</a></u></p>
         </div>
         <div class="flex flex-row flex-wrap justify-center mb-24">
             <?php for ($i = 0; $i < 5; $i++): ?>
