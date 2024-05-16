@@ -2,12 +2,6 @@
 include("../../config.php");
 session_start();
 
-try {
-    $db = new PDO($configDsn, $configDbName, $configDbPw);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    echo $e->getMessage(); 
-}
 $isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
 
 if ($isLoggedIn) {
@@ -17,7 +11,6 @@ if ($isLoggedIn) {
 $avatar_url = "https://cdn.discordapp.com/avatars/$discord_id/$avatar.jpg";
 $discord_id = $_SESSION['userData']['discord_id'];
 
-$characterData = getUserCharacters($discord_id, $db);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,42 +27,10 @@ $characterData = getUserCharacters($discord_id, $db);
         <img src="<?= $avatar_url ?>" alt="Profile Image" class="h-24 w-24 rounded-full mx-auto">
         <div class="text-center mt-2 text-tekst">
             <p class="text-lg"><?= $global_name ?></p>
-            <p class="text-sm text-gray-600">disc ID:</p>
+            <p class="text-sm text-gray-600">Discord ID: <?= $discord_id ?></p>
         </div>
     </div>
 </div>
 
-<!-- List of Characters -->
-<div class="w-full pt-16 text-tekst ">
-    <h2 class="text-2xl font-bold mb-4">Karakterite Loend</h2>
-    <?php if (!empty($characterData)): ?>
-        <ul>
-            <?php foreach ($characterData as $character):
-                $charinfo = json_decode($character['charinfo'], true);
-                $jobinfo = json_decode($character['job'], true);
-            ?>
-            <li>
-                <?= htmlspecialchars($charinfo['firstname']) ?> <?= htmlspecialchars($charinfo['lastname']) ?>
-                - CitizenID: <?= htmlspecialchars($character['citizenid']) ?>
-                - Job: <?= htmlspecialchars($jobinfo['label']) ?> (<?= htmlspecialchars($jobinfo['grade']['name']) ?>)
-            </li>
-            <?php endforeach; ?>
-        </ul>
-    <?php else: ?>
-        <p>Karakterite andmed puuduvad.</p>
-    <?php endif; ?>
-</div>
-
 </body>
 </html>
-
-<?php
-function getUserCharacters($discord_id, $db)
-{
-    $query = $db->prepare("SELECT * FROM players WHERE discord = :discord_id");
-    $query->bindParam(':discord_id', $discord_id);
-    $query->execute();
-    $result = $query->fetchAll(PDO::FETCH_ASSOC);
-    return $result;
-}
-?>

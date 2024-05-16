@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+    font-family: 'Nihilist';
+    src: url('../assets/FTNIPD__.TTF') format('TrueType'),
+    /* Add additional font formats if needed */
+  }
+  @font-face {
+    font-family: 'Rubik';
+    src: url('../assets/Rubik-Regular.ttf') format('TrueType'),
+  }
+  
+  body {
+    @apply font-rubik;
+    @apply bg-background text-tekst;
+  }

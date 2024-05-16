@@ -3,7 +3,7 @@ session_start();
 $isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
 
 if ($isLoggedIn) {
-    header("Location: home.php");
+    header("Location: /");
     exit();
 }
 ?>
@@ -13,12 +13,14 @@ if ($isLoggedIn) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/favicon.ico" type="image/png">
+
     <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 
     <title>Logi Sisse - ShiningRP</title>
 </head>
-<body class="bg-[url('../assets/4K.png')] bg-cover bg-center	 flex items-center justify-center h-screen">
+<body class="bg-[url('../assets/4K.png')] bg-cover bg-center flex items-center justify-center h-screen">
     <div class="text-center text-white">
         <a href="../vendor/webcp/discord/init-oauth.php">
         <button

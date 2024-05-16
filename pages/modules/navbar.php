@@ -1,5 +1,5 @@
 <?php
-include(".././config.php");
+require __DIR__ . '/../../config.php';
 
 try {
   $db = new PDO($configDsn, $configDbName, $configDbPw);
@@ -25,27 +25,14 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
 <head>
   <link href="../styles/output.css" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    const $menuEl = document.getElementById('targetEl');
-    const $triggerMenuEl = document.getElementById('triggerEl');
-
-    const menuInstance = {
-      id: 'targetEl',
-      override: true
-    };
-
-    const collapse = new Collapse($menuEl, $triggerMenuEl, menuInstance);
-    collapse.toggle();
-
-  </script>
+  <link rel="icon" href="/assets/favicon.ico" type="image/png">
 </head>
 
 <body>
   <nav class="bg-primary static top-0">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 lg:px-0">
-      <a href="home.php" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <img src="../assets/256x26.png" class="h-12 w-12" alt="Shining RP logo" />
-        <span class="self-center text-xl lg:text-2xl font-semibold whitespace-nowrap text-tekst">ShiningRP</span>
+      <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <img src="../assets/256x26.png" class="h-20 w-20 absolute" alt="Shining RP logo" />
       </a>
       <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
         <?php if ($isLoggedIn) { ?>
@@ -72,18 +59,18 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
           <div class="z-50 hidden text-base list-none bg-primary rounded-lg" id="user-dropdown">
             <ul class="py-2" aria-labelledby="user-menu-button">
               <li>
-              <a href="account.php" class="block px-4 py-2 text-sm text-tekst hover:bg-accent">Account</a>
+              <a href="account" class="block px-4 py-2 text-sm text-tekst hover:bg-accent">Konto</a>
               </li>
               <li>
-                <a href="logout.php" class="block px-4 py-2 text-sm text-tekst hover:bg-accent">Sign out</a>
+                <a href="logout" class="block px-4 py-2 text-sm text-tekst hover:bg-accent">Logi välja</a>
               </li>
             </ul>
             
           </div>
         <?php  } else { ?>
-          <a href="landing.php">
+          <a href="login">
             <button type="button"
-              class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-tekst text-xl text-md p-2 px-2.5 lg:text-2xl lg:px-5 lg:py-2.5 text-center">
+              class="text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-tekst md:text-xl text-md p-2 px-2.5 lg:text-2xl lg:px-5 lg:py-2.5 text-center">
               Logi Sisse
             </button>
           </a>
@@ -102,23 +89,23 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
         <ul
           class="flex flex-col font-medium p-4 sm:p-0 mt-4 bg-primary lg:space-x-8 rtl:space-x-reverse md:flex-row sm:mt-0 ">
           <li>
-            <a href="home.php"
+            <a href="/"
               class="block py-2 px-3 text-lg lg:text-2xl hover:text-light focus:text-light <?php echo ($current_page == 'home') ? 'text-light' : 'text-tekst'; ?>">Avaleht</a>
           </li>
           <li>
-            <a href="characters.php"
+            <a href="characters"
               class="block py-2 px-3 text-lg lg:text-2xl hover:text-light focus:text-light <?php echo ($current_page == 'characters') ? 'text-light' : 'text-tekst'; ?>">Karakterid</a>
           </li>
           <li>
-            <a href="rules.php"
+            <a href="rules"
               class="block py-2 px-3 text-lg lg:text-2xl hover:text-light focus:text-light <?php echo ($current_page == 'rules') ? 'text-light' : 'text-tekst'; ?>">Reeglid</a>
           </li>
           <li>
-          <a href="whitelist-form.php"
+          <a href="whitelist"
               class="block py-2 px-3 text-lg lg:text-2xl hover:text-light focus:text-light <?php echo ($current_page == 'whitelist') ? 'text-light' : 'text-tekst'; ?>">Whitelist</a>
           </li>
           <li>
-            <a href="shop.php"
+            <a href="shop"
               class="block py-2 px-3 text-lg lg:text-2xl hover:text-light focus:text-light <?php echo ($current_page == 'shop') ? 'text-light' : 'text-tekst'; ?>">Pood</a>
           </li>
         </ul>
@@ -143,7 +130,7 @@ function getUserBalance($discord_id, $db)
 
 function isUserWhitelisted($discord_id, $db)
 {
-  $query = $db->prepare("SELECT COUNT(*) as count FROM player_whitelists WHERE identifier = :discord_id");
+  $query = $db->prepare("SELECT COUNT(*) as count FROM ucp_users WHERE discord_id = :discord_id AND is_whitelisted = 1");
   $query->bindParam(':discord_id', $discord_id);
   $query->execute();
   $result = $query->fetch(PDO::FETCH_ASSOC);

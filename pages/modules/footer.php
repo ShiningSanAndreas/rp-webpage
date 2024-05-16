@@ -3,7 +3,7 @@
 
 <head>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="../styles/output.css" rel="stylesheet" />
+    <link href="../../styles/output.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/flowbite@X.X.X/dist/flowbite.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </head>
@@ -24,16 +24,16 @@
                     <h2 class="mb-6 mt-8 text-lg font-semibold text-accent uppercase">Menüü</h2>
                     <ul class="font-medium">
                         <li class="mb-4">
-                            <a href="characters.php" class="hover:text-light text-tekst ">Karakterid</a>
+                            <a href="characters" class="hover:text-light text-tekst ">Karakterid</a>
                         </li>
                         <li class="mb-4">
-                            <a href="rules.php" class="hover:text-light text-tekst ">Reeglid</a>
+                            <a href="rules" class="hover:text-light text-tekst ">Reeglid</a>
                         </li>
                         <li class="mb-4">
-                            <a href="whitelist-form.php" class="hover:text-light text-tekst ">Whitelist</a>
+                            <a href="whitelist" class="hover:text-light text-tekst ">Whitelist</a>
                         </li>
                         <li class="mb-4">
-                            <a href="shop.php" class="hover:text-light text-tekst ">Pood</a>
+                            <a href="shop" class="hover:text-light text-tekst ">Pood</a>
                         </li>
                     </ul>
                 </div>

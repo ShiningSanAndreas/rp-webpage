@@ -1,7 +1,7 @@
 <?php
-require_once '../../vendor/autoload.php';
-require_once 'secrets.php';
-require_once '../../config.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/secrets.php';
+require_once __DIR__ . '../../../config.php';
 
 // Establish database connection
 try {
@@ -39,7 +39,6 @@ switch ($event->type) {
     case 'payment_intent.succeeded':
         $paymentIntent = $event;
         handlePaymentIntentSucceeded($paymentIntent, $db);
-        session_reset();
         break;
     default:
         error_log('Received unknown event type: ' . $event->type);
@@ -54,28 +53,47 @@ function handlePaymentIntentSucceeded($paymentIntent, $db) {
     $coin_amount = $paymentIntent->data->object->metadata->coin_amount;
 
     updateUserCoinBalance($discord_id, $coin_amount, $db);
+    addOrderToHistory($paymentIntent, $db);
     sendDiscordNotification($paymentIntent);
 }
 
 function updateUserCoinBalance($discord_id, $coin_amount, $db) {
     try {
         $query = $db->prepare("UPDATE ucp_users SET balance = balance + :coin_amount WHERE discord_id = :discord_id");
-        $query->bindParam(':discord_id', $discord_id, PDO::PARAM_STR);
-        $query->bindParam(':coin_amount', $coin_amount, PDO::PARAM_INT);
+        $query->bindParam(':discord_id', $discord_id);
+        $query->bindParam(':coin_amount', $coin_amount);
         $query->execute();
-
-        if ($query->rowCount() == 0) {
-            error_log("No rows updated for discord_id: $discord_id");
-        } else {
-            error_log("Updated balance for discord_id: $discord_id with coin_amount: $coin_amount");
-        }
     } catch (PDOException $e) {
         error_log('Database error: ' . $e->getMessage());
     }
 }
 
+// Function to add order data to database history
+// table: ucp_orders, values to insert discord_id, price, productName, orderDate (timestamp), purchaseType (should be 'coin')
+function addOrderToHistory($paymentIntent, $db) {
+    $discord_id = $paymentIntent->data->object->metadata->discord_id;
+    $price = $paymentIntent->data->object->amount / 100;
+    $productName = $paymentIntent->data->object->metadata->coin_package_name;
+    $orderDate = date('Y-m-d H:i:s');
+    $purchaseType = 'coin';
+
+    try {
+        $query = $db->prepare("INSERT INTO ucp_orders (discord_id, price, productName, orderDate, purchaseType) VALUES (:discord_id, :price, :productName, :orderDate, :purchaseType)");
+        $query->bindParam(':discord_id', $discord_id, PDO::PARAM_STR);
+        $query->bindParam(':price', $price, PDO::PARAM_STR);
+        $query->bindParam(':productName', $productName, PDO::PARAM_STR);
+        $query->bindParam(':orderDate', $orderDate, PDO::PARAM_STR);
+        $query->bindParam(':purchaseType', $purchaseType, PDO::PARAM_STR);
+        $query->execute();
+    } catch (PDOException $e) {
+        $errormsg = 'Database error: ' . $e->getMessage();
+        error_log($errormsg);
+        sendDiscordErrorNotification($errormsg);
+    }
+}
+
 function sendDiscordNotification($paymentIntent) {
-    $webhookURL = 'https://discord.com/api/webhooks/1201523735874785321/p7C-eSwpwETu7nL70ASGZpqwX2OJKg-icskvK4JJ9FFewu4gmGhyd4VOXNgWhwsH1FJ8';
+    $webhookURL = 'https://discord.com/api/webhooks/1240034119182712953/HyOjKEgPPTF74KmDKVuX3kLPkp2WjXiyibtNG5qBCPs_-JaTKiuwNAcIKKiqX-9sQKog';
 
     $embed = [
         'title' => 'Makseteavitus',

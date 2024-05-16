@@ -17,10 +17,10 @@ if (isset($_SESSION['selectedOptions'])) {
 
 
 
-<div class="container mx-auto">
-<ol id="sectionList" class="flex items-center w-full">
+<div class="container mx-auto flex md:flex-col">
+<ol id="sectionList" class="md:flex items-center w-full">
     <?php for ($i = 1; $i <= 10; $i++): ?>
-        <li class="flex w-full items-center <?php if ($i === 1): ?>ml-10 <?php endif; ?><?php if ($i < 10): ?>after:content-[''] after:w-full after:h-1 after:border-b after:border-primary after:border-4 after:inline-block <?php endif; ?><?php if ($i < $currentSection): ?> completed-step<?php endif; ?>">
+        <li class="flex w-full items-center m-2 md:m-0 <?php if ($i === 1): ?>md:ml-10 <?php endif; ?><?php if ($i < 10): ?>md:after:content-[''] md:after:w-full md:after:h-1 md:after:border-b md:after:border-primary md:after:border-4 md:after:inline-block <?php endif; ?><?php if ($i < $currentSection): ?> completed-step<?php endif; ?>">
             <span class="flex text-tekst items-center justify-center w-10 h-10 bg-primary rounded-full lg:h-12 lg:w-12 shrink-0">
                 <?php echo $i; ?>
             </span>
@@ -43,8 +43,8 @@ if (isset($_SESSION['selectedOptions'])) {
     
     <div class="relative">
     <form method="post">
-        <button class="absolute bottom-0 right-0  m-8 text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center" type="submit" onclick="checkAnswers()" name="view" value="lobby">Lõpeta</button>
-        <button class="absolute bottom-0 left-0  m-8 text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center" id="backBtn" type="button" onclick="navigateSection('back')">Eelmine küsimus</button>
+        <button class="absolute bottom-0 right-0 m-8 text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center" type="submit" onclick="checkAnswers()" name="view" value="lobby">Lõpeta</button>
+        <button class="absolute bottom-0 left-0 m-8 text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center" id="backBtn" type="button" onclick="navigateSection('back')">Eelmine küsimus</button>
         <button class="absolute bottom-0 right-0 m-8 text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center" id="nextBtn" type="button" onclick="navigateSection('next')">Järgmine küsimus</button>
         <!-- Add this button after the "Next" button -->
 
@@ -85,7 +85,7 @@ if (isset($_SESSION['selectedOptions'])) {
   if (number >= 1 && number <= <?php echo count($questionsAndOptions); ?>) {
         var currentQuestion = <?php echo json_encode($_SESSION['randomQuestions']); ?>[number - 1];
         var questionHTML = `<p class="text-3xl font-bold leading-7 text-tekst p-4 my-16 border-l rounded border-light shadow-shadBef py-4"> <span class="text-4xl font-semibold text-accent"> KÜSIMUS ${number}: <br></span> ${currentQuestion['question']}</p>`;
-        var optionsHTML = '<div class="grid grid-cols-2 gap-x-16 gap-y-8 mb-32">';
+        var optionsHTML = '<div class="flex-col md:grid md:grid-cols-2 gap-4 md:gap-x-16 md:gap-y-8 mb-32 ">';
 
         for (var i = 0; i < currentQuestion['options'].length; i++) {
       var option = currentQuestion['options'][i];
@@ -95,7 +95,7 @@ if (isset($_SESSION['selectedOptions'])) {
 
       optionsHTML += `<div>
                         <input type="checkbox" id="${checkboxId}" name="options[]" data-field="${checkboxId}" ${isChecked} class="hidden peer" required="">
-                        <label for="${checkboxId}" class="text-center inline-flex items-center justify-between  border-x rounded-lg mt-4 border-[#f8f8ff] w-full p-5 text-tekst bg-background  cursor-pointer shadow-shadBefWhite hover:shadow-shadBef peer-checked:shadow-shadAft peer-checked:border-accent dark:bg-gray-800 dark:hover:bg-gray-700">
+                        <label for="${checkboxId}" class="text-center inline-flex items-center justify-between border-x rounded-lg mt-4 border-[#f8f8ff] w-full p-6 text-tekst bg-background  cursor-pointer shadow-shadBefWhite hover:shadow-shadBef peer-checked:shadow-shadAft peer-checked:border-accent dark:bg-gray-800 dark:hover:bg-gray-700">
                           <div class="block">
                             <div class="w-full text-base text-center">${option['text']}</div>
                           </div>
@@ -181,7 +181,7 @@ if (number === 1) {
 
         // AJAX call to update server-side variable
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', './modules/savequiz.php', true);
+        xhr.open('POST', 'pages/modules/savequiz.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         
         // Convert the selectedOptions object to JSON and send it in the request
@@ -236,7 +236,7 @@ if (number === 1) {
 
     // Make an AJAX call to save_results.php
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', './modules/savequizresult.php', true);
+    xhr.open('POST', 'pages/modules/savequizresult.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     
     var data = 'correctAnswers=' + encodeURIComponent(correctAnswers) +

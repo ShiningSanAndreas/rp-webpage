@@ -7,134 +7,103 @@ $current_page = "rules";
 
 $rules = [
     [
-        "section_name" => "POWERGAME",
+        "section_name" => "POWERGAMING",
         "rules" => [
-            "Kõik tegevused mis pole päriselus võimalikud on ka serveris keelatud!"
+            "Kõik tegevused mis pole päriselus võimalikud on ka serveris keelatud.",
+    ]
+ ],
+  [
+        "section_name" => "DEATHMATCH, VEHICLE DEATHMATCH",
+        "rules" => [
+            "Keelatud on ilma rollimänguliku põhjuseta kellegi vigastamine.",
+            "Keelatud on sõidukiga vigastada inimest.",
         ]
     ],
     [
-        "section_name" => "RÖÖVIMINE & VARGUSED",
+        "section_name" => "KARAKTERID, KONTOD, VARA",
         "rules" => [
-            "Isiku röövimiseks peab olema mõjuv põhjus. Lihtsalt rikastumise või igavusesest röövimine on keelatud.",
-            "Keelatud on sundida isikut pangakontolt raha välja võtma.",
-            "Sularaha võib varastada kuni 20,000$, illegaalsetel esemetel piirid puuduvad.",
-            "Keelatud on lootida isikut, kes on nokkis/surnud."
-        ]
-    ],
-    [
-        "section_name" => "KARAKTERID & KONTOD & VARA",
-        "rules" => [
-            "PÄRISELUS KUULSUSTE NIMESID ON KEELATUD KASUTADA ENDA KARAKTERIS.",
-            "KARAKTER PEAKS NÄGEMA VÄLJA UNIKAALNE NING VÕIKS KA OLLA NIMELISELT. ",
-            "DEFAULT KARAKTERI VÄLIMUS ON KEELATUD, KARAKTER PEAKS NÄGEMA VÄLJA UNIKAALNE NING ERINEV TEISTEGA.",
-            "SERVERIS ON KEELATUD MÜÜA KARAKTERI VARA IRL RAHA EEST, KARISTADA VÕIB SAADA NII VARA SAATJA, KUI KA VARA SAAJA.",
-            "BANNI SAADES UUE KONTO TEGEMINE RANGELT KEELATUD."
+            "Päriselus kuulsuste nimesid on keelatud serveris kasutada.",
+            "Karakter peab nägema välja unikaalne. Unikaalse karakteri tähendus viitab karakteri korrektsele välimusele.",
+            "Serveris on keelatud rollimänguliku vara müüa päriselu raha eest maha. Karistada saab vara saaja, kui ka vara saatja.",
+            "Topelt kontode tegemine on rangelt keelatud.",
         ]
     ],
     [
         "section_name" => "FAIL DRIVE",
         "rules" => [
-            "FAIL DRIVE ON SERVERIS LUBATUD LINNAS, MIS TÄHENDAB SEDA, ET KÕIK ERINEVAD HÜPPED, MIS ON LINNAS OLEMAS ON LUBATUD KASUTADA, KUID IGAKS JUHUKS MAININ SEDA, ET ALATI ON MÕISTLIK MÕELDA MIDAGI UNIKAALSET ISE VÄLJA, MITTE ET KASUTATE TAVAPÄRASEID HÜPPEID, OLUKORD TULEB TEHA SIISKI HUVITAVAKS ENDA KARAKTERILE.",
-            "FAIL DRIVE PEAKS TOIMIMA OLUKORRAS NII ET KUI SIND AJAB TAGA LSPD, SIIS SINU MÕELDUD HÜPE PEAKS OLEMA LÄBI MÕELDUD, MITTE ET PANED TUIMALT STUNTI.",
-            "FAIL DRIVE ON KEELATUD VÄLJASPOOL LINNA, NÄITENA SIIS KUI SÕIDAD SAN ANDREASEST VÄLJA, KEELATUD ON MÄEHÜPPED SÕIDAD NÄITEKS MÄES NING TULEB KÕRGE MÄENÕLV NING OTSUSTAD SEALT 300-500M KAUGUSELE SÕITA.
-KUI SÕIDAD VETTE, SIIS PEAD ARVESTAMA ET SINU ELU ON SIISKI OHUS JA PEAKSID SÕIDUKIST VÕIMALIKULT KIIRELT VÄLJA TULEMA, ET END PÄÄSTA.."
+            "Fail Drive on serveris lubatud, kuid erinevad taktikad võiksid olla läbi mõeldud. ",
+            "Fail Drive on keelatud kõrgetes kohtades. Näiteks mäed, kõrged katused.",
         ]
     ],
-    [
-        "section_name" => "EBAROLLILIK KARAKTERI KÄITUMINE / TROLLIMINE",
+     [
+        "section_name" => "EBAROLLIMÄNGULIK KÄITUMINE",
         "rules" => [
-            "ISIK KES MÄNGIB OMA KARAKTERIT PEAKS OLEMA FOKUSEERITUD ENDA TEGEVUSTELE NING PEAKS MÕTLEMA REAALSELT ASJU VÄLJA.",
-            "KARAKTER EI TOHI IGAVUSE SUHTES HAKKATA TROLLIMA NING SAMUTI EI TOHI RIKKUDA ERINEVAID REEGLEID NENDE TEGEVUSTE KÄIGUS.",
-            "IGASUGUNE TUIM ÜLBITSEMINE TEISTE MÄNGIJATE VASTU ILMA ROLLIMÄNGU PÕHJUSETA, LIIGITUB EBAROLLILIKU KARAKTERI KÄITUMISE ALLA.
-KARAKTER PEAKS AUSTAMA TEISI INIMESI, VÄLJAARVATUD OLUDEL KUI TEGEMIST ON REAALSE ROLLIMÄNGU OLUKORRAGA. 
-"
+            "Karakter peab käituma korrektselt, jälgides serveri reegleid ning arvestama olukordadega realistliku elu piires.",
+            "Combatlog on keelatud.",
+            "Copbait on keelatud."
         ]
     ],
-    [
+     [
         "section_name" => "SAFEZONED",
         "rules" => [
-            "SAFEZONE TÄHENDAB SEDA, ET ANTUD KOHAS ON KEELATUD IGASUGUNE - RÖÖVIMINE, TAPMINE, TULE AVAMINE JNE EDASI.",
-            "SAFEZONE KUULUVAD ALAD; LEGAALSED FRAKTSIOONID, LSPD/EMS NING FRAKTSIOONIDE ÜMBRITSEV TÄNAV. ",
-            "NB - KUI RP ON SAANUD ALGUSE VÄLJASPOOL SAFEZONE SIIS SEDA ON VÕIMALIK LÕPETADA SAFEZONES 2 TUNNI JOOKSUL. "
+            "Keelatud on safezones teha erinevaid illegaalseid tegevusi. Juhul kui tegevus sai alguse väljaspool safezone'i.",
+            "Kõik avalikud kohad, kus käib legaalne äri ning juhtimine. Näitena - isik B avas enda restorani.",
+        ]
+    ],
+[
+        "section_name" => "RÖÖVIMINE",
+        "rules" => [
+            "Isiku röövimiseks peab olema mõjuv põhjus.",
+            "Keelatud on sundida isikut pangakontolt raha välja võtma.",
+            "Sularaha võib varastada kuni 20,000$. Teistel illegaalsetel esemetel puudub piir.",
+            "Keelatud on lootida isikut, kes on nokkis/surnud.",
+            "Pettused on keelatud. Näitena - kinnisvara, sõidukid, raha.",
+            "Riigitöötajatel on keelatud varastada, müüa edasi, riigi poolt antud varustust.",
+            "Keelatud on pantvangi võtmine, ilma rollimängulise põhjuseta. Kui pantvang ei kuuletu röövija tegevustele, siis on lubatud pantvang tappa."
         ]
     ],
     [
-        "section_name" => "RÖÖVIMINE / PANTVANG",
+        "section_name" => "CK/PK",
         "rules" => [
-            "ET ISIKUT RÖÖVIDA PEAB OLEMA SELLEJAOKS VEENEV PÕHJUS RÖÖVIMISEKS.",
-            "NIISAMA KEDAGI RÖÖVIDA IGAVUSEST ON KARISTATAV.",
-            "SAMUTI ON KEELATUD ISIKUT SUNDIDA ET TA VÕTAKS PANGAKONTOLT RAHA VÄLJA.",
-            "SULARAHA VÕIB VARASTADA KUNI 20,000$ KUI SELLEKS ON VEENEV RP PÕHJUS TEMA SULARAHA RÖÖVIMISEKS.",
-            "RELVADE MUU OLEVATE PSÜHHOTROOPSETE AINETE SUHTES PIIRE MUIDUGI POLE, KUID TULEB MÕELDA SELLELE, ET KAS SEE RÖÖVIMINE ON SULLE RP KARAKTERILE KASULIK, NING KAS ON MÕISTLIK RÖÖVIDA JA KAS SELLEKS PEAB OLEMA PIISAVALT HEA PÕHJUS ASJADE ÄRA VÕTMISEKS.",
-            "ERINEVAD PETTUSED ON KEELATUD - SÕIDUKID, KINNISVARA, RAHA, MIS TÄHENDAB SEDA ET NEID OLEVAID ASJU EI TOHI KELLEGILT VÄLJA PETTA.",
-            "RIIGITÖÖTAJAL ON KEELATUD VARASTADA ERINEVAT VARUSTUST, KEHTIB KÕIGI RIIGITÖÖTAJATE  KOHTA, EHK SIIS NÄITEKS; SA EI VARASTA RELVA NYPD KAPIST NING EI VII SEDA ENDALE KOJU.",
-            "ISIKU PANTVANGIKS VÕTMINE ON LUBATUD KUI SA EI TEE SEDA SAFEZONES, KUI RP SAI ALGUSE VÄLJASPOOL SAFEZONE SIIS SEE ON AKTSEPTEERITAV.
-PANTVANG PEAB KUULETUMA RÖÖVLILE, JUHUL KUI EI KUULETU ON LUBATUD ISIK NEUTRALISEERIDA."
+            "Karakteri CK tegemiseks peab olema mõjuv põhjus.",
+            "Grupeeringute liikmetel on lubatud CK teha. Kui selleks on põhjust.",
+            "PK'd määrates, tuleb analüüsida põhjalikult patsiendi vigastusi. ",
         ]
     ],
-    [
-        "section_name" => "SURM / CK / PK",
+     [
+        "section_name" => "METAGAMING",
         "rules" => [
-            "OLUKORRA NÄITED; SURED LAHINGALAL KUID POLE VEEL HAIGLAS ÄRGANUD, OLED MAAS NING OOTAD ABI, JUHUL KUI ABI SAABUB JA SIND VIIAKSE HAIGLASSE ON LUBATUD OLUKORRAGA UUESTI LIITUDA, KUI SURED LAHINGALAL NING SPAWNID HAIGLAS, SIIS ON KEELATUD SAMASSE OLUKORDA ÜHINEDA, VAID OMA ELUGA TULEB EDASI MINNA SEST SU KARAKTER EI MÄLETA MISKIT EELNEVAST SÜNDMUSEST, PUUDUTAB SIIS VIIMAST SÜNDMUST MILLEGA KOKKU PUUTUSID, OLGU SEE TULISTAMINE VÕI MÕNI MUU SÜNDMUS.",
-            "KARAKTERILE CK TEHES PEAB OLEMA VÄGA PIKK MINEVIK KARAKTERIGA KELLELE TAHAD CK'D TEHA, KUI TEGEMIST ON GRUPEERINGUS OLEVA LIIKMEGA NING GRUPEERINGU BOSS OTSUSTAB CK'D TEHA, SIIS SEE KÄIB OLULISELT KIIREMINI KUI SELLEKS ON PÕHJUS OLEMAS.",
-            "NÄITEKS NII EI TEHTA ISIKULE CK'D KUI ISIK VÕTAB SIND PANTVANGIKS JA SINA TAHAD TALLE KÄTTEMAKSU. ",
-            "PK (PLAYER KILL) - SAAB MÄÄRATA AINULT EMS, KUI OLUKORD TUNDUS SINU JAOKS VÄGAGI OHTLIK ROLLIMÄNGULISES OLUKORRAS, SIIS JAH OTSELOOMULIKULT VÕID SA /ME COMMANDI ABIL KIRJUTADA 'PULSS PUUDUB' KUID REAALSES OLUKORRAS SEE EI PRUUGI SIND PÄÄSTA, NING KUI SEE ASI HAKKAB KORDUV OLEMA, SIIS VÕIB JUHTUDA ET SINU KARAKTER SAAB CK."
-        ]
-    ],
-    [
-        "section_name" => "AUTOVARGUSED",
-        "rules" => [
-            "AUTOT EI TOHI VARASTADA SAFEZONES ILMA RP PÕHJUSETA, AIND JUHUL KUI EELNEV RP OLUKORD SUNNIB SIND SEDA TEGEMA.
-KUI AUTOVARGUS TOIMUB VÄLJASPOOL SAFEZONE, SIIS KOGU RP ON AUTOOMANIKU KÄTES, SEEGA HOIA ENDA VARA. "
-        ]
-    ],
-    [
-        "section_name" => "SPRAY WAR ",
-        "rules" => [
-            "SPRAY WAR'IL ON LUBATUD ERINEVAD LÜKKED, HÜPPED JA ASJAD + TEISED ERINEVAD TAKTIKALISED STIILID, SAMUTI ON KA LUBATUD KATUSED. 
-SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU SA SEDA SOOVID, NING KUIDAS SA SEDA JÕUAD, SPRAY WAR SAAB ALGUSE SIIS KUI TEINE GRUPEERING ASUB TEISE GRUPEERINGU SPRAY NÜHKIMIST, NING AVALDAB SOOVI SEDA ALA ENDALE SAADA, MUIDUGI ANNAB ENNE SEDA RP-DA ANTUD SITUATSIOON LÄBI NING EI PEA OLEMA ALATI TULISTAMIST ANTUD OLUKORRAS, KUI LAHENDUST EI LEITA, SAAB ALGUSE SPRAY WAR, KUI LANGED NING SATUD SPAWNIGA HAIGLASSE EI OLE SUL VÕIMALIK ANTUD OLUKORDA ENAM SEKKUDA, VÄLJAARVATUD KUI TEGEMIST ON TEISE ALAGA. ",
-            "SPRAY WARIL EI OLE LUBATUD KAASATA TEISI OLEVAID GRUPEERINGUID SPRAY WARILE KES POLE OSALEJAD, TÄHENDAB SEDA ET EI KUTSU TEISI GRUPEERINGUID SPRAY WARILE APPI, VAID SAATE ÜHESKOOS ÜHE GRUPEERINGUNA HAKKAMA."
-        ]
-    ],
-    [
-        "section_name" => "ERINEVATE SUHTLUSPLATVORMIDE KASUTAMINE VÄLJASPOOL MÄNGU",
-        "rules" => [
-            "OLUKORDADE SUHTES LOODAME ET INIMESED EI METAGAME LÄBI DISCORDI VÕI SIIS MÕNE MUU VAHENDI SUHTES, KUI JUHTUB ET SAAME SELLEST TEADA, SIIS SEE ON KARISTATAV. ",
-            "(SOOVITUS TEHKE ENDA OLUKORD ENDALE PÕNEVAKS NING ÄRGE HAARAKE VÕIMU LÄBI DISCORDI NING ÄRGE MÕELGE 24/7 VÕIDULE)."
+            "Keelatud on kasutada mängusisest informatsiooni, mis toimub väljaspool mängu.",
         ]
     ],
     [
         "section_name" => "OLUKORRA MÄNGIJATE PIIRANGUD",
         "rules" => [
-            "KUI ISIKUD OSALEVAD RÖÖVIL VÕI MÕNES MUUS MASSILISES OLUKORRAS KUS ON TULIRELVA KASUTAMINE (VÄLJAARVATUD SPRAY WAR).",
-            "MÄNGIJATE LIMIIT RÖÖVIS OSALEMISEL ON 10 INIMEST.",
-            "REEGEL KEHTIB KÕIGI ILLEGAALSETE TEGEVUSTE KOHTA, MIS SERVERIS EKSISTEERIB, MIS SIIS PUUDUTAB TULIRELVA KASUTAMIST VÕI MÕNDA MUUD TEGEVUST, MIS ON ILLEGAALNE TEGEVUS."
+            "Kõikidel illegaalsetel tegevustel osalemise röövijate limiit on 10 mängijat.",
         ]
     ],
     [
-        "section_name" => "CHEATING/EELISTE KASUTAMINE",
+        "section_name" => "CHEATING",
         "rules" => [
-            "CHEATIMINE ON SERVERIS KEELATUD, MIS IGANES SULLE EELISE ANNAB NII OLUKORDADE SUHTES VÕI AITAB SIND.",
-            "TRACERID/EULEN + BLACK SKY, ERINEVAD TEISED ASJAD VEEL MIS VÕIVAD SINU EELIST ESILE TUUA.",
-            "WIGGLE BOOST KEELATUD, TEISE SÕIDUKIGA TEIST OLEVAT AUTOT TAGANT BOOSTIDA KEELATUD."
+            "Keelatud on kasutada erinevaid eelist andvaid visuaale/cheate.",
         ]
     ],
     [
-        "section_name" => "BUG ABUSE ",
+        "section_name" => "BUG ABUSE",
         "rules" => [
-            "KUI OLED LEIDNUD BUGI ANNA MEILE SELLEST TEADA, JUHUL KUI ANTUD ISIK EI TEAVITA MEILE BUG'IST NING ABUSEB SEDA, SIIS OLUKORD ON KARISTATAV. "
+            "Serveri siseste bugide kasutamine on keelatud.",
         ]
     ],
     [
         "section_name" => "RASSISM",
         "rules" => [
-            "IGAT SORTI RASSISM ON SERVERIS KEELATUD NING SAMUTI KA ERINEVATEL SUHTLUSPLATVORMIDEL MIS ON SEOTUD SHINING SAN ANDREASE SERVERIGA."
+            "Serveris on rassism keelatud. Kuid antud reeglil võib olla rollimängus juhuseid, kus seda aktsepteeritakse.",
         ]
     ],
     [
         "section_name" => "HAIGUSED",
         "rules" => [
-            "HAIGUSTE RP-MINE ON SERVERIS LUBATUD, KUID KUI SEDA TEED SIIS TEE SEDA PROFESSIONAALSELT."
+            "Sinu karakteril võivad olla erinevaid haiguseid, kuid tuleb arvestada teiste mängijate heaoluga.",
         ]
     ],
 ];
@@ -153,12 +122,12 @@ SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU S
     <title>Reeglid - ShiningRP</title>
 </head>
 
-<?php include("./modules/navbar.php") ?>
+<?php require __DIR__ . "/./modules/navbar.php" ?>
 <body class="bg-background">
     <div class="ml-auto mb-6 max-w-screen-lg mx-auto">
         <div class="lg:py-2.5">
             <div class="my-16 flex items-center space-x-4">
-                <h2 class="text-5xl p-4 font-bold text-tekst lg:p-0">Reeglid</h2>
+                <h2 class="text-2xl font-nihilist italic p-4 text-tekst lg:p-0">Reeglid</h2>
             </div>
         </div>
 
@@ -208,6 +177,6 @@ SPRAY WARIL MÄNGIJATE PIIR JÄÄB 25 MÄNGIJA SISSE, OMA ALA KAITSED NII NAGU S
     </div>
 </body>
 
-<?php include("./modules/footer.php") ?>
+<?php require __DIR__ . "/./modules/footer.php" ?>
 
 </html>

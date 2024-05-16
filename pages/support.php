@@ -1,5 +1,5 @@
 <!-- index.php -->
-<?php include('./functions/support.php'); ?>
+<?php require __DIR__ . '/./functions/support.php'; ?>
 
 
 
@@ -14,7 +14,7 @@
     <title>Support - ShiningRP</title>
 </head>
 
-<?php include("./modules/navbar.php") ?>
+<?php require __DIR__ . "/./modules/navbar.php" ?>
 
 
 
@@ -105,6 +105,6 @@
     <!-- TABLE END -->
 
 </body>
-<?php include("./modules/footer.php") ?>
+<?php require __DIR__ . "/./modules/footer.php" ?>
 
 </html>

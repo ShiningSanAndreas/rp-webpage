@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../vendor/autoload.php'; 
+require_once __DIR__ . '../../vendor/autoload.php'; 
 
 \Stripe\Stripe::setApiKey('sk_test_51OXMazJYQ5I7nITlmDc3WDHEUwgHYfTYTguuip7fs5bUTaRRv7jNEvpq6wT3cidrICdZmZuyXVtMYXxTHuES1xO000t7qFwlOA');  // Replace with your actual Stripe secret API key
 
@@ -33,11 +33,12 @@ try {
             'metadata' => [
                 'discord_id' => $discordId,
                 'coin_amount' => $coinAmount,
+                'coin_package_name' => $coinPackageName,
             ],
         ],
         'mode' => 'payment',
-        'success_url' => 'http://127.0.0.1:8000/pages/shop.php',
-        'cancel_url' => 'http://127.0.0.1:8000/pages/shop.php',
+        'success_url' => 'https://shiningrp.ee/shop',
+        'cancel_url' => 'https://shiningrp.ee/shop',
     ]);
 
     echo json_encode(['id' => $checkout_session->id]);

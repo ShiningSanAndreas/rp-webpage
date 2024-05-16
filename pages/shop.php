@@ -1,5 +1,22 @@
 <?php
+require __DIR__ . "/../config.php";
+
+try {
+    $db = new PDO($configDsn, $configDbName, $configDbPw);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo $e->getMessage(); 
+}
+
 session_start();
+
+$isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
+
+if (!$isLoggedIn) {
+    header("Location: login");
+    exit();
+}
+extract($_SESSION["userData"]);
 $current_page = "shop";
 
 $allProducts = [
@@ -33,25 +50,25 @@ $allProducts = [
         [
             "id" => "customCar",
             "title" => "Ägedad autod",
-            "description" => "Kohandatud autode tingimuste tekst mis on nii nii nii nii nii nii nii nii nii nii nii nii nii nii nii nii nii nii nii nii nii nii nii nii nii pikk",
-            "shortDescription" => "Osta endale kõige ägedamad ja kiiremad autod",
-            "price" => 100,
+            "description" => "Hing ihaldab just selle ühe Bemmi järgi, aga autopoest ei leia seda? Telli endale see mudel ning sa ei näe enam kellegil teisel sellist!",
+            "shortDescription" => "Osta endale kõige ägedamad ja kiiremad autod!",
+            "price" => 1500,
             "picture" => "../assets/car.png",
         ],
         [
             "id" => "customCharacter",
-            "title" => "Kõvad mudelid",
-            "description" => "Description of Custom Product 2.",
-            "shortDescription" => "Tahad rohkem karaktereid? Osta endale kõige ägedamaid ja seksikamaid mudeleid",
-            "price" => 100,
+            "title" => "Lisakarakter",
+            "description" => "Pärast ostu sooritamist saate eksklusiivse koodi, mis avab lisakarakteri mängus. Iga kood on unikaalne ning seda saab kasutada vaid üks kord. Koodi jagamine on lubatud, kuid enne kasutamist on soovitatav seda varjatuna hoida. Koodi on võimalik näha oma ostuajaloost.",
+            "shortDescription" => "Tahad rohkem karaktereid? Osta endale lisakarakter ja naudi mängu hoopis teisest POV-ist!",
+            "price" => 150,
             "picture" => "../assets/custompeed.png",
         ],
         [
             "id" => "customFurniture",
-            "title" => "Stiilne mööbel",
+            "title" => "Eriline Map mod",
             "description" => "Description of Custom Product 2.",
             "shortDescription" => "Tee oma fraktsioon lossiks kõige selle ägeda mööbliga",
-            "price" => 100,
+            "price" => 650,
             "picture" => "../assets/fraktsiooni.png",
         ],
         [
@@ -63,19 +80,19 @@ $allProducts = [
             "picture" => "../assets/fraktsiooni.png",
         ],
         [
-            "id" => "prioQueue",
-            "title" => "Priority Queue",
-            "description" => "Description of Custom Product 2.",
-            "shortDescription" => "Ei viitsi järjekorras istuda? Naba endale õigus liituda serveriga ükskõik kuna tahad.",
-            "price" => 100,
+            "id" => "gangs",
+            "title" => "Grupeeringu loomine",
+            "description" => "Oled juba nii lähedal, et täiskohaga gangster olla....",
+            "shortDescription" => "Tahad luua oma grupeeringut? See pakett aitab sul täiega jalad alla saada!",
+            "price" => '???',
             "picture" => "../assets/fraktsiooni.png",
         ],
         [
-            "id" => "customVehiclePlate",
-            "title" => "Numbrimärk",
+            "id" => "skillBooster",
+            "title" => "Skill booster",
             "description" => "Description of Custom Product 2.",
-            "shortDescription" => "Nüüd saad olla kõige räigem rullnokk kui ostad endale kohandatud numbrimärgi. 888WTF onju ;)",
-            "price" => 100,
+            "shortDescription" => "Tunned, et su oskused on natuke roostes? Osta endale skill booster ja saa paremaks!",
+            "price" => '???',
             "picture" => "../assets/fraktsiooni.png",
         ],
     ],
@@ -96,7 +113,7 @@ $allProducts = [
     <title>Pood - ShiningRP</title>
 </head>
 
-<?php include('./modules/navbar.php') ?>
+<?php require __DIR__ . '/./modules/navbar.php' ?>
 
 <body class="bg-background">
 
@@ -104,7 +121,7 @@ $allProducts = [
     <div class="max-w-screen-lg mx-auto text-left">
 
         <div class="text-tekst my-16">
-            <h2 class="text-5xl font-bold">Pood</h2>
+            <h2 class="text-2xl font-nihilist italic">Pood</h2>
         </div>
 
         <div class="text-white p-4">
@@ -146,51 +163,57 @@ $allProducts = [
         </div>
         <!-- Custom Items Section -->
         <div class="flex flex-row justify-center mb-16 flex-wrap">
-            <?php foreach ($allProducts['customProducts'] as $customProd): ?>
-                <?php
-                $customProdTitle = $customProd['title'];
-                $customProdPrice = $customProd['price'];
-                $customProdPicture = $customProd['picture'];
-                $customProdShortDesc = $customProd['shortDescription'];
-                $customProdDesc = $customProd['description'];
-                $customProdId = $customProd['id'];
-                ?>
-                <!-- Product container -->
-                <div
-                    class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md md:w-1/3 xl:w-72 h-auto m-4 flex flex-col items-center">
-                    <img src="<?= $customProdPicture ?>" alt="Pood Custom Car" class="p-4 w-64 h-64" />
-                    <div class="text-tekst text-center flex-grow">
-                        <p class="text-dm mt-4 px-4 text-clip overflow-hidden">
-                            <?= $customProdShortDesc ?>
-                        </p>
-                    </div>
-                    <div class="text-tekst text-center flex-shrink-0 p-4">
-                        <p class="text-2xl font-bold mt-4">
-                            <?= $customProdTitle ?>
-                        </p>
-                        <div class="flex justify-center">
-                            <span class="block text-2xl font-medium text-tekst">
-                                <?= $customProdPrice ?>
-                            </span>
-                            <img class="w-6 h-6 rounded-full ml-1 mt-2" src="../assets/SSACoinTop.png"
-                                alt="Product Price">
-                        </div>
-                        <!-- Modal toggle -->
-                        <button type="button" data-modal="<?= $customProdId ?>"
-                            class="modal-toggle text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center my-4">
-                            Osta
-                        </button>
-                    </div>
+        <?php foreach ($allProducts['customProducts'] as $index => $customProd): ?>
+        <?php
+        $totalProducts = count($customProd);
+        $customProdTitle = $customProd['title'];
+        $customProdPrice = $customProd['price'];
+        $customProdPicture = $customProd['picture'];
+        $customProdShortDesc = $customProd['shortDescription'];
+        $customProdDesc = $customProd['description'];
+        $customProdId = $customProd['id'];
+        ?>
+        <!-- Product container -->
+        <div class="relative bg-gradient-to-t from-black from-30% via-gray-800 via-80% to-gray-300 rounded-md md:w-1/3 xl:w-72 h-auto m-4 flex flex-col items-center overflow-hidden">
+        <?php if ($index >= $totalProducts - 2): ?>
+            <div class="ribbon absolute top-20 ml-16 w-96 bg-gradient-to-r from-slate-900 to-yellow-400 text-white text-center font-bold uppercase px-16 py-4 transform rotate-45 z-10">
+                <span class="block">Varsti müügil!</span>
+            </div>
+            <?php endif; ?>
+            <img src="<?= $customProdPicture ?>" alt="Pood Custom Car" class="p-4 w-64 h-64" />
+            <div class="text-tekst text-center flex-grow">
+                <p class="text-dm mt-4 px-4 text-clip overflow-hidden">
+                    <?= $customProdShortDesc ?>
+                </p>
+            </div>
+            <div class="text-tekst text-center flex-shrink-0 p-4">
+                <p class="text-2xl font-bold mt-4">
+                    <?= $customProdTitle ?>
+                </p>
+                <div class="flex justify-center">
+                    <span class="block text-2xl font-medium text-tekst">
+                        <?= $customProdPrice ?>
+                    </span>
+                    <img class="w-6 h-6 rounded-full ml-1 mt-2" src="../assets/SSACoinTop.png" alt="Product Price">
                 </div>
-                <?php include './modules/productModal.php'; ?>
-            <?php endforeach; ?>
+                <?php if ($index < $totalProducts - 2): ?>
+                <!-- Modal toggle -->
+                <button type="button" data-modal="<?= $customProdId ?>"
+                    class="modal-toggle text-tekst bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-md px-5 py-2.5 text-center my-4">
+                    Osta
+                </button>
+                <?php endif; ?>
+            </div>
         </div>
+        <?php require __DIR__ . '/./modules/productModal.php'; ?>
+    <?php endforeach; ?>
+</div>
     </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     
 </body>
-<?php include('./modules/footer.php') ?>
+<?php require __DIR__ . '/./modules/footer.php'; ?>
 
 </html>
 
@@ -210,7 +233,7 @@ $allProducts = [
             console.log("Coins Amount: " + coinAmount);
 
             // Create a Checkout Session with your server-side endpoint
-            fetch('./create-checkout-session.php', {
+            fetch('./pages/create-checkout-session.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -267,3 +290,52 @@ $allProducts = [
             }
         });
     </script>
+
+<style>
+/*.ribbon {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+
+.ribbon span {
+    position: absolute;
+    display: block;
+    width: 225px;
+    padding: 15px 0;
+    background-color: #FFC107;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    transform: rotate(45deg);
+    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+.ribbon span::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    z-index: -10;
+    border-left: 3px solid #FFC107;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #FFC107;
+}
+
+.ribbon span::after {
+    content: "";
+    position: absolute;
+    right: 0px;
+    top: 100%;
+    z-index: -5;
+    border-right: 3px solid #FFC107;
+    border-left: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid #FFC107;
+}*/
+</style>

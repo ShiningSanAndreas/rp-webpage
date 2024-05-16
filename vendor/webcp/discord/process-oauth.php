@@ -74,8 +74,6 @@ if (isset($result['access_token'])) {
         createUserInDatabase($result, $db); // Pass the database connection
     }
 
-    // Check if the user is whitelisted
-    $is_whitelisted = isUserWhitelisted($discord_id, $db); // Pass the database connection
 
     session_start();
 
@@ -87,7 +85,7 @@ if (isset($result['access_token'])) {
             'avatar'=>$result['avatar'],
             'global_name'=> $result['global_name'],
         ];
-        header('Location: ../../../pages/home.php');
+        header('Location: /home');
     
 
     exit();
@@ -105,15 +103,6 @@ function userExistsInDatabase($discord_id, $db) {
     $result = $query->fetch(PDO::FETCH_ASSOC);
 
     return $result['count'] > 0;
-}
-
-function isUserWhitelisted($discord_id, $db) {
-    $query = $db->prepare("SELECT is_whitelisted FROM ucp_users WHERE discord_id = :discord_id");
-    $query->bindParam(':discord_id', $discord_id);
-    $query->execute();
-    $result = $query->fetch(PDO::FETCH_ASSOC);
-
-    return (bool)$result['is_whitelisted'];
 }
 
 function createUserInDatabase($user_data, $db) {

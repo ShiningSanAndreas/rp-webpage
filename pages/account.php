@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include("../config.php");
+require  __DIR__ . '/../config.php';
 
 try {
     $db = new PDO($configDsn, $configDbName, $configDbPw);
@@ -14,7 +14,7 @@ session_start();
 $isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
 
 if (!$isLoggedIn) {
-    header("Location: landing.php");
+    header("Location: /login");
     exit();
 } 
 ?>
@@ -27,19 +27,19 @@ if (!$isLoggedIn) {
     <title>Account Page</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<?php include ('./modules/navbar.php') ?>
+<?php require  __DIR__ . '/./modules/navbar.php' ?>
 
 <body class="bg-background">
     <div class="flex flex-col max-w-screen-lg mx-auto pb-64">
         <div class="text-tekst my-16">
-            <h2 class="text-5xl font-bold">Konto</h2>
+            <h2 class="text-2xl font-nihilist">Konto</h2>
         </div>
         <div class="flex flex-row justify-between">
             <div class="w-1/4 p-5 text-tekst border-r-2 border-primary">
                 <ul >
-                    <li ><a href="./accountPages/account_details.php" class="ajax-link text-light">Konto andmed</a></li>
-                    <li class="py-2"><a href="./accountPages/orders.php" class="ajax-link">Tellimused</a></li>
-                    <li><a href="logout.php">Logi välja</a></li>
+                    <li ><a href="account_details" class="ajax-link text-light">Konto andmed</a></li>
+                    <li class="py-2"><a href="orders" class="ajax-link">Tellimused</a></li>
+                    <li><a href="logout">Logi välja</a></li>
                 </ul>
             </div>
             <div class="w-3/4 p-5 content">
@@ -77,10 +77,10 @@ if (!$isLoggedIn) {
             }
 
             // Load default dashboard content on initial load
-            fetchContent('./accountPages/account_details.php');
+            fetchContent('account_details');
         });
     </script>
 </body>
-<?php include ('./modules/footer.php') ?>
+<?php require  __DIR__ . '/./modules/footer.php' ?>
 
 </html>

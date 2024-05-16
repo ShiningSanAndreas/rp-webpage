@@ -14,7 +14,11 @@ module.exports = {
         'shadBef': '-10px 0px 25px 0px rgba(50,147,111,0.25)',
         'shadBefWhite': '-10px 0px 25px 0px rgba(248,248,255,0.15)',
         'shadAft': '-10px 0px 25px 0px rgba(38,169,108,0.4)'
-      }
+      },
+      fontFamily: {
+        'nihilist': ['Nihilist', 'sans-serif'],
+        'rubik': ['Rubik', 'sans-serif'],
+      },
     },
   },
   plugins: [],
