@@ -31,7 +31,7 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
 <body>
   <nav class="bg-primary static top-0">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 lg:px-0">
-      <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+    <a href="/" class="flex items-center space-x-3">
         <img src="../assets/256x26.png" class="h-20 w-20 absolute" alt="Shining RP logo" />
       </a>
       <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -48,7 +48,7 @@ $_SESSION["whitelist_status"] = $isLoggedIn ? isUserWhitelisted($discord_id, $db
                 <?= $global_name ?>
               </span>
               <div class="flex flex-row justify-center">
-                <span class="block text-md lg:text-lg font-medium text-tekst ">
+                <span id="userBalance" class="block text-md lg:text-lg font-medium text-tekst ">
                   <?= $_SESSION["userBalance"]; ?>
                 </span>
                 <img class="w-4 h-4 rounded-full ml-1 mt-1 lg:mt-1.5" src="../assets/SSACoinTop.png" alt="balance">

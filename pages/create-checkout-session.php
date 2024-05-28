@@ -1,8 +1,12 @@
 <?php
 session_start();
-require_once __DIR__ . '../../vendor/autoload.php'; 
+require_once realpath(__DIR__ . '/vendor/autoload.php');
 
-\Stripe\Stripe::setApiKey('sk_test_51OXMazJYQ5I7nITlmDc3WDHEUwgHYfTYTguuip7fs5bUTaRRv7jNEvpq6wT3cidrICdZmZuyXVtMYXxTHuES1xO000t7qFwlOA');  // Replace with your actual Stripe secret API key
+// Looing for .env at the root directory
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
+
+\Stripe\Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
 
 header('Content-Type: application/json');
 $discordId = $_SESSION["userData"]["discord_id"];
@@ -45,5 +49,10 @@ try {
 } catch (\Stripe\Exception\ApiErrorException $e) {
     http_response_code(500);
     echo json_encode(['error' => $e->getError()->message]); 
+} catch (Exception $e) {
+    // Log unexpected errors
+    error_log($e->getMessage());
+    http_response_code(500);
+    echo json_encode(['error' => 'An unexpected error occurred']);
 }
 

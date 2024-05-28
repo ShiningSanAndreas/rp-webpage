@@ -1,7 +1,6 @@
 <?php
 include_once __DIR__ . '/../../config.php'; // This goes up two directories and then to db.php
 
-
 if (!function_exists('getUserCharacters')) {
     function getUserCharacters($db, $discord_id) {
         try {
@@ -38,7 +37,7 @@ $characters = getUserCharacters($db, $discord_id);
     <div class="modal-container bg-background w-full sm:w-1/2 md:max-w-3xl mx-auto rounded shadow-lg z-50 overflow-y-auto">
         <div class="modal-content py-4 text-left px-6 text-tekst">
             <!-- Close Modal Button -->
-            <form method="post" class="modal-content text-left myForm" id="<?= $customProdId ?>_form">
+            <form method="post" class="modal-content text-left myForm" id="<?= $customProdId ?>_form" onsubmit="return validateForm()">
             <input type="hidden" name="customProdId" value="<?= $customProdId ?>">
             <input type="hidden" name="discordId" value="<?= $discord_id ?>">
             <input type="hidden" name="customProdPrice" value="<?= $customProdPrice ?>">
@@ -75,7 +74,7 @@ $characters = getUserCharacters($db, $discord_id);
                                 case 'customCar': ?>
                                     <label for="car-character-select">Vali Karakter:</label>
                                     <select id="car-character-select" name="character"
-                                        class="input-field rounded-md bg-primary border-2 border-black p-2">
+                                        class="input-field rounded-md bg-primary border-2 border-black p-2" required>
                                             <?php if (!empty($characters)): ?>
                                             <?php foreach ($characters as $character):
                                                 // Assuming $character['charinfo'] contains a JSON string with 'firstname' and 'lastname'
@@ -85,12 +84,12 @@ $characters = getUserCharacters($db, $discord_id);
                                                 <option value="<?= $charName ?>"><?= $charName ?></option>
                                             <?php endforeach; ?>
                                         <?php else: ?>
-                                            <option value="null">Sul pole karaktereid tehtud</option>
+                                            <option value="">Sul pole karaktereid tehtud</option>
                                         <?php endif; ?>
                                     </select>
 
                                     <label for="prod-link">Modi Link</label>
-                                    <input type="text" id="prod-link" name="prodLink" placeholder="Sisesta link" class="input-field rounded-md bg-primary border-2 border-black" />
+                                    <input type="text" id="prod-link" name="prodLink" placeholder="Sisesta link" class="input-field rounded-md bg-primary border-2 border-black" required/>
 
 
                                     <label for="additional-comments">Lisa Kommentaarid(Valikuline)</label>
@@ -106,7 +105,7 @@ $characters = getUserCharacters($db, $discord_id);
                                 case 'customFurniture': ?>
                                     <label for="mlo-char-select">Vali Karakter:</label>
                                     <select id="mlo-char-select" name="character"
-                                        class="input-field rounded-md bg-primary border-2 border-black p-2">
+                                        class="input-field rounded-md bg-primary border-2 border-black p-2" required>
                                             <?php if (!empty($characters)): ?>
                                             <?php foreach ($characters as $character):
                                                 // Assuming $character['charinfo'] contains a JSON string with 'firstname' and 'lastname'
@@ -116,13 +115,13 @@ $characters = getUserCharacters($db, $discord_id);
                                                 <option value="<?= $charName ?>"><?= $charName ?></option>
                                             <?php endforeach; ?>
                                         <?php else: ?>
-                                            <option value="null">Sul pole karaktereid tehtud</option>
+                                            <option value="">Sul pole karaktereid tehtud</option>
                                         <?php endif; ?>
                                     </select>
 
                                     <label for="prod-link">Modi Link</label>
                                     <input type="text" id="prod-link" placeholder="Sisesta link"
-                                        class="input-field rounded-md bg-primary border-2 border-black" />
+                                        class="input-field rounded-md bg-primary border-2 border-black" required/>
 
                                     <label for="additional-comments">Lisa Kommentaarid(Valikuline)</label>
                                     <input type="text" id="additional-comments" placeholder="Lisa kommentaarid"
@@ -133,7 +132,7 @@ $characters = getUserCharacters($db, $discord_id);
                                 case 'nameChange': ?>
                                     <label for="character-name-select">Vali Karakter:</label>
                                     <select id="character-name-select" name="character"
-                                        class="input-field rounded-md bg-primary border-2 border-black p-2">
+                                        class="input-field rounded-md bg-primary border-2 border-black p-2" required>
                                             <?php if (!empty($characters)): ?>
                                             <?php foreach ($characters as $character):
                                                 // Assuming $character['charinfo'] contains a JSON string with 'firstname' and 'lastname'
@@ -143,7 +142,7 @@ $characters = getUserCharacters($db, $discord_id);
                                                 <option value="<?= $charName ?>"><?= $charName ?></option>
                                             <?php endforeach; ?>
                                         <?php else: ?>
-                                            <option value="null">Sul pole karaktereid tehtud</option>
+                                            <option value="">Sul pole karaktereid tehtud</option>
                                         <?php endif; ?>
                                     </select>
 
@@ -153,9 +152,9 @@ $characters = getUserCharacters($db, $discord_id);
                                     </div>
                                     <div class="flex"> 
                                         <input type="text" placeholder="New Character Name" id="char-new-firstname"
-                                            class="input-field rounded-md bg-primary rounded-md border-2 border-black mr-4" name="charNewFirstname" />
+                                            class="input-field rounded-md bg-primary rounded-md border-2 border-black mr-4" name="charNewFirstname" required/>
                                         <input type="text" placeholder="New Character Name" id="char-new-lastname"
-                                            class="input-field rounded-md bg-primary rounded-md border-2 border-black" name="charNewLastname" />
+                                            class="input-field rounded-md bg-primary rounded-md border-2 border-black" name="charNewLastname" required/>
                                     </div>
                                     <?php break;
                                 
@@ -163,7 +162,7 @@ $characters = getUserCharacters($db, $discord_id);
                                 case 'dobChange': ?>
                                     <label for="dob-change-select">Vali karakter</label>
                                     <select id="dob-change-select" name="character"
-                                        class="input-field rounded-md bg-primary border-2 border-black p-2">
+                                        class="input-field rounded-md bg-primary border-2 border-black p-2" required>
                                             <?php if (!empty($characters)): ?>
                                             <?php foreach ($characters as $character):
                                                 // Assuming $character['charinfo'] contains a JSON string with 'firstname' and 'lastname'
@@ -173,12 +172,12 @@ $characters = getUserCharacters($db, $discord_id);
                                                 <option value="<?= $charName ?>"><?= $charName ?></option>
                                             <?php endforeach; ?>
                                         <?php else: ?>
-                                            <option value="null">Sul pole karaktereid tehtud</option>
+                                            <option value="">Sul pole karaktereid tehtud</option>
                                         <?php endif; ?>
                                     </select>
-                                    <label for="new-dob">Sisesta Uus Perekonnanimi</label>
+                                    <label for="new-dob">Sisesta Sünnikuupäev</label>
                                     <input type="text" placeholder="Lisa karakteri uus sünnikuupäev" id="new-dob"
-                                            class="input-field rounded-md bg-primary rounded-md border-2 border-black" name="dob-change" />
+                                            class="input-field rounded-md bg-primary rounded-md border-2 border-black" name="dob-change" required/>
                                     <?php break;
 
                                 // Plate instance
@@ -186,7 +185,7 @@ $characters = getUserCharacters($db, $discord_id);
 
                                     <label for="veh-plate-select">Vali Karakter:</label>
                                     <select id="veh-plate-select" name="character"
-                                        class="input-field rounded-md bg-primary border-2 border-black p-2">
+                                        class="input-field rounded-md bg-primary border-2 border-black p-2" required>
                                             <?php if (!empty($characters)): ?>
                                             <?php foreach ($characters as $character):
                                                 // Assuming $character['charinfo'] contains a JSON string with 'firstname' and 'lastname'
@@ -196,13 +195,13 @@ $characters = getUserCharacters($db, $discord_id);
                                                 <option value="<?= $charName ?>"><?= $charName ?></option>
                                             <?php endforeach; ?>
                                         <?php else: ?>
-                                            <option value="null">Sul pole karaktereid tehtud</option>
+                                            <option value="">Sul pole karaktereid tehtud</option>
                                         <?php endif; ?>
                                     </select>
 
                                     <label for="veh-car-select">Vali Auto:</label>
                                     <select id="veh-car-select" name="cars"
-                                        class="input-field rounded-md bg-primary border-2 border-black p-2">
+                                        class="input-field rounded-md bg-primary border-2 border-black p-2" required>
                                             <?php if (!empty($characters)): ?>
                                             <?php foreach ($characters as $character):
                                                 // Assuming $character['charinfo'] contains a JSON string with 'firstname' and 'lastname'
@@ -212,13 +211,13 @@ $characters = getUserCharacters($db, $discord_id);
                                                 <option value="<?= $charName ?>"><?= $charName ?></option>
                                             <?php endforeach; ?>
                                         <?php else: ?>
-                                            <option value="null">Sul pole karaktereid tehtud</option>
+                                            <option value="">Sul pole karaktereid tehtud</option>
                                         <?php endif; ?>
                                     </select>
 
                                     <label for="form-input">Sisesta Numbrimärk:</label>
                                     <input type="text" id="form-input" placeholder="Numbrimärk"
-                                        class="input-field rounded-md bg-primary border-2 border-black" />
+                                        class="input-field rounded-md bg-primary border-2 border-black" required/>
                                     <?php break;
 
                             endswitch; ?>
@@ -248,6 +247,7 @@ $(document).ready(function() {
         // Get the ID of the form being submitted
         var formId = $(this).attr('id');
 
+
         // Serialize form data
         var formData = $(this).serialize();
 
@@ -272,6 +272,7 @@ $(document).ready(function() {
 
                     // Show success or error message
                     if (jsonResponse.success) {
+                        $('#userBalance').text(jsonResponse.updatedBalance);
                         $('.modal').addClass('hidden');
                         showMessage("Õnnestus: " + jsonResponse.message, 'green');
                     } else {
@@ -311,4 +312,5 @@ function showMessage(message, color) {
         $('#popup-message').removeClass('flex').addClass('hidden');
     }, 5000); // Hide after 5 seconds
 }
+
 </script>

@@ -17,7 +17,7 @@
                 <a href="home.php">
                     <h1 class=" text-tekst text-2xl font-medium">ShiningRP</h1>
                 </a>   
-                <p class="text-tekst flex-shrink w-64">Shining San Andreas on Eesti värskeim RP server, mis on kohalikult arendatud. Pakuma lõbusat seltskondlikku kogemust.</p>
+                <p class="text-tekst flex-shrink w-64">Shining San Andreas on Eesti värskeim RP server, mis on kohalikult arendatud. Pakume lõbusat seltskondlikku kogemust!</p>
             </div>
             <div class="grid gap-12 sm:gap-6 grid-cols-3 mb-8 mt-2">
                 <div>

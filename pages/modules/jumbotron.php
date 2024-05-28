@@ -15,8 +15,8 @@
             <h1 class="text-md font-nihilist italic text-tekst text-center relative z-10 pt-16 sm:text-lg lg:text-left lg:text-3xl pb-6">
                 Shining San Andreas
             </h1>
-            <p class="font-medium text-tekst text-center relative z-10 w-auto flex flex-shrink text-md lg:text-left lg:text-2xl lg:p-4 lg:w-96 md:justify-center md:pt-4">
-                Tule alusta oma uut elulugu Eesti seltskondlikuimas ja värskeimas RP serveris!
+            <p class="font-medium italic text-tekst text-center relative z-10 w-auto flex flex-shrink text-md lg:text-left lg:text-2xl lg:p-4 lg:w-96 md:justify-center md:pt-4">
+            OG või uus tegija – aeg särada!
             </p>
         </div>
     </section>

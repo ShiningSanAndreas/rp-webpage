@@ -40,6 +40,9 @@ switch ($request) {
     case 'orders':
         require __DIR__ . '/pages/accountPages/orders.php';
         break;
+    case 'create-checkout-session':
+        require __DIR__ . '/pages/create-checkout-session.php';
+        break;
     default:
         // Optionally, handle 404 error
         http_response_code(404);

@@ -1,19 +1,19 @@
 <?php
+    session_start();
+    // Shuffle the array to get random questions
+    shuffle($questionsAndOptions);
 
-// Shuffle the array to get random questions
-shuffle($questionsAndOptions);
+    // Take the first 10 questions
+    $randomQuestions = array_slice($questionsAndOptions, 0, 10);
+    $_SESSION['randomQuestions'] = $randomQuestions;
 
-// Take the first 10 questions
-$randomQuestions = array_slice($questionsAndOptions, 0, 10);
-
-// Save the random questions in the session variable
-$_SESSION['randomQuestions'] = $randomQuestions;
-
-// Check if the session variable is set before using it
-if (isset($_SESSION['selectedOptions'])) {
-} else {
-}
-?>
+    // Save the random questions in the session variable
+    if (!isset($_SESSION['selectedOptions'])) {
+        $_SESSION['selectedOptions'] = array();
+    }
+    $_SESSION['TROUBESrandomQuestions'] = array();
+    $_SESSION['TROUBLESselectedOptions'] = array();
+    ?>
 
 
 
@@ -27,9 +27,6 @@ if (isset($_SESSION['selectedOptions'])) {
         </li>
     <?php endfor; ?>
 </ol>
-
-
-
 
     <div id="sectionContent" class="m-8">
         <!-- Initially, show options for question 1 -->
@@ -70,6 +67,7 @@ if (isset($_SESSION['selectedOptions'])) {
     }
 
 
+   
 
     function showSection(number) {
   var sectionContent = document.getElementById("sectionContent");
@@ -199,66 +197,23 @@ if (number === 1) {
 
         xhr.send(data);
     }
-    function checkAnswers() {
-    var totalQuestions = <?php echo count($questionsAndOptions); ?>;
+    
+function checkAnswers() {
+    console.log("Checking answers...");
     var correctAnswers = 0;
     var incorrectQuestions = [];
-
-    // Iterate through the selected options and compare with correct answers for each question
-    for (var i = 0; i < totalQuestions; i++) {
-        var currentQuestion = <?php echo json_encode($_SESSION['randomQuestions']); ?>[i];
-        var allCorrectOptionsSelected = true;
-        var anyIncorrectOptionSelected = false;
-
-        for (var j = 0; j < currentQuestion['options'].length; j++) {
-            var option = currentQuestion['options'][j];
-            var checkboxId = 'option' + (i + 1) + '-' + j;
-
-            // Check if the option is correct and selected, or incorrect and not selected
-            if ((option['isCorrect'] && !selectedOptions[checkboxId]) ||
-                (!option['isCorrect'] && selectedOptions[checkboxId])) {
-                allCorrectOptionsSelected = false;
-
-                if (!option['isCorrect'] && selectedOptions[checkboxId]) {
-                    anyIncorrectOptionSelected = true;
-                }
-
-                break; // Break the loop if any correct option is not selected or any incorrect option is selected
-            }
-        }
-
-        if (allCorrectOptionsSelected && !anyIncorrectOptionSelected) {
-            correctAnswers++;
-        } else {
-            incorrectQuestions.push(currentQuestion['question']);
-        }
-    }
-
-    // Make an AJAX call to save_results.php
+    var randomQuestions = <?php echo json_encode($_SESSION['randomQuestions']); ?>;
+    var selectedOptions = <?php echo json_encode($_SESSION['selectedOptions']); ?>;
+    // Send data to server using AJAX to save into session variables
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'pages/modules/savequizresult.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    
-    var data = 'correctAnswers=' + encodeURIComponent(correctAnswers) +
-               '&incorrectQuestions=' + encodeURIComponent(JSON.stringify(incorrectQuestions));
-
-    xhr.onreadystatechange = function () {
+    xhr.open("POST", "pages/modules/savequizresult.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            var response = JSON.parse(xhr.responseText);
-            if (response.status === 'success') {
-            } else {
-            }
+            console.log("Data saved into session variables successfully");
         }
     };
-
-    xhr.send(data);
-
-    // Display the result with information about incorrect questions
-    var resultMessage = 'You got ' + correctAnswers + ' out of ' + totalQuestions + ' correct answers.';
-    if (incorrectQuestions.length > 0) {
-        resultMessage += '\n\nIncorrectly answered questions:\n' + incorrectQuestions.join('\n');
-    }
+    var formData = "randomQuestions=" + encodeURIComponent(JSON.stringify(randomQuestions)) + "&selectedOptions=" + encodeURIComponent(JSON.stringify(selectedOptions));
+    xhr.send(formData);
 }
-
-
 </script>

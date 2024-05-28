@@ -3,6 +3,8 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/secrets.php';
 require_once __DIR__ . '../../../config.php';
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
 // Establish database connection
 try {
     $db = new PDO($configDsn, $configDbName, $configDbPw);
@@ -14,8 +16,8 @@ try {
 }
 
 // Initialize Stripe
-\Stripe\Stripe::setApiKey($stripeSecretKey);
-$endpoint_secret = 'whsec_0j5qjxlcAXRnfJk71bZWeaZlQ4ZPyHdh';
+\Stripe\Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
+$endpoint_secret = 'whsec_yjazf9bhDO94569van6yMSbifFycLo6V';
 
 // Get the payload and signature
 $payload = @file_get_contents('php://input');

@@ -1,5 +1,5 @@
-<!-- lobby.php -->
 <?php
+
 $isLoggedIn = isset($_SESSION["logged_in"]) && $_SESSION["logged_in"];
 $isWhitelisted = isset($_SESSION["whitelist_status"]) && $_SESSION["whitelist_status"];
 
@@ -8,7 +8,9 @@ if ($isLoggedIn) {
 }
 
 // Check if the session variables are set 
+echo '<pre>';
 var_dump($_SESSION);
+echo '</pre>';
 if (isset($_SESSION['correctAnswers']) && isset($_SESSION['incorrectQuestions'])) {
     $correctAnswers = $_SESSION['correctAnswers'];
     $incorrectQuestions = $_SESSION['incorrectQuestions'];

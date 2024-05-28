@@ -1,7 +1,10 @@
 <?php 
+
 require __DIR__ . "/../config.php"; 
 session_start();
 $current_page = "whitelist"
+
+
 
 ?>
 

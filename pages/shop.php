@@ -1,6 +1,10 @@
 <?php
 require __DIR__ . "/../config.php";
+require_once __DIR__ . '/./../vendor/autoload.php';
 
+// Looing for .env at the root directory
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv->load();
 try {
     $db = new PDO($configDsn, $configDbName, $configDbPw);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -219,7 +223,8 @@ $allProducts = [
 
 <!-- Send data to create-checkout-session.php -->
 <script>
-    var stripe = Stripe('pk_test_51OXMazJYQ5I7nITlMEkeqSOjpPpla0wKo0IzA08xhwQ3E5SRW5cwTgkOGO89iJSkgeR58OvqlsaQkGyMBKvOIUSa00RjgtHI6A');
+    var stripePublishableKey = "<?php echo $_ENV['STRIPE_PUBLISHABLE_KEY']; ?>";
+    var stripe = Stripe(stripePublishableKey);
     var checkoutButtons = document.querySelectorAll('#checkout-button');
 
     checkoutButtons.forEach(function (button) {
@@ -227,13 +232,12 @@ $allProducts = [
             var packageName = this.getAttribute('data-package-name');
             var packageAmount = this.getAttribute('data-package-amount');
             var coinAmount = this.getAttribute('coin-amount');
-            // Log the values to check if they are retrieved correctly
+
             console.log("Package Name: " + packageName);
             console.log("Package Amount: " + packageAmount);
             console.log("Coins Amount: " + coinAmount);
 
-            // Create a Checkout Session with your server-side endpoint
-            fetch('./pages/create-checkout-session.php', {
+            fetch('/create-checkout-session', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -244,23 +248,27 @@ $allProducts = [
                     coinAmount: coinAmount,
                 }),
             })
-                .then(function (response) {
-                    return response.json();
-                })
-                .then(function (session) {
-                    // Call Stripe.js to redirect to the checkout page
-                    return stripe.redirectToCheckout({ sessionId: session.id });
-                })
-                .then(function (result) {
-                    // If `redirectToCheckout` fails due to a browser or network
-                    // error, you should display the localized error message to your customer
-                    if (result.error) {
-                        alert(result.error.message);
-                    }
-                })
-                .catch(function (error) {
-                    console.error('Error:', error);
-                });
+            .then(function (response) {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(function (session) {
+                if (session.error) {
+                    throw new Error(session.error);
+                }
+                return stripe.redirectToCheckout({ sessionId: session.id });
+            })
+            .then(function (result) {
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            })
+            .catch(function (error) {
+                console.error('Error:', error);
+                alert('Failed to create checkout session: ' + error.message);
+            });
         });
     });
 </script>
@@ -290,52 +298,3 @@ $allProducts = [
             }
         });
     </script>
-
-<style>
-/*.ribbon {
-    width: 150px;
-    height: 150px;
-    overflow: hidden;
-    position: absolute;
-    top: -10px;
-    right: -10px;
-}
-
-.ribbon span {
-    position: absolute;
-    display: block;
-    width: 225px;
-    padding: 15px 0;
-    background-color: #FFC107;
-    color: #fff;
-    text-align: center;
-    font-weight: bold;
-    text-transform: uppercase;
-    transform: rotate(45deg);
-    box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 0.3);
-}
-
-.ribbon span::before {
-    content: "";
-    position: absolute;
-    left: 0px;
-    top: 100%;
-    z-index: -10;
-    border-left: 3px solid #FFC107;
-    border-right: 3px solid transparent;
-    border-bottom: 3px solid transparent;
-    border-top: 3px solid #FFC107;
-}
-
-.ribbon span::after {
-    content: "";
-    position: absolute;
-    right: 0px;
-    top: 100%;
-    z-index: -5;
-    border-right: 3px solid #FFC107;
-    border-left: 3px solid transparent;
-    border-bottom: 3px solid transparent;
-    border-top: 3px solid #FFC107;
-}*/
-</style>

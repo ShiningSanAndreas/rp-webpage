@@ -9,11 +9,28 @@ try {
     echo $e->getMessage(); 
 }
 
-// Get the customProdId and discordId from the POST data
-$customProdId = $_POST['customProdId'];
-$discordId = $_POST['discordId'];
-$customProdPrice = $_POST['customProdPrice'];
-$customProdTitle = $_POST['customProdTitle'];
+// Input validation
+if (!isset($_POST['customProdId']) || !isset($_POST['discordId']) || !isset($_POST['customProdPrice']) || !isset($_POST['customProdTitle'])) {
+    $response = array(
+        'success' => false,
+        'error' => 'Missing required POST data'
+    );
+    echo json_encode($response);
+    exit;
+}
+// sql injection protection
+$customProdId = htmlspecialchars($_POST['customProdId']);
+$discordId = htmlspecialchars($_POST['discordId']);
+$customProdPrice = htmlspecialchars($_POST['customProdPrice']);
+$customProdTitle = htmlspecialchars($_POST['customProdTitle']);
+
+// XSS protection
+$customProdId = strip_tags($customProdId);
+$discordId = strip_tags($discordId);
+$customProdPrice = strip_tags($customProdPrice);
+$customProdTitle = strip_tags($customProdTitle);
+
+// Get user balance
 $userBalance = getUserBalance($db, $discordId);
 
 // Logic to check does user have enough balance
@@ -26,6 +43,7 @@ if ($userBalance < $customProdPrice) {
     exit;
 }
 
+
 if ($customProdId === 'customCharacter') {
     $randomCode = generateRandomCode();
     // Insert code to gameserver database
@@ -35,12 +53,17 @@ if ($customProdId === 'customCharacter') {
 
     removeBalance($db, $discordId, $customProdPrice);
     addOrderToHistory($discordId, $customProdPrice, $customProdTitle . " | Kood: $randomCode", $db);
-    
-    $responseMessage = "Ostsid edukalt lisakarakteri! Sinu koodiks on $randomCode.";
-    $response = array(
-        'success' => true,
-        'message' => $responseMessage
-    );
+
+    $updatedBalance = getUserBalance($db, $discordId);
+
+// Prepare response with updated balance
+$responseMessage = "Ostsid edukalt erilise map modi! Toote hind: $customProdPrice | Sinu uus saldo: $updatedBalance";
+$response = array(
+    'success' => true,
+    'message' => $responseMessage,
+    'updatedBalance' => $updatedBalance // Include updated balance in the response
+);
+
 
 
 } elseif ($customProdId === 'customCar') {    
@@ -60,12 +83,17 @@ if ($customProdId === 'customCharacter') {
     sendEmbedMessage($webhookUrl, $roles_tagged, $embed);
     removeBalance($db, $discordId, $customProdPrice);
     addOrderToHistory($discordId, $customProdPrice, $customProdTitle, $db);
-    
-    $responseMessage = "Ostsid edukalt eritellimus sõiduki!";
-    $response = array(
-        'success' => true,
-        'message' => $responseMessage
-    );
+
+    $updatedBalance = getUserBalance($db, $discordId);
+
+// Prepare response with updated balance
+$responseMessage = "Ostsid edukalt erilise map modi! Toote hind: $customProdPrice | Sinu uus saldo: $updatedBalance";
+$response = array(
+    'success' => true,
+    'message' => $responseMessage,
+    'updatedBalance' => $updatedBalance // Include updated balance in the response
+);
+
 
     
 } elseif ($customProdId === 'customFurniture') {    
@@ -85,12 +113,17 @@ if ($customProdId === 'customCharacter') {
     sendEmbedMessage($webhookUrl, $roles_tagged, $embed);
     removeBalance($db, $discordId, $customProdPrice);
     addOrderToHistory($discordId, $customProdPrice, $customProdTitle, $db);
-    
-    $responseMessage = "Ostsid edukalt erilise map modi! Toote hind: $customProdPrice | Sinu jaak:" . ($userBalance - $customProdPrice);
-    $response = array(
-        'success' => true,
-        'message' => $responseMessage
-    );
+
+    $updatedBalance = getUserBalance($db, $discordId);
+
+// Prepare response with updated balance
+$responseMessage = "Ostsid edukalt erilise map modi! Toote hind: $customProdPrice | Sinu uus saldo: $updatedBalance";
+$response = array(
+    'success' => true,
+    'message' => $responseMessage,
+    'updatedBalance' => $updatedBalance // Include updated balance in the response
+);
+
 
     
 } elseif ($customProdId === 'nameChange') {
@@ -99,8 +132,11 @@ if ($customProdId === 'customCharacter') {
     $nameParts = explode(" ", $character);
     $lastName = array_pop($nameParts); 
     $firstName = implode(" ", $nameParts); 
-    $newFirstName = $_POST['charNewFirstname'];
-    $newLastName = $_POST['charNewLastname'];
+    // sql and XSS protection
+    $newFirstName = htmlspecialchars($_POST['charNewFirstname']);
+    $newLastName = htmlspecialchars($_POST['charNewLastname']);
+    $newFirstName = strip_tags($newFirstName);
+    $newLastName = strip_tags($newLastName);
     $stmt = $db->prepare("UPDATE players SET charinfo = JSON_SET(charinfo, '$.firstname', :newFirstName, '$.lastname', :newLastName) WHERE JSON_EXTRACT(charinfo, '$.firstname') = :firstName AND JSON_EXTRACT(charinfo, '$.lastname') = :lastName");
     $stmt->bindParam(':newFirstName', $newFirstName);
     $stmt->bindParam(':newLastName', $newLastName);
@@ -112,12 +148,16 @@ if ($customProdId === 'customCharacter') {
     removeBalance($db, $discordId, $customProdPrice);
     addOrderToHistory($discordId, $customProdPrice, $customProdTitle, $db);
 
+    $updatedBalance = getUserBalance($db, $discordId);
 
-    $responseMessage = "Ostsid edukalt nimevahetuse! Eesnimi: $firstName | Lastname: $lastName| Toote hind: $customProdPrice | Sinu jaak:" . ($userBalance - $customProdPrice);
-    $response = array(
-        'success' => true,
-        'message' => $responseMessage
-    );
+// Prepare response with updated balance
+$responseMessage = "Ostsid edukalt erilise map modi! Toote hind: $customProdPrice | Sinu uus saldo: $updatedBalance";
+$response = array(
+    'success' => true,
+    'message' => $responseMessage,
+    'updatedBalance' => $updatedBalance // Include updated balance in the response
+);
+
 
 
 } else {
