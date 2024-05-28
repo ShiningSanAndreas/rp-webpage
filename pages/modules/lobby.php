@@ -8,9 +8,6 @@ if ($isLoggedIn) {
 }
 
 // Check if the session variables are set 
-echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>';
 if (isset($_SESSION['correctAnswers']) && isset($_SESSION['incorrectQuestions'])) {
     $correctAnswers = $_SESSION['correctAnswers'];
     $incorrectQuestions = $_SESSION['incorrectQuestions'];
